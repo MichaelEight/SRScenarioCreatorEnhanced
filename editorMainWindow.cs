@@ -20,6 +20,42 @@ namespace SRScenarioCreatorEnhanced
             UC_Scenario uc = new UC_Scenario(this);
             addUserControl(uc);
         }
+        
+        // Exit button clicked
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
+        }
+
+        // Info button clicked
+        private void infoButton_Click(object sender, EventArgs e)
+        {
+            // Get assembly version
+            string versionNumber = ApplicationDeployment.IsNetworkDeployed
+               ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString()
+               : Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+            // Display assembly version in message box
+            MessageBox.Show($"Current version: {versionNumber}\n" +
+                $"Contributors: Michael '8'", "About Editor", MessageBoxButtons.OK,
+                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+        }
+
+        // Check if status (enabled/disabled) was changed for any button
+        // And update (invert) their status accordingly
+        public void updateTabButtonsStatus()
+        {
+            if (Globals.isSettingsActive != tabSettingsBtn.Enabled) tabSettingsBtn.Enabled = !tabSettingsBtn.Enabled;
+            if (Globals.isTheatersActive != tabTheatersBtn.Enabled) tabTheatersBtn.Enabled = !tabTheatersBtn.Enabled;
+            if (Globals.isRegionsActive != tabRegionsBtn.Enabled) tabRegionsBtn.Enabled = !tabRegionsBtn.Enabled;
+            if (Globals.isResourcesActive != tabResourcesBtn.Enabled) tabResourcesBtn.Enabled = !tabResourcesBtn.Enabled;
+            if (Globals.isWMActive != tabWMBtn.Enabled) tabWMBtn.Enabled = !tabWMBtn.Enabled;
+            if (Globals.isOrbatActive != tabOrbatBtn.Enabled) tabOrbatBtn.Enabled = !tabOrbatBtn.Enabled;
+        }
 
         // Display new tab
         private void addUserControl(UserControl userControl)
@@ -51,38 +87,28 @@ namespace SRScenarioCreatorEnhanced
             addUserControl(uc);
         }
 
-        private void exitButton_Click(object sender, EventArgs e)
+        private void tabRegionsBtn_Click(object sender, EventArgs e)
         {
-            if (MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation",
-                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
-            {
-                Application.Exit();
-            }
+            UC_Regions uc = new UC_Regions();
+            addUserControl(uc);
         }
 
-        private void infoButton_Click(object sender, EventArgs e)
+        private void tabResourcesBtn_Click(object sender, EventArgs e)
         {
-            // Get assembly version
-            string versionNumber = ApplicationDeployment.IsNetworkDeployed
-               ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString()
-               : Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
-            // Display assembly version in message box
-            MessageBox.Show($"Current version: {versionNumber}\n" +
-                $"Contributors: Michael '8'", "About Editor", MessageBoxButtons.OK,
-                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            UC_Resources uc = new UC_Resources();
+            addUserControl(uc);
         }
 
-        public void updateTabButtonsStatus()
+        private void tabWMBtn_Click(object sender, EventArgs e)
         {
-            if(Globals.isSettingsActive)
-            {
-                tabSettingsBtn.Enabled = true;
-            }
-            else
-            {
-                tabSettingsBtn.Enabled = false;
-            }
+            UC_WM uc = new UC_WM();
+            addUserControl(uc);
+        }
+
+        private void tabOrbatBtn_Click(object sender, EventArgs e)
+        {
+            UC_Orbat uc = new UC_Orbat();
+            addUserControl(uc);
         }
     }
 }

@@ -58,6 +58,24 @@
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="GlobalsList.cs" />
+    <Compile Include="UserControls\UC_Orbat.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UC_Orbat.Designer.cs">
+      <DependentUpon>UC_Orbat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_Regions.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UC_Regions.Designer.cs">
+      <DependentUpon>UC_Regions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControls\UC_Resources.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UC_Resources.Designer.cs">
+      <DependentUpon>UC_Resources.cs</DependentUpon>
+    </Compile>
     <Compile Include="UserControls\UC_Scenario.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -76,6 +94,12 @@
     <Compile Include="UserControls\UC_Theaters.Designer.cs">
       <DependentUpon>UC_Theaters.cs</DependentUpon>
     </Compile>
+    <Compile Include="UserControls\UC_WM.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControls\UC_WM.Designer.cs">
+      <DependentUpon>UC_WM.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="editorMainWindow.resx">
       <DependentUpon>editorMainWindow.cs</DependentUpon>
     </EmbeddedResource>
@@ -88,6 +112,15 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="UserControls\UC_Orbat.resx">
+      <DependentUpon>UC_Orbat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UC_Regions.resx">
+      <DependentUpon>UC_Regions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UC_Resources.resx">
+      <DependentUpon>UC_Resources.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_Scenario.resx">
       <DependentUpon>UC_Scenario.cs</DependentUpon>
     </EmbeddedResource>
@@ -96,6 +129,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UserControls\UC_Theaters.resx">
       <DependentUpon>UC_Theaters.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControls\UC_WM.resx">
+      <DependentUpon>UC_WM.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">

@@ -37,10 +37,10 @@
             this.tabSettingsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tabScenarioBtn = new Guna.UI2.WinForms.Guna2Button();
             this.mainUCPanel = new System.Windows.Forms.Panel();
-            this.guna2Button2 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button1 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button3 = new Guna.UI2.WinForms.Guna2Button();
-            this.guna2Button4 = new Guna.UI2.WinForms.Guna2Button();
+            this.tabRegionsBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.tabOrbatBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.tabWMBtn = new Guna.UI2.WinForms.Guna2Button();
+            this.tabResourcesBtn = new Guna.UI2.WinForms.Guna2Button();
             this.toolbarPanel.SuspendLayout();
             this.tabsPanel.SuspendLayout();
             this.SuspendLayout();
@@ -94,10 +94,10 @@
             // tabsPanel
             // 
             this.tabsPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            this.tabsPanel.Controls.Add(this.guna2Button1);
-            this.tabsPanel.Controls.Add(this.guna2Button3);
-            this.tabsPanel.Controls.Add(this.guna2Button4);
-            this.tabsPanel.Controls.Add(this.guna2Button2);
+            this.tabsPanel.Controls.Add(this.tabOrbatBtn);
+            this.tabsPanel.Controls.Add(this.tabWMBtn);
+            this.tabsPanel.Controls.Add(this.tabResourcesBtn);
+            this.tabsPanel.Controls.Add(this.tabRegionsBtn);
             this.tabsPanel.Controls.Add(this.tabTheatersBtn);
             this.tabsPanel.Controls.Add(this.tabSettingsBtn);
             this.tabsPanel.Controls.Add(this.tabScenarioBtn);
@@ -178,85 +178,89 @@
             this.mainUCPanel.Size = new System.Drawing.Size(1778, 944);
             this.mainUCPanel.TabIndex = 4;
             // 
-            // guna2Button2
+            // tabRegionsBtn
             // 
-            this.guna2Button2.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.guna2Button2.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button2.CheckedState.CustomBorderColor = System.Drawing.Color.Red;
-            this.guna2Button2.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.guna2Button2.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button2.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button2.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button2.Enabled = false;
-            this.guna2Button2.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.guna2Button2.ForeColor = System.Drawing.Color.White;
-            this.guna2Button2.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.guna2Button2.Location = new System.Drawing.Point(743, 0);
-            this.guna2Button2.Name = "guna2Button2";
-            this.guna2Button2.Size = new System.Drawing.Size(248, 100);
-            this.guna2Button2.TabIndex = 3;
-            this.guna2Button2.Text = "Regions";
+            this.tabRegionsBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tabRegionsBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.tabRegionsBtn.CheckedState.CustomBorderColor = System.Drawing.Color.Red;
+            this.tabRegionsBtn.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.tabRegionsBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.tabRegionsBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.tabRegionsBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.tabRegionsBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.tabRegionsBtn.Enabled = false;
+            this.tabRegionsBtn.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
+            this.tabRegionsBtn.ForeColor = System.Drawing.Color.White;
+            this.tabRegionsBtn.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.tabRegionsBtn.Location = new System.Drawing.Point(743, 0);
+            this.tabRegionsBtn.Name = "tabRegionsBtn";
+            this.tabRegionsBtn.Size = new System.Drawing.Size(248, 100);
+            this.tabRegionsBtn.TabIndex = 3;
+            this.tabRegionsBtn.Text = "Regions";
+            this.tabRegionsBtn.Click += new System.EventHandler(this.tabRegionsBtn_Click);
             // 
-            // guna2Button1
+            // tabOrbatBtn
             // 
-            this.guna2Button1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.guna2Button1.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button1.CheckedState.CustomBorderColor = System.Drawing.Color.Red;
-            this.guna2Button1.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.guna2Button1.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button1.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button1.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button1.Enabled = false;
-            this.guna2Button1.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.guna2Button1.ForeColor = System.Drawing.Color.White;
-            this.guna2Button1.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.guna2Button1.Location = new System.Drawing.Point(1574, 0);
-            this.guna2Button1.Name = "guna2Button1";
-            this.guna2Button1.Size = new System.Drawing.Size(201, 100);
-            this.guna2Button1.TabIndex = 6;
-            this.guna2Button1.Text = "Orbat";
+            this.tabOrbatBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tabOrbatBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.tabOrbatBtn.CheckedState.CustomBorderColor = System.Drawing.Color.Red;
+            this.tabOrbatBtn.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.tabOrbatBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.tabOrbatBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.tabOrbatBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.tabOrbatBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.tabOrbatBtn.Enabled = false;
+            this.tabOrbatBtn.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
+            this.tabOrbatBtn.ForeColor = System.Drawing.Color.White;
+            this.tabOrbatBtn.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.tabOrbatBtn.Location = new System.Drawing.Point(1574, 0);
+            this.tabOrbatBtn.Name = "tabOrbatBtn";
+            this.tabOrbatBtn.Size = new System.Drawing.Size(201, 100);
+            this.tabOrbatBtn.TabIndex = 6;
+            this.tabOrbatBtn.Text = "Orbat";
+            this.tabOrbatBtn.Click += new System.EventHandler(this.tabOrbatBtn_Click);
             // 
-            // guna2Button3
+            // tabWMBtn
             // 
-            this.guna2Button3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.guna2Button3.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button3.CheckedState.CustomBorderColor = System.Drawing.Color.Red;
-            this.guna2Button3.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.guna2Button3.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button3.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button3.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button3.Enabled = false;
-            this.guna2Button3.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.guna2Button3.ForeColor = System.Drawing.Color.White;
-            this.guna2Button3.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.guna2Button3.Location = new System.Drawing.Point(1259, 0);
-            this.guna2Button3.Name = "guna2Button3";
-            this.guna2Button3.Size = new System.Drawing.Size(309, 100);
-            this.guna2Button3.TabIndex = 5;
-            this.guna2Button3.Text = "World Market";
+            this.tabWMBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tabWMBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.tabWMBtn.CheckedState.CustomBorderColor = System.Drawing.Color.Red;
+            this.tabWMBtn.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.tabWMBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.tabWMBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.tabWMBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.tabWMBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.tabWMBtn.Enabled = false;
+            this.tabWMBtn.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
+            this.tabWMBtn.ForeColor = System.Drawing.Color.White;
+            this.tabWMBtn.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.tabWMBtn.Location = new System.Drawing.Point(1259, 0);
+            this.tabWMBtn.Name = "tabWMBtn";
+            this.tabWMBtn.Size = new System.Drawing.Size(309, 100);
+            this.tabWMBtn.TabIndex = 5;
+            this.tabWMBtn.Text = "World Market";
+            this.tabWMBtn.Click += new System.EventHandler(this.tabWMBtn_Click);
             // 
-            // guna2Button4
+            // tabResourcesBtn
             // 
-            this.guna2Button4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.guna2Button4.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
-            this.guna2Button4.CheckedState.CustomBorderColor = System.Drawing.Color.Red;
-            this.guna2Button4.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 8);
-            this.guna2Button4.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
-            this.guna2Button4.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
-            this.guna2Button4.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
-            this.guna2Button4.Enabled = false;
-            this.guna2Button4.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
-            this.guna2Button4.ForeColor = System.Drawing.Color.White;
-            this.guna2Button4.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.guna2Button4.Location = new System.Drawing.Point(997, 0);
-            this.guna2Button4.Name = "guna2Button4";
-            this.guna2Button4.Size = new System.Drawing.Size(256, 100);
-            this.guna2Button4.TabIndex = 4;
-            this.guna2Button4.Text = "Resources";
+            this.tabResourcesBtn.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.tabResourcesBtn.ButtonMode = Guna.UI2.WinForms.Enums.ButtonMode.RadioButton;
+            this.tabResourcesBtn.CheckedState.CustomBorderColor = System.Drawing.Color.Red;
+            this.tabResourcesBtn.CustomBorderThickness = new System.Windows.Forms.Padding(0, 0, 0, 8);
+            this.tabResourcesBtn.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.tabResourcesBtn.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.tabResourcesBtn.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.tabResourcesBtn.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.tabResourcesBtn.Enabled = false;
+            this.tabResourcesBtn.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
+            this.tabResourcesBtn.ForeColor = System.Drawing.Color.White;
+            this.tabResourcesBtn.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.tabResourcesBtn.Location = new System.Drawing.Point(997, 0);
+            this.tabResourcesBtn.Name = "tabResourcesBtn";
+            this.tabResourcesBtn.Size = new System.Drawing.Size(256, 100);
+            this.tabResourcesBtn.TabIndex = 4;
+            this.tabResourcesBtn.Text = "Resources";
+            this.tabResourcesBtn.Click += new System.EventHandler(this.tabResourcesBtn_Click);
             // 
             // editorMainWindow
             // 
@@ -287,10 +291,10 @@
         private System.Windows.Forms.Label titleLabel;
         private System.Windows.Forms.Button infoButton;
         private System.Windows.Forms.Button exitButton;
-        private Guna.UI2.WinForms.Guna2Button guna2Button1;
-        private Guna.UI2.WinForms.Guna2Button guna2Button3;
-        private Guna.UI2.WinForms.Guna2Button guna2Button4;
-        private Guna.UI2.WinForms.Guna2Button guna2Button2;
+        private Guna.UI2.WinForms.Guna2Button tabOrbatBtn;
+        private Guna.UI2.WinForms.Guna2Button tabWMBtn;
+        private Guna.UI2.WinForms.Guna2Button tabResourcesBtn;
+        private Guna.UI2.WinForms.Guna2Button tabRegionsBtn;
     }
 }
 
