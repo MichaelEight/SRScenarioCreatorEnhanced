@@ -1,15 +1,14 @@
 ﻿using SRScenarioCreatorEnhanced.UserControls;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Deployment.Application;
-using System.Drawing;
-using System.Linq;
 using System.Reflection;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
+
+// ***NOTE***
+// It took total of 10h to find a way to connect editorMainWindow form to UC instances
+// Needed to disable buttons, which user won't use and to allow data transport to the whole app
+// If you ever find a way to change it (passing Form as arg) to events' system -- go ahead
+// - Michael '8', 2022/08/12 14:29
 
 namespace SRScenarioCreatorEnhanced
 {
@@ -18,7 +17,7 @@ namespace SRScenarioCreatorEnhanced
         public editorMainWindow()
         {
             InitializeComponent();
-            UC_Scenario uc = new UC_Scenario();
+            UC_Scenario uc = new UC_Scenario(this);
             addUserControl(uc);
         }
 
@@ -33,9 +32,9 @@ namespace SRScenarioCreatorEnhanced
 
         private void tabScenarioBtn_Click(object sender, EventArgs e)
         {
-            if (tabScenarioBtn.Checked)
+            if (tabScenarioBtn.Checked) // TO EDIT, don't reload loaded UC
             {
-                UC_Scenario uc = new UC_Scenario();
+                UC_Scenario uc = new UC_Scenario(this);
                 addUserControl(uc);
             }
         }
@@ -54,7 +53,11 @@ namespace SRScenarioCreatorEnhanced
 
         private void exitButton_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Are you sure you want to exit?", "Exit Confirmation",
+                MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
         private void infoButton_Click(object sender, EventArgs e)
@@ -68,6 +71,18 @@ namespace SRScenarioCreatorEnhanced
             MessageBox.Show($"Current version: {versionNumber}\n" +
                 $"Contributors: Michael '8'", "About Editor", MessageBoxButtons.OK,
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+        }
+
+        public void updateTabButtonsStatus()
+        {
+            if(Globals.isSettingsActive)
+            {
+                tabSettingsBtn.Enabled = true;
+            }
+            else
+            {
+                tabSettingsBtn.Enabled = false;
+            }
         }
     }
 }

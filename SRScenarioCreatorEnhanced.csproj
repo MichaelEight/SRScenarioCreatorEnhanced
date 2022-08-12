@@ -57,7 +57,7 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ScenarioClass.cs" />
+    <Compile Include="GlobalsList.cs" />
     <Compile Include="UserControls\UC_Scenario.cs">
       <SubType>UserControl</SubType>
     </Compile>
