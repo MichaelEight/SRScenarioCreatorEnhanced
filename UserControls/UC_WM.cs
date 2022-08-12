@@ -2,10 +2,10 @@
 
 namespace SRScenarioCreatorEnhanced.UserControls
 {
-    public partial class UC_Settings : UserControl
+    public partial class UC_WM : UserControl
     {
         private editorMainWindow mainForm;
-        public UC_Settings(editorMainWindow mainForm)
+        public UC_WM(editorMainWindow mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
