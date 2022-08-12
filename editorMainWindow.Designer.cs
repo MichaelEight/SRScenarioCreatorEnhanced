@@ -1,6 +1,6 @@
 ﻿namespace SRScenarioCreatorEnhanced
 {
-    partial class Form1
+    partial class editorMainWindow
     {
         /// <summary>
         /// Required designer variable.
@@ -29,23 +29,60 @@
         private void InitializeComponent()
         {
             this.toolbarPanel = new System.Windows.Forms.Panel();
+            this.titleLabel = new System.Windows.Forms.Label();
+            this.infoButton = new System.Windows.Forms.Button();
+            this.exitButton = new System.Windows.Forms.Button();
             this.tabsPanel = new System.Windows.Forms.Panel();
             this.tabTheatersBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tabSettingsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tabScenarioBtn = new Guna.UI2.WinForms.Guna2Button();
             this.mainUCPanel = new System.Windows.Forms.Panel();
+            this.toolbarPanel.SuspendLayout();
             this.tabsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolbarPanel
             // 
             this.toolbarPanel.BackColor = System.Drawing.SystemColors.ActiveBorder;
+            this.toolbarPanel.Controls.Add(this.titleLabel);
+            this.toolbarPanel.Controls.Add(this.infoButton);
+            this.toolbarPanel.Controls.Add(this.exitButton);
             this.toolbarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolbarPanel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolbarPanel.Location = new System.Drawing.Point(0, 0);
             this.toolbarPanel.Name = "toolbarPanel";
-            this.toolbarPanel.Size = new System.Drawing.Size(1451, 100);
+            this.toolbarPanel.Size = new System.Drawing.Size(1778, 100);
             this.toolbarPanel.TabIndex = 2;
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.titleLabel.Location = new System.Drawing.Point(362, 21);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(1082, 51);
+            this.titleLabel.TabIndex = 2;
+            this.titleLabel.Text = "Supreme Ruler Ultimate: Enhanced Scenario Editor";
+            // 
+            // infoButton
+            // 
+            this.infoButton.Location = new System.Drawing.Point(1549, 12);
+            this.infoButton.Name = "infoButton";
+            this.infoButton.Size = new System.Drawing.Size(70, 70);
+            this.infoButton.TabIndex = 1;
+            this.infoButton.Text = "i";
+            this.infoButton.UseVisualStyleBackColor = true;
+            this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
+            // 
+            // exitButton
+            // 
+            this.exitButton.Location = new System.Drawing.Point(1685, 12);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(70, 70);
+            this.exitButton.TabIndex = 0;
+            this.exitButton.Text = "X";
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
             // 
             // tabsPanel
             // 
@@ -56,7 +93,7 @@
             this.tabsPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.tabsPanel.Location = new System.Drawing.Point(0, 100);
             this.tabsPanel.Name = "tabsPanel";
-            this.tabsPanel.Size = new System.Drawing.Size(1451, 107);
+            this.tabsPanel.Size = new System.Drawing.Size(1778, 100);
             this.tabsPanel.TabIndex = 3;
             // 
             // tabTheatersBtn
@@ -111,21 +148,25 @@
             // mainUCPanel
             // 
             this.mainUCPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainUCPanel.Location = new System.Drawing.Point(0, 207);
+            this.mainUCPanel.Location = new System.Drawing.Point(0, 200);
             this.mainUCPanel.Name = "mainUCPanel";
-            this.mainUCPanel.Size = new System.Drawing.Size(1451, 702);
+            this.mainUCPanel.Size = new System.Drawing.Size(1778, 944);
             this.mainUCPanel.TabIndex = 4;
             // 
-            // Form1
+            // editorMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1451, 909);
+            this.ClientSize = new System.Drawing.Size(1778, 1144);
             this.Controls.Add(this.mainUCPanel);
             this.Controls.Add(this.tabsPanel);
             this.Controls.Add(this.toolbarPanel);
-            this.Name = "Form1";
-            this.Text = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Name = "editorMainWindow";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "editorMainWindow";
+            this.toolbarPanel.ResumeLayout(false);
+            this.toolbarPanel.PerformLayout();
             this.tabsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -138,6 +179,9 @@
         private Guna.UI2.WinForms.Guna2Button tabScenarioBtn;
         private Guna.UI2.WinForms.Guna2Button tabTheatersBtn;
         private Guna.UI2.WinForms.Guna2Button tabSettingsBtn;
+        private System.Windows.Forms.Label titleLabel;
+        private System.Windows.Forms.Button infoButton;
+        private System.Windows.Forms.Button exitButton;
     }
 }
 

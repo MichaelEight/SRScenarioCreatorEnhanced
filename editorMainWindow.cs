@@ -3,17 +3,19 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Deployment.Application;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace SRScenarioCreatorEnhanced
 {
-    public partial class Form1 : Form
+    public partial class editorMainWindow : Form
     {
-        public Form1()
+        public editorMainWindow()
         {
             InitializeComponent();
             UC_Scenario uc = new UC_Scenario();
@@ -48,6 +50,24 @@ namespace SRScenarioCreatorEnhanced
         {
             UC_Theaters uc = new UC_Theaters();
             addUserControl(uc);
+        }
+
+        private void exitButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void infoButton_Click(object sender, EventArgs e)
+        {
+            // Get assembly version
+            string versionNumber = ApplicationDeployment.IsNetworkDeployed
+               ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString()
+               : Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+            // Display assembly version in message box
+            MessageBox.Show($"Current version: {versionNumber}\n" +
+                $"Contributors: Michael '8'", "About Editor", MessageBoxButtons.OK,
+                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
     }
 }
