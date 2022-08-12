@@ -11,12 +11,18 @@ namespace SRScenarioCreatorEnhanced.UserControls
             InitializeComponent();
             this.mainWindow = mainWindow;
 
-            //checkBox1.Checked = Globals.isSettingsActive;
+            checkBox1.Checked = Globals.isSettingsActive;
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
-            
+            Globals.isSettingsActive = true;
+            Globals.isTheatersActive = true;
+            Globals.isRegionsActive = true;
+            Globals.isResourcesActive = true;
+            Globals.isWMActive = true;
+            Globals.isOrbatActive = true;
+            mainWindow.updateTabButtonsStatus();
         }
     }
 }

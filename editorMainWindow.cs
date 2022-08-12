@@ -66,48 +66,47 @@ namespace SRScenarioCreatorEnhanced
             userControl.BringToFront();
         }
 
+        // Tab buttons click event
+        // TO EDIT -- don't reload loaded UC
         private void tabScenarioBtn_Click(object sender, EventArgs e)
         {
-            if (tabScenarioBtn.Checked) // TO EDIT, don't reload loaded UC
-            {
-                UC_Scenario uc = new UC_Scenario(this);
-                addUserControl(uc);
-            }
+            UC_Scenario uc = new UC_Scenario(this);
+            addUserControl(uc);
         }
 
         private void tabSettingsBtn_Click(object sender, EventArgs e)
         {
-            UC_Settings uc = new UC_Settings();
+            UC_Settings uc = new UC_Settings(this);
             addUserControl(uc);
         }
 
         private void tabTheatersBtn_Click(object sender, EventArgs e)
         {
-            UC_Theaters uc = new UC_Theaters();
+            UC_Theaters uc = new UC_Theaters(this);
             addUserControl(uc);
         }
 
         private void tabRegionsBtn_Click(object sender, EventArgs e)
         {
-            UC_Regions uc = new UC_Regions();
+            UC_Regions uc = new UC_Regions(this);
             addUserControl(uc);
         }
 
         private void tabResourcesBtn_Click(object sender, EventArgs e)
         {
-            UC_Resources uc = new UC_Resources();
+            UC_Resources uc = new UC_Resources(this);
             addUserControl(uc);
         }
 
         private void tabWMBtn_Click(object sender, EventArgs e)
         {
-            UC_WM uc = new UC_WM();
+            UC_WM uc = new UC_WM(this);
             addUserControl(uc);
         }
 
         private void tabOrbatBtn_Click(object sender, EventArgs e)
         {
-            UC_Orbat uc = new UC_Orbat();
+            UC_Orbat uc = new UC_Orbat(this);
             addUserControl(uc);
         }
     }
