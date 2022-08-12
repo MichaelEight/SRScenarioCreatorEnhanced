@@ -14,7 +14,7 @@ namespace SRScenarioCreatorEnhanced
 {
     public partial class editorMainWindow : Form
     {
-        // Movable titleBar assets
+        // Movable toolbarPanel assets
         // //
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
@@ -31,9 +31,9 @@ namespace SRScenarioCreatorEnhanced
             UC_Scenario uc = new UC_Scenario(this);
             addUserControl(uc);
         }
-        
-        /*// Make titleBar movable
-        private void titleBarPanel_MouseDown(object sender, MouseEventArgs e)
+
+        // Make window movable by grabbing toolbar
+        private void toolbarPanel_MouseDown(object sender, MouseEventArgs e)
         {
             if (e.Button == MouseButtons.Left)
             {
@@ -41,8 +41,16 @@ namespace SRScenarioCreatorEnhanced
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
-        //*/
-        
+        // ... or titleLabel
+        private void titleLabel_MouseDown(object sender, MouseEventArgs e)
+        {
+            if (e.Button == MouseButtons.Left)
+            {
+                ReleaseCapture();
+                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+            }
+        }
+
         // Exit button clicked
         private void exitButton_Click(object sender, EventArgs e)
         {

@@ -30,6 +30,8 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(editorMainWindow));
             this.toolbarPanel = new System.Windows.Forms.Panel();
+            this.logoEight = new System.Windows.Forms.PictureBox();
+            this.logoApp = new System.Windows.Forms.PictureBox();
             this.titleLabel = new System.Windows.Forms.Label();
             this.infoButton = new System.Windows.Forms.Button();
             this.exitButton = new System.Windows.Forms.Button();
@@ -42,12 +44,10 @@
             this.tabSettingsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tabScenarioBtn = new Guna.UI2.WinForms.Guna2Button();
             this.mainUCPanel = new System.Windows.Forms.Panel();
-            this.logoApp = new System.Windows.Forms.PictureBox();
-            this.logoEight = new System.Windows.Forms.PictureBox();
             this.toolbarPanel.SuspendLayout();
-            this.tabsPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logoApp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoEight)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoApp)).BeginInit();
+            this.tabsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolbarPanel
@@ -64,6 +64,27 @@
             this.toolbarPanel.Name = "toolbarPanel";
             this.toolbarPanel.Size = new System.Drawing.Size(1800, 100);
             this.toolbarPanel.TabIndex = 2;
+            this.toolbarPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.toolbarPanel_MouseDown);
+            // 
+            // logoEight
+            // 
+            this.logoEight.Image = global::SRScenarioCreatorEnhanced.Properties.Resources.eightPic;
+            this.logoEight.Location = new System.Drawing.Point(99, 12);
+            this.logoEight.Name = "logoEight";
+            this.logoEight.Size = new System.Drawing.Size(70, 70);
+            this.logoEight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoEight.TabIndex = 4;
+            this.logoEight.TabStop = false;
+            // 
+            // logoApp
+            // 
+            this.logoApp.Image = global::SRScenarioCreatorEnhanced.Properties.Resources.SReditorIcon;
+            this.logoApp.Location = new System.Drawing.Point(12, 12);
+            this.logoApp.Name = "logoApp";
+            this.logoApp.Size = new System.Drawing.Size(70, 70);
+            this.logoApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logoApp.TabIndex = 3;
+            this.logoApp.TabStop = false;
             // 
             // titleLabel
             // 
@@ -75,6 +96,7 @@
             this.titleLabel.Size = new System.Drawing.Size(1082, 51);
             this.titleLabel.TabIndex = 2;
             this.titleLabel.Text = "Supreme Ruler Ultimate: Enhanced Scenario Editor";
+            this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseDown);
             // 
             // infoButton
             // 
@@ -271,26 +293,6 @@
             this.mainUCPanel.Size = new System.Drawing.Size(1800, 1000);
             this.mainUCPanel.TabIndex = 4;
             // 
-            // logoApp
-            // 
-            this.logoApp.Image = global::SRScenarioCreatorEnhanced.Properties.Resources.SReditorIcon;
-            this.logoApp.Location = new System.Drawing.Point(12, 12);
-            this.logoApp.Name = "logoApp";
-            this.logoApp.Size = new System.Drawing.Size(70, 70);
-            this.logoApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logoApp.TabIndex = 3;
-            this.logoApp.TabStop = false;
-            // 
-            // logoEight
-            // 
-            this.logoEight.Image = global::SRScenarioCreatorEnhanced.Properties.Resources.eightPic;
-            this.logoEight.Location = new System.Drawing.Point(99, 12);
-            this.logoEight.Name = "logoEight";
-            this.logoEight.Size = new System.Drawing.Size(70, 70);
-            this.logoEight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoEight.TabIndex = 4;
-            this.logoEight.TabStop = false;
-            // 
             // editorMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -306,9 +308,9 @@
             this.Text = "editorMainWindow";
             this.toolbarPanel.ResumeLayout(false);
             this.toolbarPanel.PerformLayout();
-            this.tabsPanel.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.logoApp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoEight)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoApp)).EndInit();
+            this.tabsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
