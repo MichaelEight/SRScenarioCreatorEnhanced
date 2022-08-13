@@ -11,12 +11,20 @@ namespace SRScenarioCreatorEnhanced.UserControls
             InitializeComponent();
             this.mainWindow = mainWindow;
 
-            checkBox1.Checked = Globals.isSettingsActive;
         }
+    }
+}
 
-        private void checkBox1_CheckedChanged(object sender, EventArgs e)
-        {
-            /*Code to unlock all tabs by checking checkbox
+// CODE TO USE TO UPDATE BTNs STATUS
+/*
+ * Globals.isSettingsActive = checkBox1.Checked;
+            main.updateTabButtonsStatus();
+*/
+
+//checkBox1.Checked = Globals.isSettingsActive;
+
+
+/*Code to unlock all tabs by checking checkbox
              * Globals.isSettingsActive = true;
             Globals.isTheatersActive = true;
             Globals.isRegionsActive = true;
@@ -24,11 +32,3 @@ namespace SRScenarioCreatorEnhanced.UserControls
             Globals.isWMActive = true;
             Globals.isOrbatActive = true;
             mainWindow.updateTabButtonsStatus();*/
-        }
-    }
-}
-// CODE TO USE TO UPDATE BTNs STATUS
-/*
- * Globals.isSettingsActive = checkBox1.Checked;
-            main.updateTabButtonsStatus();
-*/
