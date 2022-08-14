@@ -131,6 +131,7 @@
             this.checkOOF.TabIndex = 9;
             this.checkOOF.Text = "Same as Map Name";
             this.checkOOF.UseVisualStyleBackColor = true;
+            this.checkOOF.CheckedChanged += new System.EventHandler(this.checkOOF_CheckedChanged);
             // 
             // comboOOF
             // 
@@ -180,6 +181,7 @@
             this.checkNewMap.TabIndex = 10;
             this.checkNewMap.Text = "Create New Map";
             this.checkNewMap.UseVisualStyleBackColor = true;
+            this.checkNewMap.CheckedChanged += new System.EventHandler(this.checkNewMap_CheckedChanged);
             // 
             // comboPPLX
             // 
@@ -400,6 +402,7 @@
             this.checkModifyCVP.TabIndex = 37;
             this.checkModifyCVP.Text = "Modify";
             this.checkModifyCVP.UseVisualStyleBackColor = true;
+            this.checkModifyCVP.CheckedChanged += new System.EventHandler(this.checkModifyCVP_CheckedChanged);
             // 
             // checkModifyWM
             // 
@@ -411,6 +414,7 @@
             this.checkModifyWM.TabIndex = 36;
             this.checkModifyWM.Text = "Modify";
             this.checkModifyWM.UseVisualStyleBackColor = true;
+            this.checkModifyWM.CheckedChanged += new System.EventHandler(this.checkModifyWM_CheckedChanged);
             // 
             // checkModifyOOB
             // 
@@ -422,6 +426,7 @@
             this.checkModifyOOB.TabIndex = 38;
             this.checkModifyOOB.Text = "Modify";
             this.checkModifyOOB.UseVisualStyleBackColor = true;
+            this.checkModifyOOB.CheckedChanged += new System.EventHandler(this.checkModifyOOB_CheckedChanged);
             // 
             // checkNoneditDefault
             // 

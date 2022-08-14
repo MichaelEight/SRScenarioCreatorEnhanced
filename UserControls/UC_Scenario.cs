@@ -12,6 +12,31 @@ namespace SRScenarioCreatorEnhanced.UserControls
             this.mainWindow = mainWindow;
 
         }
+
+        private void checkNewMap_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkOOF_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkModifyCVP_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkModifyWM_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void checkModifyOOB_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
