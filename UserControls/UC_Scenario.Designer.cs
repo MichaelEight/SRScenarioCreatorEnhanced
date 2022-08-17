@@ -120,6 +120,7 @@
             this.checkCacheName.TabIndex = 4;
             this.checkCacheName.Text = "Same as Scenario Name";
             this.checkCacheName.UseVisualStyleBackColor = true;
+            this.checkCacheName.CheckedChanged += new System.EventHandler(this.checkCacheName_CheckedChanged);
             // 
             // checkOOF
             // 
@@ -438,9 +439,11 @@
             this.checkNoneditDefault.TabIndex = 39;
             this.checkNoneditDefault.Text = "Use Default Files";
             this.checkNoneditDefault.UseVisualStyleBackColor = true;
+            this.checkNoneditDefault.CheckedChanged += new System.EventHandler(this.checkNoneditDefault_CheckedChanged);
             // 
             // exportScenarioButton
             // 
+            this.exportScenarioButton.Enabled = false;
             this.exportScenarioButton.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.exportScenarioButton.Location = new System.Drawing.Point(671, 827);
             this.exportScenarioButton.Name = "exportScenarioButton";

@@ -8,4 +8,5 @@ public static class Globals
     public static bool isResourcesActive = false;
     public static bool isWMActive = false;
     public static bool isOrbatActive = false;
+    public static bool isExportBtnActive = false;
 }
