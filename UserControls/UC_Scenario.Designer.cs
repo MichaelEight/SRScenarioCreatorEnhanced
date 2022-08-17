@@ -123,6 +123,7 @@
             this.comboCacheName.Name = "comboCacheName";
             this.comboCacheName.Size = new System.Drawing.Size(266, 42);
             this.comboCacheName.TabIndex = 3;
+            this.comboCacheName.TextUpdate += new System.EventHandler(this.comboCacheName_TextUpdate);
             // 
             // checkCacheName
             // 
@@ -156,6 +157,7 @@
             this.comboOOF.Name = "comboOOF";
             this.comboOOF.Size = new System.Drawing.Size(266, 42);
             this.comboOOF.TabIndex = 8;
+            this.comboOOF.TextUpdate += new System.EventHandler(this.comboOOF_TextUpdate);
             // 
             // comboMapName
             // 
@@ -207,6 +209,7 @@
             this.comboPPLX.Name = "comboPPLX";
             this.comboPPLX.Size = new System.Drawing.Size(266, 42);
             this.comboPPLX.TabIndex = 14;
+            this.comboPPLX.TextUpdate += new System.EventHandler(this.comboPPLX_TextUpdate);
             // 
             // comboUnit
             // 
@@ -216,6 +219,7 @@
             this.comboUnit.Name = "comboUnit";
             this.comboUnit.Size = new System.Drawing.Size(266, 42);
             this.comboUnit.TabIndex = 13;
+            this.comboUnit.TextUpdate += new System.EventHandler(this.comboUnit_TextUpdate);
             // 
             // labelPPLX
             // 
@@ -245,6 +249,7 @@
             this.comboTERX.Name = "comboTERX";
             this.comboTERX.Size = new System.Drawing.Size(266, 42);
             this.comboTERX.TabIndex = 18;
+            this.comboTERX.TextUpdate += new System.EventHandler(this.comboTERX_TextUpdate);
             // 
             // comboTTRX
             // 
@@ -254,6 +259,7 @@
             this.comboTTRX.Name = "comboTTRX";
             this.comboTTRX.Size = new System.Drawing.Size(266, 42);
             this.comboTTRX.TabIndex = 17;
+            this.comboTTRX.TextUpdate += new System.EventHandler(this.comboTTRX_TextUpdate);
             // 
             // labelTERX
             // 
@@ -283,6 +289,7 @@
             this.comboProfile.Name = "comboProfile";
             this.comboProfile.Size = new System.Drawing.Size(266, 42);
             this.comboProfile.TabIndex = 22;
+            this.comboProfile.TextUpdate += new System.EventHandler(this.comboProfile_TextUpdate);
             // 
             // comboNewsItems
             // 
@@ -292,6 +299,7 @@
             this.comboNewsItems.Name = "comboNewsItems";
             this.comboNewsItems.Size = new System.Drawing.Size(266, 42);
             this.comboNewsItems.TabIndex = 21;
+            this.comboNewsItems.TextUpdate += new System.EventHandler(this.comboNewsItems_TextUpdate);
             // 
             // labelProfile
             // 
@@ -321,6 +329,7 @@
             this.comboPostCache.Name = "comboPostCache";
             this.comboPostCache.Size = new System.Drawing.Size(266, 42);
             this.comboPostCache.TabIndex = 35;
+            this.comboPostCache.TextUpdate += new System.EventHandler(this.comboPostCache_TextUpdate);
             // 
             // labelPostCache
             // 
@@ -340,6 +349,7 @@
             this.comboPreCache.Name = "comboPreCache";
             this.comboPreCache.Size = new System.Drawing.Size(266, 42);
             this.comboPreCache.TabIndex = 32;
+            this.comboPreCache.TextUpdate += new System.EventHandler(this.comboPreCache_TextUpdate);
             // 
             // comboOOB
             // 
@@ -349,6 +359,7 @@
             this.comboOOB.Name = "comboOOB";
             this.comboOOB.Size = new System.Drawing.Size(266, 42);
             this.comboOOB.TabIndex = 31;
+            this.comboOOB.TextUpdate += new System.EventHandler(this.comboOOB_TextUpdate);
             // 
             // labelPreCache
             // 
@@ -378,6 +389,7 @@
             this.comboWM.Name = "comboWM";
             this.comboWM.Size = new System.Drawing.Size(266, 42);
             this.comboWM.TabIndex = 28;
+            this.comboWM.TextUpdate += new System.EventHandler(this.comboWM_TextUpdate);
             // 
             // comboCVP
             // 
@@ -387,6 +399,7 @@
             this.comboCVP.Name = "comboCVP";
             this.comboCVP.Size = new System.Drawing.Size(266, 42);
             this.comboCVP.TabIndex = 27;
+            this.comboCVP.TextUpdate += new System.EventHandler(this.comboCVP_TextUpdate);
             // 
             // labelWM
             // 
@@ -711,7 +724,6 @@
             this.Controls.Add(this.labelScenarioName);
             this.Name = "UC_Scenario";
             this.Size = new System.Drawing.Size(1800, 1000);
-            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UC_Scenario_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 

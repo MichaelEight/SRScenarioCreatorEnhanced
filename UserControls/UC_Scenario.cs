@@ -87,6 +87,8 @@ namespace SRScenarioCreatorEnhanced.UserControls
             return true;
         }
 
+        #region CheckBoxesSection
+
         // 'Maps' Checks
         private void checkNewMap_CheckedChanged(object sender, EventArgs e)
         {
@@ -144,6 +146,10 @@ namespace SRScenarioCreatorEnhanced.UserControls
             comboProfile.Enabled = !checkNoneditDefault.Checked;
         }
 
+        #endregion
+
+        #region ComboBoxesTextUpdateSecion
+        // GENERAL INFO 
         private void comboScenarioName_TextUpdate(object sender, EventArgs e)
         {
             // Update Cache name if it should be the same
@@ -151,21 +157,88 @@ namespace SRScenarioCreatorEnhanced.UserControls
             {
                 comboCacheName.Text = comboScenarioName.Text;
             }
+
+            activateOtherTabsIfPossible();
         }
 
+        private void comboCacheName_TextUpdate(object sender, EventArgs e)
+        {
+            activateOtherTabsIfPossible();
+        }
+
+        // MAP INFO
         private void comboMapName_TextUpdate(object sender, EventArgs e)
         {
-            // Update OOF name if it should be the same
+            // Update Cache name if it should be the same
             if (checkOOF.Checked)
             {
                 comboOOF.Text = comboMapName.Text;
             }
-        }
 
-        // Force check basic requirements by moving mouse
-        private void UC_Scenario_MouseMove(object sender, MouseEventArgs e)
+            activateOtherTabsIfPossible();
+        }
+        private void comboOOF_TextUpdate(object sender, EventArgs e)
         {
             activateOtherTabsIfPossible();
         }
+
+        // NON-EDITABLE DATA INFO
+        private void comboUnit_TextUpdate(object sender, EventArgs e)
+        {
+            activateOtherTabsIfPossible();
+        }
+
+        private void comboPPLX_TextUpdate(object sender, EventArgs e)
+        {
+            activateOtherTabsIfPossible();
+        }
+
+        private void comboTTRX_TextUpdate(object sender, EventArgs e)
+        {
+            activateOtherTabsIfPossible();
+        }
+
+        private void comboTERX_TextUpdate(object sender, EventArgs e)
+        {
+            activateOtherTabsIfPossible();
+        }
+
+        private void comboNewsItems_TextUpdate(object sender, EventArgs e)
+        {
+            activateOtherTabsIfPossible();
+        }
+
+        private void comboProfile_TextUpdate(object sender, EventArgs e)
+        {
+            activateOtherTabsIfPossible();
+        }
+
+        // EDITABLE DATA INFO
+        private void comboCVP_TextUpdate(object sender, EventArgs e)
+        {
+            activateOtherTabsIfPossible();
+        }
+
+        private void comboWM_TextUpdate(object sender, EventArgs e)
+        {
+            activateOtherTabsIfPossible();
+        }
+
+        private void comboOOB_TextUpdate(object sender, EventArgs e)
+        {
+            activateOtherTabsIfPossible();
+        }
+
+        private void comboPreCache_TextUpdate(object sender, EventArgs e)
+        {
+            activateOtherTabsIfPossible();
+        }
+
+        private void comboPostCache_TextUpdate(object sender, EventArgs e)
+        {
+            activateOtherTabsIfPossible();
+        }
+
+        #endregion
     }
 }
