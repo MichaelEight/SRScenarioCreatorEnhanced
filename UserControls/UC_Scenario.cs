@@ -65,21 +65,21 @@ namespace SRScenarioCreatorEnhanced.UserControls
         // Checks if all required comboboxes / checkboxes are non-empty and it is safe to proceed
         private bool areBasicRequirementsMet()
         {
-            if (comboScenarioName.SelectedIndex == -1) return false;
-            if (comboCacheName.SelectedIndex == -1 && checkCacheName.Checked == false) return false;
-            if (comboMapName.SelectedIndex == -1) return false;
-            if (comboOOF.SelectedIndex == -1 && checkOOF.Checked == false) return false;
-            if (comboCVP.SelectedIndex == -1) return false;
-            if (comboWM.SelectedIndex == -1) return false;
+            if (string.IsNullOrEmpty(comboScenarioName.Text)) return false;
+            if (string.IsNullOrEmpty(comboCacheName.Text) && checkCacheName.Checked == false) return false;
+            if (string.IsNullOrEmpty(comboMapName.Text)) return false;
+            if (string.IsNullOrEmpty(comboOOF.Text) && checkOOF.Checked == false) return false;
+            if (string.IsNullOrEmpty(comboCVP.Text)) return false;
+            if (string.IsNullOrEmpty(comboWM.Text)) return false;
 
             if(!checkNoneditDefault.Checked) // if default not selected
             {
-                if (comboUnit.SelectedIndex == -1) return false;
-                if (comboPPLX.SelectedIndex == -1) return false;
-                if (comboTTRX.SelectedIndex == -1) return false;
-                if (comboTERX.SelectedIndex == -1) return false;
-                if (comboNewsItems.SelectedIndex == -1) return false;
-                if (comboProfile.SelectedIndex == -1) return false;
+                if (string.IsNullOrEmpty(comboUnit.Text)) return false;
+                if (string.IsNullOrEmpty(comboPPLX.Text)) return false;
+                if (string.IsNullOrEmpty(comboTTRX.Text)) return false;
+                if (string.IsNullOrEmpty(comboTERX.Text)) return false;
+                if (string.IsNullOrEmpty(comboNewsItems.Text)) return false;
+                if (string.IsNullOrEmpty(comboProfile.Text)) return false;
             }
 
             return true;
@@ -93,7 +93,12 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void checkOOF_CheckedChanged(object sender, EventArgs e)
         {
+            comboOOF.Enabled = !checkOOF.Checked;
 
+            if (checkOOF.Checked)
+            {
+                comboOOF.Text = comboMapName.Text;
+            }
         }
 
         // 'Modify' Checks
@@ -115,6 +120,13 @@ namespace SRScenarioCreatorEnhanced.UserControls
         // 'General' Checks
         private void checkCacheName_CheckedChanged(object sender, EventArgs e)
         {
+            comboCacheName.Enabled = !checkCacheName.Checked;
+            
+            if(checkCacheName.Checked)
+            {
+                comboCacheName.Text = comboScenarioName.Text;
+            }
+
             activateOtherTabsIfPossible();
         }
 
@@ -122,6 +134,24 @@ namespace SRScenarioCreatorEnhanced.UserControls
         private void checkNoneditDefault_CheckedChanged(object sender, EventArgs e)
         {
             activateOtherTabsIfPossible();
+        }
+
+        private void comboScenarioName_TextUpdate(object sender, EventArgs e)
+        {
+            // Update Cache name if it should be the same
+            if (checkCacheName.Checked)
+            {
+                comboCacheName.Text = comboScenarioName.Text;
+            }
+        }
+
+        private void comboMapName_TextUpdate(object sender, EventArgs e)
+        {
+            // Update OOF name if it should be the same
+            if (checkOOF.Checked)
+            {
+                comboOOF.Text = comboMapName.Text;
+            }
         }
     }
 }

@@ -100,6 +100,7 @@
             this.comboScenarioName.Name = "comboScenarioName";
             this.comboScenarioName.Size = new System.Drawing.Size(266, 42);
             this.comboScenarioName.TabIndex = 2;
+            this.comboScenarioName.TextUpdate += new System.EventHandler(this.comboScenarioName_TextUpdate);
             // 
             // comboCacheName
             // 
@@ -151,6 +152,7 @@
             this.comboMapName.Name = "comboMapName";
             this.comboMapName.Size = new System.Drawing.Size(266, 42);
             this.comboMapName.TabIndex = 7;
+            this.comboMapName.TextUpdate += new System.EventHandler(this.comboMapName_TextUpdate);
             // 
             // labelOOF
             // 
