@@ -67,6 +67,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
         }
 
         #region managingOtherTabs
+
         // Minimum required to allow to activate other tabs
         private void activateOtherTabsIfPossible()
         {
