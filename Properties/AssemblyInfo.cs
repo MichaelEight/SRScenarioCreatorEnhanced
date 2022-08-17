@@ -1,17 +1,18 @@
-﻿using System.Reflection;
+﻿using System.Resources;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SRScenarioCreatorEnhanced")]
+[assembly: AssemblyTitle("SupremeRulerEnhancedScenarioCreator")]
 [assembly: AssemblyDescription("Supreme Ruler Enhanced Tool to Create and Edit Scenarios")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Michael '8'")]
-[assembly: AssemblyProduct("SRScenarioCreatorEnhanced")]
-[assembly: AssemblyCopyright("Copyright ©  2022")]
-[assembly: AssemblyTrademark("")]
+[assembly: AssemblyProduct("SupremeRulerEnhancedScenarioCreator")]
+[assembly: AssemblyCopyright("Copyright © 2022")]
+[assembly: AssemblyTrademark("8")]
 [assembly: AssemblyCulture("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -20,7 +21,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("5e0c3e16-f336-4448-96fc-e2a218116972")]
+[assembly: Guid("0ee40d24-bbe9-4b1a-9c5d-382697b3973b")]
 
 // Version information for an assembly consists of the following four values:
 //
@@ -34,3 +35,4 @@ using System.Runtime.InteropServices;
 // [assembly: AssemblyVersion("1.0.*")]
 [assembly: AssemblyVersion("0.1.0.0")]
 [assembly: AssemblyFileVersion("0.1.0.0")]
+[assembly: NeutralResourcesLanguage("en-US")]

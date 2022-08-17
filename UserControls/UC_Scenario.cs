@@ -1,6 +1,16 @@
 ﻿using System;
 using System.Windows.Forms;
 
+// TODO
+// If you want -- make 'required' labels disappear when data is correct
+
+/// ***File controlling behaviour of 'Scenario' Tab***
+/// This tab provides info about file used in a specific scenario - names and what files will be edited
+/// Tab content is reseted on tab switch, so all data MUST be saved in a separate class
+/// ON LOAD tab loads data from that class and fills modified components
+/// BASIC REQUIREMENTS are needed to safely unlock other tabs without files errors
+/// - e.g. if no file is selected and user tries to modify it
+
 namespace SRScenarioCreatorEnhanced.UserControls
 {
     public partial class UC_Scenario : UserControl
@@ -11,8 +21,15 @@ namespace SRScenarioCreatorEnhanced.UserControls
             InitializeComponent();
             this.mainWindow = mainWindow;
 
+            // TODO
             // Here load scenario data, saved during editing
             // -- When switching tabs, data on them resets, so we need to save it elsewhere
+
+            // if non-editable check is on, then check it // TO EDIT !!! TODO
+            if(true)
+            {
+                checkNoneditDefault.Checked = true;
+            }
 
             activateOtherTabsIfPossible();
         }
@@ -88,7 +105,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
         // 'Maps' Checks
         private void checkNewMap_CheckedChanged(object sender, EventArgs e)
         {
-
+            // Create new map: either copy-paste default map and empty it or copy-paste hard-coded content
         }
 
         private void checkOOF_CheckedChanged(object sender, EventArgs e)
@@ -155,21 +172,3 @@ namespace SRScenarioCreatorEnhanced.UserControls
         }
     }
 }
-
-// CODE TO USE TO UPDATE BTNs STATUS
-/*
- * Globals.isSettingsActive = checkBox1.Checked;
-            main.updateTabButtonsStatus();
-*/
-
-//checkBox1.Checked = Globals.isSettingsActive;
-
-
-/*Code to unlock all tabs by checking checkbox
-             * Globals.isSettingsActive = true;
-            Globals.isTheatersActive = true;
-            Globals.isRegionsActive = true;
-            Globals.isResourcesActive = true;
-            Globals.isWMActive = true;
-            Globals.isOrbatActive = true;
-            mainWindow.updateTabButtonsStatus();*/
