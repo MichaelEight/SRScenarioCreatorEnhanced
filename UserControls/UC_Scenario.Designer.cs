@@ -479,6 +479,7 @@
             this.exportScenarioButton.TabIndex = 40;
             this.exportScenarioButton.Text = "Export Scenario";
             this.exportScenarioButton.UseVisualStyleBackColor = true;
+            this.exportScenarioButton.Click += new System.EventHandler(this.exportScenarioButton_Click);
             // 
             // label11
             // 

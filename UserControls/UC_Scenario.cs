@@ -85,8 +85,8 @@ namespace SRScenarioCreatorEnhanced.UserControls
                 Globals.isResourcesActive = checkModifyWM.Checked;
                 Globals.isWMActive = checkModifyWM.Checked;
 
-                // Unlock Orbat tab
-                Globals.isOrbatActive = checkModifyOOB.Checked;
+                // Unlock Orbat tab (if not empty!)
+                Globals.isOrbatActive = checkModifyOOB.Checked && !string.IsNullOrEmpty(comboOOB.Text);
             }
             else // Disable them, if requirements are no longer met
             {
@@ -128,6 +128,23 @@ namespace SRScenarioCreatorEnhanced.UserControls
         #endregion
 
         #region CheckBoxesSection
+        
+        #region generalChecks
+        // 'General' Checks
+        private void checkCacheName_CheckedChanged(object sender, EventArgs e)
+        {
+            comboCacheName.Enabled = !checkCacheName.Checked;
+            mainWindow.currentScenario.cacheSameNameCheck = checkCacheName.Checked;
+
+            if (checkCacheName.Checked)
+            {
+                comboCacheName.Text = comboScenarioName.Text;
+                mainWindow.currentScenario.cacheName = comboScenarioName.Text;
+            }
+
+            activateOtherTabsIfPossible();
+        }
+        #endregion
 
         #region mapsChecks
         private void checkNewMap_CheckedChanged(object sender, EventArgs e)
@@ -144,7 +161,24 @@ namespace SRScenarioCreatorEnhanced.UserControls
             if (checkOOF.Checked)
             {
                 comboOOF.Text = comboMapName.Text;
+                mainWindow.currentScenario.OOFName = comboMapName.Text;
             }
+        }
+        #endregion
+
+        #region nonEditableChecks
+        // 'Non-editable' Checks
+        private void checkNoneditDefault_CheckedChanged(object sender, EventArgs e)
+        {
+            activateOtherTabsIfPossible();
+            comboUnit.Enabled = !checkNoneditDefault.Checked;
+            comboPPLX.Enabled = !checkNoneditDefault.Checked;
+            comboTTRX.Enabled = !checkNoneditDefault.Checked;
+            comboTERX.Enabled = !checkNoneditDefault.Checked;
+            comboNewsItems.Enabled = !checkNoneditDefault.Checked;
+            comboProfile.Enabled = !checkNoneditDefault.Checked;
+
+            mainWindow.currentScenario.allNonEditableDefaultCheck = checkNoneditDefault.Checked;
         }
         #endregion
 
@@ -169,38 +203,6 @@ namespace SRScenarioCreatorEnhanced.UserControls
         }
         #endregion
 
-        #region generalChecks
-        // 'General' Checks
-        private void checkCacheName_CheckedChanged(object sender, EventArgs e)
-        {
-            comboCacheName.Enabled = !checkCacheName.Checked;
-            mainWindow.currentScenario.cacheSameNameCheck = checkCacheName.Checked;
-
-            if (checkCacheName.Checked)
-            {
-                comboCacheName.Text = comboScenarioName.Text;
-            }
-
-            activateOtherTabsIfPossible();
-        }
-        #endregion
-
-        #region nonEditableChecks
-        // 'Non-editable' Checks
-        private void checkNoneditDefault_CheckedChanged(object sender, EventArgs e)
-        {
-            activateOtherTabsIfPossible();
-            comboUnit.Enabled = !checkNoneditDefault.Checked;
-            comboPPLX.Enabled = !checkNoneditDefault.Checked;
-            comboTTRX.Enabled = !checkNoneditDefault.Checked;
-            comboTERX.Enabled = !checkNoneditDefault.Checked;
-            comboNewsItems.Enabled = !checkNoneditDefault.Checked;
-            comboProfile.Enabled = !checkNoneditDefault.Checked;
-
-            mainWindow.currentScenario.allNonEditableDefaultCheck = checkNoneditDefault.Checked;
-        }
-        #endregion
-
         #endregion
 
         #region ComboBoxesTextUpdateSecion
@@ -212,6 +214,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
             if (checkCacheName.Checked)
             {
                 comboCacheName.Text = comboScenarioName.Text;
+                mainWindow.currentScenario.cacheName = comboScenarioName.Text;
             }
 
             // Update name in the scenario class
@@ -236,6 +239,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
             if (checkOOF.Checked)
             {
                 comboOOF.Text = comboMapName.Text;
+                mainWindow.currentScenario.OOFName = comboMapName.Text;
             }
 
             // Update name in the scenario class
@@ -345,5 +349,10 @@ namespace SRScenarioCreatorEnhanced.UserControls
         #endregion
 
         #endregion
+
+        private void exportScenarioButton_Click(object sender, EventArgs e)
+        {
+            mainWindow.currentScenario.exportScenarioToFileAndFolder();
+        }
     }
 }
