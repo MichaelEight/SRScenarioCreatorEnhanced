@@ -76,7 +76,6 @@
             this.labelRequiredOOF = new System.Windows.Forms.Label();
             this.labelRequiredCVP = new System.Windows.Forms.Label();
             this.labelRequiredWM = new System.Windows.Forms.Label();
-            this.labelRequiredOOB = new System.Windows.Forms.Label();
             this.labelRequiredUnit = new System.Windows.Forms.Label();
             this.labelRequiredPPLX = new System.Windows.Forms.Label();
             this.labelRequiredTTRX = new System.Windows.Forms.Label();
@@ -574,17 +573,6 @@
             this.labelRequiredWM.TabIndex = 50;
             this.labelRequiredWM.Text = "(R)";
             // 
-            // labelRequiredOOB
-            // 
-            this.labelRequiredOOB.AutoSize = true;
-            this.labelRequiredOOB.Font = new System.Drawing.Font("Century Gothic", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelRequiredOOB.ForeColor = System.Drawing.Color.Red;
-            this.labelRequiredOOB.Location = new System.Drawing.Point(1024, 544);
-            this.labelRequiredOOB.Name = "labelRequiredOOB";
-            this.labelRequiredOOB.Size = new System.Drawing.Size(53, 34);
-            this.labelRequiredOOB.TabIndex = 51;
-            this.labelRequiredOOB.Text = "(R)";
-            // 
             // labelRequiredUnit
             // 
             this.labelRequiredUnit.AutoSize = true;
@@ -673,7 +661,6 @@
             this.Controls.Add(this.labelRequiredTTRX);
             this.Controls.Add(this.labelRequiredPPLX);
             this.Controls.Add(this.labelRequiredUnit);
-            this.Controls.Add(this.labelRequiredOOB);
             this.Controls.Add(this.labelRequiredWM);
             this.Controls.Add(this.labelRequiredCVP);
             this.Controls.Add(this.labelRequiredOOF);
@@ -724,6 +711,7 @@
             this.Controls.Add(this.labelScenarioName);
             this.Name = "UC_Scenario";
             this.Size = new System.Drawing.Size(1800, 1000);
+            this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.UC_Scenario_MouseMove);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -779,7 +767,6 @@
         private System.Windows.Forms.Label labelRequiredOOF;
         private System.Windows.Forms.Label labelRequiredCVP;
         private System.Windows.Forms.Label labelRequiredWM;
-        private System.Windows.Forms.Label labelRequiredOOB;
         private System.Windows.Forms.Label labelRequiredUnit;
         private System.Windows.Forms.Label labelRequiredPPLX;
         private System.Windows.Forms.Label labelRequiredTTRX;

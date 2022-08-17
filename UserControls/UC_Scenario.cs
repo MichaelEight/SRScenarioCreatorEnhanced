@@ -25,12 +25,6 @@ namespace SRScenarioCreatorEnhanced.UserControls
             // Here load scenario data, saved during editing
             // -- When switching tabs, data on them resets, so we need to save it elsewhere
 
-            // if non-editable check is on, then check it // TO EDIT !!! TODO
-            if(true)
-            {
-                checkNoneditDefault.Checked = true;
-            }
-
             activateOtherTabsIfPossible();
         }
 
@@ -45,24 +39,15 @@ namespace SRScenarioCreatorEnhanced.UserControls
                 exportScenarioButton.Enabled = true;
 
                 // Unlock Theaters and Regions tabs
-                if(checkModifyCVP.Checked)
-                {
-                    Globals.isTheatersActive = true;
-                    Globals.isRegionsActive = true;
-                }
+                Globals.isTheatersActive = checkModifyCVP.Checked;
+                Globals.isRegionsActive = checkModifyCVP.Checked;
 
                 // Unlock Resources and WM tabs
-                if(checkModifyWM.Checked)
-                {
-                    Globals.isResourcesActive = true;
-                    Globals.isWMActive = true;
-                }
+                Globals.isResourcesActive = checkModifyWM.Checked;
+                Globals.isWMActive = checkModifyWM.Checked;
 
                 // Unlock Orbat tab
-                if(checkModifyOOB.Checked)
-                {
-                    Globals.isOrbatActive = true;
-                }
+                Globals.isOrbatActive = checkModifyOOB.Checked;
             }
             else // Disable them, if requirements are no longer met
             {
@@ -151,6 +136,12 @@ namespace SRScenarioCreatorEnhanced.UserControls
         private void checkNoneditDefault_CheckedChanged(object sender, EventArgs e)
         {
             activateOtherTabsIfPossible();
+            comboUnit.Enabled = !checkNoneditDefault.Checked;
+            comboPPLX.Enabled = !checkNoneditDefault.Checked;
+            comboTTRX.Enabled = !checkNoneditDefault.Checked;
+            comboTERX.Enabled = !checkNoneditDefault.Checked;
+            comboNewsItems.Enabled = !checkNoneditDefault.Checked;
+            comboProfile.Enabled = !checkNoneditDefault.Checked;
         }
 
         private void comboScenarioName_TextUpdate(object sender, EventArgs e)
@@ -169,6 +160,12 @@ namespace SRScenarioCreatorEnhanced.UserControls
             {
                 comboOOF.Text = comboMapName.Text;
             }
+        }
+
+        // Force check basic requirements by moving mouse
+        private void UC_Scenario_MouseMove(object sender, MouseEventArgs e)
+        {
+            activateOtherTabsIfPossible();
         }
     }
 }
