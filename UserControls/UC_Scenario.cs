@@ -25,9 +25,48 @@ namespace SRScenarioCreatorEnhanced.UserControls
             // Here load scenario data, saved during editing
             // -- When switching tabs, data on them resets, so we need to save it elsewhere
 
+            loadDataFromScenarioContent();
+
             activateOtherTabsIfPossible();
         }
 
+        // Loads data saved in scenario class
+        private void loadDataFromScenarioContent()
+        {
+            // Load text
+            comboScenarioName.Text = mainWindow.currentScenario.scenarioName;
+            comboCacheName.Text = mainWindow.currentScenario.cacheName;
+
+            comboMapName.Text = mainWindow.currentScenario.mapName;
+            comboOOF.Text = mainWindow.currentScenario.OOFName;
+
+            comboUnit.Text = mainWindow.currentScenario.UnitName;
+            comboPPLX.Text = mainWindow.currentScenario.PPLXName;
+            comboTTRX.Text = mainWindow.currentScenario.TTRXName;
+            comboTERX.Text = mainWindow.currentScenario.TERXName;
+            comboNewsItems.Text = mainWindow.currentScenario.NewsItemsName;
+            comboProfile.Text = mainWindow.currentScenario.ProfileName;
+
+            comboCVP.Text = mainWindow.currentScenario.CVPName;
+            comboWM.Text = mainWindow.currentScenario.WMName;
+            comboOOB.Text = mainWindow.currentScenario.OOBName;
+            comboPreCache.Text = mainWindow.currentScenario.PreCacheName;
+            comboPostCache.Text = mainWindow.currentScenario.PostCacheName;
+
+            // Load checks
+            checkCacheName.Checked = mainWindow.currentScenario.cacheSameNameCheck;
+
+            checkNewMap.Checked = mainWindow.currentScenario.newMapCheck;
+            checkOOF.Checked = mainWindow.currentScenario.OOFSameNameCheck;
+
+            checkNoneditDefault.Checked = mainWindow.currentScenario.allNonEditableDefaultCheck;
+
+            checkModifyCVP.Checked = mainWindow.currentScenario.CVPModifyCheck;
+            checkModifyWM.Checked = mainWindow.currentScenario.WMModifyCheck;
+            checkModifyOOB.Checked = mainWindow.currentScenario.OOBModifyCheck;
+        }
+
+        #region managingOtherTabs
         // Minimum required to allow to activate other tabs
         private void activateOtherTabsIfPossible()
         {
@@ -86,54 +125,67 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             return true;
         }
+        #endregion
 
         #region CheckBoxesSection
 
-        // 'Maps' Checks
+        #region mapsChecks
         private void checkNewMap_CheckedChanged(object sender, EventArgs e)
         {
+            mainWindow.currentScenario.newMapCheck = checkNewMap.Checked;
             // Create new map: either copy-paste default map and empty it or copy-paste hard-coded content
         }
 
         private void checkOOF_CheckedChanged(object sender, EventArgs e)
         {
             comboOOF.Enabled = !checkOOF.Checked;
+            mainWindow.currentScenario.OOFSameNameCheck = checkOOF.Checked;
 
             if (checkOOF.Checked)
             {
                 comboOOF.Text = comboMapName.Text;
             }
         }
+        #endregion
 
+        #region modifyChecks
         // 'Modify' Checks
         private void checkModifyCVP_CheckedChanged(object sender, EventArgs e)
         {
+            mainWindow.currentScenario.CVPModifyCheck = checkModifyCVP.Checked;
             activateOtherTabsIfPossible();
         }
 
         private void checkModifyWM_CheckedChanged(object sender, EventArgs e)
         {
+            mainWindow.currentScenario.WMModifyCheck = checkModifyWM.Checked;
             activateOtherTabsIfPossible();
         }
 
         private void checkModifyOOB_CheckedChanged(object sender, EventArgs e)
         {
+            mainWindow.currentScenario.OOBModifyCheck = checkModifyOOB.Checked;
             activateOtherTabsIfPossible();
         }
+        #endregion
 
+        #region generalChecks
         // 'General' Checks
         private void checkCacheName_CheckedChanged(object sender, EventArgs e)
         {
             comboCacheName.Enabled = !checkCacheName.Checked;
-            
-            if(checkCacheName.Checked)
+            mainWindow.currentScenario.cacheSameNameCheck = checkCacheName.Checked;
+
+            if (checkCacheName.Checked)
             {
                 comboCacheName.Text = comboScenarioName.Text;
             }
 
             activateOtherTabsIfPossible();
         }
+        #endregion
 
+        #region nonEditableChecks
         // 'Non-editable' Checks
         private void checkNoneditDefault_CheckedChanged(object sender, EventArgs e)
         {
@@ -144,12 +196,16 @@ namespace SRScenarioCreatorEnhanced.UserControls
             comboTERX.Enabled = !checkNoneditDefault.Checked;
             comboNewsItems.Enabled = !checkNoneditDefault.Checked;
             comboProfile.Enabled = !checkNoneditDefault.Checked;
+
+            mainWindow.currentScenario.allNonEditableDefaultCheck = checkNoneditDefault.Checked;
         }
+        #endregion
 
         #endregion
 
         #region ComboBoxesTextUpdateSecion
-        // GENERAL INFO 
+
+        #region generalInfo
         private void comboScenarioName_TextUpdate(object sender, EventArgs e)
         {
             // Update Cache name if it should be the same
@@ -158,15 +214,22 @@ namespace SRScenarioCreatorEnhanced.UserControls
                 comboCacheName.Text = comboScenarioName.Text;
             }
 
+            // Update name in the scenario class
+            mainWindow.currentScenario.scenarioName = comboScenarioName.Text;
+
             activateOtherTabsIfPossible();
         }
 
         private void comboCacheName_TextUpdate(object sender, EventArgs e)
         {
+            // Update name in the scenario class
+            mainWindow.currentScenario.cacheName = comboCacheName.Text;
+
             activateOtherTabsIfPossible();
         }
+        #endregion
 
-        // MAP INFO
+        #region mapInfo
         private void comboMapName_TextUpdate(object sender, EventArgs e)
         {
             // Update Cache name if it should be the same
@@ -175,69 +238,111 @@ namespace SRScenarioCreatorEnhanced.UserControls
                 comboOOF.Text = comboMapName.Text;
             }
 
+            // Update name in the scenario class
+            mainWindow.currentScenario.mapName = comboMapName.Text;
+
             activateOtherTabsIfPossible();
         }
         private void comboOOF_TextUpdate(object sender, EventArgs e)
         {
+            // Update name in the scenario class
+            mainWindow.currentScenario.OOFName = comboOOF.Text;
+
             activateOtherTabsIfPossible();
         }
+        #endregion
 
-        // NON-EDITABLE DATA INFO
+        #region nonEditableDataRegion
         private void comboUnit_TextUpdate(object sender, EventArgs e)
         {
+            // Update name in the scenario class
+            mainWindow.currentScenario.UnitName = comboUnit.Text;
+
             activateOtherTabsIfPossible();
         }
 
         private void comboPPLX_TextUpdate(object sender, EventArgs e)
         {
+            // Update name in the scenario class
+            mainWindow.currentScenario.PPLXName = comboPPLX.Text;
+
             activateOtherTabsIfPossible();
         }
 
         private void comboTTRX_TextUpdate(object sender, EventArgs e)
         {
+            // Update name in the scenario class
+            mainWindow.currentScenario.TTRXName = comboTTRX.Text;
+
             activateOtherTabsIfPossible();
         }
 
         private void comboTERX_TextUpdate(object sender, EventArgs e)
         {
+            // Update name in the scenario class
+            mainWindow.currentScenario.TERXName = comboTERX.Text;
+
             activateOtherTabsIfPossible();
         }
 
         private void comboNewsItems_TextUpdate(object sender, EventArgs e)
         {
+            // Update name in the scenario class
+            mainWindow.currentScenario.NewsItemsName = comboNewsItems.Text;
+
             activateOtherTabsIfPossible();
         }
 
         private void comboProfile_TextUpdate(object sender, EventArgs e)
         {
+            // Update name in the scenario class
+            mainWindow.currentScenario.ProfileName = comboProfile.Text;
+
             activateOtherTabsIfPossible();
         }
+        #endregion
 
-        // EDITABLE DATA INFO
+        #region editableDataInfo
         private void comboCVP_TextUpdate(object sender, EventArgs e)
         {
+            // Update name in the scenario class
+            mainWindow.currentScenario.CVPName = comboCVP.Text;
+
             activateOtherTabsIfPossible();
         }
 
         private void comboWM_TextUpdate(object sender, EventArgs e)
         {
+            // Update name in the scenario class
+            mainWindow.currentScenario.WMName = comboWM.Text;
+
             activateOtherTabsIfPossible();
         }
 
         private void comboOOB_TextUpdate(object sender, EventArgs e)
         {
+            // Update name in the scenario class
+            mainWindow.currentScenario.OOBName = comboOOB.Text;
+
             activateOtherTabsIfPossible();
         }
 
         private void comboPreCache_TextUpdate(object sender, EventArgs e)
         {
+            // Update name in the scenario class
+            mainWindow.currentScenario.PreCacheName = comboPreCache.Text;
+
             activateOtherTabsIfPossible();
         }
 
         private void comboPostCache_TextUpdate(object sender, EventArgs e)
         {
+            // Update name in the scenario class
+            mainWindow.currentScenario.PostCacheName = comboPostCache.Text;
+
             activateOtherTabsIfPossible();
         }
+        #endregion
 
         #endregion
     }

@@ -14,8 +14,8 @@ namespace SRScenarioCreatorEnhanced
 {
     public partial class editorMainWindow : Form
     {
+        #region movableToolBarPanelAssets
         // Movable toolbarPanel assets
-        // //
         public const int WM_NCLBUTTONDOWN = 0xA1;
         public const int HT_CAPTION = 0x2;
 
@@ -23,15 +23,22 @@ namespace SRScenarioCreatorEnhanced
         public static extern int SendMessage(IntPtr hWnd, int Msg, int wParam, int lParam);
         [System.Runtime.InteropServices.DllImport("user32.dll")]
         public static extern bool ReleaseCapture();
-        // //
-    
+        #endregion
+
+        public ScenarioContent currentScenario;
+
         public editorMainWindow()
         {
             InitializeComponent();
+
+            currentScenario = new ScenarioContent();
+
+            // Load Scenario tab
             UC_Scenario uc = new UC_Scenario(this);
             addUserControl(uc);
         }
 
+        #region generalWindowControls
         // Make window movable by grabbing toolbar
         private void toolbarPanel_MouseDown(object sender, MouseEventArgs e)
         {
@@ -50,7 +57,29 @@ namespace SRScenarioCreatorEnhanced
                 SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
+        // Check if status (enabled/disabled) was changed for any button
+        // And update (invert) their status accordingly
+        public void updateTabButtonsStatus()
+        {
+            if (Globals.isSettingsActive != tabSettingsBtn.Enabled) tabSettingsBtn.Enabled = !tabSettingsBtn.Enabled;
+            if (Globals.isTheatersActive != tabTheatersBtn.Enabled) tabTheatersBtn.Enabled = !tabTheatersBtn.Enabled;
+            if (Globals.isRegionsActive != tabRegionsBtn.Enabled) tabRegionsBtn.Enabled = !tabRegionsBtn.Enabled;
+            if (Globals.isResourcesActive != tabResourcesBtn.Enabled) tabResourcesBtn.Enabled = !tabResourcesBtn.Enabled;
+            if (Globals.isWMActive != tabWMBtn.Enabled) tabWMBtn.Enabled = !tabWMBtn.Enabled;
+            if (Globals.isOrbatActive != tabOrbatBtn.Enabled) tabOrbatBtn.Enabled = !tabOrbatBtn.Enabled;
+        }
 
+        // Display new tab
+        private void addUserControl(UserControl userControl)
+        {
+            userControl.Dock = DockStyle.Fill;
+            mainUCPanel.Controls.Clear();
+            mainUCPanel.Controls.Add(userControl);
+            userControl.BringToFront();
+        }
+        #endregion
+
+        #region toolbarButtons
         // Exit button clicked
         private void exitButton_Click(object sender, EventArgs e)
         {
@@ -75,27 +104,9 @@ namespace SRScenarioCreatorEnhanced
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 
-        // Check if status (enabled/disabled) was changed for any button
-        // And update (invert) their status accordingly
-        public void updateTabButtonsStatus()
-        {
-            if (Globals.isSettingsActive != tabSettingsBtn.Enabled) tabSettingsBtn.Enabled = !tabSettingsBtn.Enabled;
-            if (Globals.isTheatersActive != tabTheatersBtn.Enabled) tabTheatersBtn.Enabled = !tabTheatersBtn.Enabled;
-            if (Globals.isRegionsActive != tabRegionsBtn.Enabled) tabRegionsBtn.Enabled = !tabRegionsBtn.Enabled;
-            if (Globals.isResourcesActive != tabResourcesBtn.Enabled) tabResourcesBtn.Enabled = !tabResourcesBtn.Enabled;
-            if (Globals.isWMActive != tabWMBtn.Enabled) tabWMBtn.Enabled = !tabWMBtn.Enabled;
-            if (Globals.isOrbatActive != tabOrbatBtn.Enabled) tabOrbatBtn.Enabled = !tabOrbatBtn.Enabled;
-        }
+        #endregion
 
-        // Display new tab
-        private void addUserControl(UserControl userControl)
-        {
-            userControl.Dock = DockStyle.Fill;
-            mainUCPanel.Controls.Clear();
-            mainUCPanel.Controls.Add(userControl);
-            userControl.BringToFront();
-        }
-
+        #region tabsButtons
         // Tab buttons click event
         // TO EDIT -- don't reload loaded UC
         private void tabScenarioBtn_Click(object sender, EventArgs e)
@@ -139,5 +150,6 @@ namespace SRScenarioCreatorEnhanced
             UC_Orbat uc = new UC_Orbat(this);
             addUserControl(uc);
         }
+        #endregion
     }
 }
