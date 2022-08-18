@@ -1,3 +1,8 @@
+## How To Edit
+Fork the repository, download the project.
+Run ```SRScenarioCreatorEnhanced.sln``` using Visual Studio 2022 (may work with previous versions).
+Make the changes. Make sure everything works as intended. Make a pull request.
+
 ## Main Idea
 Scenario creator (and at the same time editor) for a game "Supreme Ruler Ultimate".
 Highly based on the [original one](https://supremeruler.fandom.com/wiki/Scenario_Creator). This project is basically a remake of it.
