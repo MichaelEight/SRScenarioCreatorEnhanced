@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Deployment.Application;
 using System.IO;
 using System.Reflection;
@@ -10,11 +9,21 @@ namespace SRScenarioCreatorEnhanced
     {
         #region setupVariablesAndConstructor
 
-        // Editor info
-        public string baseExportLocation = Directory.GetCurrentDirectory() + "\\Exported";
+        #region editorInfo
+
+        // Current version of the editor
         private string editorVersion = ApplicationDeployment.IsNetworkDeployed
                ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString()
                : Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+        // Set directory of export (default: editor's directory + "\Exported")
+        private string baseExportDirectory = Directory.GetCurrentDirectory() + "\\Exported";
+        // Directory of SRU folder
+        private string baseGameDirectory = $"I:\\Steam Games\\steamapps\\common\\Supreme Ruler Ultimate"; 
+        // Return baseGameDirectory
+        public string getBaseGameDirectory() { return baseGameDirectory; }
+
+        #endregion
 
         // General Info
         public string scenarioName;
@@ -107,7 +116,7 @@ namespace SRScenarioCreatorEnhanced
         private void exportScenarioFile()
         {
             // Set file location and name
-            string tempExportLocation = baseExportLocation + $"\\{scenarioName}.scenario";
+            string tempExportLocation = baseExportDirectory + $"\\{scenarioName}.scenario";
 
             // Reset content of file
             File.WriteAllText(tempExportLocation, "");

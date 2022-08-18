@@ -113,6 +113,7 @@
             this.comboScenarioName.Name = "comboScenarioName";
             this.comboScenarioName.Size = new System.Drawing.Size(266, 42);
             this.comboScenarioName.TabIndex = 2;
+            this.comboScenarioName.SelectedIndexChanged += new System.EventHandler(this.comboScenarioName_SelectedIndexChanged);
             this.comboScenarioName.TextUpdate += new System.EventHandler(this.comboScenarioName_TextUpdate);
             // 
             // comboCacheName

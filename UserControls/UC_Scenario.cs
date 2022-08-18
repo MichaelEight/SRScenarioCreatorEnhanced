@@ -1,4 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 // TODO
@@ -15,22 +18,59 @@ namespace SRScenarioCreatorEnhanced.UserControls
 {
     public partial class UC_Scenario : UserControl
     {
+        // Reference to editorMainWindow ; allows to edit currently active scenario's data
         private editorMainWindow mainWindow;
         public UC_Scenario(editorMainWindow mainWindow)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
 
+            // Load file names to combo boxes
             // TODO
-            // Here load scenario data, saved during editing
-            // -- When switching tabs, data on them resets, so we need to save it elsewhere
+            loadFileNamesToEachComponent();
 
+            // Load chosen options
             loadDataFromScenarioContent();
 
             activateOtherTabsIfPossible();
         }
 
-        // Loads data saved in scenario class
+        #region loadingFileNamesAndChoices
+
+        /// <summary>
+        /// Load names of available files from game directory to each combo box
+        /// </summary>
+        private void loadFileNamesToEachComponent()
+        {
+            // String containing temporary search directory
+            string tempSearchDirectory = mainWindow.currentScenario.getBaseGameDirectory() + $"\\Scenario\\Custom";
+
+            // Get array of available scenarios
+            string[] arrayOfAvailableScenarios = getListOfFiles(tempSearchDirectory, "SCENARIO");
+            // Load array to scenarios combobox
+            comboScenarioName.Items.AddRange(arrayOfAvailableScenarios);
+
+            // Load other comboboxes
+        }
+
+        /// <summary>
+        /// Finds list of file names in the given directory, which have given extension
+        /// </summary>
+        /// <param name="searchDirectory">Where to look for target files; give full directory</param>
+        /// <param name="extension">What extension are you looking for w/o dot e.g. "scenario"</param>
+        /// <returns>List of file names of target extension found in directory</returns>
+        private string[] getListOfFiles(string searchDirectory, string extension)
+        {
+            // Get files from searchDirectory, get only these with given extension.
+            // Next, eliminate path and extension to leave just the file name.
+            // By default it gives IEnumerable, so convert it to array
+            return Directory.GetFiles(searchDirectory, $"*.{extension}",
+                SearchOption.TopDirectoryOnly).Select(Path.GetFileNameWithoutExtension).ToArray();
+        }
+
+        /// <summary>
+        /// Loads data on user's choices saved in scenario class
+        /// </summary>
         private void loadDataFromScenarioContent()
         {
             // Load text
@@ -65,6 +105,8 @@ namespace SRScenarioCreatorEnhanced.UserControls
             checkModifyWM.Checked = mainWindow.currentScenario.WMModifyCheck;
             checkModifyOOB.Checked = mainWindow.currentScenario.OOBModifyCheck;
         }
+
+        #endregion
 
         #region managingOtherTabs
 
@@ -354,6 +396,11 @@ namespace SRScenarioCreatorEnhanced.UserControls
         private void exportScenarioButton_Click(object sender, EventArgs e)
         {
             mainWindow.currentScenario.exportScenarioToFileAndFolder();
+        }
+
+        private void comboScenarioName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }
