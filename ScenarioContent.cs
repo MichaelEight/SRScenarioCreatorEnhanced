@@ -12,7 +12,6 @@ namespace SRScenarioCreatorEnhanced
 
         // Editor info
         public string baseExportLocation = Directory.GetCurrentDirectory() + "\\Exported";
-        public string tempExportLocation;
         private string editorVersion = ApplicationDeployment.IsNetworkDeployed
                ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString()
                : Assembly.GetExecutingAssembly().GetName().Version.ToString();
@@ -80,25 +79,6 @@ namespace SRScenarioCreatorEnhanced
 
         #region exportingScenarioToFiles
 
-        #region exportingTools
-        // Clears file from all text (uses universal tempExportLocation!)
-        private void clearFile(string fileLocation)
-        {
-            File.WriteAllText(fileLocation, ""); // Reset content of file
-        }
-        
-        // Appends text to file (uses universal tempExportLocation!)
-        private void writeToFile(string textToWrite)
-        {
-            if (!string.IsNullOrEmpty(tempExportLocation))
-                File.AppendAllText(tempExportLocation, textToWrite);
-            else
-            {
-                throw new Exception("Empty tempExportLocation");
-            }
-        }
-
-        #endregion
         public void exportScenarioToFileAndFolder()
         {
             // Save .scenario file
@@ -127,50 +107,48 @@ namespace SRScenarioCreatorEnhanced
         private void exportScenarioFile()
         {
             // Set file location and name
-            tempExportLocation = baseExportLocation + $"\\{scenarioName}.scenario";
+            string tempExportLocation = baseExportLocation + $"\\{scenarioName}.scenario";
 
-            clearFile(tempExportLocation);
+            // Reset content of file
+            File.WriteAllText(tempExportLocation, "");
 
-            writeToFile($"// SCENARIO DEFINITION - {scenarioName}\n");
-            writeToFile($"// Created using Enhanced Scenario Creator V{editorVersion} - {DateTime.Now.ToString()}\n");
-            writeToFile($"// ifset key: 0x01: Load CVP; 0x02: Load Rest of Source; 0x03: Load all; 0x04: Load Cache\n");
-            writeToFile($"\n");
-            
-            writeToFile($"#ifset 0x01\n");
-            writeToFile($"#include \"{CVPName}.CVP\", \"MAPS\\\"\n");
-            writeToFile($"#include \"{CVPName}.REGIONINCL\", \"MAPS\\\"\n");
-            writeToFile($"#include \"{ProfileName}.PRF\", \"MAPS\\DATA\\\"\n");
-            writeToFile($"#endifset\n");
-            writeToFile($"\n");
-            
-            writeToFile($"#ifset 0x02\n");
-            writeToFile($"#include \"{UnitName}.UNIT\", \"MAPS\\DATA\\\"\n");
-            writeToFile($"#include \"{PPLXName}.PPLX\", \"MAPS\\DATA\\\"\n");
-            writeToFile($"#include \"{TTRXName}.TTRX\", \"MAPS\\DATA\\\"\n");
-            writeToFile($"#include \"{TERXName}.TERX\", \"MAPS\\DATA\\\"\n");
-            writeToFile($"#include \"{WMName}.WMData\", \"MAPS\\DATA\\\"\n");
-            writeToFile($"#include \"{NewsItemsName}.NEWSIMTES\", \"MAPS\\DATA\\\"\n");
-            writeToFile($"#include \"AllSourceLoad.INI\", \"INI\\\"\n");
-            writeToFile($"#endifset\n");
-            writeToFile($"\n");
-            
-            writeToFile($"#ifset 0x02\n");
-            writeToFile($"&&MAP\n");
-            writeToFile($"mapfile \"{scenarioName}\"\n");
-            writeToFile($"&&MAP\n");
-            writeToFile($"\n");
-            
-            writeToFile($"#include \"{OOFName}.OOF\", \"MAPS\\\"\n");
-            writeToFile($"#include \"AllLoad.INI\", \"INI\\\"\n");
-            writeToFile($"#include \"{OOBName}.OOB\", \"MAPS\\ORBATS\\\"\n");
-            writeToFile($"#endifset\n");
-            writeToFile($"\n");
-            
-            writeToFile($"#ifset 0x04\n");
-            writeToFile($"&&SAV\n");
-            writeToFile($"savfile \"{cacheName}\"\n");
-            writeToFile($"&&END\n");
-            writeToFile($"\n");
+            // Input hard-coded scheme
+            File.AppendAllLines(tempExportLocation, new string[]{
+                $"// SCENARIO DEFINITION - {scenarioName}",
+                $"// Created using Enhanced Scenario Creator V{editorVersion} - {DateTime.Now.ToString()}",
+                $"// ifset key: 0x01: Load CVP; 0x02: Load Rest of Source; 0x03: Load all; 0x04: Load Cache\n",
+
+                $"#ifset 0x01",
+                $"#include \"{CVPName}.CVP\", \"MAPS\\\"",
+                $"#include \"{CVPName}.REGIONINCL\", \"MAPS\\\"",
+                $"#include \"{ProfileName}.PRF\", \"MAPS\\DATA\\\"",
+                $"#endifset\n",
+
+                $"#ifset 0x02",
+                $"#include \"{UnitName}.UNIT\", \"MAPS\\DATA\\\"",
+                $"#include \"{PPLXName}.PPLX\", \"MAPS\\DATA\\\"",
+                $"#include \"{TTRXName}.TTRX\", \"MAPS\\DATA\\\"",
+                $"#include \"{TERXName}.TERX\", \"MAPS\\DATA\\\"",
+                $"#include \"{WMName}.WMData\", \"MAPS\\DATA\\\"",
+                $"#include \"{NewsItemsName}.NEWSIMTES\", \"MAPS\\DATA\\\"",
+                $"#include \"AllSourceLoad.INI\", \"INI\\\"",
+                $"#endifset\n",
+
+                $"#ifset 0x02",
+                $"&&MAP",
+                $"mapfile \"{scenarioName}\"",
+                $"&&MAP\n",
+
+                $"#include \"{OOFName}.OOF\", \"MAPS\\\"",
+                $"#include \"AllLoad.INI\", \"INI\\\"",
+                $"#include \"{OOBName}.OOB\", \"MAPS\\ORBATS\\\"",
+                $"#endifset\n",
+
+                $"#ifset 0x04",
+                $"&&SAV",
+                $"savfile \"{cacheName}\"",
+                $"&&END\n"
+            });
         }
 
         private void exportOOBFile()
