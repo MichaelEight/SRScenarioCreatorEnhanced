@@ -80,7 +80,7 @@ namespace SRScenarioCreatorEnhanced
 
             CVPName = "";
             WMName = "";
-            OOBName = "";
+            OOBName = "DEFAULT";
             PreCacheName = "";
             PostCacheName = "";
             CVPModifyCheck = false;
