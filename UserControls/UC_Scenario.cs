@@ -440,8 +440,10 @@ namespace SRScenarioCreatorEnhanced.UserControls
             // Execute standard commands
             comboScenarioName_TextUpdate(sender, e);
 
+            // Load content from selected .scenario file
+            mainWindow.currentScenario.loadDataFromScenarioFileToActiveScenario(comboScenarioName.Text);
+            // Refresh tab
             // TODO
-            // Load content from .scenario to other comboboxes
         }
     }
 }

@@ -184,5 +184,16 @@ namespace SRScenarioCreatorEnhanced
             throw new NotImplementedException();
         }
         #endregion
+
+        #region loadingDataFromFile
+
+        public void loadDataFromScenarioFileToActiveScenario(string scenarioName)
+        {
+            // Load .scenario file
+            // Get each line
+
+        }
+
+        #endregion
     }
 }
