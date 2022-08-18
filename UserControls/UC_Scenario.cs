@@ -4,7 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-// TODO
+// Nice-To-Have
 // If you want -- make 'required' labels disappear when data is correct
 
 /// ***File controlling behaviour of 'Scenario' Tab***
@@ -26,7 +26,6 @@ namespace SRScenarioCreatorEnhanced.UserControls
             this.mainWindow = mainWindow;
 
             // Load file names to combo boxes
-            // TODO
             loadFileNamesToEachComponent();
 
             // Load chosen options
@@ -42,15 +41,52 @@ namespace SRScenarioCreatorEnhanced.UserControls
         /// </summary>
         private void loadFileNamesToEachComponent()
         {
-            // String containing temporary search directory
-            string tempSearchDirectory = mainWindow.currentScenario.getBaseGameDirectory() + $"\\Scenario\\Custom";
+            // Load Scenarios
+            loadDataToCombobox(comboScenarioName,"SCENARIO", @"\Scenario\Custom\");
+            // Load Cache
+            loadDataToCombobox(comboCacheName,"SAV", @"\Cache\");
 
-            // Get array of available scenarios
-            string[] arrayOfAvailableScenarios = getListOfFiles(tempSearchDirectory, "SCENARIO");
-            // Load array to scenarios combobox
-            comboScenarioName.Items.AddRange(arrayOfAvailableScenarios);
+            // Load Maps
+            loadDataToCombobox(comboMapName,"MAPX", @"\Maps\");
+            // Load OOF
+            loadDataToCombobox(comboOOF,"OOF", @"\Maps\");
 
-            // Load other comboboxes
+            // Load UNIT
+            loadDataToCombobox(comboUnit, "UNIT", @"\Maps\Data\");
+            // Load PPLX
+            loadDataToCombobox(comboPPLX, "PPLX", @"\Maps\Data\");
+            // Load TTRX
+            loadDataToCombobox(comboTTRX, "TTRX", @"\Maps\Data\");
+            // Load TERX
+            loadDataToCombobox(comboTERX, "TERX", @"\Maps\Data\");
+            // Load NEWSITEMS
+            loadDataToCombobox(comboNewsItems, "NEWSITEMS", @"\Maps\Data\");
+            // Load PROFILE
+            loadDataToCombobox(comboProfile, "PRF", @"\Maps\Data\");
+
+            // Load CVP
+            loadDataToCombobox(comboCVP, "CVP", @"\Maps\");
+            // Load WMDATA
+            loadDataToCombobox(comboWM, "WMData", @"\Maps\Data\");
+            // Load OOB
+            loadDataToCombobox(comboOOB, "OOB", @"\Maps\Orbats");
+        }
+
+        /// <summary>
+        /// Loads file names from given directory to given combobox
+        /// </summary>
+        /// <param name="comboName">Name of combobox to be filled with name</param>
+        /// <param name="searchDirectory">Where to look for files (skip the base game directory) e.g. "Scenario\\Custom\\</param>
+        /// <param name="extension">Target files extension, without dot</param>
+        private void loadDataToCombobox(ComboBox comboName, string extension, string searchDirectory)
+        {
+            // Clear ComboBox content
+            comboName.Items.Clear();
+
+            // Add base game dir to make a full path
+            searchDirectory = mainWindow.currentScenario.getBaseGameDirectory() + searchDirectory;
+            // Fill combobox with found names
+            comboName.Items.AddRange( getListOfFiles(searchDirectory, extension) );
         }
 
         /// <summary>
@@ -398,9 +434,14 @@ namespace SRScenarioCreatorEnhanced.UserControls
             mainWindow.currentScenario.exportScenarioToFileAndFolder();
         }
 
+        // Changed comboScenarioName index selection must be separate, to load data into other comboboxes correctly
         private void comboScenarioName_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Execute standard commands
+            comboScenarioName_TextUpdate(sender, e);
 
+            // TODO
+            // Load content from .scenario to other comboboxes
         }
     }
 }

@@ -25,6 +25,8 @@ namespace SRScenarioCreatorEnhanced
 
         #endregion
 
+        #region basicVars
+
         // General Info
         public string scenarioName;
         public string cacheName;
@@ -54,6 +56,8 @@ namespace SRScenarioCreatorEnhanced
         public bool CVPModifyCheck;
         public bool WMModifyCheck;
         public bool OOBModifyCheck;
+
+        #endregion
 
         // Generate default data on creation
         public ScenarioContent()
@@ -97,6 +101,7 @@ namespace SRScenarioCreatorEnhanced
             if(CVPModifyCheck)
             {
                 exportCVPFile();
+                exportRegionInclFile();
             }
 
             // Save .wmdata file (if modified)
@@ -139,13 +144,13 @@ namespace SRScenarioCreatorEnhanced
                 $"#include \"{TTRXName}.TTRX\", \"MAPS\\DATA\\\"",
                 $"#include \"{TERXName}.TERX\", \"MAPS\\DATA\\\"",
                 $"#include \"{WMName}.WMData\", \"MAPS\\DATA\\\"",
-                $"#include \"{NewsItemsName}.NEWSIMTES\", \"MAPS\\DATA\\\"",
+                $"#include \"{NewsItemsName}.NEWSITEMS\", \"MAPS\\DATA\\\"",
                 $"#include \"AllSourceLoad.INI\", \"INI\\\"",
                 $"#endifset\n",
 
                 $"#ifset 0x02",
                 $"&&MAP",
-                $"mapfile \"{scenarioName}\"",
+                $"mapfile \"{mapName}\"",
                 $"&&MAP\n",
 
                 $"#include \"{OOFName}.OOF\", \"MAPS\\\"",
@@ -158,6 +163,10 @@ namespace SRScenarioCreatorEnhanced
                 $"savfile \"{cacheName}\"",
                 $"&&END\n"
             });
+        }
+        private void exportRegionInclFile()
+        {
+            throw new NotImplementedException();
         }
 
         private void exportOOBFile()
