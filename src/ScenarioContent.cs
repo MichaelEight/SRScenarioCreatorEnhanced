@@ -62,7 +62,7 @@ namespace SRScenarioCreatorEnhanced
         #region otherTabsContentObjects
 
         // Create instances of classes holding data on other tabs
-        SettingsContent currentSettings;
+        // SettingsContent currentSettings; // Do not load, if functionality not ready yet
 
         #endregion
 
@@ -163,12 +163,17 @@ namespace SRScenarioCreatorEnhanced
                 $"#include \"{OOFName}.OOF\", \"MAPS\\\"",
                 $"#include \"AllLoad.INI\", \"INI\\\"",
                 $"#include \"{OOBName}.OOB\", \"MAPS\\ORBATS\\\"",
+                string.IsNullOrEmpty(PreCacheName) ? null : $"#include \"{PreCacheName}\"", // Do not include, if empty
                 $"#endifset\n",
 
                 $"#ifset 0x04",
                 $"&&SAV",
                 $"savfile \"{cacheName}\"",
-                $"&&END\n"
+                $"&&END\n",
+                
+                string.IsNullOrEmpty(PostCacheName) ? null : $"#include \"{PostCacheName}\"\n", // Do not include, if empty
+
+                $"#endifset\n"
             });
         }
         private void exportRegionInclFile()
