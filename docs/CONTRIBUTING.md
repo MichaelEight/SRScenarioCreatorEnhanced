@@ -32,6 +32,7 @@ In other tabs user should be able to modify content of all listed files.
 
 Additional Guidelines:
 - Regions Tab should have a list of all existing countries (ID + name + isSelected). On click, country's data should be loaded to all boxes besides it. There, user should be able to modify as many options as possible. You can divide options to 2 sections: basic (name, id, flag etc.) and advanced (crimerate, ratings etc.). "Advanced" options may be skipped by a checkbox (more specific - press to enable advanced options). If advanced not selected then leave them blank (well, game is suprisingly good at working without some information) or generate random values. There should be a "Save changes" button and "Create New Country" button. 
+- **Use descriptive variable names! Readability over pure shortcuts!**
 
 
 ## Directories Needed
