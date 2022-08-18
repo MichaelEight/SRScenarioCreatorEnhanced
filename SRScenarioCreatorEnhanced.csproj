@@ -55,7 +55,7 @@
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
   <PropertyGroup>
-    <GenerateManifests>true</GenerateManifests>
+    <GenerateManifests>false</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
@@ -87,6 +87,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\GlobalsList.cs" />
     <Compile Include="src\ScenarioContent.cs" />
+    <Compile Include="src\SettingsContent.cs" />
     <Compile Include="UserControls\UC_Orbat.cs">
       <SubType>UserControl</SubType>
     </Compile>

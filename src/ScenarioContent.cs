@@ -59,6 +59,13 @@ namespace SRScenarioCreatorEnhanced
 
         #endregion
 
+        #region otherTabsContentObjects
+
+        // Create instances of classes holding data on other tabs
+        SettingsContent currentSettings;
+
+        #endregion
+
         // Generate default data on creation
         public ScenarioContent()
         {
