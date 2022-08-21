@@ -60,9 +60,9 @@
             this.toolbarPanel.Controls.Add(this.exitButton);
             this.toolbarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolbarPanel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.toolbarPanel.Location = new System.Drawing.Point(0, 0);
+            this.toolbarPanel.Location = new System.Drawing.Point(3, 0);
             this.toolbarPanel.Name = "toolbarPanel";
-            this.toolbarPanel.Size = new System.Drawing.Size(1800, 100);
+            this.toolbarPanel.Size = new System.Drawing.Size(1794, 100);
             this.toolbarPanel.TabIndex = 2;
             this.toolbarPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.toolbarPanel_MouseDown);
             // 
@@ -91,7 +91,7 @@
             this.titleLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.titleLabel.Location = new System.Drawing.Point(373, 21);
+            this.titleLabel.Location = new System.Drawing.Point(370, 21);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(1082, 51);
             this.titleLabel.TabIndex = 2;
@@ -103,7 +103,7 @@
             this.infoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.infoButton.BackgroundImage = global::SRScenarioCreatorEnhanced.Properties.Resources.appInfoIcon2smaller;
             this.infoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.infoButton.Location = new System.Drawing.Point(1571, 12);
+            this.infoButton.Location = new System.Drawing.Point(1565, 12);
             this.infoButton.Name = "infoButton";
             this.infoButton.Size = new System.Drawing.Size(70, 70);
             this.infoButton.TabIndex = 1;
@@ -115,7 +115,7 @@
             this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.exitButton.BackgroundImage = global::SRScenarioCreatorEnhanced.Properties.Resources.appExitIcon;
             this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.exitButton.Location = new System.Drawing.Point(1707, 12);
+            this.exitButton.Location = new System.Drawing.Point(1701, 12);
             this.exitButton.Name = "exitButton";
             this.exitButton.Size = new System.Drawing.Size(70, 70);
             this.exitButton.TabIndex = 0;
@@ -133,9 +133,9 @@
             this.tabsPanel.Controls.Add(this.tabSettingsBtn);
             this.tabsPanel.Controls.Add(this.tabScenarioBtn);
             this.tabsPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.tabsPanel.Location = new System.Drawing.Point(0, 100);
+            this.tabsPanel.Location = new System.Drawing.Point(3, 100);
             this.tabsPanel.Name = "tabsPanel";
-            this.tabsPanel.Size = new System.Drawing.Size(1800, 100);
+            this.tabsPanel.Size = new System.Drawing.Size(1794, 100);
             this.tabsPanel.TabIndex = 3;
             // 
             // tabOrbatBtn
@@ -152,7 +152,7 @@
             this.tabOrbatBtn.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
             this.tabOrbatBtn.ForeColor = System.Drawing.Color.White;
             this.tabOrbatBtn.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.tabOrbatBtn.Location = new System.Drawing.Point(1585, 0);
+            this.tabOrbatBtn.Location = new System.Drawing.Point(1582, 0);
             this.tabOrbatBtn.Name = "tabOrbatBtn";
             this.tabOrbatBtn.Size = new System.Drawing.Size(215, 100);
             this.tabOrbatBtn.TabIndex = 6;
@@ -173,7 +173,7 @@
             this.tabWMBtn.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
             this.tabWMBtn.ForeColor = System.Drawing.Color.White;
             this.tabWMBtn.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.tabWMBtn.Location = new System.Drawing.Point(1270, 0);
+            this.tabWMBtn.Location = new System.Drawing.Point(1267, 0);
             this.tabWMBtn.Name = "tabWMBtn";
             this.tabWMBtn.Size = new System.Drawing.Size(309, 100);
             this.tabWMBtn.TabIndex = 5;
@@ -194,7 +194,7 @@
             this.tabResourcesBtn.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
             this.tabResourcesBtn.ForeColor = System.Drawing.Color.White;
             this.tabResourcesBtn.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.tabResourcesBtn.Location = new System.Drawing.Point(1008, 0);
+            this.tabResourcesBtn.Location = new System.Drawing.Point(1005, 0);
             this.tabResourcesBtn.Name = "tabResourcesBtn";
             this.tabResourcesBtn.Size = new System.Drawing.Size(256, 100);
             this.tabResourcesBtn.TabIndex = 4;
@@ -215,7 +215,7 @@
             this.tabRegionsBtn.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
             this.tabRegionsBtn.ForeColor = System.Drawing.Color.White;
             this.tabRegionsBtn.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.tabRegionsBtn.Location = new System.Drawing.Point(754, 0);
+            this.tabRegionsBtn.Location = new System.Drawing.Point(751, 0);
             this.tabRegionsBtn.Name = "tabRegionsBtn";
             this.tabRegionsBtn.Size = new System.Drawing.Size(248, 100);
             this.tabRegionsBtn.TabIndex = 3;
@@ -236,7 +236,7 @@
             this.tabTheatersBtn.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
             this.tabTheatersBtn.ForeColor = System.Drawing.Color.White;
             this.tabTheatersBtn.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.tabTheatersBtn.Location = new System.Drawing.Point(496, 0);
+            this.tabTheatersBtn.Location = new System.Drawing.Point(493, 0);
             this.tabTheatersBtn.Name = "tabTheatersBtn";
             this.tabTheatersBtn.Size = new System.Drawing.Size(252, 100);
             this.tabTheatersBtn.TabIndex = 2;
@@ -257,7 +257,7 @@
             this.tabSettingsBtn.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
             this.tabSettingsBtn.ForeColor = System.Drawing.Color.White;
             this.tabSettingsBtn.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.tabSettingsBtn.Location = new System.Drawing.Point(242, 0);
+            this.tabSettingsBtn.Location = new System.Drawing.Point(239, 0);
             this.tabSettingsBtn.Name = "tabSettingsBtn";
             this.tabSettingsBtn.Size = new System.Drawing.Size(248, 100);
             this.tabSettingsBtn.TabIndex = 1;
@@ -278,7 +278,7 @@
             this.tabScenarioBtn.Font = new System.Drawing.Font("Century Gothic", 18F, System.Drawing.FontStyle.Bold);
             this.tabScenarioBtn.ForeColor = System.Drawing.Color.White;
             this.tabScenarioBtn.HoverState.CustomBorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
-            this.tabScenarioBtn.Location = new System.Drawing.Point(0, 0);
+            this.tabScenarioBtn.Location = new System.Drawing.Point(-3, 0);
             this.tabScenarioBtn.Name = "tabScenarioBtn";
             this.tabScenarioBtn.Size = new System.Drawing.Size(236, 100);
             this.tabScenarioBtn.TabIndex = 0;
@@ -287,16 +287,19 @@
             // 
             // mainUCPanel
             // 
+            this.mainUCPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             this.mainUCPanel.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.mainUCPanel.Location = new System.Drawing.Point(0, 200);
+            this.mainUCPanel.Location = new System.Drawing.Point(3, 200);
             this.mainUCPanel.Name = "mainUCPanel";
-            this.mainUCPanel.Size = new System.Drawing.Size(1800, 1000);
+            this.mainUCPanel.Size = new System.Drawing.Size(1794, 997);
             this.mainUCPanel.TabIndex = 4;
             // 
             // editorMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
+            this.BackColor = System.Drawing.Color.Black;
             this.ClientSize = new System.Drawing.Size(1800, 1200);
             this.Controls.Add(this.mainUCPanel);
             this.Controls.Add(this.tabsPanel);
@@ -304,6 +307,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "editorMainWindow";
+            this.Padding = new System.Windows.Forms.Padding(3, 0, 3, 3);
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "editorMainWindow";
             this.toolbarPanel.ResumeLayout(false);
