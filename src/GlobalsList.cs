@@ -13,5 +13,5 @@ public static class Globals
 
 public static class Configuration
 {
-    public const bool enableLoadingFilesFromGameDirectory = true;
+    public const bool enableLoadingFilesFromGameDirectory = true; // DEFAULT: TRUE
 }
