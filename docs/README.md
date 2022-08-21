@@ -9,8 +9,7 @@ There is a lack of options and exporting scenarios often break for no specific r
 That's why we decided to make an editor of our own. Improved over the original one.
 
 ## Usage
-**No available release so far, work in progress!**
+**No available release yet, work in progress!**
 
 ## Licence
-Free to use and modify. Not allowed to release with closed source! Credit us as original creator of Enhanced SR Editor (however we are **not** the creators of the game
-OR original, steam-version editor).
+GNU GPL v3. Free to use and modify. Not allowed to release with closed source! Credit us as original creators of Enhanced SR Editor (however we are **not** the creators of the game OR the original, steam-version editor).
