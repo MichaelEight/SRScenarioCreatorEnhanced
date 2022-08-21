@@ -1,7 +1,7 @@
 # SREditorEnhanced
 
 ## Work in progress (!)
-[Contribution guidelines for this project](docs/CONTRIBUTING.md)
+[Contribution guidelines for this project](CONTRIBUTING.md)
 
 ## Origin Story
 Supreme Ruler Ultimate is one of the most liked games by me & my friends. We decided to try modding it. It was fine, however stock editor has it's issues.
