@@ -82,13 +82,17 @@ namespace SRScenarioCreatorEnhanced.UserControls
         /// <param name="extension">Target files extension, without dot</param>
         private void loadDataToCombobox(ComboBox comboName, string extension, string searchDirectory)
         {
-            // Clear ComboBox content
-            comboName.Items.Clear();
+            // Check if directory is valid
+            if (Directory.Exists(mainWindow.currentScenario.getBaseGameDirectory() + searchDirectory))
+            {
+                // Clear ComboBox content
+                comboName.Items.Clear();
 
-            // Add base game dir to make a full path
-            searchDirectory = mainWindow.currentScenario.getBaseGameDirectory() + searchDirectory;
-            // Fill combobox with found names
-            comboName.Items.AddRange( getListOfFiles(searchDirectory, extension) );
+                // Add base game dir to make a full path
+                searchDirectory = mainWindow.currentScenario.getBaseGameDirectory() + searchDirectory;
+                // Fill combobox with found names
+                comboName.Items.AddRange(getListOfFiles(searchDirectory, extension));
+            }
         }
 
         /// <summary>
