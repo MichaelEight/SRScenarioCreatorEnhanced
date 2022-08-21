@@ -50,7 +50,8 @@ Additional Guidelines:
 
 ## Directories Needed
 // Edit on 2022/08/21 19:47 -- in src>>GlobalsList.cs exists "Configuration" class. There are debug settings you can use. Set `enableLoadingFilesFromGameDirectory` to `false` to disable app accessing game directory (sometimes needed, if a directory error appears)
-Main Game folder -- Supreme Ruler Ultimate, now marked as ..\
+
+Main Game folder -- Supreme Ruler Ultimate, from now on marked as ..\
 
 - Custom Scenarios Folder:
   - ..\Scenario\Custom\
