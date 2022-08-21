@@ -1,7 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
-// TODO
+// Nice-To-Have
 // If you want -- make 'required' labels disappear when data is correct
 
 /// ***File controlling behaviour of 'Scenario' Tab***
@@ -15,22 +18,95 @@ namespace SRScenarioCreatorEnhanced.UserControls
 {
     public partial class UC_Scenario : UserControl
     {
+        // Reference to editorMainWindow ; allows to edit currently active scenario's data
         private editorMainWindow mainWindow;
         public UC_Scenario(editorMainWindow mainWindow)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
 
-            // TODO
-            // Here load scenario data, saved during editing
-            // -- When switching tabs, data on them resets, so we need to save it elsewhere
+            // Load file names to combo boxes
+            loadFileNamesToEachComponent();
 
+            // Load chosen options
             loadDataFromScenarioContent();
 
             activateOtherTabsIfPossible();
         }
 
-        // Loads data saved in scenario class
+        #region loadingFileNamesAndChoices
+
+        /// <summary>
+        /// Load names of available files from game directory to each combo box
+        /// </summary>
+        private void loadFileNamesToEachComponent()
+        {
+            // Load Scenarios
+            loadDataToCombobox(comboScenarioName,"SCENARIO", @"\Scenario\Custom\");
+            // Load Cache
+            loadDataToCombobox(comboCacheName,"SAV", @"\Cache\");
+
+            // Load Maps
+            loadDataToCombobox(comboMapName,"MAPX", @"\Maps\");
+            // Load OOF
+            loadDataToCombobox(comboOOF,"OOF", @"\Maps\");
+
+            // Load UNIT
+            loadDataToCombobox(comboUnit, "UNIT", @"\Maps\Data\");
+            // Load PPLX
+            loadDataToCombobox(comboPPLX, "PPLX", @"\Maps\Data\");
+            // Load TTRX
+            loadDataToCombobox(comboTTRX, "TTRX", @"\Maps\Data\");
+            // Load TERX
+            loadDataToCombobox(comboTERX, "TERX", @"\Maps\Data\");
+            // Load NEWSITEMS
+            loadDataToCombobox(comboNewsItems, "NEWSITEMS", @"\Maps\Data\");
+            // Load PROFILE
+            loadDataToCombobox(comboProfile, "PRF", @"\Maps\Data\");
+
+            // Load CVP
+            loadDataToCombobox(comboCVP, "CVP", @"\Maps\");
+            // Load WMDATA
+            loadDataToCombobox(comboWM, "WMData", @"\Maps\Data\");
+            // Load OOB
+            loadDataToCombobox(comboOOB, "OOB", @"\Maps\Orbats");
+        }
+
+        /// <summary>
+        /// Loads file names from given directory to given combobox
+        /// </summary>
+        /// <param name="comboName">Name of combobox to be filled with name</param>
+        /// <param name="searchDirectory">Where to look for files (skip the base game directory) e.g. "Scenario\\Custom\\</param>
+        /// <param name="extension">Target files extension, without dot</param>
+        private void loadDataToCombobox(ComboBox comboName, string extension, string searchDirectory)
+        {
+            // Clear ComboBox content
+            comboName.Items.Clear();
+
+            // Add base game dir to make a full path
+            searchDirectory = mainWindow.currentScenario.getBaseGameDirectory() + searchDirectory;
+            // Fill combobox with found names
+            comboName.Items.AddRange( getListOfFiles(searchDirectory, extension) );
+        }
+
+        /// <summary>
+        /// Finds list of file names in the given directory, which have given extension
+        /// </summary>
+        /// <param name="searchDirectory">Where to look for target files; give full directory</param>
+        /// <param name="extension">What extension are you looking for w/o dot e.g. "scenario"</param>
+        /// <returns>List of file names of target extension found in directory</returns>
+        private string[] getListOfFiles(string searchDirectory, string extension)
+        {
+            // Get files from searchDirectory, get only these with given extension.
+            // Next, eliminate path and extension to leave just the file name.
+            // By default it gives IEnumerable, so convert it to array
+            return Directory.GetFiles(searchDirectory, $"*.{extension}",
+                SearchOption.TopDirectoryOnly).Select(Path.GetFileNameWithoutExtension).ToArray();
+        }
+
+        /// <summary>
+        /// Loads data on user's choices saved in scenario class
+        /// </summary>
         private void loadDataFromScenarioContent()
         {
             // Load text
@@ -65,6 +141,8 @@ namespace SRScenarioCreatorEnhanced.UserControls
             checkModifyWM.Checked = mainWindow.currentScenario.WMModifyCheck;
             checkModifyOOB.Checked = mainWindow.currentScenario.OOBModifyCheck;
         }
+
+        #endregion
 
         #region managingOtherTabs
 
@@ -354,6 +432,18 @@ namespace SRScenarioCreatorEnhanced.UserControls
         private void exportScenarioButton_Click(object sender, EventArgs e)
         {
             mainWindow.currentScenario.exportScenarioToFileAndFolder();
+        }
+
+        // Changed comboScenarioName index selection must be separate, to load data into other comboboxes correctly
+        private void comboScenarioName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Execute standard commands
+            comboScenarioName_TextUpdate(sender, e);
+
+            // Load content from selected .scenario file
+            mainWindow.currentScenario.loadDataFromScenarioFileToActiveScenario(comboScenarioName.Text);
+            // Refresh tab
+            // TODO
         }
     }
 }

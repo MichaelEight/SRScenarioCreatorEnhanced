@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Deployment.Application;
 using System.IO;
 using System.Reflection;
@@ -10,11 +9,23 @@ namespace SRScenarioCreatorEnhanced
     {
         #region setupVariablesAndConstructor
 
-        // Editor info
-        public string baseExportLocation = Directory.GetCurrentDirectory() + "\\Exported";
+        #region editorInfo
+
+        // Current version of the editor
         private string editorVersion = ApplicationDeployment.IsNetworkDeployed
                ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString()
                : Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+        // Set directory of export (default: editor's directory + "\Exported")
+        private string baseExportDirectory = Directory.GetCurrentDirectory() + "\\Exported";
+        // Directory of SRU folder
+        private string baseGameDirectory = $"I:\\Steam Games\\steamapps\\common\\Supreme Ruler Ultimate"; 
+        // Return baseGameDirectory
+        public string getBaseGameDirectory() { return baseGameDirectory; }
+
+        #endregion
+
+        #region basicVars
 
         // General Info
         public string scenarioName;
@@ -46,6 +57,15 @@ namespace SRScenarioCreatorEnhanced
         public bool WMModifyCheck;
         public bool OOBModifyCheck;
 
+        #endregion
+
+        #region otherTabsContentObjects
+
+        // Create instances of classes holding data on other tabs
+        // SettingsContent currentSettings; // Do not load, if functionality not ready yet
+
+        #endregion
+
         // Generate default data on creation
         public ScenarioContent()
         {
@@ -67,7 +87,7 @@ namespace SRScenarioCreatorEnhanced
 
             CVPName = "";
             WMName = "";
-            OOBName = "";
+            OOBName = "DEFAULT";
             PreCacheName = "";
             PostCacheName = "";
             CVPModifyCheck = false;
@@ -88,6 +108,7 @@ namespace SRScenarioCreatorEnhanced
             if(CVPModifyCheck)
             {
                 exportCVPFile();
+                exportRegionInclFile();
             }
 
             // Save .wmdata file (if modified)
@@ -107,7 +128,7 @@ namespace SRScenarioCreatorEnhanced
         private void exportScenarioFile()
         {
             // Set file location and name
-            string tempExportLocation = baseExportLocation + $"\\{scenarioName}.scenario";
+            string tempExportLocation = baseExportDirectory + $"\\{scenarioName}.scenario";
 
             // Reset content of file
             File.WriteAllText(tempExportLocation, "");
@@ -130,25 +151,34 @@ namespace SRScenarioCreatorEnhanced
                 $"#include \"{TTRXName}.TTRX\", \"MAPS\\DATA\\\"",
                 $"#include \"{TERXName}.TERX\", \"MAPS\\DATA\\\"",
                 $"#include \"{WMName}.WMData\", \"MAPS\\DATA\\\"",
-                $"#include \"{NewsItemsName}.NEWSIMTES\", \"MAPS\\DATA\\\"",
+                $"#include \"{NewsItemsName}.NEWSITEMS\", \"MAPS\\DATA\\\"",
                 $"#include \"AllSourceLoad.INI\", \"INI\\\"",
                 $"#endifset\n",
 
                 $"#ifset 0x02",
                 $"&&MAP",
-                $"mapfile \"{scenarioName}\"",
+                $"mapfile \"{mapName}\"",
                 $"&&MAP\n",
 
                 $"#include \"{OOFName}.OOF\", \"MAPS\\\"",
                 $"#include \"AllLoad.INI\", \"INI\\\"",
                 $"#include \"{OOBName}.OOB\", \"MAPS\\ORBATS\\\"",
+                string.IsNullOrEmpty(PreCacheName) ? null : $"#include \"{PreCacheName}\"", // Do not include, if empty
                 $"#endifset\n",
 
                 $"#ifset 0x04",
                 $"&&SAV",
                 $"savfile \"{cacheName}\"",
-                $"&&END\n"
+                $"&&END\n",
+                
+                string.IsNullOrEmpty(PostCacheName) ? null : $"#include \"{PostCacheName}\"\n", // Do not include, if empty
+
+                $"#endifset\n"
             });
+        }
+        private void exportRegionInclFile()
+        {
+            throw new NotImplementedException();
         }
 
         private void exportOOBFile()
@@ -165,6 +195,17 @@ namespace SRScenarioCreatorEnhanced
         {
             throw new NotImplementedException();
         }
+        #endregion
+
+        #region loadingDataFromFile
+
+        public void loadDataFromScenarioFileToActiveScenario(string scenarioName)
+        {
+            // Load .scenario file
+            // Get each line
+
+        }
+
         #endregion
     }
 }
