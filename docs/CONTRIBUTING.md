@@ -3,7 +3,8 @@
 - [Main idea in few words](#main-idea)
 - [Main goals of the app, what are we trying to achieve](#main-goals)
 - [Details about scheme of the app](#how-does-should-the-editor-work)
-- [Where do all files go, what file scheme to expect](#directories-needed)
+- [Which directories editor uses, what file scheme to expect while using it (for editor to work)](#directories-needed)
+- [What file does what, which to edit, where to find what while developing editor (project content)](#development-directories)
 - [Problems with development or loading project](#known-developer-issues)
 
 ## How To Edit
@@ -70,6 +71,16 @@ Main Game folder -- Supreme Ruler Ultimate, from now on marked as ..\
 - ... and accordingly, like in the example above:
   - ..\Maps\Orbat
   - ..\Maps\Data
+
+## Development Directories
+- `Forms` folder - contains windows displayed (most important - editorMainWindow, which is base for the whole app: it's a container for tabs, exit button, info button, title name etc.)
+- `Resources` folder - graphics, icons
+- `src` (source) folder - back-end files. Mostly have variables for holding data. Used for exporting and importing files.
+  - `GlobalList.cs` contains technical global variables. They hold info on which tab should be active and option, section not to use (debug commands e.g. to disable loading files from game directory)
+  - `Program.cs` - do not touch. Starting file for main window.
+  - `ScenarioContent.cs` - file containing all info and mechanic of a .scenario file. It has all of the data (names and values needed for the file). It is responsible for exporting files from **the whole** editor (including other tabs) and importing and loading data from .scenario file. It holds also the game directory string.
+  - Everything else with `*content.cs` - contains data on other tabs and functions used in them.
+- `UserControls` - front-ent files. Collection of UserControls, so basically content of tabs. It is responsible for how tabs look like and for the mechanic of buttons, comboboxes and other components
 
 ## Known Developer Issues
 - `GUNA.UI2` errors. GUNA.UI2 is a set of premade UI elements. You can try to solve it by updating the addon: Tools >> NuGet Package Manager >> Manage NuGet Packages for Solution. Make sure `Guna.UI2.WinForms` is present in "Installed" tab. Switch to "Updates" and update `Guna.UI2.WinForms`.
