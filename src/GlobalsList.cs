@@ -10,3 +10,8 @@ public static class Globals
     public static bool isOrbatActive = false;
     public static bool isExportBtnActive = false;
 }
+
+public static class Configuration
+{
+    public const bool enableLoadingFilesFromGameDirectory = true;
+}

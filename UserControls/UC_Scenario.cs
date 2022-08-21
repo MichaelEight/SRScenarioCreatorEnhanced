@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -41,35 +40,38 @@ namespace SRScenarioCreatorEnhanced.UserControls
         /// </summary>
         private void loadFileNamesToEachComponent()
         {
-            // Load Scenarios
-            loadDataToCombobox(comboScenarioName,"SCENARIO", @"\Scenario\Custom\");
-            // Load Cache
-            loadDataToCombobox(comboCacheName,"SAV", @"\Cache\");
+            if (Configuration.enableLoadingFilesFromGameDirectory)
+            {
+                // Load Scenarios
+                loadDataToCombobox(comboScenarioName, "SCENARIO", @"\Scenario\Custom\");
+                // Load Cache
+                loadDataToCombobox(comboCacheName, "SAV", @"\Cache\");
 
-            // Load Maps
-            loadDataToCombobox(comboMapName,"MAPX", @"\Maps\");
-            // Load OOF
-            loadDataToCombobox(comboOOF,"OOF", @"\Maps\");
+                // Load Maps
+                loadDataToCombobox(comboMapName, "MAPX", @"\Maps\");
+                // Load OOF
+                loadDataToCombobox(comboOOF, "OOF", @"\Maps\");
 
-            // Load UNIT
-            loadDataToCombobox(comboUnit, "UNIT", @"\Maps\Data\");
-            // Load PPLX
-            loadDataToCombobox(comboPPLX, "PPLX", @"\Maps\Data\");
-            // Load TTRX
-            loadDataToCombobox(comboTTRX, "TTRX", @"\Maps\Data\");
-            // Load TERX
-            loadDataToCombobox(comboTERX, "TERX", @"\Maps\Data\");
-            // Load NEWSITEMS
-            loadDataToCombobox(comboNewsItems, "NEWSITEMS", @"\Maps\Data\");
-            // Load PROFILE
-            loadDataToCombobox(comboProfile, "PRF", @"\Maps\Data\");
+                // Load UNIT
+                loadDataToCombobox(comboUnit, "UNIT", @"\Maps\Data\");
+                // Load PPLX
+                loadDataToCombobox(comboPPLX, "PPLX", @"\Maps\Data\");
+                // Load TTRX
+                loadDataToCombobox(comboTTRX, "TTRX", @"\Maps\Data\");
+                // Load TERX
+                loadDataToCombobox(comboTERX, "TERX", @"\Maps\Data\");
+                // Load NEWSITEMS
+                loadDataToCombobox(comboNewsItems, "NEWSITEMS", @"\Maps\Data\");
+                // Load PROFILE
+                loadDataToCombobox(comboProfile, "PRF", @"\Maps\Data\");
 
-            // Load CVP
-            loadDataToCombobox(comboCVP, "CVP", @"\Maps\");
-            // Load WMDATA
-            loadDataToCombobox(comboWM, "WMData", @"\Maps\Data\");
-            // Load OOB
-            loadDataToCombobox(comboOOB, "OOB", @"\Maps\Orbats");
+                // Load CVP
+                loadDataToCombobox(comboCVP, "CVP", @"\Maps\");
+                // Load WMDATA
+                loadDataToCombobox(comboWM, "WMData", @"\Maps\Data\");
+                // Load OOB
+                loadDataToCombobox(comboOOB, "OOB", @"\Maps\Orbats");
+            }
         }
 
         /// <summary>
@@ -142,9 +144,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
             checkModifyOOB.Checked = mainWindow.currentScenario.OOBModifyCheck;
         }
 
-        #endregion
+#endregion
 
-        #region managingOtherTabs
+#region managingOtherTabs
 
         // Minimum required to allow to activate other tabs
         private void activateOtherTabsIfPossible()
@@ -204,11 +206,11 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             return true;
         }
-        #endregion
+#endregion
 
-        #region CheckBoxesSection
+#region CheckBoxesSection
         
-        #region generalChecks
+#region generalChecks
         // 'General' Checks
         private void checkCacheName_CheckedChanged(object sender, EventArgs e)
         {
@@ -223,9 +225,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             activateOtherTabsIfPossible();
         }
-        #endregion
+#endregion
 
-        #region mapsChecks
+#region mapsChecks
         private void checkNewMap_CheckedChanged(object sender, EventArgs e)
         {
             mainWindow.currentScenario.newMapCheck = checkNewMap.Checked;
@@ -243,9 +245,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
                 mainWindow.currentScenario.OOFName = comboMapName.Text;
             }
         }
-        #endregion
+#endregion
 
-        #region nonEditableChecks
+#region nonEditableChecks
         // 'Non-editable' Checks
         private void checkNoneditDefault_CheckedChanged(object sender, EventArgs e)
         {
@@ -259,9 +261,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             mainWindow.currentScenario.allNonEditableDefaultCheck = checkNoneditDefault.Checked;
         }
-        #endregion
+#endregion
 
-        #region modifyChecks
+#region modifyChecks
         // 'Modify' Checks
         private void checkModifyCVP_CheckedChanged(object sender, EventArgs e)
         {
@@ -280,13 +282,13 @@ namespace SRScenarioCreatorEnhanced.UserControls
             mainWindow.currentScenario.OOBModifyCheck = checkModifyOOB.Checked;
             activateOtherTabsIfPossible();
         }
-        #endregion
+#endregion
 
-        #endregion
+#endregion
 
-        #region ComboBoxesTextUpdateSecion
+#region ComboBoxesTextUpdateSecion
 
-        #region generalInfo
+#region generalInfo
         private void comboScenarioName_TextUpdate(object sender, EventArgs e)
         {
             // Update Cache name if it should be the same
@@ -309,9 +311,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             activateOtherTabsIfPossible();
         }
-        #endregion
+#endregion
 
-        #region mapInfo
+#region mapInfo
         private void comboMapName_TextUpdate(object sender, EventArgs e)
         {
             // Update Cache name if it should be the same
@@ -333,9 +335,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             activateOtherTabsIfPossible();
         }
-        #endregion
+#endregion
 
-        #region nonEditableDataRegion
+#region nonEditableDataRegion
         private void comboUnit_TextUpdate(object sender, EventArgs e)
         {
             // Update name in the scenario class
@@ -383,9 +385,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             activateOtherTabsIfPossible();
         }
-        #endregion
+#endregion
 
-        #region editableDataInfo
+#region editableDataInfo
         private void comboCVP_TextUpdate(object sender, EventArgs e)
         {
             // Update name in the scenario class
@@ -425,9 +427,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             activateOtherTabsIfPossible();
         }
-        #endregion
+#endregion
 
-        #endregion
+#endregion
 
         private void exportScenarioButton_Click(object sender, EventArgs e)
         {
