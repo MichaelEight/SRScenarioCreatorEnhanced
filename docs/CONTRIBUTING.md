@@ -1,3 +1,11 @@
+# Content of This File
+- [How to download, run the project](#how-to-edit)
+- [Main idea in few words](#main-idea)
+- [Main goals of the app, what are we trying to achieve](#main-goals)
+- [Details about scheme of the app](#how-does-should-the-editor-work)
+- [Where do all files go, what file scheme to expect](#directories-needed)
+- [Problems with development or loading project](#known-developer-issues)
+
 ## How To Edit
 Fork the repository, download the project.
 Run ```SRScenarioCreatorEnhanced.sln``` using Visual Studio 2022 (may work with previous versions).
@@ -41,7 +49,9 @@ Additional Guidelines:
 
 
 ## Directories Needed
-Main Game folder -- Supreme Ruler Ultimate, now marked as ..\
+// Edit on 2022/08/21 19:47 -- in src>>GlobalsList.cs exists "Configuration" class. There are debug settings you can use. Set `enableLoadingFilesFromGameDirectory` to `false` to disable app accessing game directory (sometimes needed, if a directory error appears)
+
+Main Game folder -- Supreme Ruler Ultimate, from now on marked as ..\
 
 - Custom Scenarios Folder:
   - ..\Scenario\Custom\
@@ -60,3 +70,6 @@ Main Game folder -- Supreme Ruler Ultimate, now marked as ..\
 - ... and accordingly, like in the example above:
   - ..\Maps\Orbat
   - ..\Maps\Data
+
+## Known Developer Issues
+- `GUNA.UI2` errors. GUNA.UI2 is a set of premade UI elements. You can try to solve it by updating the addon: Tools >> NuGet Package Manager >> Manage NuGet Packages for Solution. Make sure `Guna.UI2.WinForms` is present in "Installed" tab. Switch to "Updates" and update `Guna.UI2.WinForms`.
