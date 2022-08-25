@@ -5,7 +5,7 @@
 - [Details about scheme of the app](#how-does-should-the-editor-work)
 - [Which directories editor uses, what file scheme to expect while using it (for editor to work)](#directories-needed)
 - [What file does what, which to edit, where to find what while developing editor (project content)](#development-directories)
-- [Problems with development or loading project](#known-developer-issues)
+- [Problems with development or loading project](#known-development-issues)
 
 ## How To Edit
 Fork the repository, download the project.
@@ -82,5 +82,5 @@ Main Game folder -- Supreme Ruler Ultimate, from now on marked as ..\
   - Everything else with `*content.cs` - contains data on other tabs and functions used in them.
 - `UserControls` - front-ent files. Collection of UserControls, so basically content of tabs. It is responsible for how tabs look like and for the mechanic of buttons, comboboxes and other components
 
-## Known Developer Issues
+## Known Development Issues
 - `GUNA.UI2` errors. GUNA.UI2 is a set of premade UI elements. You can try to solve it by updating the addon: Tools >> NuGet Package Manager >> Manage NuGet Packages for Solution. Make sure `Guna.UI2.WinForms` is present in "Installed" tab. Switch to "Updates" and update `Guna.UI2.WinForms`.
