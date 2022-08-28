@@ -100,7 +100,7 @@ namespace SRScenarioCreatorEnhanced
 
             // Display assembly version in message box
             MessageBox.Show($"Current version: {versionNumber}\n" +
-                $"Contributors: Michael '8'", "About Editor", MessageBoxButtons.OK,
+                $"Contributors: Michael '8', xperga", "About Editor", MessageBoxButtons.OK,
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 
