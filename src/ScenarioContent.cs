@@ -19,7 +19,7 @@ namespace SRScenarioCreatorEnhanced
         // Set directory of export (default: editor's directory + "\Exported")
         private string baseExportDirectory = Directory.GetCurrentDirectory() + "\\Exported";
         // Directory of SRU folder
-        private string baseGameDirectory = $"I:\\Steam Games\\steamapps\\common\\Supreme Ruler Ultimate"; 
+        private string baseGameDirectory = $"C:\\Users\\nihilx\\Desktop\\Programming\\C#\\Projekt"; 
         // Return baseGameDirectory
         public string getBaseGameDirectory() { return baseGameDirectory; }
 

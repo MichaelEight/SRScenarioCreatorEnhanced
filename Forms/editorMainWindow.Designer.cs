@@ -290,14 +290,14 @@
             this.mainUCPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainUCPanel.Location = new System.Drawing.Point(0, 200);
             this.mainUCPanel.Name = "mainUCPanel";
-            this.mainUCPanel.Size = new System.Drawing.Size(1800, 1000);
+            this.mainUCPanel.Size = new System.Drawing.Size(1800, 992);
             this.mainUCPanel.TabIndex = 4;
             // 
             // editorMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1800, 1200);
+            this.ClientSize = new System.Drawing.Size(1800, 1192);
             this.Controls.Add(this.mainUCPanel);
             this.Controls.Add(this.tabsPanel);
             this.Controls.Add(this.toolbarPanel);
