@@ -28,50 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.textBox9 = new System.Windows.Forms.TextBox();
-            this.textBox10 = new System.Windows.Forms.TextBox();
-            this.textBox11 = new System.Windows.Forms.TextBox();
-            this.textBox12 = new System.Windows.Forms.TextBox();
-            this.textBox13 = new System.Windows.Forms.TextBox();
-            this.textBox14 = new System.Windows.Forms.TextBox();
-            this.textBox15 = new System.Windows.Forms.TextBox();
-            this.textBox16 = new System.Windows.Forms.TextBox();
-            this.textBox17 = new System.Windows.Forms.TextBox();
-            this.textBox18 = new System.Windows.Forms.TextBox();
-            this.textBox19 = new System.Windows.Forms.TextBox();
-            this.textBox20 = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
-            this.textBox22 = new System.Windows.Forms.TextBox();
-            this.textBox23 = new System.Windows.Forms.TextBox();
-            this.textBox24 = new System.Windows.Forms.TextBox();
-            this.textBox25 = new System.Windows.Forms.TextBox();
-            this.textBox26 = new System.Windows.Forms.TextBox();
-            this.textBox27 = new System.Windows.Forms.TextBox();
-            this.textBox28 = new System.Windows.Forms.TextBox();
-            this.textBox29 = new System.Windows.Forms.TextBox();
-            this.textBox30 = new System.Windows.Forms.TextBox();
-            this.textBox31 = new System.Windows.Forms.TextBox();
-            this.textBox32 = new System.Windows.Forms.TextBox();
-            this.textBox33 = new System.Windows.Forms.TextBox();
-            this.textBox34 = new System.Windows.Forms.TextBox();
-            this.textBox35 = new System.Windows.Forms.TextBox();
-            this.textBox36 = new System.Windows.Forms.TextBox();
-            this.textBox37 = new System.Windows.Forms.TextBox();
-            this.textBox38 = new System.Windows.Forms.TextBox();
-            this.textBox39 = new System.Windows.Forms.TextBox();
-            this.textBox40 = new System.Windows.Forms.TextBox();
-            this.textBox41 = new System.Windows.Forms.TextBox();
-            this.textBox42 = new System.Windows.Forms.TextBox();
-            this.textBox43 = new System.Windows.Forms.TextBox();
-            this.textBox44 = new System.Windows.Forms.TextBox();
+            this.textVicHex = new System.Windows.Forms.TextBox();
+            this.textDefRegion = new System.Windows.Forms.TextBox();
+            this.textReserveLimit = new System.Windows.Forms.TextBox();
+            this.textRelationsEff = new System.Windows.Forms.TextBox();
+            this.textVicTech = new System.Windows.Forms.TextBox();
+            this.textScenarioID = new System.Windows.Forms.TextBox();
+            this.textStartYear = new System.Windows.Forms.TextBox();
+            this.textLimitScen = new System.Windows.Forms.TextBox();
+            this.textRegAllies = new System.Windows.Forms.TextBox();
+            this.textResTechTrade = new System.Windows.Forms.TextBox();
+            this.textMapMusic = new System.Windows.Forms.TextBox();
+            this.textRegAxis = new System.Windows.Forms.TextBox();
+            this.textAppEff = new System.Windows.Forms.TextBox();
+            this.textGameLen = new System.Windows.Forms.TextBox();
+            this.textCampGame = new System.Windows.Forms.TextBox();
+            this.textSVictoryCond = new System.Windows.Forms.TextBox();
+            this.textMapSplash = new System.Windows.Forms.TextBox();
+            this.textWMDEff = new System.Windows.Forms.TextBox();
+            this.textFastDays = new System.Windows.Forms.TextBox();
+            this.textMapGUI = new System.Windows.Forms.TextBox();
+            this.textTechTreeDefault = new System.Windows.Forms.TextBox();
+            this.textSphereNN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -100,315 +78,199 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
+            this.label29 = new System.Windows.Forms.Label();
+            this.label30 = new System.Windows.Forms.Label();
+            this.label31 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
+            this.label37 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label42 = new System.Windows.Forms.Label();
+            this.label43 = new System.Windows.Forms.Label();
+            this.label44 = new System.Windows.Forms.Label();
+            this.comboMilitaryDiff = new System.Windows.Forms.ComboBox();
+            this.comboDiplomacyDiff = new System.Windows.Forms.ComboBox();
+            this.comboResLvl = new System.Windows.Forms.ComboBox();
+            this.comboEconomicDiff = new System.Windows.Forms.ComboBox();
+            this.textStartDate = new System.Windows.Forms.DateTimePicker();
+            this.comboInitFunds = new System.Windows.Forms.ComboBox();
+            this.comboAistance = new System.Windows.Forms.ComboBox();
+            this.checkedNoCapMove = new System.Windows.Forms.CheckedListBox();
+            this.checkedRegionEq = new System.Windows.Forms.CheckedListBox();
+            this.checkedLimitDAREff = new System.Windows.Forms.CheckedListBox();
+            this.checkedLimitMAREff = new System.Windows.Forms.CheckedListBox();
+            this.checkedWMInvolve = new System.Windows.Forms.CheckedListBox();
+            this.checkedWMDuse = new System.Windows.Forms.CheckedListBox();
+            this.checkedFastBuild = new System.Windows.Forms.CheckedListBox();
+            this.checkedGovChoice = new System.Windows.Forms.CheckedListBox();
+            this.checkedGroupResMer = new System.Windows.Forms.CheckedListBox();
+            this.checkedGroupLoyMer = new System.Windows.Forms.CheckedListBox();
+            this.checkedMissleNoLimit = new System.Windows.Forms.CheckedListBox();
+            this.checkedAlliedVic = new System.Windows.Forms.CheckedListBox();
+            this.checkedDebtFree = new System.Windows.Forms.CheckedListBox();
+            this.checkedLoyPenality = new System.Windows.Forms.CheckedListBox();
+            this.checkedNoSphere = new System.Windows.Forms.CheckedListBox();
             this.SuspendLayout();
             // 
-            // textBox1
+            // textVicHex
             // 
-            this.textBox1.Location = new System.Drawing.Point(116, 63);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(130, 26);
-            this.textBox1.TabIndex = 1;
+            this.textVicHex.Location = new System.Drawing.Point(116, 516);
+            this.textVicHex.Name = "textVicHex";
+            this.textVicHex.Size = new System.Drawing.Size(130, 26);
+            this.textVicHex.TabIndex = 6;
             // 
-            // textBox2
+            // textDefRegion
             // 
-            this.textBox2.Location = new System.Drawing.Point(831, 285);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(130, 26);
-            this.textBox2.TabIndex = 2;
+            this.textDefRegion.Location = new System.Drawing.Point(348, 63);
+            this.textDefRegion.Name = "textDefRegion";
+            this.textDefRegion.Size = new System.Drawing.Size(130, 26);
+            this.textDefRegion.TabIndex = 8;
             // 
-            // textBox3
+            // textReserveLimit
             // 
-            this.textBox3.Location = new System.Drawing.Point(116, 164);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(130, 26);
-            this.textBox3.TabIndex = 3;
+            this.textReserveLimit.Location = new System.Drawing.Point(348, 164);
+            this.textReserveLimit.Name = "textReserveLimit";
+            this.textReserveLimit.Size = new System.Drawing.Size(130, 26);
+            this.textReserveLimit.TabIndex = 10;
             // 
-            // textBox4
+            // textRelationsEff
             // 
-            this.textBox4.Location = new System.Drawing.Point(116, 285);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(130, 26);
-            this.textBox4.TabIndex = 4;
+            this.textRelationsEff.Location = new System.Drawing.Point(348, 398);
+            this.textRelationsEff.Name = "textRelationsEff";
+            this.textRelationsEff.Size = new System.Drawing.Size(130, 26);
+            this.textRelationsEff.TabIndex = 12;
             // 
-            // textBox5
+            // textVicTech
             // 
-            this.textBox5.Location = new System.Drawing.Point(116, 398);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(130, 26);
-            this.textBox5.TabIndex = 5;
+            this.textVicTech.Location = new System.Drawing.Point(348, 516);
+            this.textVicTech.Name = "textVicTech";
+            this.textVicTech.Size = new System.Drawing.Size(130, 26);
+            this.textVicTech.TabIndex = 13;
             // 
-            // textBox6
+            // textScenarioID
             // 
-            this.textBox6.Location = new System.Drawing.Point(116, 516);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(130, 26);
-            this.textBox6.TabIndex = 6;
+            this.textScenarioID.Location = new System.Drawing.Point(586, 63);
+            this.textScenarioID.Name = "textScenarioID";
+            this.textScenarioID.Size = new System.Drawing.Size(130, 26);
+            this.textScenarioID.TabIndex = 15;
             // 
-            // textBox7
+            // textStartYear
             // 
-            this.textBox7.Location = new System.Drawing.Point(116, 645);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(130, 26);
-            this.textBox7.TabIndex = 7;
+            this.textStartYear.Location = new System.Drawing.Point(831, 164);
+            this.textStartYear.Name = "textStartYear";
+            this.textStartYear.Size = new System.Drawing.Size(130, 26);
+            this.textStartYear.TabIndex = 16;
             // 
-            // textBox8
+            // textLimitScen
             // 
-            this.textBox8.Location = new System.Drawing.Point(348, 63);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(130, 26);
-            this.textBox8.TabIndex = 8;
+            this.textLimitScen.Location = new System.Drawing.Point(586, 398);
+            this.textLimitScen.Name = "textLimitScen";
+            this.textLimitScen.Size = new System.Drawing.Size(130, 26);
+            this.textLimitScen.TabIndex = 19;
             // 
-            // textBox9
+            // textRegAllies
             // 
-            this.textBox9.Location = new System.Drawing.Point(831, 63);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(130, 26);
-            this.textBox9.TabIndex = 9;
+            this.textRegAllies.Location = new System.Drawing.Point(586, 516);
+            this.textRegAllies.Name = "textRegAllies";
+            this.textRegAllies.Size = new System.Drawing.Size(130, 26);
+            this.textRegAllies.TabIndex = 20;
             // 
-            // textBox10
+            // textResTechTrade
             // 
-            this.textBox10.Location = new System.Drawing.Point(348, 164);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(130, 26);
-            this.textBox10.TabIndex = 10;
+            this.textResTechTrade.Location = new System.Drawing.Point(586, 645);
+            this.textResTechTrade.Name = "textResTechTrade";
+            this.textResTechTrade.Size = new System.Drawing.Size(130, 26);
+            this.textResTechTrade.TabIndex = 21;
             // 
-            // textBox11
+            // textMapMusic
             // 
-            this.textBox11.Location = new System.Drawing.Point(348, 285);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(130, 26);
-            this.textBox11.TabIndex = 11;
+            this.textMapMusic.Location = new System.Drawing.Point(831, 398);
+            this.textMapMusic.Name = "textMapMusic";
+            this.textMapMusic.Size = new System.Drawing.Size(130, 26);
+            this.textMapMusic.TabIndex = 22;
             // 
-            // textBox12
+            // textRegAxis
             // 
-            this.textBox12.Location = new System.Drawing.Point(348, 398);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(130, 26);
-            this.textBox12.TabIndex = 12;
+            this.textRegAxis.Location = new System.Drawing.Point(831, 516);
+            this.textRegAxis.Name = "textRegAxis";
+            this.textRegAxis.Size = new System.Drawing.Size(130, 26);
+            this.textRegAxis.TabIndex = 23;
             // 
-            // textBox13
+            // textAppEff
             // 
-            this.textBox13.Location = new System.Drawing.Point(348, 516);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(130, 26);
-            this.textBox13.TabIndex = 13;
+            this.textAppEff.Location = new System.Drawing.Point(831, 645);
+            this.textAppEff.Name = "textAppEff";
+            this.textAppEff.Size = new System.Drawing.Size(130, 26);
+            this.textAppEff.TabIndex = 24;
             // 
-            // textBox14
+            // textGameLen
             // 
-            this.textBox14.Location = new System.Drawing.Point(348, 645);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(130, 26);
-            this.textBox14.TabIndex = 14;
+            this.textGameLen.Location = new System.Drawing.Point(1534, 516);
+            this.textGameLen.Name = "textGameLen";
+            this.textGameLen.Size = new System.Drawing.Size(130, 26);
+            this.textGameLen.TabIndex = 41;
             // 
-            // textBox15
+            // textCampGame
             // 
-            this.textBox15.Location = new System.Drawing.Point(586, 63);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(130, 26);
-            this.textBox15.TabIndex = 15;
+            this.textCampGame.Location = new System.Drawing.Point(1534, 398);
+            this.textCampGame.Name = "textCampGame";
+            this.textCampGame.Size = new System.Drawing.Size(130, 26);
+            this.textCampGame.TabIndex = 40;
             // 
-            // textBox16
+            // textSVictoryCond
             // 
-            this.textBox16.Location = new System.Drawing.Point(831, 164);
-            this.textBox16.Name = "textBox16";
-            this.textBox16.Size = new System.Drawing.Size(130, 26);
-            this.textBox16.TabIndex = 16;
+            this.textSVictoryCond.Location = new System.Drawing.Point(1304, 516);
+            this.textSVictoryCond.Name = "textSVictoryCond";
+            this.textSVictoryCond.Size = new System.Drawing.Size(130, 26);
+            this.textSVictoryCond.TabIndex = 38;
             // 
-            // textBox17
+            // textMapSplash
             // 
-            this.textBox17.Location = new System.Drawing.Point(586, 164);
-            this.textBox17.Name = "textBox17";
-            this.textBox17.Size = new System.Drawing.Size(130, 26);
-            this.textBox17.TabIndex = 17;
+            this.textMapSplash.Location = new System.Drawing.Point(1304, 398);
+            this.textMapSplash.Name = "textMapSplash";
+            this.textMapSplash.Size = new System.Drawing.Size(130, 26);
+            this.textMapSplash.TabIndex = 37;
             // 
-            // textBox18
+            // textWMDEff
             // 
-            this.textBox18.Location = new System.Drawing.Point(586, 285);
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(130, 26);
-            this.textBox18.TabIndex = 18;
+            this.textWMDEff.Location = new System.Drawing.Point(1067, 645);
+            this.textWMDEff.Name = "textWMDEff";
+            this.textWMDEff.Size = new System.Drawing.Size(130, 26);
+            this.textWMDEff.TabIndex = 32;
             // 
-            // textBox19
+            // textFastDays
             // 
-            this.textBox19.Location = new System.Drawing.Point(586, 398);
-            this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(130, 26);
-            this.textBox19.TabIndex = 19;
+            this.textFastDays.Location = new System.Drawing.Point(1066, 516);
+            this.textFastDays.Name = "textFastDays";
+            this.textFastDays.Size = new System.Drawing.Size(130, 26);
+            this.textFastDays.TabIndex = 31;
             // 
-            // textBox20
+            // textMapGUI
             // 
-            this.textBox20.Location = new System.Drawing.Point(586, 516);
-            this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(130, 26);
-            this.textBox20.TabIndex = 20;
+            this.textMapGUI.Location = new System.Drawing.Point(1066, 398);
+            this.textMapGUI.Name = "textMapGUI";
+            this.textMapGUI.Size = new System.Drawing.Size(130, 26);
+            this.textMapGUI.TabIndex = 30;
             // 
-            // textBox21
+            // textTechTreeDefault
             // 
-            this.textBox21.Location = new System.Drawing.Point(586, 645);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(130, 26);
-            this.textBox21.TabIndex = 21;
+            this.textTechTreeDefault.Location = new System.Drawing.Point(1066, 164);
+            this.textTechTreeDefault.Name = "textTechTreeDefault";
+            this.textTechTreeDefault.Size = new System.Drawing.Size(130, 26);
+            this.textTechTreeDefault.TabIndex = 28;
             // 
-            // textBox22
+            // textSphereNN
             // 
-            this.textBox22.Location = new System.Drawing.Point(831, 398);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(130, 26);
-            this.textBox22.TabIndex = 22;
-            // 
-            // textBox23
-            // 
-            this.textBox23.Location = new System.Drawing.Point(831, 516);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(130, 26);
-            this.textBox23.TabIndex = 23;
-            // 
-            // textBox24
-            // 
-            this.textBox24.Location = new System.Drawing.Point(831, 645);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(130, 26);
-            this.textBox24.TabIndex = 24;
-            // 
-            // textBox25
-            // 
-            this.textBox25.Location = new System.Drawing.Point(1534, 645);
-            this.textBox25.Name = "textBox25";
-            this.textBox25.Size = new System.Drawing.Size(130, 26);
-            this.textBox25.TabIndex = 42;
-            // 
-            // textBox26
-            // 
-            this.textBox26.Location = new System.Drawing.Point(1534, 511);
-            this.textBox26.Name = "textBox26";
-            this.textBox26.Size = new System.Drawing.Size(130, 26);
-            this.textBox26.TabIndex = 41;
-            // 
-            // textBox27
-            // 
-            this.textBox27.Location = new System.Drawing.Point(1534, 398);
-            this.textBox27.Name = "textBox27";
-            this.textBox27.Size = new System.Drawing.Size(130, 26);
-            this.textBox27.TabIndex = 40;
-            // 
-            // textBox28
-            // 
-            this.textBox28.Location = new System.Drawing.Point(1304, 645);
-            this.textBox28.Name = "textBox28";
-            this.textBox28.Size = new System.Drawing.Size(130, 26);
-            this.textBox28.TabIndex = 39;
-            // 
-            // textBox29
-            // 
-            this.textBox29.Location = new System.Drawing.Point(1304, 516);
-            this.textBox29.Name = "textBox29";
-            this.textBox29.Size = new System.Drawing.Size(130, 26);
-            this.textBox29.TabIndex = 38;
-            // 
-            // textBox30
-            // 
-            this.textBox30.Location = new System.Drawing.Point(1304, 398);
-            this.textBox30.Name = "textBox30";
-            this.textBox30.Size = new System.Drawing.Size(130, 26);
-            this.textBox30.TabIndex = 37;
-            // 
-            // textBox31
-            // 
-            this.textBox31.Location = new System.Drawing.Point(1304, 285);
-            this.textBox31.Name = "textBox31";
-            this.textBox31.Size = new System.Drawing.Size(130, 26);
-            this.textBox31.TabIndex = 36;
-            // 
-            // textBox32
-            // 
-            this.textBox32.Location = new System.Drawing.Point(1304, 164);
-            this.textBox32.Name = "textBox32";
-            this.textBox32.Size = new System.Drawing.Size(130, 26);
-            this.textBox32.TabIndex = 35;
-            // 
-            // textBox33
-            // 
-            this.textBox33.Location = new System.Drawing.Point(1532, 164);
-            this.textBox33.Name = "textBox33";
-            this.textBox33.Size = new System.Drawing.Size(130, 26);
-            this.textBox33.TabIndex = 34;
-            // 
-            // textBox34
-            // 
-            this.textBox34.Location = new System.Drawing.Point(1304, 63);
-            this.textBox34.Name = "textBox34";
-            this.textBox34.Size = new System.Drawing.Size(130, 26);
-            this.textBox34.TabIndex = 33;
-            // 
-            // textBox35
-            // 
-            this.textBox35.Location = new System.Drawing.Point(1066, 645);
-            this.textBox35.Name = "textBox35";
-            this.textBox35.Size = new System.Drawing.Size(130, 26);
-            this.textBox35.TabIndex = 32;
-            // 
-            // textBox36
-            // 
-            this.textBox36.Location = new System.Drawing.Point(1066, 516);
-            this.textBox36.Name = "textBox36";
-            this.textBox36.Size = new System.Drawing.Size(130, 26);
-            this.textBox36.TabIndex = 31;
-            // 
-            // textBox37
-            // 
-            this.textBox37.Location = new System.Drawing.Point(1066, 398);
-            this.textBox37.Name = "textBox37";
-            this.textBox37.Size = new System.Drawing.Size(130, 26);
-            this.textBox37.TabIndex = 30;
-            // 
-            // textBox38
-            // 
-            this.textBox38.Location = new System.Drawing.Point(1066, 285);
-            this.textBox38.Name = "textBox38";
-            this.textBox38.Size = new System.Drawing.Size(130, 26);
-            this.textBox38.TabIndex = 29;
-            // 
-            // textBox39
-            // 
-            this.textBox39.Location = new System.Drawing.Point(1066, 164);
-            this.textBox39.Name = "textBox39";
-            this.textBox39.Size = new System.Drawing.Size(130, 26);
-            this.textBox39.TabIndex = 28;
-            // 
-            // textBox40
-            // 
-            this.textBox40.Location = new System.Drawing.Point(1532, 63);
-            this.textBox40.Name = "textBox40";
-            this.textBox40.Size = new System.Drawing.Size(130, 26);
-            this.textBox40.TabIndex = 27;
-            // 
-            // textBox41
-            // 
-            this.textBox41.Location = new System.Drawing.Point(1066, 63);
-            this.textBox41.Name = "textBox41";
-            this.textBox41.Size = new System.Drawing.Size(130, 26);
-            this.textBox41.TabIndex = 26;
-            // 
-            // textBox42
-            // 
-            this.textBox42.Location = new System.Drawing.Point(1534, 285);
-            this.textBox42.Name = "textBox42";
-            this.textBox42.Size = new System.Drawing.Size(130, 26);
-            this.textBox42.TabIndex = 25;
-            // 
-            // textBox43
-            // 
-            this.textBox43.Location = new System.Drawing.Point(1067, 733);
-            this.textBox43.Name = "textBox43";
-            this.textBox43.Size = new System.Drawing.Size(130, 26);
-            this.textBox43.TabIndex = 44;
-            // 
-            // textBox44
-            // 
-            this.textBox44.Location = new System.Drawing.Point(831, 733);
-            this.textBox44.Name = "textBox44";
-            this.textBox44.Size = new System.Drawing.Size(130, 26);
-            this.textBox44.TabIndex = 43;
+            this.textSphereNN.Location = new System.Drawing.Point(1067, 733);
+            this.textSphereNN.Name = "textSphereNN";
+            this.textSphereNN.Size = new System.Drawing.Size(130, 26);
+            this.textSphereNN.TabIndex = 44;
             // 
             // label1
             // 
@@ -648,29 +510,29 @@
             this.label22.Font = new System.Drawing.Font("Century Gothic", 10F);
             this.label22.Location = new System.Drawing.Point(1489, 351);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(219, 23);
+            this.label22.Size = new System.Drawing.Size(221, 28);
             this.label22.TabIndex = 72;
-            this.label22.Text = "Group Loyality Merge";
+            this.label22.Text = "Campaign Game";
             this.label22.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label23
             // 
             this.label23.AutoSize = true;
             this.label23.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.label23.Location = new System.Drawing.Point(1305, 350);
+            this.label23.Location = new System.Drawing.Point(1310, 354);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(129, 23);
+            this.label23.Size = new System.Drawing.Size(124, 23);
             this.label23.TabIndex = 71;
-            this.label23.Text = "Gov Choice";
+            this.label23.Text = "Map Splash";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label24
             // 
             this.label24.AutoSize = true;
             this.label24.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.label24.Location = new System.Drawing.Point(1082, 351);
+            this.label24.Location = new System.Drawing.Point(1081, 351);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(115, 28);
+            this.label24.Size = new System.Drawing.Size(96, 23);
             this.label24.TabIndex = 70;
             this.label24.Text = "Map GUI";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -679,9 +541,9 @@
             // 
             this.label25.AutoSize = true;
             this.label25.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.label25.Location = new System.Drawing.Point(849, 353);
+            this.label25.Location = new System.Drawing.Point(847, 355);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(137, 28);
+            this.label25.Size = new System.Drawing.Size(114, 23);
             this.label25.TabIndex = 69;
             this.label25.Text = "Map Music";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
@@ -712,17 +574,451 @@
             // 
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.label28.Location = new System.Drawing.Point(54, 351);
+            this.label28.Location = new System.Drawing.Point(69, 356);
             this.label28.Name = "label28";
             this.label28.Size = new System.Drawing.Size(237, 23);
             this.label28.TabIndex = 66;
             this.label28.Text = "Group Research Merge";
             this.label28.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label29.Location = new System.Drawing.Point(1528, 475);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(145, 23);
+            this.label29.TabIndex = 79;
+            this.label29.Text = "Game Length";
+            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label30.Location = new System.Drawing.Point(1286, 470);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(169, 28);
+            this.label30.TabIndex = 78;
+            this.label30.Text = "sVictoryCond";
+            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label31.Location = new System.Drawing.Point(1041, 473);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(190, 23);
+            this.label31.TabIndex = 77;
+            this.label31.Text = "Fast Forward Days";
+            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label32.Location = new System.Drawing.Point(828, 470);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(142, 28);
+            this.label32.TabIndex = 76;
+            this.label32.Text = "Region Axis";
+            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label33.Location = new System.Drawing.Point(585, 475);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(131, 23);
+            this.label33.TabIndex = 75;
+            this.label33.Text = "Region Allies";
+            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label34.Location = new System.Drawing.Point(336, 465);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(156, 28);
+            this.label34.TabIndex = 74;
+            this.label34.Text = "Victory Tech";
+            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label35.Location = new System.Drawing.Point(112, 465);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(145, 28);
+            this.label35.TabIndex = 73;
+            this.label35.Text = "Victory Hex";
+            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label36.Location = new System.Drawing.Point(1476, 607);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(243, 23);
+            this.label36.TabIndex = 86;
+            this.label36.Text = "No Low Loyalty Penality";
+            this.label36.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label37.Location = new System.Drawing.Point(1310, 604);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(107, 23);
+            this.label37.TabIndex = 85;
+            this.label37.Text = "Debt Free";
+            this.label37.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label38.Location = new System.Drawing.Point(1074, 604);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(121, 23);
+            this.label38.TabIndex = 84;
+            this.label38.Text = "WMD Effect";
+            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label39
+            // 
+            this.label39.AutoSize = true;
+            this.label39.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label39.Location = new System.Drawing.Point(804, 604);
+            this.label39.Name = "label39";
+            this.label39.Size = new System.Drawing.Size(166, 23);
+            this.label39.TabIndex = 83;
+            this.label39.Text = "Approval Effect";
+            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label40
+            // 
+            this.label40.AutoSize = true;
+            this.label40.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label40.Location = new System.Drawing.Point(547, 599);
+            this.label40.Name = "label40";
+            this.label40.Size = new System.Drawing.Size(192, 23);
+            this.label40.TabIndex = 82;
+            this.label40.Text = "Restrict Tech Trade";
+            this.label40.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label41
+            // 
+            this.label41.AutoSize = true;
+            this.label41.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label41.Location = new System.Drawing.Point(331, 599);
+            this.label41.Name = "label41";
+            this.label41.Size = new System.Drawing.Size(139, 23);
+            this.label41.TabIndex = 81;
+            this.label41.Text = "Allied Victory";
+            this.label41.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label42
+            // 
+            this.label42.AutoSize = true;
+            this.label42.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label42.Location = new System.Drawing.Point(112, 602);
+            this.label42.Name = "label42";
+            this.label42.Size = new System.Drawing.Size(145, 23);
+            this.label42.TabIndex = 80;
+            this.label42.Text = "Missle No Limit";
+            this.label42.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label43
+            // 
+            this.label43.AutoSize = true;
+            this.label43.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label43.Location = new System.Drawing.Point(1081, 696);
+            this.label43.Name = "label43";
+            this.label43.Size = new System.Drawing.Size(114, 23);
+            this.label43.TabIndex = 88;
+            this.label43.Text = "Sphere NN";
+            this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // label44
+            // 
+            this.label44.AutoSize = true;
+            this.label44.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.label44.Location = new System.Drawing.Point(836, 691);
+            this.label44.Name = "label44";
+            this.label44.Size = new System.Drawing.Size(112, 23);
+            this.label44.TabIndex = 87;
+            this.label44.Text = "No Sphere";
+            this.label44.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboMilitaryDiff
+            // 
+            this.comboMilitaryDiff.FormattingEnabled = true;
+            this.comboMilitaryDiff.Location = new System.Drawing.Point(840, 63);
+            this.comboMilitaryDiff.Name = "comboMilitaryDiff";
+            this.comboMilitaryDiff.Size = new System.Drawing.Size(121, 28);
+            this.comboMilitaryDiff.TabIndex = 89;
+            // 
+            // comboDiplomacyDiff
+            // 
+            this.comboDiplomacyDiff.FormattingEnabled = true;
+            this.comboDiplomacyDiff.Location = new System.Drawing.Point(1074, 63);
+            this.comboDiplomacyDiff.Name = "comboDiplomacyDiff";
+            this.comboDiplomacyDiff.Size = new System.Drawing.Size(121, 28);
+            this.comboDiplomacyDiff.TabIndex = 90;
+            // 
+            // comboResLvl
+            // 
+            this.comboResLvl.FormattingEnabled = true;
+            this.comboResLvl.Location = new System.Drawing.Point(1534, 63);
+            this.comboResLvl.Name = "comboResLvl";
+            this.comboResLvl.Size = new System.Drawing.Size(121, 28);
+            this.comboResLvl.TabIndex = 92;
+            // 
+            // comboEconomicDiff
+            // 
+            this.comboEconomicDiff.FormattingEnabled = true;
+            this.comboEconomicDiff.Location = new System.Drawing.Point(1300, 63);
+            this.comboEconomicDiff.Name = "comboEconomicDiff";
+            this.comboEconomicDiff.Size = new System.Drawing.Size(121, 28);
+            this.comboEconomicDiff.TabIndex = 91;
+            // 
+            // textStartDate
+            // 
+            this.textStartDate.Location = new System.Drawing.Point(88, 65);
+            this.textStartDate.Name = "textStartDate";
+            this.textStartDate.Size = new System.Drawing.Size(200, 26);
+            this.textStartDate.TabIndex = 93;
+            // 
+            // comboInitFunds
+            // 
+            this.comboInitFunds.FormattingEnabled = true;
+            this.comboInitFunds.Location = new System.Drawing.Point(125, 164);
+            this.comboInitFunds.Name = "comboInitFunds";
+            this.comboInitFunds.Size = new System.Drawing.Size(121, 28);
+            this.comboInitFunds.TabIndex = 94;
+            // 
+            // comboAistance
+            // 
+            this.comboAistance.FormattingEnabled = true;
+            this.comboAistance.Location = new System.Drawing.Point(595, 164);
+            this.comboAistance.Name = "comboAistance";
+            this.comboAistance.Size = new System.Drawing.Size(121, 28);
+            this.comboAistance.TabIndex = 95;
+            // 
+            // checkedNoCapMove
+            // 
+            this.checkedNoCapMove.FormattingEnabled = true;
+            this.checkedNoCapMove.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.checkedNoCapMove.Location = new System.Drawing.Point(1330, 152);
+            this.checkedNoCapMove.Name = "checkedNoCapMove";
+            this.checkedNoCapMove.Size = new System.Drawing.Size(77, 50);
+            this.checkedNoCapMove.TabIndex = 96;
+            // 
+            // checkedRegionEq
+            // 
+            this.checkedRegionEq.FormattingEnabled = true;
+            this.checkedRegionEq.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.checkedRegionEq.Location = new System.Drawing.Point(1558, 164);
+            this.checkedRegionEq.Name = "checkedRegionEq";
+            this.checkedRegionEq.Size = new System.Drawing.Size(77, 50);
+            this.checkedRegionEq.TabIndex = 97;
+            // 
+            // checkedLimitDAREff
+            // 
+            this.checkedLimitDAREff.FormattingEnabled = true;
+            this.checkedLimitDAREff.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.checkedLimitDAREff.Location = new System.Drawing.Point(144, 285);
+            this.checkedLimitDAREff.Name = "checkedLimitDAREff";
+            this.checkedLimitDAREff.Size = new System.Drawing.Size(77, 50);
+            this.checkedLimitDAREff.TabIndex = 98;
+            // 
+            // checkedLimitMAREff
+            // 
+            this.checkedLimitMAREff.FormattingEnabled = true;
+            this.checkedLimitMAREff.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.checkedLimitMAREff.Location = new System.Drawing.Point(373, 285);
+            this.checkedLimitMAREff.Name = "checkedLimitMAREff";
+            this.checkedLimitMAREff.Size = new System.Drawing.Size(77, 50);
+            this.checkedLimitMAREff.TabIndex = 99;
+            // 
+            // checkedWMInvolve
+            // 
+            this.checkedWMInvolve.FormattingEnabled = true;
+            this.checkedWMInvolve.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.checkedWMInvolve.Location = new System.Drawing.Point(613, 285);
+            this.checkedWMInvolve.Name = "checkedWMInvolve";
+            this.checkedWMInvolve.Size = new System.Drawing.Size(77, 50);
+            this.checkedWMInvolve.TabIndex = 100;
+            // 
+            // checkedWMDuse
+            // 
+            this.checkedWMDuse.FormattingEnabled = true;
+            this.checkedWMDuse.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.checkedWMDuse.Location = new System.Drawing.Point(853, 285);
+            this.checkedWMDuse.Name = "checkedWMDuse";
+            this.checkedWMDuse.Size = new System.Drawing.Size(77, 50);
+            this.checkedWMDuse.TabIndex = 101;
+            // 
+            // checkedFastBuild
+            // 
+            this.checkedFastBuild.FormattingEnabled = true;
+            this.checkedFastBuild.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.checkedFastBuild.Location = new System.Drawing.Point(1100, 285);
+            this.checkedFastBuild.Name = "checkedFastBuild";
+            this.checkedFastBuild.Size = new System.Drawing.Size(77, 50);
+            this.checkedFastBuild.TabIndex = 102;
+            // 
+            // checkedGovChoice
+            // 
+            this.checkedGovChoice.FormattingEnabled = true;
+            this.checkedGovChoice.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.checkedGovChoice.Location = new System.Drawing.Point(1330, 285);
+            this.checkedGovChoice.Name = "checkedGovChoice";
+            this.checkedGovChoice.Size = new System.Drawing.Size(77, 50);
+            this.checkedGovChoice.TabIndex = 103;
+            // 
+            // checkedGroupResMer
+            // 
+            this.checkedGroupResMer.FormattingEnabled = true;
+            this.checkedGroupResMer.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.checkedGroupResMer.Location = new System.Drawing.Point(144, 398);
+            this.checkedGroupResMer.Name = "checkedGroupResMer";
+            this.checkedGroupResMer.Size = new System.Drawing.Size(77, 50);
+            this.checkedGroupResMer.TabIndex = 104;
+            // 
+            // checkedGroupLoyMer
+            // 
+            this.checkedGroupLoyMer.FormattingEnabled = true;
+            this.checkedGroupLoyMer.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.checkedGroupLoyMer.Location = new System.Drawing.Point(1558, 285);
+            this.checkedGroupLoyMer.Name = "checkedGroupLoyMer";
+            this.checkedGroupLoyMer.Size = new System.Drawing.Size(77, 50);
+            this.checkedGroupLoyMer.TabIndex = 105;
+            // 
+            // checkedMissleNoLimit
+            // 
+            this.checkedMissleNoLimit.FormattingEnabled = true;
+            this.checkedMissleNoLimit.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.checkedMissleNoLimit.Location = new System.Drawing.Point(144, 645);
+            this.checkedMissleNoLimit.Name = "checkedMissleNoLimit";
+            this.checkedMissleNoLimit.Size = new System.Drawing.Size(77, 50);
+            this.checkedMissleNoLimit.TabIndex = 106;
+            // 
+            // checkedAlliedVic
+            // 
+            this.checkedAlliedVic.FormattingEnabled = true;
+            this.checkedAlliedVic.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.checkedAlliedVic.Location = new System.Drawing.Point(359, 645);
+            this.checkedAlliedVic.Name = "checkedAlliedVic";
+            this.checkedAlliedVic.Size = new System.Drawing.Size(77, 50);
+            this.checkedAlliedVic.TabIndex = 107;
+            // 
+            // checkedDebtFree
+            // 
+            this.checkedDebtFree.FormattingEnabled = true;
+            this.checkedDebtFree.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.checkedDebtFree.Location = new System.Drawing.Point(1330, 645);
+            this.checkedDebtFree.Name = "checkedDebtFree";
+            this.checkedDebtFree.Size = new System.Drawing.Size(77, 50);
+            this.checkedDebtFree.TabIndex = 108;
+            // 
+            // checkedLoyPenality
+            // 
+            this.checkedLoyPenality.FormattingEnabled = true;
+            this.checkedLoyPenality.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.checkedLoyPenality.Location = new System.Drawing.Point(1558, 645);
+            this.checkedLoyPenality.Name = "checkedLoyPenality";
+            this.checkedLoyPenality.Size = new System.Drawing.Size(77, 50);
+            this.checkedLoyPenality.TabIndex = 109;
+            // 
+            // checkedNoSphere
+            // 
+            this.checkedNoSphere.FormattingEnabled = true;
+            this.checkedNoSphere.Items.AddRange(new object[] {
+            "0",
+            "1"});
+            this.checkedNoSphere.Location = new System.Drawing.Point(851, 733);
+            this.checkedNoSphere.Name = "checkedNoSphere";
+            this.checkedNoSphere.Size = new System.Drawing.Size(77, 50);
+            this.checkedNoSphere.TabIndex = 110;
+            // 
             // UC_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.checkedNoSphere);
+            this.Controls.Add(this.checkedLoyPenality);
+            this.Controls.Add(this.checkedDebtFree);
+            this.Controls.Add(this.checkedAlliedVic);
+            this.Controls.Add(this.checkedMissleNoLimit);
+            this.Controls.Add(this.checkedGroupLoyMer);
+            this.Controls.Add(this.checkedGroupResMer);
+            this.Controls.Add(this.checkedGovChoice);
+            this.Controls.Add(this.checkedFastBuild);
+            this.Controls.Add(this.checkedWMDuse);
+            this.Controls.Add(this.checkedWMInvolve);
+            this.Controls.Add(this.checkedLimitMAREff);
+            this.Controls.Add(this.checkedLimitDAREff);
+            this.Controls.Add(this.checkedRegionEq);
+            this.Controls.Add(this.checkedNoCapMove);
+            this.Controls.Add(this.comboAistance);
+            this.Controls.Add(this.comboInitFunds);
+            this.Controls.Add(this.textStartDate);
+            this.Controls.Add(this.comboResLvl);
+            this.Controls.Add(this.comboEconomicDiff);
+            this.Controls.Add(this.comboDiplomacyDiff);
+            this.Controls.Add(this.comboMilitaryDiff);
+            this.Controls.Add(this.label43);
+            this.Controls.Add(this.label44);
+            this.Controls.Add(this.label36);
+            this.Controls.Add(this.label37);
+            this.Controls.Add(this.label38);
+            this.Controls.Add(this.label39);
+            this.Controls.Add(this.label40);
+            this.Controls.Add(this.label41);
+            this.Controls.Add(this.label42);
+            this.Controls.Add(this.label29);
+            this.Controls.Add(this.label30);
+            this.Controls.Add(this.label31);
+            this.Controls.Add(this.label32);
+            this.Controls.Add(this.label33);
+            this.Controls.Add(this.label34);
+            this.Controls.Add(this.label35);
             this.Controls.Add(this.label22);
             this.Controls.Add(this.label23);
             this.Controls.Add(this.label24);
@@ -751,50 +1047,28 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.textBox43);
-            this.Controls.Add(this.textBox44);
-            this.Controls.Add(this.textBox25);
-            this.Controls.Add(this.textBox26);
-            this.Controls.Add(this.textBox27);
-            this.Controls.Add(this.textBox28);
-            this.Controls.Add(this.textBox29);
-            this.Controls.Add(this.textBox30);
-            this.Controls.Add(this.textBox31);
-            this.Controls.Add(this.textBox32);
-            this.Controls.Add(this.textBox33);
-            this.Controls.Add(this.textBox34);
-            this.Controls.Add(this.textBox35);
-            this.Controls.Add(this.textBox36);
-            this.Controls.Add(this.textBox37);
-            this.Controls.Add(this.textBox38);
-            this.Controls.Add(this.textBox39);
-            this.Controls.Add(this.textBox40);
-            this.Controls.Add(this.textBox41);
-            this.Controls.Add(this.textBox42);
-            this.Controls.Add(this.textBox24);
-            this.Controls.Add(this.textBox23);
-            this.Controls.Add(this.textBox22);
-            this.Controls.Add(this.textBox21);
-            this.Controls.Add(this.textBox20);
-            this.Controls.Add(this.textBox19);
-            this.Controls.Add(this.textBox18);
-            this.Controls.Add(this.textBox17);
-            this.Controls.Add(this.textBox16);
-            this.Controls.Add(this.textBox15);
-            this.Controls.Add(this.textBox14);
-            this.Controls.Add(this.textBox13);
-            this.Controls.Add(this.textBox12);
-            this.Controls.Add(this.textBox11);
-            this.Controls.Add(this.textBox10);
-            this.Controls.Add(this.textBox9);
-            this.Controls.Add(this.textBox8);
-            this.Controls.Add(this.textBox7);
-            this.Controls.Add(this.textBox6);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textSphereNN);
+            this.Controls.Add(this.textGameLen);
+            this.Controls.Add(this.textCampGame);
+            this.Controls.Add(this.textSVictoryCond);
+            this.Controls.Add(this.textMapSplash);
+            this.Controls.Add(this.textWMDEff);
+            this.Controls.Add(this.textFastDays);
+            this.Controls.Add(this.textMapGUI);
+            this.Controls.Add(this.textTechTreeDefault);
+            this.Controls.Add(this.textAppEff);
+            this.Controls.Add(this.textRegAxis);
+            this.Controls.Add(this.textMapMusic);
+            this.Controls.Add(this.textResTechTrade);
+            this.Controls.Add(this.textRegAllies);
+            this.Controls.Add(this.textLimitScen);
+            this.Controls.Add(this.textStartYear);
+            this.Controls.Add(this.textScenarioID);
+            this.Controls.Add(this.textVicTech);
+            this.Controls.Add(this.textRelationsEff);
+            this.Controls.Add(this.textReserveLimit);
+            this.Controls.Add(this.textDefRegion);
+            this.Controls.Add(this.textVicHex);
             this.Name = "UC_Settings";
             this.Size = new System.Drawing.Size(1800, 1000);
             this.Load += new System.EventHandler(this.UC_Settings_Load);
@@ -804,51 +1078,28 @@
         }
 
         #endregion
-
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.TextBox textBox9;
-        private System.Windows.Forms.TextBox textBox10;
-        private System.Windows.Forms.TextBox textBox11;
-        private System.Windows.Forms.TextBox textBox12;
-        private System.Windows.Forms.TextBox textBox13;
-        private System.Windows.Forms.TextBox textBox14;
-        private System.Windows.Forms.TextBox textBox15;
-        private System.Windows.Forms.TextBox textBox16;
-        private System.Windows.Forms.TextBox textBox17;
-        private System.Windows.Forms.TextBox textBox18;
-        private System.Windows.Forms.TextBox textBox19;
-        private System.Windows.Forms.TextBox textBox20;
-        private System.Windows.Forms.TextBox textBox21;
-        private System.Windows.Forms.TextBox textBox22;
-        private System.Windows.Forms.TextBox textBox23;
-        private System.Windows.Forms.TextBox textBox24;
-        private System.Windows.Forms.TextBox textBox25;
-        private System.Windows.Forms.TextBox textBox26;
-        private System.Windows.Forms.TextBox textBox27;
-        private System.Windows.Forms.TextBox textBox28;
-        private System.Windows.Forms.TextBox textBox29;
-        private System.Windows.Forms.TextBox textBox30;
-        private System.Windows.Forms.TextBox textBox31;
-        private System.Windows.Forms.TextBox textBox32;
-        private System.Windows.Forms.TextBox textBox33;
-        private System.Windows.Forms.TextBox textBox34;
-        private System.Windows.Forms.TextBox textBox35;
-        private System.Windows.Forms.TextBox textBox36;
-        private System.Windows.Forms.TextBox textBox37;
-        private System.Windows.Forms.TextBox textBox38;
-        private System.Windows.Forms.TextBox textBox39;
-        private System.Windows.Forms.TextBox textBox40;
-        private System.Windows.Forms.TextBox textBox41;
-        private System.Windows.Forms.TextBox textBox42;
-        private System.Windows.Forms.TextBox textBox43;
-        private System.Windows.Forms.TextBox textBox44;
+        private System.Windows.Forms.TextBox textVicHex;
+        private System.Windows.Forms.TextBox textDefRegion;
+        private System.Windows.Forms.TextBox textReserveLimit;
+        private System.Windows.Forms.TextBox textRelationsEff;
+        private System.Windows.Forms.TextBox textVicTech;
+        private System.Windows.Forms.TextBox textScenarioID;
+        private System.Windows.Forms.TextBox textStartYear;
+        private System.Windows.Forms.TextBox textLimitScen;
+        private System.Windows.Forms.TextBox textRegAllies;
+        private System.Windows.Forms.TextBox textResTechTrade;
+        private System.Windows.Forms.TextBox textMapMusic;
+        private System.Windows.Forms.TextBox textRegAxis;
+        private System.Windows.Forms.TextBox textAppEff;
+        private System.Windows.Forms.TextBox textGameLen;
+        private System.Windows.Forms.TextBox textCampGame;
+        private System.Windows.Forms.TextBox textSVictoryCond;
+        private System.Windows.Forms.TextBox textMapSplash;
+        private System.Windows.Forms.TextBox textWMDEff;
+        private System.Windows.Forms.TextBox textFastDays;
+        private System.Windows.Forms.TextBox textMapGUI;
+        private System.Windows.Forms.TextBox textTechTreeDefault;
+        private System.Windows.Forms.TextBox textSphereNN;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -877,5 +1128,43 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.ComboBox comboMilitaryDiff;
+        private System.Windows.Forms.ComboBox comboDiplomacyDiff;
+        private System.Windows.Forms.ComboBox comboResLvl;
+        private System.Windows.Forms.ComboBox comboEconomicDiff;
+        private System.Windows.Forms.DateTimePicker textStartDate;
+        private System.Windows.Forms.ComboBox comboInitFunds;
+        private System.Windows.Forms.ComboBox comboAistance;
+        private System.Windows.Forms.CheckedListBox checkedNoCapMove;
+        private System.Windows.Forms.CheckedListBox checkedRegionEq;
+        private System.Windows.Forms.CheckedListBox checkedLimitDAREff;
+        private System.Windows.Forms.CheckedListBox checkedLimitMAREff;
+        private System.Windows.Forms.CheckedListBox checkedWMInvolve;
+        private System.Windows.Forms.CheckedListBox checkedWMDuse;
+        private System.Windows.Forms.CheckedListBox checkedFastBuild;
+        private System.Windows.Forms.CheckedListBox checkedGovChoice;
+        private System.Windows.Forms.CheckedListBox checkedGroupResMer;
+        private System.Windows.Forms.CheckedListBox checkedGroupLoyMer;
+        private System.Windows.Forms.CheckedListBox checkedMissleNoLimit;
+        private System.Windows.Forms.CheckedListBox checkedAlliedVic;
+        private System.Windows.Forms.CheckedListBox checkedDebtFree;
+        private System.Windows.Forms.CheckedListBox checkedLoyPenality;
+        private System.Windows.Forms.CheckedListBox checkedNoSphere;
     }
 }
