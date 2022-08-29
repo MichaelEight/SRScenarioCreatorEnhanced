@@ -797,7 +797,7 @@
             // 
             this.checkBox12.AutoSize = true;
             this.checkBox12.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox12.Location = new System.Drawing.Point(328, 676);
+            this.checkBox12.Location = new System.Drawing.Point(337, 694);
             this.checkBox12.Name = "checkBox12";
             this.checkBox12.Size = new System.Drawing.Size(196, 34);
             this.checkBox12.TabIndex = 137;
