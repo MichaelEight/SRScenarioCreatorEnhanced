@@ -1,7 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Deployment.Application;
 using System.IO;
 using System.Reflection;
+using System.Windows.Forms;
 
 namespace SRScenarioCreatorEnhanced
 {
@@ -17,11 +19,12 @@ namespace SRScenarioCreatorEnhanced
                : Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
         // Set directory of export (default: editor's directory + "\Exported")
-        private string baseExportDirectory = Directory.GetCurrentDirectory() + "\\Exported";
+        private string baseExportDirectory = Directory.GetCurrentDirectory() + @"\Exported";
         // Directory of SRU folder (TO AUTO/MANUAL CHANGE, TODO)
-        private string baseGameDirectory = $"I:\\Steam Games\\steamapps\\common\\Supreme Ruler Ultimate"; 
+        private string baseGameDirectory = @"I:\Steam Games\steamapps\common\Supreme Ruler Ultimate"; 
         // Return baseGameDirectory
         public string getBaseGameDirectory() { return baseGameDirectory; }
+        public string getBaseExportDirectory() { return baseExportDirectory; }
 
         #endregion
 
@@ -31,6 +34,7 @@ namespace SRScenarioCreatorEnhanced
         public string scenarioName;
         public string cacheName;
         public bool cacheSameNameCheck;
+        public string regionInclName; // Not editable in editor, but used
 
         // Map Info
         public string mapName;
@@ -57,6 +61,9 @@ namespace SRScenarioCreatorEnhanced
         public bool WMModifyCheck;
         public bool OOBModifyCheck;
 
+        // DEBUG
+        public string lastLoadedScenarioName; // Used as anti-loop when trying to reload tab
+
         #endregion
 
         #region otherTabsContentObjects
@@ -69,8 +76,11 @@ namespace SRScenarioCreatorEnhanced
         // Generate default data on creation
         public ScenarioContent()
         {
+            lastLoadedScenarioName = "-";
+
             scenarioName = "";
             cacheName = scenarioName;
+            regionInclName = scenarioName;
             cacheSameNameCheck = false;
 
             mapName = "";
@@ -199,11 +209,160 @@ namespace SRScenarioCreatorEnhanced
 
         #region loadingDataFromFile
 
+        /// <summary>
+        /// Load scenario file, get all lines, extract necessary data and save it to variables
+        /// </summary>
+        /// <param name="scenarioName">Name of .scenario file to load</param>
         public void loadDataFromScenarioFileToActiveScenario(string scenarioName)
         {
-            // Load .scenario file
-            // Get each line
+            string scenarioDir = baseGameDirectory + @"\Scenario\Custom\" + scenarioName + @".SCENARIO";
 
+            // Check if that scenario exists
+            if (File.Exists(scenarioDir))
+            {
+                // Load content (lines) of .scenario file and put them into List<string>
+                List<string> linesFromFile = new List<string>(File.ReadAllLines(scenarioDir));
+
+                // Eliminate empty lines
+                linesFromFile.RemoveAll(string.IsNullOrWhiteSpace);
+
+                // Eliminate lines with comments, &&-tags and ifsets
+                linesFromFile.RemoveAll(u => u.Contains("//") || u.Contains("&&") || u.Contains("ifset"));
+
+                // Make a list with all the lines containing "#include"
+                List<string> linesContainingInclude = new List<string>();
+
+                string[] tempArray; // array for temporary operations
+
+                // Go through all lines
+                foreach(var line in linesFromFile)
+                {
+                    // Split line into parts with ' " ' char
+                    // NOTE: Use index 1 for includes, mapfile and savfile, because data is inside the quotes
+                    // .. However index 0 for settings, because there's no ' " ' char in there
+                    tempArray = line.Split('"');
+
+                    // If it's an '#include' line
+                    if (line.Contains("#include"))
+                    {
+                        /// EXAMPLE LINE
+                        /// #include "W2020.CVP", "MAPS\"
+
+                        if (tempArray.Length >= 2) // Check to eliminate array overflow
+                        {
+                            // Select content in the quotes and split file name from extension
+                            tempArray = tempArray[1].Split('.');
+
+                            if(tempArray.Length >= 2) // Check to eliminate array overflow
+                            {
+                                // So elements of tempArray are 0) fileName and 1) fileExtension
+                                saveValueToCorrectVariable(tempArray[0], tempArray[1]);
+                            }
+                        }
+                    }
+                    
+                    // If it's a 'mapfile' or 'savfile' line
+                    else if(line.Contains("mapfile") || line.Contains("savfile"))
+                    {
+                        /// EXAMPLE LINE
+                        /// mapfile "GC2020"
+
+                        // Fix for .SAV still appearing in comboboxes, despite forbidden words remover
+                        // If there's a dot (it shouldn't be)
+                        if (tempArray[1].Contains("."))
+                        {
+                            tempArray = tempArray[1].Split('.');
+
+                            if (tempArray.Length >= 2) // Check to eliminate array overflow
+                            {
+                                if (line.Contains("mapfile"))
+                                    saveValueToCorrectVariable(tempArray[0], "MAPX");
+                                else // If it's not a map, it has to be cache
+                                    saveValueToCorrectVariable(tempArray[0], "CACHE");
+                            }
+                        }
+                        // If there's no dot, it's correct, continue as normal
+                        else
+                        {
+                            if (tempArray.Length >= 2) // Check to eliminate array overflow
+                            {
+                                // Check what option is in line and value between quotes to saving function
+                                if (tempArray[0].Contains("mapfile"))
+                                    saveValueToCorrectVariable(tempArray[1], "MAPX");
+                                else // If it's not a map, it has to be cache
+                                    saveValueToCorrectVariable(tempArray[1], "CACHE");
+                            }
+                        }
+                    }
+                    
+                    // If it's a setting line TODO
+                    else
+                    {
+                        /// EXAMPLE LINE
+                        /// difficulty:     2, 2, 2
+
+                    }
+                }
+            }
+            else
+            {
+                // Error, file not found
+                if (Configuration.enableLoadingfilesErrorMessageBoxes)
+                {
+                    MessageBox.Show("Failed to find that .scenario file!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }  
+        }
+        
+        /// <summary>
+        /// Move value to the correct variable, found by label
+        /// </summary>
+        /// <param name="value">Value to be set into certain variable</param>
+        /// <param name="label">Using that, find matching variable and set the value to it. Might be file extension.</param>
+        private void saveValueToCorrectVariable(string value, string label)
+        {
+            switch (label)
+            {
+                case "CVP": CVPName = value; break;
+                case "REGIONINCL": regionInclName = value; break;
+                case "UNIT": UnitName = value; break;
+                case "PPLX": PPLXName = value; break;
+                case "TTRX": TTRXName = value; break;
+                case "TERX": TERXName = value; break;
+                case "NEWSITEMS": NewsItemsName = value; break;
+                case "OOB": OOBName = value; break;
+                case "PRF": ProfileName = value; break;
+
+                case "WMData":
+                case "WMDATA":                   
+                    WMName = value; break;
+
+                // Compatibility for original editor's bug - saving OOF as SAV
+                // Possible, because .SAV is never used elsewhere
+                case "SAV": 
+                case "OOF": 
+                    OOFName = value; break;
+
+                case "MAPX": mapName = value; break;
+                case "CACHE": cacheName = value; break;
+
+                // Ignore labels (they are not used and can't be edited within this editor)
+                case "INI":
+                case "csv":
+                    break;
+                
+                default:
+                    {
+                        // DEBUG Display error if label doesn't match any variable
+                        if (Configuration.enableLoadingfilesErrorMessageBoxes)
+                        {
+                            MessageBox.Show($"Error! No variable found for that label! ({label})", "Error!",
+                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        }
+
+                        break;
+                    }
+            }
         }
 
         #endregion
