@@ -44,7 +44,6 @@
             this.textGameLen = new System.Windows.Forms.TextBox();
             this.textCampGame = new System.Windows.Forms.TextBox();
             this.textSVictoryCond = new System.Windows.Forms.TextBox();
-            this.textMapSplash = new System.Windows.Forms.TextBox();
             this.textFastDays = new System.Windows.Forms.TextBox();
             this.textMapGUI = new System.Windows.Forms.TextBox();
             this.textTechTreeDefault = new System.Windows.Forms.TextBox();
@@ -104,6 +103,8 @@
             this.checkBox15 = new System.Windows.Forms.CheckBox();
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
+            this.numericMapSplash = new System.Windows.Forms.NumericUpDown();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMapSplash)).BeginInit();
             this.SuspendLayout();
             // 
             // textVicHex
@@ -233,14 +234,6 @@
             this.textSVictoryCond.Name = "textSVictoryCond";
             this.textSVictoryCond.Size = new System.Drawing.Size(225, 37);
             this.textSVictoryCond.TabIndex = 38;
-            // 
-            // textMapSplash
-            // 
-            this.textMapSplash.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textMapSplash.Location = new System.Drawing.Point(1282, 477);
-            this.textMapSplash.Name = "textMapSplash";
-            this.textMapSplash.Size = new System.Drawing.Size(225, 37);
-            this.textMapSplash.TabIndex = 37;
             // 
             // textFastDays
             // 
@@ -573,8 +566,10 @@
             // 
             // comboMilitaryDiff
             // 
+            this.comboMilitaryDiff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMilitaryDiff.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboMilitaryDiff.FormattingEnabled = true;
+            this.comboMilitaryDiff.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboMilitaryDiff.Location = new System.Drawing.Point(800, 138);
             this.comboMilitaryDiff.Name = "comboMilitaryDiff";
             this.comboMilitaryDiff.Size = new System.Drawing.Size(189, 38);
@@ -582,8 +577,10 @@
             // 
             // comboDiplomacyDiff
             // 
+            this.comboDiplomacyDiff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboDiplomacyDiff.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboDiplomacyDiff.FormattingEnabled = true;
+            this.comboDiplomacyDiff.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboDiplomacyDiff.Location = new System.Drawing.Point(1020, 140);
             this.comboDiplomacyDiff.Name = "comboDiplomacyDiff";
             this.comboDiplomacyDiff.Size = new System.Drawing.Size(236, 38);
@@ -591,8 +588,10 @@
             // 
             // comboResLvl
             // 
+            this.comboResLvl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboResLvl.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboResLvl.FormattingEnabled = true;
+            this.comboResLvl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboResLvl.Location = new System.Drawing.Point(1532, 135);
             this.comboResLvl.Name = "comboResLvl";
             this.comboResLvl.Size = new System.Drawing.Size(248, 38);
@@ -600,8 +599,10 @@
             // 
             // comboEconomicDiff
             // 
+            this.comboEconomicDiff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboEconomicDiff.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboEconomicDiff.FormattingEnabled = true;
+            this.comboEconomicDiff.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboEconomicDiff.Location = new System.Drawing.Point(1282, 136);
             this.comboEconomicDiff.Name = "comboEconomicDiff";
             this.comboEconomicDiff.Size = new System.Drawing.Size(225, 38);
@@ -617,8 +618,10 @@
             // 
             // comboInitFunds
             // 
+            this.comboInitFunds.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboInitFunds.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboInitFunds.FormattingEnabled = true;
+            this.comboInitFunds.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboInitFunds.Location = new System.Drawing.Point(54, 236);
             this.comboInitFunds.Name = "comboInitFunds";
             this.comboInitFunds.Size = new System.Drawing.Size(219, 38);
@@ -626,8 +629,10 @@
             // 
             // comboAistance
             // 
+            this.comboAistance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboAistance.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboAistance.FormattingEnabled = true;
+            this.comboAistance.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboAistance.Location = new System.Drawing.Point(554, 238);
             this.comboAistance.Name = "comboAistance";
             this.comboAistance.Size = new System.Drawing.Size(212, 38);
@@ -665,8 +670,10 @@
             // 
             // comboWMDEffect
             // 
+            this.comboWMDEffect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboWMDEffect.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboWMDEffect.FormattingEnabled = true;
+            this.comboWMDEffect.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.comboWMDEffect.Location = new System.Drawing.Point(1020, 722);
             this.comboWMDEffect.Name = "comboWMDEffect";
             this.comboWMDEffect.Size = new System.Drawing.Size(236, 38);
@@ -775,7 +782,7 @@
             // 
             this.checkBox10.AutoSize = true;
             this.checkBox10.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox10.Location = new System.Drawing.Point(3, 477);
+            this.checkBox10.Location = new System.Drawing.Point(3, 461);
             this.checkBox10.Name = "checkBox10";
             this.checkBox10.Size = new System.Drawing.Size(317, 34);
             this.checkBox10.TabIndex = 135;
@@ -808,7 +815,7 @@
             // 
             this.checkBox13.AutoSize = true;
             this.checkBox13.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox13.Location = new System.Drawing.Point(815, 803);
+            this.checkBox13.Location = new System.Drawing.Point(815, 815);
             this.checkBox13.Name = "checkBox13";
             this.checkBox13.Size = new System.Drawing.Size(162, 34);
             this.checkBox13.TabIndex = 138;
@@ -819,7 +826,7 @@
             // 
             this.checkBox14.AutoSize = true;
             this.checkBox14.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox14.Location = new System.Drawing.Point(1343, 676);
+            this.checkBox14.Location = new System.Drawing.Point(1319, 694);
             this.checkBox14.Name = "checkBox14";
             this.checkBox14.Size = new System.Drawing.Size(155, 34);
             this.checkBox14.TabIndex = 139;
@@ -830,7 +837,7 @@
             // 
             this.checkBox15.AutoSize = true;
             this.checkBox15.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox15.Location = new System.Drawing.Point(1532, 675);
+            this.checkBox15.Location = new System.Drawing.Point(1532, 694);
             this.checkBox15.Name = "checkBox15";
             this.checkBox15.Size = new System.Drawing.Size(258, 34);
             this.checkBox15.TabIndex = 140;
@@ -859,10 +866,19 @@
             this.label27.Text = "Relations Effect";
             this.label27.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // numericMapSplash
+            // 
+            this.numericMapSplash.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericMapSplash.Location = new System.Drawing.Point(1282, 477);
+            this.numericMapSplash.Name = "numericMapSplash";
+            this.numericMapSplash.Size = new System.Drawing.Size(225, 37);
+            this.numericMapSplash.TabIndex = 141;
+            // 
             // UC_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.numericMapSplash);
             this.Controls.Add(this.checkBox15);
             this.Controls.Add(this.checkBox14);
             this.Controls.Add(this.checkBox13);
@@ -922,7 +938,6 @@
             this.Controls.Add(this.textGameLen);
             this.Controls.Add(this.textCampGame);
             this.Controls.Add(this.textSVictoryCond);
-            this.Controls.Add(this.textMapSplash);
             this.Controls.Add(this.textFastDays);
             this.Controls.Add(this.textMapGUI);
             this.Controls.Add(this.textTechTreeDefault);
@@ -941,6 +956,7 @@
             this.Controls.Add(this.textVicHex);
             this.Name = "UC_Settings";
             this.Size = new System.Drawing.Size(1800, 1000);
+            ((System.ComponentModel.ISupportInitialize)(this.numericMapSplash)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -963,7 +979,6 @@
         private System.Windows.Forms.TextBox textGameLen;
         private System.Windows.Forms.TextBox textCampGame;
         private System.Windows.Forms.TextBox textSVictoryCond;
-        private System.Windows.Forms.TextBox textMapSplash;
         private System.Windows.Forms.TextBox textFastDays;
         private System.Windows.Forms.TextBox textMapGUI;
         private System.Windows.Forms.TextBox textTechTreeDefault;
@@ -1023,5 +1038,6 @@
         private System.Windows.Forms.CheckBox checkBox15;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
+        private System.Windows.Forms.NumericUpDown numericMapSplash;
     }
 }
