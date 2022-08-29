@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/// RegionsContent.cs file released under GNU GPL v3 licence.
+/// Originally used in the SRScenarioCreatorEnhanced project: https://github.com/r20de20/SRScenarioCreatorEnhanced
 
-namespace SRScenarioCreatorEnhanced.src
+namespace SRScenarioCreatorEnhanced
 {
     public class RegionsContent
     {

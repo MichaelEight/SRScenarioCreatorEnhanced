@@ -1,4 +1,7 @@
-﻿using SRScenarioCreatorEnhanced.UserControls;
+﻿/// editorMainWindow.cs file released under GNU GPL v3 licence.
+/// Originally used in the SRScenarioCreatorEnhanced project: https://github.com/r20de20/SRScenarioCreatorEnhanced
+
+using SRScenarioCreatorEnhanced.UserControls;
 using System;
 using System.Deployment.Application;
 using System.Reflection;
