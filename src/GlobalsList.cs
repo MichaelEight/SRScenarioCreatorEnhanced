@@ -14,4 +14,5 @@ public static class Globals
 public static class Configuration
 {
     public const bool enableLoadingFilesFromGameDirectory = true; // DEFAULT: TRUE
+    public const bool enableLoadingfilesErrorMessageBoxes = true; // DEFAULT: TRUE, set FALSE for production (!)
 }
