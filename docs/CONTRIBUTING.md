@@ -9,9 +9,18 @@
 - [Problems with development or loading project](#known-development-issues)
 
 ## How To Edit
-Fork the repository, download the project.
-Run ```SRScenarioCreatorEnhanced.sln``` using Visual Studio 2022 (may work with previous versions).
-Make the changes. Make sure everything works as intended. Make a pull request.
+Option A)
+- Open project [site](https://github.com/r20de20/SRScenarioCreatorEnhanced)
+- Code >> Open With Visual Studio
+- (alternative) Copy the link. Open Visual Studio. Clone a repository. Paste a link there.
+
+Option B) 
+- Fork the repository
+- Download the project
+- Run ```SRScenarioCreatorEnhanced.sln``` using Visual Studio 2022 (may work with previous versions).
+
+After choosing one of the options)
+Make the changes. Make sure everything works as intended. Write some comments. Commit. Push. Then make a pull request.
 
 ## Creating An Issue
 - Make sure the issue is not a duplicate. If that issue already exists - make your comment in it
