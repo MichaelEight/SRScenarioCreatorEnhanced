@@ -47,8 +47,8 @@ namespace SRScenarioCreatorEnhanced
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                _ = ReleaseCapture();
+                _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
         // ... or titleLabel
@@ -56,8 +56,8 @@ namespace SRScenarioCreatorEnhanced
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                _ = ReleaseCapture();
+                _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
         // Check if status (enabled/disabled) was changed for any button
@@ -102,7 +102,7 @@ namespace SRScenarioCreatorEnhanced
                : Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             // Display assembly version in message box
-            MessageBox.Show($"Current version: {versionNumber}\n" +
+            _ = MessageBox.Show($"Current version: {versionNumber}\n" +
                 $"Contributors: Michael '8', xperga", "About Editor", MessageBoxButtons.OK,
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }

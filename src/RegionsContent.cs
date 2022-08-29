@@ -3,6 +3,7 @@
 
 namespace SRScenarioCreatorEnhanced
 {
+    /* DISABLED TEMPORARY FOR OPTIMIZATION REASONS, NOT USED YET
     public class RegionsContent
     {
         string regionName;
@@ -62,5 +63,5 @@ namespace SRScenarioCreatorEnhanced
         int capitalX;
         int capitalY;
         bool nonPlayable;
-    }
+    }*/
 }

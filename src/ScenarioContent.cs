@@ -17,14 +17,14 @@ namespace SRScenarioCreatorEnhanced
         #region editorInfo
 
         // Current version of the editor
-        private string editorVersion = ApplicationDeployment.IsNetworkDeployed
+        private readonly string editorVersion = ApplicationDeployment.IsNetworkDeployed
                ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString()
                : Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
         // Set directory of export (default: editor's directory + "\Exported")
-        private string baseExportDirectory = Directory.GetCurrentDirectory() + @"\Exported";
+        private readonly string baseExportDirectory = Directory.GetCurrentDirectory() + @"\Exported";
         // Directory of SRU folder (TO AUTO/MANUAL CHANGE, TODO)
-        private string baseGameDirectory = @"I:\Steam Games\steamapps\common\Supreme Ruler Ultimate";
+        private readonly string baseGameDirectory = @"I:\Steam Games\steamapps\common\Supreme Ruler Ultimate";
         // Return baseGameDirectory
         public string getBaseGameDirectory() { return baseGameDirectory; }
         public string getBaseExportDirectory() { return baseExportDirectory; }
@@ -149,7 +149,7 @@ namespace SRScenarioCreatorEnhanced
             // Input hard-coded scheme
             File.AppendAllLines(tempExportLocation, new string[]{
                 $"// SCENARIO DEFINITION - {scenarioName}",
-                $"// Created using Enhanced Scenario Creator V{editorVersion} - {DateTime.Now.ToString()}",
+                $"// Created using Enhanced Scenario Creator V{editorVersion} - {DateTime.Now}",
                 $"// ifset key: 0x01: Load CVP; 0x02: Load Rest of Source; 0x03: Load all; 0x04: Load Cache\n",
 
                 $"#ifset 0x01",
@@ -227,10 +227,10 @@ namespace SRScenarioCreatorEnhanced
                 List<string> linesFromFile = new List<string>(File.ReadAllLines(scenarioDir));
 
                 // Eliminate empty lines
-                linesFromFile.RemoveAll(string.IsNullOrWhiteSpace);
+                _ = linesFromFile.RemoveAll(string.IsNullOrWhiteSpace);
 
                 // Eliminate lines with comments, &&-tags and ifsets
-                linesFromFile.RemoveAll(u => u.Contains("//") || u.Contains("&&") || u.Contains("ifset"));
+                _ = linesFromFile.RemoveAll(u => u.Contains("//") || u.Contains("&&") || u.Contains("ifset"));
 
                 // Make a list with all the lines containing "#include"
                 List<string> linesContainingInclude = new List<string>();
@@ -312,7 +312,7 @@ namespace SRScenarioCreatorEnhanced
                 // Error, file not found
                 if (Configuration.enableLoadingfilesErrorMessageBoxes)
                 {
-                    MessageBox.Show("Failed to find that .scenario file!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    _ = MessageBox.Show("Failed to find that .scenario file!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
         }
@@ -359,7 +359,7 @@ namespace SRScenarioCreatorEnhanced
                         // DEBUG Display error if label doesn't match any variable
                         if (Configuration.enableLoadingfilesErrorMessageBoxes)
                         {
-                            MessageBox.Show($"Error! No variable found for that label! ({label})", "Error!",
+                            _ = MessageBox.Show($"Error! No variable found for that label! ({label})", "Error!",
                                             MessageBoxButtons.OK, MessageBoxIcon.Error);
                         }
 

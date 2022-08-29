@@ -7,7 +7,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
 {
     public partial class UC_Regions : UserControl
     {
-        private editorMainWindow mainForm;
+        private readonly editorMainWindow mainForm;
         public UC_Regions(editorMainWindow mainForm)
         {
             InitializeComponent();
