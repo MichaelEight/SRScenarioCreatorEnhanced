@@ -13,3 +13,6 @@ That's why we decided to make an editor of our own. Improved over the original o
 
 ## Licence
 GNU GPL v3. Free to use and modify. Not allowed to release with closed source! Credit us as original creators of Enhanced SR Editor (however we are **not** the creators of the game OR the original, steam-version editor).
+
+## Code of Conduct
+[Contribution Code of Conduct](CODE_OF_CONDUCT.md). By participating in this project you agree to abide by its terms.
