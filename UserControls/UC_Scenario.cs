@@ -580,15 +580,15 @@ namespace SRScenarioCreatorEnhanced.UserControls
                         Arguments = folderPath,
                         FileName = "explorer.exe"
                     };
-    
-                Process.Start(startInfo);
+
+                    Process.Start(startInfo);
                 }
                 else
                 {
                     MessageBox.Show(string.Format("{0} Directory does not exist!", folderPath));
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 // Some error (exception) happened
                 MessageBox.Show(err.Message);

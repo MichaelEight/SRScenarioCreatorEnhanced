@@ -24,7 +24,7 @@ namespace SRScenarioCreatorEnhanced
         // Set directory of export (default: editor's directory + "\Exported")
         private string baseExportDirectory = Directory.GetCurrentDirectory() + @"\Exported";
         // Directory of SRU folder (TO AUTO/MANUAL CHANGE, TODO)
-        private string baseGameDirectory = @"I:\Steam Games\steamapps\common\Supreme Ruler Ultimate"; 
+        private string baseGameDirectory = @"I:\Steam Games\steamapps\common\Supreme Ruler Ultimate";
         // Return baseGameDirectory
         public string getBaseGameDirectory() { return baseGameDirectory; }
         public string getBaseExportDirectory() { return baseExportDirectory; }
@@ -96,7 +96,7 @@ namespace SRScenarioCreatorEnhanced
             TERXName = "DEFAULT";
             NewsItemsName = "DEFAULT";
             ProfileName = "DEFAULT";
-            allNonEditableDefaultCheck = true; 
+            allNonEditableDefaultCheck = true;
 
             CVPName = "";
             WMName = "";
@@ -118,20 +118,20 @@ namespace SRScenarioCreatorEnhanced
             exportScenarioFile();
 
             // Save .cvp file (if modified)
-            if(CVPModifyCheck)
+            if (CVPModifyCheck)
             {
                 exportCVPFile();
                 exportRegionInclFile();
             }
 
             // Save .wmdata file (if modified)
-            if(WMModifyCheck)
+            if (WMModifyCheck)
             {
                 exportWMFile();
             }
 
             // Save .oob file (if modified)
-            if(OOBModifyCheck)
+            if (OOBModifyCheck)
             {
                 exportOOBFile();
             }
@@ -183,7 +183,7 @@ namespace SRScenarioCreatorEnhanced
                 $"&&SAV",
                 $"savfile \"{cacheName}\"",
                 $"&&END\n",
-                
+
                 string.IsNullOrEmpty(PostCacheName) ? null : $"#include \"{PostCacheName}\"\n", // Do not include, if empty
 
                 $"#endifset\n"
@@ -238,7 +238,7 @@ namespace SRScenarioCreatorEnhanced
                 string[] tempArray; // array for temporary operations
 
                 // Go through all lines
-                foreach(var line in linesFromFile)
+                foreach (var line in linesFromFile)
                 {
                     // Split line into parts with ' " ' char
                     // NOTE: Use index 1 for includes, mapfile and savfile, because data is inside the quotes
@@ -256,16 +256,16 @@ namespace SRScenarioCreatorEnhanced
                             // Select content in the quotes and split file name from extension
                             tempArray = tempArray[1].Split('.');
 
-                            if(tempArray.Length >= 2) // Check to eliminate array overflow
+                            if (tempArray.Length >= 2) // Check to eliminate array overflow
                             {
                                 // So elements of tempArray are 0) fileName and 1) fileExtension
                                 saveValueToCorrectVariable(tempArray[0], tempArray[1]);
                             }
                         }
                     }
-                    
+
                     // If it's a 'mapfile' or 'savfile' line
-                    else if(line.Contains("mapfile") || line.Contains("savfile"))
+                    else if (line.Contains("mapfile") || line.Contains("savfile"))
                     {
                         /// EXAMPLE LINE
                         /// mapfile "GC2020"
@@ -297,7 +297,7 @@ namespace SRScenarioCreatorEnhanced
                             }
                         }
                     }
-                    
+
                     // If it's a setting line TODO
                     else
                     {
@@ -314,9 +314,9 @@ namespace SRScenarioCreatorEnhanced
                 {
                     MessageBox.Show("Failed to find that .scenario file!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
-            }  
+            }
         }
-        
+
         /// <summary>
         /// Move value to the correct variable, found by label
         /// </summary>
@@ -337,13 +337,13 @@ namespace SRScenarioCreatorEnhanced
                 case "PRF": ProfileName = value; break;
 
                 case "WMData":
-                case "WMDATA":                   
+                case "WMDATA":
                     WMName = value; break;
 
                 // Compatibility for original editor's bug - saving OOF as SAV
                 // Possible, because .SAV is never used elsewhere
-                case "SAV": 
-                case "OOF": 
+                case "SAV":
+                case "OOF":
                     OOFName = value; break;
 
                 case "MAPX": mapName = value; break;
@@ -353,7 +353,7 @@ namespace SRScenarioCreatorEnhanced
                 case "INI":
                 case "csv":
                     break;
-                
+
                 default:
                     {
                         // DEBUG Display error if label doesn't match any variable
