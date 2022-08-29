@@ -100,7 +100,7 @@ namespace SRScenarioCreatorEnhanced
 
             // Display assembly version in message box
             MessageBox.Show($"Current version: {versionNumber}\n" +
-                $"Contributors: Michael '8'", "About Editor", MessageBoxButtons.OK,
+                $"Contributors: Michael '8', xperga", "About Editor", MessageBoxButtons.OK,
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 
@@ -108,8 +108,8 @@ namespace SRScenarioCreatorEnhanced
 
         #region tabsButtons
         // Tab buttons click event
-        // TO EDIT -- don't reload loaded UC
-        private void tabScenarioBtn_Click(object sender, EventArgs e)
+        // tabScenario is public, so export button can work
+        public void tabScenarioBtn_Click(object sender, EventArgs e)
         {
             UC_Scenario uc = new UC_Scenario(this);
             addUserControl(uc);

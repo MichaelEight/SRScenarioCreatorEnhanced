@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -31,6 +33,34 @@ namespace SRScenarioCreatorEnhanced.UserControls
             loadDataFromScenarioContent();
 
             activateOtherTabsIfPossible();
+
+            // Not currently needed, disabled for optimalization
+            //forceRemoveForbiddenWordsInAllCombos();
+        }
+
+        /// <summary>
+        /// Tries to remove all forbidden keywords in all scenarioTab comboboxes
+        /// </summary>
+        private void forceRemoveForbiddenWordsInAllCombos()
+        {
+            removeForbiddenKeywordsFromText(ref comboScenarioName);
+            removeForbiddenKeywordsFromText(ref comboCacheName);
+
+            removeForbiddenKeywordsFromText(ref comboMapName);
+            removeForbiddenKeywordsFromText(ref comboOOF);
+
+            removeForbiddenKeywordsFromText(ref comboUnit);
+            removeForbiddenKeywordsFromText(ref comboPPLX);
+            removeForbiddenKeywordsFromText(ref comboTTRX);
+            removeForbiddenKeywordsFromText(ref comboTERX);
+            removeForbiddenKeywordsFromText(ref comboNewsItems);
+            removeForbiddenKeywordsFromText(ref comboProfile);
+
+            removeForbiddenKeywordsFromText(ref comboCVP);
+            removeForbiddenKeywordsFromText(ref comboWM);
+            removeForbiddenKeywordsFromText(ref comboOOB);
+            removeForbiddenKeywordsFromText(ref comboPreCache);
+            removeForbiddenKeywordsFromText(ref comboPostCache);
         }
 
         #region loadingFileNamesAndChoices
@@ -135,6 +165,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
             comboPreCache.Text = mainWindow.currentScenario.PreCacheName;
             comboPostCache.Text = mainWindow.currentScenario.PostCacheName;
 
+            // Remove forbidden keywords
+            forceRemoveForbiddenWordsInAllCombos();
+
             // Load checks
             checkCacheName.Checked = mainWindow.currentScenario.cacheSameNameCheck;
 
@@ -148,15 +181,15 @@ namespace SRScenarioCreatorEnhanced.UserControls
             checkModifyOOB.Checked = mainWindow.currentScenario.OOBModifyCheck;
         }
 
-#endregion
+        #endregion
 
-#region managingOtherTabs
+        #region managingOtherTabs
 
         // Minimum required to allow to activate other tabs
         private void activateOtherTabsIfPossible()
         {
             // Basic requirements to allow unlocking tabs and other components
-            if(areBasicRequirementsMet())
+            if (areBasicRequirementsMet())
             {
                 // Unlock Settings Tab and Export Button -- basic unlock
                 Globals.isSettingsActive = true;
@@ -198,7 +231,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
             if (string.IsNullOrEmpty(comboCVP.Text)) return false;
             if (string.IsNullOrEmpty(comboWM.Text)) return false;
 
-            if(!checkNoneditDefault.Checked) // if default not selected
+            if (!checkNoneditDefault.Checked) // if default not selected
             {
                 if (string.IsNullOrEmpty(comboUnit.Text)) return false;
                 if (string.IsNullOrEmpty(comboPPLX.Text)) return false;
@@ -210,11 +243,11 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             return true;
         }
-#endregion
+        #endregion
 
-#region CheckBoxesSection
-        
-#region generalChecks
+        #region CheckBoxesSection
+
+        #region generalChecks
         // 'General' Checks
         private void checkCacheName_CheckedChanged(object sender, EventArgs e)
         {
@@ -229,9 +262,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             activateOtherTabsIfPossible();
         }
-#endregion
+        #endregion
 
-#region mapsChecks
+        #region mapsChecks
         private void checkNewMap_CheckedChanged(object sender, EventArgs e)
         {
             mainWindow.currentScenario.newMapCheck = checkNewMap.Checked;
@@ -249,9 +282,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
                 mainWindow.currentScenario.OOFName = comboMapName.Text;
             }
         }
-#endregion
+        #endregion
 
-#region nonEditableChecks
+        #region nonEditableChecks
         // 'Non-editable' Checks
         private void checkNoneditDefault_CheckedChanged(object sender, EventArgs e)
         {
@@ -265,9 +298,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             mainWindow.currentScenario.allNonEditableDefaultCheck = checkNoneditDefault.Checked;
         }
-#endregion
+        #endregion
 
-#region modifyChecks
+        #region modifyChecks
         // 'Modify' Checks
         private void checkModifyCVP_CheckedChanged(object sender, EventArgs e)
         {
@@ -286,15 +319,18 @@ namespace SRScenarioCreatorEnhanced.UserControls
             mainWindow.currentScenario.OOBModifyCheck = checkModifyOOB.Checked;
             activateOtherTabsIfPossible();
         }
-#endregion
+        #endregion
 
-#endregion
+        #endregion
 
-#region ComboBoxesTextUpdateSecion
+        #region ComboBoxesTextUpdateSecion
 
-#region generalInfo
+        #region generalInfo
         private void comboScenarioName_TextUpdate(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboScenarioName);
+
             // Update Cache name if it should be the same
             if (checkCacheName.Checked)
             {
@@ -310,16 +346,22 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void comboCacheName_TextUpdate(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboCacheName);
+
             // Update name in the scenario class
             mainWindow.currentScenario.cacheName = comboCacheName.Text;
 
             activateOtherTabsIfPossible();
         }
-#endregion
+        #endregion
 
-#region mapInfo
+        #region mapInfo
         private void comboMapName_TextUpdate(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboMapName);
+
             // Update Cache name if it should be the same
             if (checkOOF.Checked)
             {
@@ -334,16 +376,22 @@ namespace SRScenarioCreatorEnhanced.UserControls
         }
         private void comboOOF_TextUpdate(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboOOF);
+
             // Update name in the scenario class
             mainWindow.currentScenario.OOFName = comboOOF.Text;
 
             activateOtherTabsIfPossible();
         }
-#endregion
+        #endregion
 
-#region nonEditableDataRegion
+        #region nonEditableDataRegion
         private void comboUnit_TextUpdate(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboUnit);
+
             // Update name in the scenario class
             mainWindow.currentScenario.UnitName = comboUnit.Text;
 
@@ -352,6 +400,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void comboPPLX_TextUpdate(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboPPLX);
+
             // Update name in the scenario class
             mainWindow.currentScenario.PPLXName = comboPPLX.Text;
 
@@ -360,6 +411,8 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void comboTTRX_TextUpdate(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboTTRX);
             // Update name in the scenario class
             mainWindow.currentScenario.TTRXName = comboTTRX.Text;
 
@@ -368,6 +421,8 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void comboTERX_TextUpdate(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboTERX);
             // Update name in the scenario class
             mainWindow.currentScenario.TERXName = comboTERX.Text;
 
@@ -376,6 +431,8 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void comboNewsItems_TextUpdate(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboNewsItems);
             // Update name in the scenario class
             mainWindow.currentScenario.NewsItemsName = comboNewsItems.Text;
 
@@ -384,16 +441,21 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void comboProfile_TextUpdate(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboProfile);
             // Update name in the scenario class
             mainWindow.currentScenario.ProfileName = comboProfile.Text;
 
             activateOtherTabsIfPossible();
         }
-#endregion
+        #endregion
 
-#region editableDataInfo
+        #region editableDataInfo
         private void comboCVP_TextUpdate(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboCVP);
+
             // Update name in the scenario class
             mainWindow.currentScenario.CVPName = comboCVP.Text;
 
@@ -402,6 +464,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void comboWM_TextUpdate(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboWM);
+
             // Update name in the scenario class
             mainWindow.currentScenario.WMName = comboWM.Text;
 
@@ -410,6 +475,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void comboOOB_TextUpdate(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboOOB);
+
             // Update name in the scenario class
             mainWindow.currentScenario.OOBName = comboOOB.Text;
 
@@ -418,6 +486,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void comboPreCache_TextUpdate(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboPreCache);
+
             // Update name in the scenario class
             mainWindow.currentScenario.PreCacheName = comboPreCache.Text;
 
@@ -426,30 +497,99 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void comboPostCache_TextUpdate(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboPostCache);
+
             // Update name in the scenario class
             mainWindow.currentScenario.PostCacheName = comboPostCache.Text;
 
             activateOtherTabsIfPossible();
         }
-#endregion
+        #endregion
 
-#endregion
+        #endregion
 
         private void exportScenarioButton_Click(object sender, EventArgs e)
         {
             mainWindow.currentScenario.exportScenarioToFileAndFolder();
+            MessageBox.Show("Scenario exported! (Well, editor tried, at least)", "Export Finished",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
         // Changed comboScenarioName index selection must be separate, to load data into other comboboxes correctly
         private void comboScenarioName_SelectedIndexChanged(object sender, EventArgs e)
         {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboScenarioName);
+
             // Execute standard commands
             comboScenarioName_TextUpdate(sender, e);
 
             // Load content from selected .scenario file
             mainWindow.currentScenario.loadDataFromScenarioFileToActiveScenario(comboScenarioName.Text);
-            // Refresh tab
-            // TODO
+
+            // Prevent from looping, update only on actual change of scenario
+            if (mainWindow.currentScenario.lastLoadedScenarioName != comboScenarioName.Text)
+            {
+                // Update last used scenario name
+                mainWindow.currentScenario.lastLoadedScenarioName = comboScenarioName.Text;
+
+                // Reload tab by simulating tabScenarioBtn click
+                mainWindow.tabScenarioBtn_Click(sender, e);
+            }
+        }
+
+        /// <summary>
+        /// From given string, remove all banned words (they can break editor or game)
+        /// </summary>
+        /// <param name="targetText"></param>
+        private void removeForbiddenKeywordsFromText(ref ComboBox targetCombo)
+        {
+            // List of forbidden words, with lowercased versions and special chars
+            List<string> forbiddenWords = new List<string>{ ".SAV", ".MAPX", ".UNIT", ".PPLX", ".TTRX", ".TERX", ".WMDATA", ".WMdata",
+                ".INI", ".OOF", ".OOB", ".NEWSITEMS", ".PRF", ".CVP", ".SCENARIO", ".REGIONINCL"};
+            // Include lowercased
+            forbiddenWords.AddRange(forbiddenWords.ConvertAll(s => s.ToLower()));
+            // Include special chars
+            forbiddenWords.AddRange(new List<string> { ".", ",", "!", "?", ":", ";", "/", "\\" });
+
+            // Check all forbidden words
+            foreach (var keyword in forbiddenWords)
+            {
+                // If keyword found in the string
+                if (targetCombo.Text.Contains(keyword))
+                {
+                    // Replace it with blank space (remove it)
+                    targetCombo.Text = targetCombo.Text.Replace(keyword, "");
+                }
+            }
+        }
+
+        private void btnOpenExportedScenarioFolder_Click(object sender, EventArgs e)
+        {
+            string folderPath = mainWindow.currentScenario.getBaseExportDirectory();
+            try
+            {
+                if (Directory.Exists(folderPath))
+                {
+                    ProcessStartInfo startInfo = new ProcessStartInfo
+                    {
+                        Arguments = folderPath,
+                        FileName = "explorer.exe"
+                    };
+    
+                Process.Start(startInfo);
+                }
+                else
+                {
+                    MessageBox.Show(string.Format("{0} Directory does not exist!", folderPath));
+                }
+            }
+            catch(Exception err)
+            {
+                // Some error (exception) happened
+                MessageBox.Show(err.Message);
+            }
         }
     }
 }

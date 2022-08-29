@@ -83,6 +83,7 @@
             this.labelRequiredNewsItems = new System.Windows.Forms.Label();
             this.labelRequiredProfile = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
+            this.btnOpenExportedScenarioFolder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelScenarioName
@@ -679,10 +680,23 @@
             this.label15.TabIndex = 58;
             this.label15.Text = "(R) -- Required to Proceed";
             // 
+            // btnOpenExportedScenarioFolder
+            // 
+            this.btnOpenExportedScenarioFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnOpenExportedScenarioFolder.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnOpenExportedScenarioFolder.Location = new System.Drawing.Point(375, 837);
+            this.btnOpenExportedScenarioFolder.Name = "btnOpenExportedScenarioFolder";
+            this.btnOpenExportedScenarioFolder.Size = new System.Drawing.Size(257, 81);
+            this.btnOpenExportedScenarioFolder.TabIndex = 59;
+            this.btnOpenExportedScenarioFolder.Text = "Open Exported\r\nScenario Folder";
+            this.btnOpenExportedScenarioFolder.UseVisualStyleBackColor = true;
+            this.btnOpenExportedScenarioFolder.Click += new System.EventHandler(this.btnOpenExportedScenarioFolder_Click);
+            // 
             // UC_Scenario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.btnOpenExportedScenarioFolder);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.labelRequiredProfile);
             this.Controls.Add(this.labelRequiredNewsItems);
@@ -802,5 +816,6 @@
         private System.Windows.Forms.Label labelRequiredNewsItems;
         private System.Windows.Forms.Label labelRequiredProfile;
         private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Button btnOpenExportedScenarioFolder;
     }
 }
