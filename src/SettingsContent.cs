@@ -28,7 +28,7 @@ namespace SRScenarioCreatorEnhanced
         bool limitDarEffect; // limit Domestic Approval Rating 0-1
         bool limitMarEffect; // limit Military Approval Rating 0-1
         bool wmInvolve; // what is this? 0-1
-        bool wmDuse; // what is this? 0-1
+        bool wmDuse; // use weapon of mass destruction 0-1
         bool fastBuild; // what is this? 0-1
         bool govChoice; // what is this? 0-1
         bool groupLoyaltyMerge; // what is this?
@@ -50,7 +50,7 @@ namespace SRScenarioCreatorEnhanced
         bool alliedVictory; // all countries allied is a win 0-1
         int restrictTechTrade; // what is this?
         int approvalEff; // approval effect, guess 0-4
-        int wmdEff; // what is this?
+        int wmdEff; // weapon of mass destruction effect 0-2
         bool debtFree; // no starting debt 0-1
         bool noLoyPenalty; // no penalty because of low loyalty 0-1
         bool noSphere; // no sphere of influence 0-1
