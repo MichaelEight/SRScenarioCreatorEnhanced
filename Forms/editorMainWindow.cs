@@ -1,4 +1,7 @@
-﻿using SRScenarioCreatorEnhanced.UserControls;
+﻿/// editorMainWindow.cs file released under GNU GPL v3 licence.
+/// Originally used in the SRScenarioCreatorEnhanced project: https://github.com/r20de20/SRScenarioCreatorEnhanced
+
+using SRScenarioCreatorEnhanced.UserControls;
 using System;
 using System.Deployment.Application;
 using System.Reflection;
@@ -44,8 +47,8 @@ namespace SRScenarioCreatorEnhanced
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                _ = ReleaseCapture();
+                _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
         // ... or titleLabel
@@ -53,8 +56,8 @@ namespace SRScenarioCreatorEnhanced
         {
             if (e.Button == MouseButtons.Left)
             {
-                ReleaseCapture();
-                SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
+                _ = ReleaseCapture();
+                _ = SendMessage(Handle, WM_NCLBUTTONDOWN, HT_CAPTION, 0);
             }
         }
         // Check if status (enabled/disabled) was changed for any button
@@ -99,7 +102,7 @@ namespace SRScenarioCreatorEnhanced
                : Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
             // Display assembly version in message box
-            MessageBox.Show($"Current version: {versionNumber}\n" +
+            _ = MessageBox.Show($"Current version: {versionNumber}\n" +
                 $"Contributors: Michael '8', xperga", "About Editor", MessageBoxButtons.OK,
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }

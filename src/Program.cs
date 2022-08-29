@@ -1,4 +1,7 @@
-﻿using System;
+﻿/// Program.cs file released under GNU GPL v3 licence.
+/// Originally used in the SRScenarioCreatorEnhanced project: https://github.com/r20de20/SRScenarioCreatorEnhanced
+
+using System;
 using System.Windows.Forms;
 
 namespace SRScenarioCreatorEnhanced
@@ -9,7 +12,7 @@ namespace SRScenarioCreatorEnhanced
         /// The main entry point for the application.
         /// </summary>
         [STAThread]
-        static void Main()
+        private static void Main()
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

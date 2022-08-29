@@ -1,5 +1,6 @@
 # Content of This File
 - [How to download, run the project](#how-to-edit)
+- [How to properly create a new issue](#creating-an-issue)
 - [Main idea in few words](#main-idea)
 - [Main goals of the app, what are we trying to achieve](#main-goals)
 - [Details about scheme of the app](#how-does-should-the-editor-work)
@@ -11,6 +12,14 @@
 Fork the repository, download the project.
 Run ```SRScenarioCreatorEnhanced.sln``` using Visual Studio 2022 (may work with previous versions).
 Make the changes. Make sure everything works as intended. Make a pull request.
+
+## Creating An Issue
+- Make sure the issue is not a duplicate. If that issue already exists - make your comment in it
+- If your issue is a **BUG**, select **Bug report** template
+- If your issue is a **SUGGESTION**, select **Feature request** template
+- LABELS: Bugs are connected to problems with the work of the Editor, so any errors and unexpected behaviour.
+Misspellings, wrong translations etc. **DON'T** count as a bug. Create an issue with "misspelling" label instead.
+- Be descriptive! The more info we get, the easier it is for us to reproduce the problem and solve it 
 
 ## Main Idea
 Scenario creator (and at the same time editor) for a game "Supreme Ruler Ultimate".

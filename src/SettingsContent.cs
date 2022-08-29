@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿/// SettingsContent.cs file released under GNU GPL v3 licence.
+/// Originally used in the SRScenarioCreatorEnhanced project: https://github.com/r20de20/SRScenarioCreatorEnhanced
 
 namespace SRScenarioCreatorEnhanced
 {
@@ -13,6 +10,7 @@ namespace SRScenarioCreatorEnhanced
         // not sure - value or range probable, but not tested
         // what is that? - never used / heard of / no idea what it does
 
+        /*DISABLED TEMPORARY FOR OPTIMIZATION REASONS, NOT USED YET
         int startymd; // yyyymmdd
         int defaultRegion; // region's id
         string scenarioid; // what is that?
@@ -57,5 +55,6 @@ namespace SRScenarioCreatorEnhanced
         bool noLoyPenalty; // no penalty because of low loyalty 0-1
         bool noSphere; // no sphere of influence 0-1
         int sphereNn; // what is this?
+        */
     }
 }

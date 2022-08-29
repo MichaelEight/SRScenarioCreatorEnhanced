@@ -1,4 +1,7 @@
-﻿using System;
+﻿/// UC_Scenario.cs file released under GNU GPL v3 licence.
+/// Originally used in the SRScenarioCreatorEnhanced project: https://github.com/r20de20/SRScenarioCreatorEnhanced
+
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -20,7 +23,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
     public partial class UC_Scenario : UserControl
     {
         // Reference to editorMainWindow ; allows to edit currently active scenario's data
-        private editorMainWindow mainWindow;
+        private readonly editorMainWindow mainWindow;
         public UC_Scenario(editorMainWindow mainWindow)
         {
             InitializeComponent();
@@ -512,7 +515,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
         private void exportScenarioButton_Click(object sender, EventArgs e)
         {
             mainWindow.currentScenario.exportScenarioToFileAndFolder();
-            MessageBox.Show("Scenario exported! (Well, editor tried, at least)", "Export Finished",
+            _ = MessageBox.Show("Scenario exported! (Well, editor tried, at least)", "Export Finished",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
@@ -577,18 +580,18 @@ namespace SRScenarioCreatorEnhanced.UserControls
                         Arguments = folderPath,
                         FileName = "explorer.exe"
                     };
-    
-                Process.Start(startInfo);
+
+                    _ = Process.Start(startInfo);
                 }
                 else
                 {
-                    MessageBox.Show(string.Format("{0} Directory does not exist!", folderPath));
+                    _ = MessageBox.Show(string.Format("{0} Directory does not exist!", folderPath));
                 }
             }
-            catch(Exception err)
+            catch (Exception err)
             {
                 // Some error (exception) happened
-                MessageBox.Show(err.Message);
+                _ = MessageBox.Show(err.Message);
             }
         }
     }
