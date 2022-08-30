@@ -203,8 +203,8 @@ namespace SRScenarioCreatorEnhanced
                 $"defaultregion:          {settings.defaultRegion}",
                 $"scenarioid:             {settings.scenarioid}",
                 $"difficulty:             {settings.militaryDifficulty}, " +
-                                        $"{settings.diplomacyDifficulty}, " +
-                                        $"{settings.economicDifficulty}",
+                                        $"{settings.economicDifficulty}, " +
+                                        $"{settings.diplomacyDifficulty}",
                 $"resources:              {settings.resourcesLevel}",
                 $"initialFunds:           {settings.initialFunds}",
                 $"reservelimit:           {settings.reserveLimit}",
