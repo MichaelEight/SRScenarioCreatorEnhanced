@@ -104,6 +104,7 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label27 = new System.Windows.Forms.Label();
             this.numericMapSplash = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.numericMapSplash)).BeginInit();
             this.SuspendLayout();
             // 
@@ -118,7 +119,7 @@
             // textDefRegion
             // 
             this.textDefRegion.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textDefRegion.Location = new System.Drawing.Point(337, 136);
+            this.textDefRegion.Location = new System.Drawing.Point(1579, 239);
             this.textDefRegion.Name = "textDefRegion";
             this.textDefRegion.Size = new System.Drawing.Size(186, 37);
             this.textDefRegion.TabIndex = 8;
@@ -126,7 +127,7 @@
             // textReserveLimit
             // 
             this.textReserveLimit.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textReserveLimit.Location = new System.Drawing.Point(337, 238);
+            this.textReserveLimit.Location = new System.Drawing.Point(1579, 341);
             this.textReserveLimit.Name = "textReserveLimit";
             this.textReserveLimit.Size = new System.Drawing.Size(186, 37);
             this.textReserveLimit.TabIndex = 10;
@@ -150,7 +151,7 @@
             // textScenarioID
             // 
             this.textScenarioID.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textScenarioID.Location = new System.Drawing.Point(554, 136);
+            this.textScenarioID.Location = new System.Drawing.Point(219, 89);
             this.textScenarioID.Name = "textScenarioID";
             this.textScenarioID.Size = new System.Drawing.Size(212, 37);
             this.textScenarioID.TabIndex = 15;
@@ -158,7 +159,7 @@
             // textStartYear
             // 
             this.textStartYear.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textStartYear.Location = new System.Drawing.Point(800, 238);
+            this.textStartYear.Location = new System.Drawing.Point(1058, 363);
             this.textStartYear.Name = "textStartYear";
             this.textStartYear.Size = new System.Drawing.Size(189, 37);
             this.textStartYear.TabIndex = 16;
@@ -254,7 +255,7 @@
             // textTechTreeDefault
             // 
             this.textTechTreeDefault.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textTechTreeDefault.Location = new System.Drawing.Point(1020, 238);
+            this.textTechTreeDefault.Location = new System.Drawing.Point(1278, 363);
             this.textTechTreeDefault.Name = "textTechTreeDefault";
             this.textTechTreeDefault.Size = new System.Drawing.Size(236, 37);
             this.textTechTreeDefault.TabIndex = 28;
@@ -262,7 +263,7 @@
             // textSphereNN
             // 
             this.textSphereNN.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textSphereNN.Location = new System.Drawing.Point(1020, 825);
+            this.textSphereNN.Location = new System.Drawing.Point(6, 884);
             this.textSphereNN.Name = "textSphereNN";
             this.textSphereNN.Size = new System.Drawing.Size(236, 37);
             this.textSphereNN.TabIndex = 44;
@@ -271,7 +272,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label1.Location = new System.Drawing.Point(85, 96);
+            this.label1.Location = new System.Drawing.Point(49, 52);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(164, 30);
             this.label1.TabIndex = 45;
@@ -282,7 +283,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label2.Location = new System.Drawing.Point(340, 96);
+            this.label2.Location = new System.Drawing.Point(1582, 199);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(183, 30);
             this.label2.TabIndex = 46;
@@ -293,18 +294,18 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label3.Location = new System.Drawing.Point(791, 95);
+            this.label3.Location = new System.Drawing.Point(49, 197);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(209, 30);
+            this.label3.Size = new System.Drawing.Size(98, 30);
             this.label3.TabIndex = 48;
-            this.label3.Text = "Military Difficulty";
+            this.label3.Text = "Military";
             this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label4.Location = new System.Drawing.Point(587, 96);
+            this.label4.Location = new System.Drawing.Point(65, 89);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(148, 30);
             this.label4.TabIndex = 47;
@@ -326,11 +327,11 @@
             // 
             this.label6.AutoSize = true;
             this.label6.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label6.Location = new System.Drawing.Point(1272, 96);
+            this.label6.Location = new System.Drawing.Point(49, 282);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(246, 30);
+            this.label6.Size = new System.Drawing.Size(135, 30);
             this.label6.TabIndex = 50;
-            this.label6.Text = "Economic Difficulty";
+            this.label6.Text = "Economic";
             this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label7
@@ -339,16 +340,16 @@
             this.label7.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.label7.Location = new System.Drawing.Point(1011, 96);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(255, 30);
+            this.label7.Size = new System.Drawing.Size(144, 30);
             this.label7.TabIndex = 49;
-            this.label7.Text = "Diplomacy Difficulty";
+            this.label7.Text = "Diplomacy";
             this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label10.Location = new System.Drawing.Point(1027, 198);
+            this.label10.Location = new System.Drawing.Point(1285, 323);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(222, 30);
             this.label10.TabIndex = 56;
@@ -359,7 +360,7 @@
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label11.Location = new System.Drawing.Point(814, 199);
+            this.label11.Location = new System.Drawing.Point(1072, 324);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(163, 30);
             this.label11.TabIndex = 55;
@@ -370,7 +371,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label12.Location = new System.Drawing.Point(605, 198);
+            this.label12.Location = new System.Drawing.Point(863, 323);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(117, 30);
             this.label12.TabIndex = 54;
@@ -381,7 +382,7 @@
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label13.Location = new System.Drawing.Point(345, 198);
+            this.label13.Location = new System.Drawing.Point(1587, 301);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(170, 30);
             this.label13.TabIndex = 53;
@@ -392,7 +393,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label14.Location = new System.Drawing.Point(85, 198);
+            this.label14.Location = new System.Drawing.Point(451, 857);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(151, 30);
             this.label14.TabIndex = 52;
@@ -557,7 +558,7 @@
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label43.Location = new System.Drawing.Point(1063, 781);
+            this.label43.Location = new System.Drawing.Point(49, 840);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(138, 30);
             this.label43.TabIndex = 88;
@@ -570,9 +571,9 @@
             this.comboMilitaryDiff.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboMilitaryDiff.FormattingEnabled = true;
             this.comboMilitaryDiff.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboMilitaryDiff.Location = new System.Drawing.Point(800, 138);
+            this.comboMilitaryDiff.Location = new System.Drawing.Point(51, 230);
             this.comboMilitaryDiff.Name = "comboMilitaryDiff";
-            this.comboMilitaryDiff.Size = new System.Drawing.Size(189, 38);
+            this.comboMilitaryDiff.Size = new System.Drawing.Size(156, 38);
             this.comboMilitaryDiff.TabIndex = 89;
             // 
             // comboDiplomacyDiff
@@ -603,17 +604,18 @@
             this.comboEconomicDiff.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboEconomicDiff.FormattingEnabled = true;
             this.comboEconomicDiff.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboEconomicDiff.Location = new System.Drawing.Point(1282, 136);
+            this.comboEconomicDiff.Location = new System.Drawing.Point(51, 315);
             this.comboEconomicDiff.Name = "comboEconomicDiff";
-            this.comboEconomicDiff.Size = new System.Drawing.Size(225, 38);
+            this.comboEconomicDiff.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.comboEconomicDiff.Size = new System.Drawing.Size(156, 38);
             this.comboEconomicDiff.TabIndex = 91;
             // 
             // textStartDate
             // 
             this.textStartDate.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.textStartDate.Location = new System.Drawing.Point(40, 138);
+            this.textStartDate.Location = new System.Drawing.Point(219, 51);
             this.textStartDate.Name = "textStartDate";
-            this.textStartDate.Size = new System.Drawing.Size(252, 32);
+            this.textStartDate.Size = new System.Drawing.Size(405, 32);
             this.textStartDate.TabIndex = 93;
             // 
             // comboInitFunds
@@ -622,7 +624,7 @@
             this.comboInitFunds.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboInitFunds.FormattingEnabled = true;
             this.comboInitFunds.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboInitFunds.Location = new System.Drawing.Point(54, 236);
+            this.comboInitFunds.Location = new System.Drawing.Point(420, 895);
             this.comboInitFunds.Name = "comboInitFunds";
             this.comboInitFunds.Size = new System.Drawing.Size(219, 38);
             this.comboInitFunds.TabIndex = 94;
@@ -633,7 +635,7 @@
             this.comboAistance.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboAistance.FormattingEnabled = true;
             this.comboAistance.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboAistance.Location = new System.Drawing.Point(554, 238);
+            this.comboAistance.Location = new System.Drawing.Point(812, 363);
             this.comboAistance.Name = "comboAistance";
             this.comboAistance.Size = new System.Drawing.Size(212, 38);
             this.comboAistance.TabIndex = 95;
@@ -683,7 +685,7 @@
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox1.Location = new System.Drawing.Point(51, 337);
+            this.checkBox1.Location = new System.Drawing.Point(1538, 749);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(227, 34);
             this.checkBox1.TabIndex = 126;
@@ -694,7 +696,7 @@
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox2.Location = new System.Drawing.Point(318, 337);
+            this.checkBox2.Location = new System.Drawing.Point(1332, 895);
             this.checkBox2.Name = "checkBox2";
             this.checkBox2.Size = new System.Drawing.Size(232, 34);
             this.checkBox2.TabIndex = 127;
@@ -705,7 +707,7 @@
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox3.Location = new System.Drawing.Point(577, 337);
+            this.checkBox3.Location = new System.Drawing.Point(1114, 907);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(181, 34);
             this.checkBox3.TabIndex = 128;
@@ -716,7 +718,7 @@
             // 
             this.checkBox4.AutoSize = true;
             this.checkBox4.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox4.Location = new System.Drawing.Point(816, 337);
+            this.checkBox4.Location = new System.Drawing.Point(1133, 945);
             this.checkBox4.Name = "checkBox4";
             this.checkBox4.Size = new System.Drawing.Size(152, 34);
             this.checkBox4.TabIndex = 129;
@@ -727,7 +729,7 @@
             // 
             this.checkBox5.AutoSize = true;
             this.checkBox5.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox5.Location = new System.Drawing.Point(1062, 337);
+            this.checkBox5.Location = new System.Drawing.Point(1334, 947);
             this.checkBox5.Name = "checkBox5";
             this.checkBox5.Size = new System.Drawing.Size(149, 34);
             this.checkBox5.TabIndex = 130;
@@ -738,7 +740,7 @@
             // 
             this.checkBox6.AutoSize = true;
             this.checkBox6.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox6.Location = new System.Drawing.Point(1302, 236);
+            this.checkBox6.Location = new System.Drawing.Point(877, 884);
             this.checkBox6.Name = "checkBox6";
             this.checkBox6.Size = new System.Drawing.Size(196, 34);
             this.checkBox6.TabIndex = 131;
@@ -749,7 +751,7 @@
             // 
             this.checkBox7.AutoSize = true;
             this.checkBox7.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox7.Location = new System.Drawing.Point(1299, 337);
+            this.checkBox7.Location = new System.Drawing.Point(1584, 893);
             this.checkBox7.Name = "checkBox7";
             this.checkBox7.Size = new System.Drawing.Size(187, 34);
             this.checkBox7.TabIndex = 132;
@@ -760,7 +762,7 @@
             // 
             this.checkBox8.AutoSize = true;
             this.checkBox8.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox8.Location = new System.Drawing.Point(1508, 337);
+            this.checkBox8.Location = new System.Drawing.Point(1491, 799);
             this.checkBox8.Name = "checkBox8";
             this.checkBox8.Size = new System.Drawing.Size(289, 34);
             this.checkBox8.TabIndex = 133;
@@ -771,7 +773,7 @@
             // 
             this.checkBox9.AutoSize = true;
             this.checkBox9.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox9.Location = new System.Drawing.Point(1569, 236);
+            this.checkBox9.Location = new System.Drawing.Point(894, 928);
             this.checkBox9.Name = "checkBox9";
             this.checkBox9.Size = new System.Drawing.Size(196, 34);
             this.checkBox9.TabIndex = 134;
@@ -782,7 +784,7 @@
             // 
             this.checkBox10.AutoSize = true;
             this.checkBox10.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox10.Location = new System.Drawing.Point(3, 461);
+            this.checkBox10.Location = new System.Drawing.Point(1454, 853);
             this.checkBox10.Name = "checkBox10";
             this.checkBox10.Size = new System.Drawing.Size(317, 34);
             this.checkBox10.TabIndex = 135;
@@ -793,7 +795,7 @@
             // 
             this.checkBox11.AutoSize = true;
             this.checkBox11.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox11.Location = new System.Drawing.Point(54, 694);
+            this.checkBox11.Location = new System.Drawing.Point(1530, 939);
             this.checkBox11.Name = "checkBox11";
             this.checkBox11.Size = new System.Drawing.Size(219, 34);
             this.checkBox11.TabIndex = 136;
@@ -804,7 +806,7 @@
             // 
             this.checkBox12.AutoSize = true;
             this.checkBox12.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox12.Location = new System.Drawing.Point(337, 694);
+            this.checkBox12.Location = new System.Drawing.Point(1212, 853);
             this.checkBox12.Name = "checkBox12";
             this.checkBox12.Size = new System.Drawing.Size(196, 34);
             this.checkBox12.TabIndex = 137;
@@ -815,7 +817,7 @@
             // 
             this.checkBox13.AutoSize = true;
             this.checkBox13.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox13.Location = new System.Drawing.Point(815, 815);
+            this.checkBox13.Location = new System.Drawing.Point(1287, 803);
             this.checkBox13.Name = "checkBox13";
             this.checkBox13.Size = new System.Drawing.Size(162, 34);
             this.checkBox13.TabIndex = 138;
@@ -826,7 +828,7 @@
             // 
             this.checkBox14.AutoSize = true;
             this.checkBox14.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox14.Location = new System.Drawing.Point(1319, 694);
+            this.checkBox14.Location = new System.Drawing.Point(1352, 749);
             this.checkBox14.Name = "checkBox14";
             this.checkBox14.Size = new System.Drawing.Size(155, 34);
             this.checkBox14.TabIndex = 139;
@@ -873,11 +875,24 @@
             this.numericMapSplash.Name = "numericMapSplash";
             this.numericMapSplash.Size = new System.Drawing.Size(225, 37);
             this.numericMapSplash.TabIndex = 141;
+            this.numericMapSplash.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.label8.Location = new System.Drawing.Point(474, 213);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(136, 30);
+            this.label8.TabIndex = 142;
+            this.label8.Text = "Difficulties";
+            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // UC_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.numericMapSplash);
             this.Controls.Add(this.checkBox15);
             this.Controls.Add(this.checkBox14);
@@ -1039,5 +1054,6 @@
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.NumericUpDown numericMapSplash;
+        private System.Windows.Forms.Label label8;
     }
 }
