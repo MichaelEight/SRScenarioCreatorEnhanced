@@ -25,7 +25,7 @@ namespace SRScenarioCreatorEnhanced
         public int? startYear; // input?
         public int? techTreeDefault; // what is that?
         public bool noCapitalMove; // fixedCapital 0-1
-        public int? regionEquip; // what is that? guess, by location, probably bool 0-1
+        public bool regionEquip; // what is that? guess, by location, probably bool 0-1
         public bool limitDarEffect; // limit Domestic Approval Rating 0-1
         public bool limitMarEffect; // limit Military Approval Rating 0-1
         public bool wmInvolve; // what is this? 0-1
@@ -34,7 +34,7 @@ namespace SRScenarioCreatorEnhanced
         public bool govChoice; // what is this? 0-1
         public bool groupLoyaltyMerge; // what is this?
         public bool groupResearchMerge; // what is this?
-        public int? relationsEffect; // what is this?
+        public bool relationsEffect; // what is this? guessed bool, but default in w2020 is 2
         public bool limitInScenario; // limit regions in scenario
         public int? mapMusic; // what is this?
         public int? mapGui; // what is this?
@@ -76,7 +76,7 @@ namespace SRScenarioCreatorEnhanced
             //startYear = ;
             //techTreeDefault = ;
             noCapitalMove = false;
-            regionEquip = 1;
+            regionEquip = true;
             limitDarEffect = false;
             limitMarEffect = false;
             wmInvolve = true;
@@ -85,7 +85,7 @@ namespace SRScenarioCreatorEnhanced
             govChoice = true;
             groupLoyaltyMerge = true;
             groupResearchMerge = true;
-            relationsEffect = 2;
+            relationsEffect = true;
             limitInScenario = true;
             //mapMusic = ;
             mapGui = 2;

@@ -28,11 +28,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textVicTech = new System.Windows.Forms.TextBox();
+            this.textVictoryTech = new System.Windows.Forms.TextBox();
             this.textScenarioID = new System.Windows.Forms.TextBox();
-            this.textRegAllies = new System.Windows.Forms.TextBox();
+            this.textRegionAllies = new System.Windows.Forms.TextBox();
             this.textMapMusic = new System.Windows.Forms.TextBox();
-            this.textRegAxis = new System.Windows.Forms.TextBox();
+            this.textRegionAxis = new System.Windows.Forms.TextBox();
             this.textTechTreeDefault = new System.Windows.Forms.TextBox();
             this.textSphereNN = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -61,29 +61,29 @@
             this.label43 = new System.Windows.Forms.Label();
             this.comboMilitaryDiff = new System.Windows.Forms.ComboBox();
             this.comboDiplomacyDiff = new System.Windows.Forms.ComboBox();
-            this.comboResLvl = new System.Windows.Forms.ComboBox();
+            this.comboResourcesLevel = new System.Windows.Forms.ComboBox();
             this.comboEconomicDiff = new System.Windows.Forms.ComboBox();
-            this.textStartDate = new System.Windows.Forms.DateTimePicker();
-            this.comboInitFunds = new System.Windows.Forms.ComboBox();
-            this.comboAistance = new System.Windows.Forms.ComboBox();
+            this.dateStartingDate = new System.Windows.Forms.DateTimePicker();
+            this.comboInitialFunds = new System.Windows.Forms.ComboBox();
+            this.comboAiStance = new System.Windows.Forms.ComboBox();
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
             this.comboWMDEffect = new System.Windows.Forms.ComboBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
-            this.checkBox4 = new System.Windows.Forms.CheckBox();
-            this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox6 = new System.Windows.Forms.CheckBox();
-            this.checkBox7 = new System.Windows.Forms.CheckBox();
-            this.checkBox8 = new System.Windows.Forms.CheckBox();
-            this.checkBox9 = new System.Windows.Forms.CheckBox();
-            this.checkBox10 = new System.Windows.Forms.CheckBox();
-            this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.checkBox12 = new System.Windows.Forms.CheckBox();
-            this.checkBox13 = new System.Windows.Forms.CheckBox();
-            this.checkBox14 = new System.Windows.Forms.CheckBox();
-            this.checkBox15 = new System.Windows.Forms.CheckBox();
+            this.checkLimitDAReffect = new System.Windows.Forms.CheckBox();
+            this.checkLimitMAReffect = new System.Windows.Forms.CheckBox();
+            this.checkWMinvolve = new System.Windows.Forms.CheckBox();
+            this.checkWMDuse = new System.Windows.Forms.CheckBox();
+            this.checkFastBuild = new System.Windows.Forms.CheckBox();
+            this.checkNoCapitalMove = new System.Windows.Forms.CheckBox();
+            this.checkGovChoice = new System.Windows.Forms.CheckBox();
+            this.checkGroupLoyaltyMerge = new System.Windows.Forms.CheckBox();
+            this.checkRegionEquip = new System.Windows.Forms.CheckBox();
+            this.checkGroupResearchMerge = new System.Windows.Forms.CheckBox();
+            this.checkMissileNoLimit = new System.Windows.Forms.CheckBox();
+            this.checkAlliedVictory = new System.Windows.Forms.CheckBox();
+            this.checkNoSphere = new System.Windows.Forms.CheckBox();
+            this.checkDebtFree = new System.Windows.Forms.CheckBox();
+            this.checkNoLoyPenalty = new System.Windows.Forms.CheckBox();
             this.numericMapSplash = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
@@ -93,36 +93,36 @@
             this.label18 = new System.Windows.Forms.Label();
             this.comboGameLength = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.numericFastForwardDays = new System.Windows.Forms.NumericUpDown();
+            this.numericVictoryHexX = new System.Windows.Forms.NumericUpDown();
+            this.numericVictoryHexY = new System.Windows.Forms.NumericUpDown();
             this.comboApprovalEffect = new System.Windows.Forms.ComboBox();
             this.comboMapGui = new System.Windows.Forms.ComboBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.checkBox16 = new System.Windows.Forms.CheckBox();
-            this.checkBox17 = new System.Windows.Forms.CheckBox();
-            this.checkBox18 = new System.Windows.Forms.CheckBox();
-            this.checkBox19 = new System.Windows.Forms.CheckBox();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
-            this.checkBox20 = new System.Windows.Forms.CheckBox();
+            this.comboVictoryCondition = new System.Windows.Forms.ComboBox();
+            this.checkLimitInScenario = new System.Windows.Forms.CheckBox();
+            this.checkRestrictTechTrade = new System.Windows.Forms.CheckBox();
+            this.checkCampaignGame = new System.Windows.Forms.CheckBox();
+            this.checkReserveLimit = new System.Windows.Forms.CheckBox();
+            this.numericDefaultRegion = new System.Windows.Forms.NumericUpDown();
+            this.checkRelationsEffect = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.numericUpDown5 = new System.Windows.Forms.NumericUpDown();
+            this.numericStartingYear = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericMapSplash)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericFastForwardDays)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericVictoryHexX)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericVictoryHexY)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDefaultRegion)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericStartingYear)).BeginInit();
             this.SuspendLayout();
             // 
-            // textVicTech
+            // textVictoryTech
             // 
-            this.textVicTech.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textVicTech.Location = new System.Drawing.Point(100, 914);
-            this.textVicTech.Name = "textVicTech";
-            this.textVicTech.Size = new System.Drawing.Size(300, 37);
-            this.textVicTech.TabIndex = 13;
-            this.textVicTech.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textVictoryTech.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.textVictoryTech.Location = new System.Drawing.Point(100, 914);
+            this.textVictoryTech.Name = "textVictoryTech";
+            this.textVictoryTech.Size = new System.Drawing.Size(300, 37);
+            this.textVictoryTech.TabIndex = 13;
+            this.textVictoryTech.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textScenarioID
             // 
@@ -132,14 +132,14 @@
             this.textScenarioID.Size = new System.Drawing.Size(165, 37);
             this.textScenarioID.TabIndex = 15;
             // 
-            // textRegAllies
+            // textRegionAllies
             // 
-            this.textRegAllies.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textRegAllies.Location = new System.Drawing.Point(770, 800);
-            this.textRegAllies.Name = "textRegAllies";
-            this.textRegAllies.Size = new System.Drawing.Size(221, 37);
-            this.textRegAllies.TabIndex = 20;
-            this.textRegAllies.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textRegionAllies.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.textRegionAllies.Location = new System.Drawing.Point(770, 800);
+            this.textRegionAllies.Name = "textRegionAllies";
+            this.textRegionAllies.Size = new System.Drawing.Size(221, 37);
+            this.textRegionAllies.TabIndex = 20;
+            this.textRegionAllies.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textMapMusic
             // 
@@ -150,14 +150,14 @@
             this.textMapMusic.TabIndex = 22;
             this.textMapMusic.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textRegAxis
+            // textRegionAxis
             // 
-            this.textRegAxis.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textRegAxis.Location = new System.Drawing.Point(770, 850);
-            this.textRegAxis.Name = "textRegAxis";
-            this.textRegAxis.Size = new System.Drawing.Size(221, 37);
-            this.textRegAxis.TabIndex = 23;
-            this.textRegAxis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textRegionAxis.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.textRegionAxis.Location = new System.Drawing.Point(770, 850);
+            this.textRegionAxis.Name = "textRegionAxis";
+            this.textRegionAxis.Size = new System.Drawing.Size(221, 37);
+            this.textRegionAxis.TabIndex = 23;
+            this.textRegionAxis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textTechTreeDefault
             // 
@@ -443,6 +443,7 @@
             // 
             // comboMilitaryDiff
             // 
+            this.comboMilitaryDiff.BackColor = System.Drawing.SystemColors.Window;
             this.comboMilitaryDiff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboMilitaryDiff.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboMilitaryDiff.FormattingEnabled = true;
@@ -475,19 +476,20 @@
             this.comboDiplomacyDiff.Size = new System.Drawing.Size(156, 38);
             this.comboDiplomacyDiff.TabIndex = 90;
             // 
-            // comboResLvl
+            // comboResourcesLevel
             // 
-            this.comboResLvl.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboResLvl.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.comboResLvl.FormattingEnabled = true;
-            this.comboResLvl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboResLvl.Location = new System.Drawing.Point(770, 310);
-            this.comboResLvl.Name = "comboResLvl";
-            this.comboResLvl.Size = new System.Drawing.Size(219, 38);
-            this.comboResLvl.TabIndex = 92;
+            this.comboResourcesLevel.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboResourcesLevel.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.comboResourcesLevel.FormattingEnabled = true;
+            this.comboResourcesLevel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboResourcesLevel.Location = new System.Drawing.Point(770, 310);
+            this.comboResourcesLevel.Name = "comboResourcesLevel";
+            this.comboResourcesLevel.Size = new System.Drawing.Size(219, 38);
+            this.comboResourcesLevel.TabIndex = 92;
             // 
             // comboEconomicDiff
             // 
+            this.comboEconomicDiff.BackColor = System.Drawing.SystemColors.Window;
             this.comboEconomicDiff.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboEconomicDiff.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboEconomicDiff.FormattingEnabled = true;
@@ -504,35 +506,35 @@
             this.comboEconomicDiff.Size = new System.Drawing.Size(156, 38);
             this.comboEconomicDiff.TabIndex = 91;
             // 
-            // textStartDate
+            // dateStartingDate
             // 
-            this.textStartDate.Font = new System.Drawing.Font("Century Gothic", 10F);
-            this.textStartDate.Location = new System.Drawing.Point(360, 50);
-            this.textStartDate.Name = "textStartDate";
-            this.textStartDate.Size = new System.Drawing.Size(405, 32);
-            this.textStartDate.TabIndex = 93;
+            this.dateStartingDate.Font = new System.Drawing.Font("Century Gothic", 10F);
+            this.dateStartingDate.Location = new System.Drawing.Point(360, 50);
+            this.dateStartingDate.Name = "dateStartingDate";
+            this.dateStartingDate.Size = new System.Drawing.Size(405, 32);
+            this.dateStartingDate.TabIndex = 93;
             // 
-            // comboInitFunds
+            // comboInitialFunds
             // 
-            this.comboInitFunds.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboInitFunds.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.comboInitFunds.FormattingEnabled = true;
-            this.comboInitFunds.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboInitFunds.Location = new System.Drawing.Point(770, 260);
-            this.comboInitFunds.Name = "comboInitFunds";
-            this.comboInitFunds.Size = new System.Drawing.Size(220, 38);
-            this.comboInitFunds.TabIndex = 94;
+            this.comboInitialFunds.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboInitialFunds.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.comboInitialFunds.FormattingEnabled = true;
+            this.comboInitialFunds.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboInitialFunds.Location = new System.Drawing.Point(770, 260);
+            this.comboInitialFunds.Name = "comboInitialFunds";
+            this.comboInitialFunds.Size = new System.Drawing.Size(220, 38);
+            this.comboInitialFunds.TabIndex = 94;
             // 
-            // comboAistance
+            // comboAiStance
             // 
-            this.comboAistance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboAistance.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.comboAistance.FormattingEnabled = true;
-            this.comboAistance.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboAistance.Location = new System.Drawing.Point(250, 470);
-            this.comboAistance.Name = "comboAistance";
-            this.comboAistance.Size = new System.Drawing.Size(210, 38);
-            this.comboAistance.TabIndex = 95;
+            this.comboAiStance.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboAiStance.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.comboAiStance.FormattingEnabled = true;
+            this.comboAiStance.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboAiStance.Location = new System.Drawing.Point(250, 470);
+            this.comboAiStance.Name = "comboAiStance";
+            this.comboAiStance.Size = new System.Drawing.Size(210, 38);
+            this.comboAiStance.TabIndex = 95;
             // 
             // label45
             // 
@@ -567,170 +569,170 @@
             this.comboWMDEffect.Size = new System.Drawing.Size(210, 38);
             this.comboWMDEffect.TabIndex = 125;
             // 
-            // checkBox1
+            // checkLimitDAReffect
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox1.Location = new System.Drawing.Point(1110, 380);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(227, 34);
-            this.checkBox1.TabIndex = 126;
-            this.checkBox1.Text = "Limit DAR Effect";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkLimitDAReffect.AutoSize = true;
+            this.checkLimitDAReffect.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkLimitDAReffect.Location = new System.Drawing.Point(1110, 380);
+            this.checkLimitDAReffect.Name = "checkLimitDAReffect";
+            this.checkLimitDAReffect.Size = new System.Drawing.Size(227, 34);
+            this.checkLimitDAReffect.TabIndex = 126;
+            this.checkLimitDAReffect.Text = "Limit DAR Effect";
+            this.checkLimitDAReffect.UseVisualStyleBackColor = true;
             // 
-            // checkBox2
+            // checkLimitMAReffect
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox2.Location = new System.Drawing.Point(1450, 380);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(232, 34);
-            this.checkBox2.TabIndex = 127;
-            this.checkBox2.Text = "Limit MAR Effect";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkLimitMAReffect.AutoSize = true;
+            this.checkLimitMAReffect.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkLimitMAReffect.Location = new System.Drawing.Point(1450, 380);
+            this.checkLimitMAReffect.Name = "checkLimitMAReffect";
+            this.checkLimitMAReffect.Size = new System.Drawing.Size(232, 34);
+            this.checkLimitMAReffect.TabIndex = 127;
+            this.checkLimitMAReffect.Text = "Limit MAR Effect";
+            this.checkLimitMAReffect.UseVisualStyleBackColor = true;
             // 
-            // checkBox3
+            // checkWMinvolve
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox3.Location = new System.Drawing.Point(1110, 180);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(165, 34);
-            this.checkBox3.TabIndex = 128;
-            this.checkBox3.Text = "Critical UN";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkWMinvolve.AutoSize = true;
+            this.checkWMinvolve.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkWMinvolve.Location = new System.Drawing.Point(1110, 180);
+            this.checkWMinvolve.Name = "checkWMinvolve";
+            this.checkWMinvolve.Size = new System.Drawing.Size(165, 34);
+            this.checkWMinvolve.TabIndex = 128;
+            this.checkWMinvolve.Text = "Critical UN";
+            this.checkWMinvolve.UseVisualStyleBackColor = true;
             // 
-            // checkBox4
+            // checkWMDuse
             // 
-            this.checkBox4.AutoSize = true;
-            this.checkBox4.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox4.Location = new System.Drawing.Point(1110, 230);
-            this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(182, 34);
-            this.checkBox4.TabIndex = 129;
-            this.checkBox4.Text = "Allow Nukes";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkWMDuse.AutoSize = true;
+            this.checkWMDuse.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkWMDuse.Location = new System.Drawing.Point(1110, 230);
+            this.checkWMDuse.Name = "checkWMDuse";
+            this.checkWMDuse.Size = new System.Drawing.Size(182, 34);
+            this.checkWMDuse.TabIndex = 129;
+            this.checkWMDuse.Text = "Allow Nukes";
+            this.checkWMDuse.UseVisualStyleBackColor = true;
             // 
-            // checkBox5
+            // checkFastBuild
             // 
-            this.checkBox5.AutoSize = true;
-            this.checkBox5.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox5.Location = new System.Drawing.Point(1110, 580);
-            this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(149, 34);
-            this.checkBox5.TabIndex = 130;
-            this.checkBox5.Text = "Fast Build";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkFastBuild.AutoSize = true;
+            this.checkFastBuild.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkFastBuild.Location = new System.Drawing.Point(1110, 580);
+            this.checkFastBuild.Name = "checkFastBuild";
+            this.checkFastBuild.Size = new System.Drawing.Size(149, 34);
+            this.checkFastBuild.TabIndex = 130;
+            this.checkFastBuild.Text = "Fast Build";
+            this.checkFastBuild.UseVisualStyleBackColor = true;
             // 
-            // checkBox6
+            // checkNoCapitalMove
             // 
-            this.checkBox6.AutoSize = true;
-            this.checkBox6.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox6.Location = new System.Drawing.Point(1110, 130);
-            this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(206, 34);
-            this.checkBox6.TabIndex = 131;
-            this.checkBox6.Text = "Fixed Capitals";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkNoCapitalMove.AutoSize = true;
+            this.checkNoCapitalMove.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkNoCapitalMove.Location = new System.Drawing.Point(1110, 130);
+            this.checkNoCapitalMove.Name = "checkNoCapitalMove";
+            this.checkNoCapitalMove.Size = new System.Drawing.Size(206, 34);
+            this.checkNoCapitalMove.TabIndex = 131;
+            this.checkNoCapitalMove.Text = "Fixed Capitals";
+            this.checkNoCapitalMove.UseVisualStyleBackColor = true;
             // 
-            // checkBox7
+            // checkGovChoice
             // 
-            this.checkBox7.AutoSize = true;
-            this.checkBox7.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox7.Location = new System.Drawing.Point(1450, 530);
-            this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(187, 34);
-            this.checkBox7.TabIndex = 132;
-            this.checkBox7.Text = "Gov Choice";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.checkGovChoice.AutoSize = true;
+            this.checkGovChoice.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkGovChoice.Location = new System.Drawing.Point(1450, 530);
+            this.checkGovChoice.Name = "checkGovChoice";
+            this.checkGovChoice.Size = new System.Drawing.Size(187, 34);
+            this.checkGovChoice.TabIndex = 132;
+            this.checkGovChoice.Text = "Gov Choice";
+            this.checkGovChoice.UseVisualStyleBackColor = true;
             // 
-            // checkBox8
+            // checkGroupLoyaltyMerge
             // 
-            this.checkBox8.AutoSize = true;
-            this.checkBox8.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox8.Location = new System.Drawing.Point(1450, 280);
-            this.checkBox8.Name = "checkBox8";
-            this.checkBox8.Size = new System.Drawing.Size(289, 34);
-            this.checkBox8.TabIndex = 133;
-            this.checkBox8.Text = "Group Loyalty Merge";
-            this.checkBox8.UseVisualStyleBackColor = true;
+            this.checkGroupLoyaltyMerge.AutoSize = true;
+            this.checkGroupLoyaltyMerge.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkGroupLoyaltyMerge.Location = new System.Drawing.Point(1450, 280);
+            this.checkGroupLoyaltyMerge.Name = "checkGroupLoyaltyMerge";
+            this.checkGroupLoyaltyMerge.Size = new System.Drawing.Size(289, 34);
+            this.checkGroupLoyaltyMerge.TabIndex = 133;
+            this.checkGroupLoyaltyMerge.Text = "Group Loyalty Merge";
+            this.checkGroupLoyaltyMerge.UseVisualStyleBackColor = true;
             // 
-            // checkBox9
+            // checkRegionEquip
             // 
-            this.checkBox9.AutoSize = true;
-            this.checkBox9.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox9.Location = new System.Drawing.Point(1110, 530);
-            this.checkBox9.Name = "checkBox9";
-            this.checkBox9.Size = new System.Drawing.Size(196, 34);
-            this.checkBox9.TabIndex = 134;
-            this.checkBox9.Text = "Region Equip";
-            this.checkBox9.UseVisualStyleBackColor = true;
+            this.checkRegionEquip.AutoSize = true;
+            this.checkRegionEquip.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkRegionEquip.Location = new System.Drawing.Point(1110, 530);
+            this.checkRegionEquip.Name = "checkRegionEquip";
+            this.checkRegionEquip.Size = new System.Drawing.Size(196, 34);
+            this.checkRegionEquip.TabIndex = 134;
+            this.checkRegionEquip.Text = "Region Equip";
+            this.checkRegionEquip.UseVisualStyleBackColor = true;
             // 
-            // checkBox10
+            // checkGroupResearchMerge
             // 
-            this.checkBox10.AutoSize = true;
-            this.checkBox10.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox10.Location = new System.Drawing.Point(1450, 330);
-            this.checkBox10.Name = "checkBox10";
-            this.checkBox10.Size = new System.Drawing.Size(317, 34);
-            this.checkBox10.TabIndex = 135;
-            this.checkBox10.Text = "Group Research Merge";
-            this.checkBox10.UseVisualStyleBackColor = true;
+            this.checkGroupResearchMerge.AutoSize = true;
+            this.checkGroupResearchMerge.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkGroupResearchMerge.Location = new System.Drawing.Point(1450, 330);
+            this.checkGroupResearchMerge.Name = "checkGroupResearchMerge";
+            this.checkGroupResearchMerge.Size = new System.Drawing.Size(317, 34);
+            this.checkGroupResearchMerge.TabIndex = 135;
+            this.checkGroupResearchMerge.Text = "Group Research Merge";
+            this.checkGroupResearchMerge.UseVisualStyleBackColor = true;
             // 
-            // checkBox11
+            // checkMissileNoLimit
             // 
-            this.checkBox11.AutoSize = true;
-            this.checkBox11.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox11.Location = new System.Drawing.Point(1450, 180);
-            this.checkBox11.Name = "checkBox11";
-            this.checkBox11.Size = new System.Drawing.Size(178, 34);
-            this.checkBox11.TabIndex = 136;
-            this.checkBox11.Text = "Missile Limit";
-            this.checkBox11.UseVisualStyleBackColor = true;
+            this.checkMissileNoLimit.AutoSize = true;
+            this.checkMissileNoLimit.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkMissileNoLimit.Location = new System.Drawing.Point(1450, 180);
+            this.checkMissileNoLimit.Name = "checkMissileNoLimit";
+            this.checkMissileNoLimit.Size = new System.Drawing.Size(178, 34);
+            this.checkMissileNoLimit.TabIndex = 136;
+            this.checkMissileNoLimit.Text = "Missile Limit";
+            this.checkMissileNoLimit.UseVisualStyleBackColor = true;
             // 
-            // checkBox12
+            // checkAlliedVictory
             // 
-            this.checkBox12.AutoSize = true;
-            this.checkBox12.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox12.Location = new System.Drawing.Point(1110, 280);
-            this.checkBox12.Name = "checkBox12";
-            this.checkBox12.Size = new System.Drawing.Size(196, 34);
-            this.checkBox12.TabIndex = 137;
-            this.checkBox12.Text = "Allied Victory";
-            this.checkBox12.UseVisualStyleBackColor = true;
+            this.checkAlliedVictory.AutoSize = true;
+            this.checkAlliedVictory.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkAlliedVictory.Location = new System.Drawing.Point(1110, 280);
+            this.checkAlliedVictory.Name = "checkAlliedVictory";
+            this.checkAlliedVictory.Size = new System.Drawing.Size(196, 34);
+            this.checkAlliedVictory.TabIndex = 137;
+            this.checkAlliedVictory.Text = "Allied Victory";
+            this.checkAlliedVictory.UseVisualStyleBackColor = true;
             // 
-            // checkBox13
+            // checkNoSphere
             // 
-            this.checkBox13.AutoSize = true;
-            this.checkBox13.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox13.Location = new System.Drawing.Point(1450, 430);
-            this.checkBox13.Name = "checkBox13";
-            this.checkBox13.Size = new System.Drawing.Size(162, 34);
-            this.checkBox13.TabIndex = 138;
-            this.checkBox13.Text = "No Sphere";
-            this.checkBox13.UseVisualStyleBackColor = true;
+            this.checkNoSphere.AutoSize = true;
+            this.checkNoSphere.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkNoSphere.Location = new System.Drawing.Point(1450, 430);
+            this.checkNoSphere.Name = "checkNoSphere";
+            this.checkNoSphere.Size = new System.Drawing.Size(162, 34);
+            this.checkNoSphere.TabIndex = 138;
+            this.checkNoSphere.Text = "No Sphere";
+            this.checkNoSphere.UseVisualStyleBackColor = true;
             // 
-            // checkBox14
+            // checkDebtFree
             // 
-            this.checkBox14.AutoSize = true;
-            this.checkBox14.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox14.Location = new System.Drawing.Point(1110, 330);
-            this.checkBox14.Name = "checkBox14";
-            this.checkBox14.Size = new System.Drawing.Size(233, 34);
-            this.checkBox14.TabIndex = 139;
-            this.checkBox14.Text = "No Starting Debt";
-            this.checkBox14.UseVisualStyleBackColor = true;
+            this.checkDebtFree.AutoSize = true;
+            this.checkDebtFree.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkDebtFree.Location = new System.Drawing.Point(1110, 330);
+            this.checkDebtFree.Name = "checkDebtFree";
+            this.checkDebtFree.Size = new System.Drawing.Size(233, 34);
+            this.checkDebtFree.TabIndex = 139;
+            this.checkDebtFree.Text = "No Starting Debt";
+            this.checkDebtFree.UseVisualStyleBackColor = true;
             // 
-            // checkBox15
+            // checkNoLoyPenalty
             // 
-            this.checkBox15.AutoSize = true;
-            this.checkBox15.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox15.Location = new System.Drawing.Point(1450, 130);
-            this.checkBox15.Name = "checkBox15";
-            this.checkBox15.Size = new System.Drawing.Size(258, 34);
-            this.checkBox15.TabIndex = 140;
-            this.checkBox15.Text = "No Loyalty Penalty";
-            this.checkBox15.UseVisualStyleBackColor = true;
+            this.checkNoLoyPenalty.AutoSize = true;
+            this.checkNoLoyPenalty.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkNoLoyPenalty.Location = new System.Drawing.Point(1450, 130);
+            this.checkNoLoyPenalty.Name = "checkNoLoyPenalty";
+            this.checkNoLoyPenalty.Size = new System.Drawing.Size(258, 34);
+            this.checkNoLoyPenalty.TabIndex = 140;
+            this.checkNoLoyPenalty.Text = "No Loyalty Penalty";
+            this.checkNoLoyPenalty.UseVisualStyleBackColor = true;
             // 
             // numericMapSplash
             // 
@@ -829,32 +831,32 @@
             this.label19.Text = "Scenario Options";
             this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // numericUpDown1
+            // numericFastForwardDays
             // 
-            this.numericUpDown1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown1.Location = new System.Drawing.Point(770, 100);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(128, 37);
-            this.numericUpDown1.TabIndex = 150;
-            this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericFastForwardDays.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericFastForwardDays.Location = new System.Drawing.Point(770, 100);
+            this.numericFastForwardDays.Name = "numericFastForwardDays";
+            this.numericFastForwardDays.Size = new System.Drawing.Size(128, 37);
+            this.numericFastForwardDays.TabIndex = 150;
+            this.numericFastForwardDays.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numericUpDown2
+            // numericVictoryHexX
             // 
-            this.numericUpDown2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown2.Location = new System.Drawing.Point(150, 835);
-            this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(85, 37);
-            this.numericUpDown2.TabIndex = 151;
-            this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericVictoryHexX.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericVictoryHexX.Location = new System.Drawing.Point(150, 835);
+            this.numericVictoryHexX.Name = "numericVictoryHexX";
+            this.numericVictoryHexX.Size = new System.Drawing.Size(85, 37);
+            this.numericVictoryHexX.TabIndex = 151;
+            this.numericVictoryHexX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // numericUpDown3
+            // numericVictoryHexY
             // 
-            this.numericUpDown3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown3.Location = new System.Drawing.Point(287, 836);
-            this.numericUpDown3.Name = "numericUpDown3";
-            this.numericUpDown3.Size = new System.Drawing.Size(85, 37);
-            this.numericUpDown3.TabIndex = 152;
-            this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericVictoryHexY.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericVictoryHexY.Location = new System.Drawing.Point(287, 836);
+            this.numericVictoryHexY.Name = "numericVictoryHexY";
+            this.numericVictoryHexY.Size = new System.Drawing.Size(85, 37);
+            this.numericVictoryHexY.TabIndex = 152;
+            this.numericVictoryHexY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // comboApprovalEffect
             // 
@@ -878,80 +880,80 @@
             this.comboMapGui.Size = new System.Drawing.Size(212, 38);
             this.comboMapGui.TabIndex = 154;
             // 
-            // comboBox1
+            // comboVictoryCondition
             // 
-            this.comboBox1.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBox1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboBox1.Location = new System.Drawing.Point(250, 750);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(170, 38);
-            this.comboBox1.TabIndex = 155;
+            this.comboVictoryCondition.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboVictoryCondition.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.comboVictoryCondition.FormattingEnabled = true;
+            this.comboVictoryCondition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboVictoryCondition.Location = new System.Drawing.Point(250, 750);
+            this.comboVictoryCondition.Name = "comboVictoryCondition";
+            this.comboVictoryCondition.Size = new System.Drawing.Size(170, 38);
+            this.comboVictoryCondition.TabIndex = 155;
             // 
-            // checkBox16
+            // checkLimitInScenario
             // 
-            this.checkBox16.AutoSize = true;
-            this.checkBox16.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox16.Location = new System.Drawing.Point(1110, 430);
-            this.checkBox16.Name = "checkBox16";
-            this.checkBox16.Size = new System.Drawing.Size(334, 34);
-            this.checkBox16.TabIndex = 156;
-            this.checkBox16.Text = "Limit Regions in Scenario";
-            this.checkBox16.UseVisualStyleBackColor = true;
+            this.checkLimitInScenario.AutoSize = true;
+            this.checkLimitInScenario.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkLimitInScenario.Location = new System.Drawing.Point(1110, 430);
+            this.checkLimitInScenario.Name = "checkLimitInScenario";
+            this.checkLimitInScenario.Size = new System.Drawing.Size(334, 34);
+            this.checkLimitInScenario.TabIndex = 156;
+            this.checkLimitInScenario.Text = "Limit Regions in Scenario";
+            this.checkLimitInScenario.UseVisualStyleBackColor = true;
             // 
-            // checkBox17
+            // checkRestrictTechTrade
             // 
-            this.checkBox17.AutoSize = true;
-            this.checkBox17.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox17.Location = new System.Drawing.Point(1110, 480);
-            this.checkBox17.Name = "checkBox17";
-            this.checkBox17.Size = new System.Drawing.Size(263, 34);
-            this.checkBox17.TabIndex = 157;
-            this.checkBox17.Text = "Restrict Tech Trade";
-            this.checkBox17.UseVisualStyleBackColor = true;
+            this.checkRestrictTechTrade.AutoSize = true;
+            this.checkRestrictTechTrade.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkRestrictTechTrade.Location = new System.Drawing.Point(1110, 480);
+            this.checkRestrictTechTrade.Name = "checkRestrictTechTrade";
+            this.checkRestrictTechTrade.Size = new System.Drawing.Size(263, 34);
+            this.checkRestrictTechTrade.TabIndex = 157;
+            this.checkRestrictTechTrade.Text = "Restrict Tech Trade";
+            this.checkRestrictTechTrade.UseVisualStyleBackColor = true;
             // 
-            // checkBox18
+            // checkCampaignGame
             // 
-            this.checkBox18.AutoSize = true;
-            this.checkBox18.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox18.Location = new System.Drawing.Point(1450, 480);
-            this.checkBox18.Name = "checkBox18";
-            this.checkBox18.Size = new System.Drawing.Size(252, 34);
-            this.checkBox18.TabIndex = 158;
-            this.checkBox18.Text = "Campaign Game";
-            this.checkBox18.UseVisualStyleBackColor = true;
+            this.checkCampaignGame.AutoSize = true;
+            this.checkCampaignGame.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkCampaignGame.Location = new System.Drawing.Point(1450, 480);
+            this.checkCampaignGame.Name = "checkCampaignGame";
+            this.checkCampaignGame.Size = new System.Drawing.Size(252, 34);
+            this.checkCampaignGame.TabIndex = 158;
+            this.checkCampaignGame.Text = "Campaign Game";
+            this.checkCampaignGame.UseVisualStyleBackColor = true;
             // 
-            // checkBox19
+            // checkReserveLimit
             // 
-            this.checkBox19.AutoSize = true;
-            this.checkBox19.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox19.Location = new System.Drawing.Point(1450, 230);
-            this.checkBox19.Name = "checkBox19";
-            this.checkBox19.Size = new System.Drawing.Size(196, 34);
-            this.checkBox19.TabIndex = 159;
-            this.checkBox19.Text = "Reserve Limit";
-            this.checkBox19.UseVisualStyleBackColor = true;
+            this.checkReserveLimit.AutoSize = true;
+            this.checkReserveLimit.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkReserveLimit.Location = new System.Drawing.Point(1450, 230);
+            this.checkReserveLimit.Name = "checkReserveLimit";
+            this.checkReserveLimit.Size = new System.Drawing.Size(196, 34);
+            this.checkReserveLimit.TabIndex = 159;
+            this.checkReserveLimit.Text = "Reserve Limit";
+            this.checkReserveLimit.UseVisualStyleBackColor = true;
             // 
-            // numericUpDown4
+            // numericDefaultRegion
             // 
-            this.numericUpDown4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown4.Location = new System.Drawing.Point(360, 150);
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(121, 37);
-            this.numericUpDown4.TabIndex = 160;
-            this.numericUpDown4.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericDefaultRegion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericDefaultRegion.Location = new System.Drawing.Point(360, 150);
+            this.numericDefaultRegion.Name = "numericDefaultRegion";
+            this.numericDefaultRegion.Size = new System.Drawing.Size(121, 37);
+            this.numericDefaultRegion.TabIndex = 160;
+            this.numericDefaultRegion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // checkBox20
+            // checkRelationsEffect
             // 
-            this.checkBox20.AutoSize = true;
-            this.checkBox20.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox20.Location = new System.Drawing.Point(1450, 580);
-            this.checkBox20.Name = "checkBox20";
-            this.checkBox20.Size = new System.Drawing.Size(331, 34);
-            this.checkBox20.TabIndex = 161;
-            this.checkBox20.Text = "3rd Party Relations Effect";
-            this.checkBox20.UseVisualStyleBackColor = true;
+            this.checkRelationsEffect.AutoSize = true;
+            this.checkRelationsEffect.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.checkRelationsEffect.Location = new System.Drawing.Point(1450, 580);
+            this.checkRelationsEffect.Name = "checkRelationsEffect";
+            this.checkRelationsEffect.Size = new System.Drawing.Size(331, 34);
+            this.checkRelationsEffect.TabIndex = 161;
+            this.checkRelationsEffect.Text = "3rd Party Relations Effect";
+            this.checkRelationsEffect.UseVisualStyleBackColor = true;
             // 
             // label13
             // 
@@ -964,33 +966,33 @@
             this.label13.Text = "Miscellaneous";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // numericUpDown5
+            // numericStartingYear
             // 
-            this.numericUpDown5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericUpDown5.Location = new System.Drawing.Point(770, 700);
-            this.numericUpDown5.Name = "numericUpDown5";
-            this.numericUpDown5.Size = new System.Drawing.Size(144, 37);
-            this.numericUpDown5.TabIndex = 163;
-            this.numericUpDown5.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericStartingYear.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericStartingYear.Location = new System.Drawing.Point(770, 700);
+            this.numericStartingYear.Name = "numericStartingYear";
+            this.numericStartingYear.Size = new System.Drawing.Size(144, 37);
+            this.numericStartingYear.TabIndex = 163;
+            this.numericStartingYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // UC_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.numericUpDown5);
+            this.Controls.Add(this.numericStartingYear);
             this.Controls.Add(this.label13);
-            this.Controls.Add(this.checkBox20);
-            this.Controls.Add(this.numericUpDown4);
-            this.Controls.Add(this.checkBox19);
-            this.Controls.Add(this.checkBox18);
-            this.Controls.Add(this.checkBox17);
-            this.Controls.Add(this.checkBox16);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.checkRelationsEffect);
+            this.Controls.Add(this.numericDefaultRegion);
+            this.Controls.Add(this.checkReserveLimit);
+            this.Controls.Add(this.checkCampaignGame);
+            this.Controls.Add(this.checkRestrictTechTrade);
+            this.Controls.Add(this.checkLimitInScenario);
+            this.Controls.Add(this.comboVictoryCondition);
             this.Controls.Add(this.comboMapGui);
             this.Controls.Add(this.comboApprovalEffect);
-            this.Controls.Add(this.numericUpDown3);
-            this.Controls.Add(this.numericUpDown2);
-            this.Controls.Add(this.numericUpDown1);
+            this.Controls.Add(this.numericVictoryHexY);
+            this.Controls.Add(this.numericVictoryHexX);
+            this.Controls.Add(this.numericFastForwardDays);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.comboGameLength);
             this.Controls.Add(this.label18);
@@ -1000,28 +1002,28 @@
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.numericMapSplash);
-            this.Controls.Add(this.checkBox15);
-            this.Controls.Add(this.checkBox14);
-            this.Controls.Add(this.checkBox13);
-            this.Controls.Add(this.checkBox12);
-            this.Controls.Add(this.checkBox11);
-            this.Controls.Add(this.checkBox10);
-            this.Controls.Add(this.checkBox9);
-            this.Controls.Add(this.checkBox8);
-            this.Controls.Add(this.checkBox7);
-            this.Controls.Add(this.checkBox6);
-            this.Controls.Add(this.checkBox5);
-            this.Controls.Add(this.checkBox4);
-            this.Controls.Add(this.checkBox3);
-            this.Controls.Add(this.checkBox2);
-            this.Controls.Add(this.checkBox1);
+            this.Controls.Add(this.checkNoLoyPenalty);
+            this.Controls.Add(this.checkDebtFree);
+            this.Controls.Add(this.checkNoSphere);
+            this.Controls.Add(this.checkAlliedVictory);
+            this.Controls.Add(this.checkMissileNoLimit);
+            this.Controls.Add(this.checkGroupResearchMerge);
+            this.Controls.Add(this.checkRegionEquip);
+            this.Controls.Add(this.checkGroupLoyaltyMerge);
+            this.Controls.Add(this.checkGovChoice);
+            this.Controls.Add(this.checkNoCapitalMove);
+            this.Controls.Add(this.checkFastBuild);
+            this.Controls.Add(this.checkWMDuse);
+            this.Controls.Add(this.checkWMinvolve);
+            this.Controls.Add(this.checkLimitMAReffect);
+            this.Controls.Add(this.checkLimitDAReffect);
             this.Controls.Add(this.comboWMDEffect);
             this.Controls.Add(this.label46);
             this.Controls.Add(this.label45);
-            this.Controls.Add(this.comboAistance);
-            this.Controls.Add(this.comboInitFunds);
-            this.Controls.Add(this.textStartDate);
-            this.Controls.Add(this.comboResLvl);
+            this.Controls.Add(this.comboAiStance);
+            this.Controls.Add(this.comboInitialFunds);
+            this.Controls.Add(this.dateStartingDate);
+            this.Controls.Add(this.comboResourcesLevel);
             this.Controls.Add(this.comboEconomicDiff);
             this.Controls.Add(this.comboDiplomacyDiff);
             this.Controls.Add(this.comboMilitaryDiff);
@@ -1051,30 +1053,30 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.textSphereNN);
             this.Controls.Add(this.textTechTreeDefault);
-            this.Controls.Add(this.textRegAxis);
+            this.Controls.Add(this.textRegionAxis);
             this.Controls.Add(this.textMapMusic);
-            this.Controls.Add(this.textRegAllies);
+            this.Controls.Add(this.textRegionAllies);
             this.Controls.Add(this.textScenarioID);
-            this.Controls.Add(this.textVicTech);
+            this.Controls.Add(this.textVictoryTech);
             this.Name = "UC_Settings";
             this.Size = new System.Drawing.Size(1800, 1000);
             ((System.ComponentModel.ISupportInitialize)(this.numericMapSplash)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown5)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericFastForwardDays)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericVictoryHexX)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericVictoryHexY)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericDefaultRegion)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericStartingYear)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textVicTech;
+        private System.Windows.Forms.TextBox textVictoryTech;
         private System.Windows.Forms.TextBox textScenarioID;
-        private System.Windows.Forms.TextBox textRegAllies;
+        private System.Windows.Forms.TextBox textRegionAllies;
         private System.Windows.Forms.TextBox textMapMusic;
-        private System.Windows.Forms.TextBox textRegAxis;
+        private System.Windows.Forms.TextBox textRegionAxis;
         private System.Windows.Forms.TextBox textTechTreeDefault;
         private System.Windows.Forms.TextBox textSphereNN;
         private System.Windows.Forms.Label label1;
@@ -1103,29 +1105,29 @@
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.ComboBox comboMilitaryDiff;
         private System.Windows.Forms.ComboBox comboDiplomacyDiff;
-        private System.Windows.Forms.ComboBox comboResLvl;
+        private System.Windows.Forms.ComboBox comboResourcesLevel;
         private System.Windows.Forms.ComboBox comboEconomicDiff;
-        private System.Windows.Forms.DateTimePicker textStartDate;
-        private System.Windows.Forms.ComboBox comboInitFunds;
-        private System.Windows.Forms.ComboBox comboAistance;
+        private System.Windows.Forms.DateTimePicker dateStartingDate;
+        private System.Windows.Forms.ComboBox comboInitialFunds;
+        private System.Windows.Forms.ComboBox comboAiStance;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label46;
         private System.Windows.Forms.ComboBox comboWMDEffect;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox8;
-        private System.Windows.Forms.CheckBox checkBox9;
-        private System.Windows.Forms.CheckBox checkBox10;
-        private System.Windows.Forms.CheckBox checkBox11;
-        private System.Windows.Forms.CheckBox checkBox12;
-        private System.Windows.Forms.CheckBox checkBox13;
-        private System.Windows.Forms.CheckBox checkBox14;
-        private System.Windows.Forms.CheckBox checkBox15;
+        private System.Windows.Forms.CheckBox checkLimitDAReffect;
+        private System.Windows.Forms.CheckBox checkLimitMAReffect;
+        private System.Windows.Forms.CheckBox checkWMinvolve;
+        private System.Windows.Forms.CheckBox checkWMDuse;
+        private System.Windows.Forms.CheckBox checkFastBuild;
+        private System.Windows.Forms.CheckBox checkNoCapitalMove;
+        private System.Windows.Forms.CheckBox checkGovChoice;
+        private System.Windows.Forms.CheckBox checkGroupLoyaltyMerge;
+        private System.Windows.Forms.CheckBox checkRegionEquip;
+        private System.Windows.Forms.CheckBox checkGroupResearchMerge;
+        private System.Windows.Forms.CheckBox checkMissileNoLimit;
+        private System.Windows.Forms.CheckBox checkAlliedVictory;
+        private System.Windows.Forms.CheckBox checkNoSphere;
+        private System.Windows.Forms.CheckBox checkDebtFree;
+        private System.Windows.Forms.CheckBox checkNoLoyPenalty;
         private System.Windows.Forms.NumericUpDown numericMapSplash;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
@@ -1135,19 +1137,19 @@
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox comboGameLength;
         private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
-        private System.Windows.Forms.NumericUpDown numericUpDown2;
-        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.NumericUpDown numericFastForwardDays;
+        private System.Windows.Forms.NumericUpDown numericVictoryHexX;
+        private System.Windows.Forms.NumericUpDown numericVictoryHexY;
         private System.Windows.Forms.ComboBox comboApprovalEffect;
         private System.Windows.Forms.ComboBox comboMapGui;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.CheckBox checkBox16;
-        private System.Windows.Forms.CheckBox checkBox17;
-        private System.Windows.Forms.CheckBox checkBox18;
-        private System.Windows.Forms.CheckBox checkBox19;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
-        private System.Windows.Forms.CheckBox checkBox20;
+        private System.Windows.Forms.ComboBox comboVictoryCondition;
+        private System.Windows.Forms.CheckBox checkLimitInScenario;
+        private System.Windows.Forms.CheckBox checkRestrictTechTrade;
+        private System.Windows.Forms.CheckBox checkCampaignGame;
+        private System.Windows.Forms.CheckBox checkReserveLimit;
+        private System.Windows.Forms.NumericUpDown numericDefaultRegion;
+        private System.Windows.Forms.CheckBox checkRelationsEffect;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.NumericUpDown numericUpDown5;
+        private System.Windows.Forms.NumericUpDown numericStartingYear;
     }
 }
