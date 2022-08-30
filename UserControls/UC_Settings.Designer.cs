@@ -870,6 +870,11 @@
             // 
             this.numericFastForwardDays.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.numericFastForwardDays.Location = new System.Drawing.Point(770, 100);
+            this.numericFastForwardDays.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
             this.numericFastForwardDays.Name = "numericFastForwardDays";
             this.numericFastForwardDays.Size = new System.Drawing.Size(128, 37);
             this.numericFastForwardDays.TabIndex = 150;
@@ -996,6 +1001,11 @@
             // 
             this.numericDefaultRegion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.numericDefaultRegion.Location = new System.Drawing.Point(360, 150);
+            this.numericDefaultRegion.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numericDefaultRegion.Name = "numericDefaultRegion";
             this.numericDefaultRegion.Size = new System.Drawing.Size(121, 37);
             this.numericDefaultRegion.TabIndex = 160;
@@ -1027,6 +1037,11 @@
             // 
             this.numericStartingYear.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.numericStartingYear.Location = new System.Drawing.Point(770, 700);
+            this.numericStartingYear.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numericStartingYear.Name = "numericStartingYear";
             this.numericStartingYear.Size = new System.Drawing.Size(144, 37);
             this.numericStartingYear.TabIndex = 163;
