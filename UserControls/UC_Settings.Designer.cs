@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textVicHex = new System.Windows.Forms.TextBox();
             this.textDefRegion = new System.Windows.Forms.TextBox();
             this.textReserveLimit = new System.Windows.Forms.TextBox();
             this.textRelationsEff = new System.Windows.Forms.TextBox();
@@ -40,7 +39,6 @@
             this.textResTechTrade = new System.Windows.Forms.TextBox();
             this.textMapMusic = new System.Windows.Forms.TextBox();
             this.textRegAxis = new System.Windows.Forms.TextBox();
-            this.textAppEff = new System.Windows.Forms.TextBox();
             this.textCampGame = new System.Windows.Forms.TextBox();
             this.textSVictoryCond = new System.Windows.Forms.TextBox();
             this.textMapGUI = new System.Windows.Forms.TextBox();
@@ -82,7 +80,6 @@
             this.comboAistance = new System.Windows.Forms.ComboBox();
             this.label45 = new System.Windows.Forms.Label();
             this.label46 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.comboWMDEffect = new System.Windows.Forms.ComboBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -111,18 +108,14 @@
             this.comboGameLength = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown2 = new System.Windows.Forms.NumericUpDown();
+            this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
+            this.comboApprovalEffect = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.numericMapSplash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textVicHex
-            // 
-            this.textVicHex.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textVicHex.Location = new System.Drawing.Point(102, 484);
-            this.textVicHex.Name = "textVicHex";
-            this.textVicHex.Size = new System.Drawing.Size(85, 37);
-            this.textVicHex.TabIndex = 6;
-            this.textVicHex.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textDefRegion
             // 
@@ -156,7 +149,7 @@
             this.textVicTech.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.textVicTech.Location = new System.Drawing.Point(57, 564);
             this.textVicTech.Name = "textVicTech";
-            this.textVicTech.Size = new System.Drawing.Size(281, 37);
+            this.textVicTech.Size = new System.Drawing.Size(289, 37);
             this.textVicTech.TabIndex = 13;
             this.textVicTech.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -198,7 +191,7 @@
             // textResTechTrade
             // 
             this.textResTechTrade.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textResTechTrade.Location = new System.Drawing.Point(552, 722);
+            this.textResTechTrade.Location = new System.Drawing.Point(614, 865);
             this.textResTechTrade.Name = "textResTechTrade";
             this.textResTechTrade.Size = new System.Drawing.Size(212, 37);
             this.textResTechTrade.TabIndex = 21;
@@ -222,15 +215,6 @@
             this.textRegAxis.TabIndex = 23;
             this.textRegAxis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // textAppEff
-            // 
-            this.textAppEff.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textAppEff.Location = new System.Drawing.Point(800, 722);
-            this.textAppEff.Name = "textAppEff";
-            this.textAppEff.Size = new System.Drawing.Size(189, 37);
-            this.textAppEff.TabIndex = 24;
-            this.textAppEff.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // textCampGame
             // 
             this.textCampGame.Font = new System.Drawing.Font("Century Gothic", 12F);
@@ -245,7 +229,7 @@
             this.textSVictoryCond.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.textSVictoryCond.Location = new System.Drawing.Point(57, 648);
             this.textSVictoryCond.Name = "textSVictoryCond";
-            this.textSVictoryCond.Size = new System.Drawing.Size(281, 37);
+            this.textSVictoryCond.Size = new System.Drawing.Size(289, 37);
             this.textSVictoryCond.TabIndex = 38;
             this.textSVictoryCond.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
@@ -324,7 +308,7 @@
             // 
             this.label5.AutoSize = true;
             this.label5.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label5.Location = new System.Drawing.Point(1545, 96);
+            this.label5.Location = new System.Drawing.Point(510, 299);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(205, 30);
             this.label5.TabIndex = 51;
@@ -379,7 +363,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label12.Location = new System.Drawing.Point(863, 323);
+            this.label12.Location = new System.Drawing.Point(77, 749);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(117, 30);
             this.label12.TabIndex = 54;
@@ -401,7 +385,7 @@
             // 
             this.label14.AutoSize = true;
             this.label14.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label14.Location = new System.Drawing.Point(1587, 16);
+            this.label14.Location = new System.Drawing.Point(530, 204);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(151, 30);
             this.label14.TabIndex = 52;
@@ -533,7 +517,7 @@
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label38.Location = new System.Drawing.Point(1061, 676);
+            this.label38.Location = new System.Drawing.Point(41, 793);
             this.label38.Name = "label38";
             this.label38.Size = new System.Drawing.Size(153, 30);
             this.label38.TabIndex = 84;
@@ -544,7 +528,7 @@
             // 
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label39.Location = new System.Drawing.Point(795, 676);
+            this.label39.Location = new System.Drawing.Point(2, 837);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(198, 30);
             this.label39.TabIndex = 83;
@@ -555,7 +539,7 @@
             // 
             this.label40.AutoSize = true;
             this.label40.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label40.Location = new System.Drawing.Point(544, 676);
+            this.label40.Location = new System.Drawing.Point(599, 822);
             this.label40.Name = "label40";
             this.label40.Size = new System.Drawing.Size(237, 30);
             this.label40.TabIndex = 82;
@@ -579,6 +563,12 @@
             this.comboMilitaryDiff.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboMilitaryDiff.FormattingEnabled = true;
             this.comboMilitaryDiff.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboMilitaryDiff.Items.AddRange(new object[] {
+            "Very Easy",
+            "Easy",
+            "Normal",
+            "Hard",
+            "Very Hard"});
             this.comboMilitaryDiff.Location = new System.Drawing.Point(176, 196);
             this.comboMilitaryDiff.Name = "comboMilitaryDiff";
             this.comboMilitaryDiff.Size = new System.Drawing.Size(156, 38);
@@ -590,6 +580,12 @@
             this.comboDiplomacyDiff.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboDiplomacyDiff.FormattingEnabled = true;
             this.comboDiplomacyDiff.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboDiplomacyDiff.Items.AddRange(new object[] {
+            "Very Easy",
+            "Easy",
+            "Normal",
+            "Hard",
+            "Very Hard"});
             this.comboDiplomacyDiff.Location = new System.Drawing.Point(176, 284);
             this.comboDiplomacyDiff.Name = "comboDiplomacyDiff";
             this.comboDiplomacyDiff.Size = new System.Drawing.Size(156, 38);
@@ -601,9 +597,9 @@
             this.comboResLvl.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboResLvl.FormattingEnabled = true;
             this.comboResLvl.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboResLvl.Location = new System.Drawing.Point(1532, 135);
+            this.comboResLvl.Location = new System.Drawing.Point(499, 337);
             this.comboResLvl.Name = "comboResLvl";
-            this.comboResLvl.Size = new System.Drawing.Size(248, 38);
+            this.comboResLvl.Size = new System.Drawing.Size(219, 38);
             this.comboResLvl.TabIndex = 92;
             // 
             // comboEconomicDiff
@@ -612,6 +608,12 @@
             this.comboEconomicDiff.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboEconomicDiff.FormattingEnabled = true;
             this.comboEconomicDiff.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboEconomicDiff.Items.AddRange(new object[] {
+            "Very Easy",
+            "Easy",
+            "Normal",
+            "Hard",
+            "Very Hard"});
             this.comboEconomicDiff.Location = new System.Drawing.Point(176, 240);
             this.comboEconomicDiff.Name = "comboEconomicDiff";
             this.comboEconomicDiff.RightToLeft = System.Windows.Forms.RightToLeft.No;
@@ -632,7 +634,7 @@
             this.comboInitFunds.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboInitFunds.FormattingEnabled = true;
             this.comboInitFunds.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboInitFunds.Location = new System.Drawing.Point(1556, 54);
+            this.comboInitFunds.Location = new System.Drawing.Point(499, 242);
             this.comboInitFunds.Name = "comboInitFunds";
             this.comboInitFunds.Size = new System.Drawing.Size(219, 38);
             this.comboInitFunds.TabIndex = 94;
@@ -643,7 +645,7 @@
             this.comboAistance.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboAistance.FormattingEnabled = true;
             this.comboAistance.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboAistance.Location = new System.Drawing.Point(812, 363);
+            this.comboAistance.Location = new System.Drawing.Point(200, 746);
             this.comboAistance.Name = "comboAistance";
             this.comboAistance.Size = new System.Drawing.Size(212, 38);
             this.comboAistance.TabIndex = 95;
@@ -670,31 +672,22 @@
             this.label46.Text = "Y:";
             this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // textBox1
-            // 
-            this.textBox1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textBox1.Location = new System.Drawing.Point(238, 484);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(85, 37);
-            this.textBox1.TabIndex = 116;
-            this.textBox1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
             // comboWMDEffect
             // 
             this.comboWMDEffect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboWMDEffect.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboWMDEffect.FormattingEnabled = true;
             this.comboWMDEffect.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.comboWMDEffect.Location = new System.Drawing.Point(1020, 722);
+            this.comboWMDEffect.Location = new System.Drawing.Point(200, 790);
             this.comboWMDEffect.Name = "comboWMDEffect";
-            this.comboWMDEffect.Size = new System.Drawing.Size(236, 38);
+            this.comboWMDEffect.Size = new System.Drawing.Size(212, 38);
             this.comboWMDEffect.TabIndex = 125;
             // 
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
             this.checkBox1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox1.Location = new System.Drawing.Point(1538, 749);
+            this.checkBox1.Location = new System.Drawing.Point(1114, 580);
             this.checkBox1.Name = "checkBox1";
             this.checkBox1.Size = new System.Drawing.Size(227, 34);
             this.checkBox1.TabIndex = 126;
@@ -837,7 +830,7 @@
             // 
             this.checkBox14.AutoSize = true;
             this.checkBox14.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox14.Location = new System.Drawing.Point(1352, 749);
+            this.checkBox14.Location = new System.Drawing.Point(1304, 631);
             this.checkBox14.Name = "checkBox14";
             this.checkBox14.Size = new System.Drawing.Size(155, 34);
             this.checkBox14.TabIndex = 139;
@@ -848,7 +841,7 @@
             // 
             this.checkBox15.AutoSize = true;
             this.checkBox15.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkBox15.Location = new System.Drawing.Point(1532, 694);
+            this.checkBox15.Location = new System.Drawing.Point(926, 799);
             this.checkBox15.Name = "checkBox15";
             this.checkBox15.Size = new System.Drawing.Size(258, 34);
             this.checkBox15.TabIndex = 140;
@@ -923,7 +916,7 @@
             // 
             this.label16.AutoSize = true;
             this.label16.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label16.Location = new System.Drawing.Point(889, 98);
+            this.label16.Location = new System.Drawing.Point(499, 163);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(228, 28);
             this.label16.TabIndex = 145;
@@ -934,7 +927,7 @@
             // 
             this.label17.AutoSize = true;
             this.label17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label17.Location = new System.Drawing.Point(889, 162);
+            this.label17.Location = new System.Drawing.Point(130, 715);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(132, 28);
             this.label17.TabIndex = 146;
@@ -967,7 +960,7 @@
             // 
             this.label19.AutoSize = true;
             this.label19.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label19.Location = new System.Drawing.Point(1059, 163);
+            this.label19.Location = new System.Drawing.Point(1026, 92);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(209, 28);
             this.label19.TabIndex = 149;
@@ -983,10 +976,42 @@
             this.numericUpDown1.TabIndex = 150;
             this.numericUpDown1.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // numericUpDown2
+            // 
+            this.numericUpDown2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown2.Location = new System.Drawing.Point(107, 484);
+            this.numericUpDown2.Name = "numericUpDown2";
+            this.numericUpDown2.Size = new System.Drawing.Size(85, 37);
+            this.numericUpDown2.TabIndex = 151;
+            this.numericUpDown2.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // numericUpDown3
+            // 
+            this.numericUpDown3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericUpDown3.Location = new System.Drawing.Point(244, 485);
+            this.numericUpDown3.Name = "numericUpDown3";
+            this.numericUpDown3.Size = new System.Drawing.Size(85, 37);
+            this.numericUpDown3.TabIndex = 152;
+            this.numericUpDown3.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
+            // comboApprovalEffect
+            // 
+            this.comboApprovalEffect.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboApprovalEffect.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.comboApprovalEffect.FormattingEnabled = true;
+            this.comboApprovalEffect.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboApprovalEffect.Location = new System.Drawing.Point(200, 834);
+            this.comboApprovalEffect.Name = "comboApprovalEffect";
+            this.comboApprovalEffect.Size = new System.Drawing.Size(212, 38);
+            this.comboApprovalEffect.TabIndex = 153;
+            // 
             // UC_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.comboApprovalEffect);
+            this.Controls.Add(this.numericUpDown3);
+            this.Controls.Add(this.numericUpDown2);
             this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.comboGameLength);
@@ -1014,7 +1039,6 @@
             this.Controls.Add(this.checkBox1);
             this.Controls.Add(this.comboWMDEffect);
             this.Controls.Add(this.label46);
-            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label45);
             this.Controls.Add(this.comboAistance);
             this.Controls.Add(this.comboInitFunds);
@@ -1057,7 +1081,6 @@
             this.Controls.Add(this.textSVictoryCond);
             this.Controls.Add(this.textMapGUI);
             this.Controls.Add(this.textTechTreeDefault);
-            this.Controls.Add(this.textAppEff);
             this.Controls.Add(this.textRegAxis);
             this.Controls.Add(this.textMapMusic);
             this.Controls.Add(this.textResTechTrade);
@@ -1069,18 +1092,18 @@
             this.Controls.Add(this.textRelationsEff);
             this.Controls.Add(this.textReserveLimit);
             this.Controls.Add(this.textDefRegion);
-            this.Controls.Add(this.textVicHex);
             this.Name = "UC_Settings";
             this.Size = new System.Drawing.Size(1800, 1000);
             ((System.ComponentModel.ISupportInitialize)(this.numericMapSplash)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textVicHex;
         private System.Windows.Forms.TextBox textDefRegion;
         private System.Windows.Forms.TextBox textReserveLimit;
         private System.Windows.Forms.TextBox textRelationsEff;
@@ -1092,7 +1115,6 @@
         private System.Windows.Forms.TextBox textResTechTrade;
         private System.Windows.Forms.TextBox textMapMusic;
         private System.Windows.Forms.TextBox textRegAxis;
-        private System.Windows.Forms.TextBox textAppEff;
         private System.Windows.Forms.TextBox textCampGame;
         private System.Windows.Forms.TextBox textSVictoryCond;
         private System.Windows.Forms.TextBox textMapGUI;
@@ -1134,7 +1156,6 @@
         private System.Windows.Forms.ComboBox comboAistance;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.ComboBox comboWMDEffect;
         private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.CheckBox checkBox2;
@@ -1163,5 +1184,8 @@
         private System.Windows.Forms.ComboBox comboGameLength;
         private System.Windows.Forms.Label label19;
         private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown numericUpDown2;
+        private System.Windows.Forms.NumericUpDown numericUpDown3;
+        private System.Windows.Forms.ComboBox comboApprovalEffect;
     }
 }
