@@ -24,22 +24,22 @@ namespace SRScenarioCreatorEnhanced
         public int? aistance; // input? guess 0-5
         public int? startYear; // input?
         public int? techTreeDefault; // what is that?
-        public bool? noCapitalMove; // fixedCapital 0-1
+        public bool noCapitalMove; // fixedCapital 0-1
         public int? regionEquip; // what is that? guess, by location, probably bool 0-1
-        public bool? limitDarEffect; // limit Domestic Approval Rating 0-1
-        public bool? limitMarEffect; // limit Military Approval Rating 0-1
-        public bool? wmInvolve; // what is this? 0-1
-        public bool? wmdUse; // what is this? 0-1
-        public bool? fastBuild; // what is this? 0-1
-        public bool? govChoice; // what is this? 0-1
-        public bool? groupLoyaltyMerge; // what is this?
-        public bool? groupResearchMerge; // what is this?
+        public bool limitDarEffect; // limit Domestic Approval Rating 0-1
+        public bool limitMarEffect; // limit Military Approval Rating 0-1
+        public bool wmInvolve; // what is this? 0-1
+        public bool wmdUse; // what is this? 0-1
+        public bool fastBuild; // what is this? 0-1
+        public bool govChoice; // what is this? 0-1
+        public bool groupLoyaltyMerge; // what is this?
+        public bool groupResearchMerge; // what is this?
         public int? relationsEffect; // what is this?
         public int? limitInScenario; // what is this?
         public int? mapMusic; // what is this?
         public int? mapGui; // what is this?
         public int? mapSplash; // what is this?
-        public int? campaignGame; // what is this?
+        public bool campaignGame; // what is this?
         public int? victoryHexX; // what is this? ~probably hex needed to be taken to win
         public int? victoryHexY; // what is this? ~probably hex needed to be taken to win
         public int? victoryTech; // what is this? 
@@ -48,14 +48,14 @@ namespace SRScenarioCreatorEnhanced
         public int? fastFwdDays; // input?
         public int? sVictoryCond; // input?
         public int? gameLength; // input?
-        public bool? missileNoLimit; // what is this?
-        public bool? alliedVictory; // all countries allied is a win 0-1
-        public int? restrictTechTrade; // what is this?
+        public bool missileNoLimit; // what is this?
+        public bool alliedVictory; // all countries allied is a win 0-1
+        public bool restrictTechTrade; // what is this?
         public int? approvalEff; // approval effect, guess 0-4
         public int? wmdEff; // what is this?
-        public bool? debtFree; // no starting debt 0-1
-        public bool? noLoyPenalty; // no penalty because of low loyalty 0-1
-        public bool? noSphere; // no sphere of influence 0-1
+        public bool debtFree; // no starting debt 0-1
+        public bool noLoyPenalty; // no penalty because of low loyalty 0-1
+        public bool noSphere; // no sphere of influence 0-1
         public int? sphereNn; // what is this?
 
         /// <summary>
@@ -90,7 +90,7 @@ namespace SRScenarioCreatorEnhanced
             //mapMusic = ;
             mapGui = 2;
             mapSplash = 57;
-            campaignGame = 0;
+            campaignGame = false;
             //victoryHexX = ;
             //victoryHexY = ;
             victoryTech = 1818;
@@ -101,7 +101,7 @@ namespace SRScenarioCreatorEnhanced
             //gameLength = ;
             missileNoLimit = true;
             alliedVictory = true;
-            restrictTechTrade = 0;
+            restrictTechTrade = false;
             approvalEff = 2;
             wmdEff = 2;
             debtFree = false;

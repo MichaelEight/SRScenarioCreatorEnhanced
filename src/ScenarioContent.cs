@@ -151,6 +151,9 @@ namespace SRScenarioCreatorEnhanced
 
             // Input hard-coded scheme
             File.AppendAllLines(tempExportLocation, new string[]{
+
+                #region scenarioInfoPart
+
                 $"// SCENARIO DEFINITION - {scenarioName}",
                 $"// Created using Enhanced Scenario Creator V{editorVersion} - {DateTime.Now}",
                 $"// ifset key: 0x01: Load CVP; 0x02: Load Rest of Source; 0x03: Load all; 0x04: Load Cache\n",
@@ -190,7 +193,11 @@ namespace SRScenarioCreatorEnhanced
                 string.IsNullOrEmpty(PostCacheName) ? null : $"#include \"{PostCacheName}\"\n", // Do not include, if empty
 
                 $"#endifset\n",
+                #endregion
 
+                #region settingsInfoPart
+
+                // () ? 1 : 0 converts True/False to 1/0
                 $"&&GMC",
                 $"startymd:               {settings.startymd}",
                 $"defaultregion:          {settings.defaultRegion}",
@@ -204,22 +211,22 @@ namespace SRScenarioCreatorEnhanced
                 $"aistance:               {settings.aistance}",
                 $"startyear:              {settings.startYear}",
                 $"techtreedefault:        {settings.techTreeDefault}",
-                $"noCapitalMove:          {settings.noCapitalMove}",
+                $"noCapitalMove:          {(settings.noCapitalMove ? 1 : 0)}",
                 $"regionequip:            {settings.regionEquip}",
-                $"limitdareffect:         {settings.limitDarEffect}",
-                $"limitmareffect:         {settings.limitMarEffect}",
-                $"wminvolve:              {settings.wmInvolve}",
-                $"wmduse:                 {settings.wmdUse}",
-                $"fastbuild:              {settings.fastBuild}",
-                $"govchoice:              {settings.govChoice}",
-                $"grouployaltymerge:      {settings.groupLoyaltyMerge}",
-                $"groupresearchmerge:     {settings.groupResearchMerge}",
+                $"limitdareffect:         {(settings.limitDarEffect ? 1 : 0)}",
+                $"limitmareffect:         {(settings.limitMarEffect ? 1 : 0)}",
+                $"wminvolve:              {(settings.wmInvolve ? 1 : 0)}",
+                $"wmduse:                 {(settings.wmdUse ? 1 : 0)}",
+                $"fastbuild:              {(settings.fastBuild ? 1 : 0)}",
+                $"govchoice:              {(settings.govChoice ? 1 : 0)}",
+                $"grouployaltymerge:      {(settings.groupLoyaltyMerge ? 1 : 0)}",
+                $"groupresearchmerge:     {(settings.groupResearchMerge ? 1 : 0)}",
                 $"relationseffect:        {settings.relationsEffect}",
                 $"limitinscenario:        {settings.limitInScenario}",
                 $"mapmusic:               {settings.mapMusic}",
                 $"mapgui:                 {settings.mapGui}",
                 $"mapsplash:              {settings.mapSplash}",
-                $"campaigngame:           {settings.campaignGame}",
+                $"campaigngame:           {(settings.campaignGame ? 1 : 0)}",
                 $"victoryhex:             {settings.victoryHexX}, " +
                                         $"{settings.victoryHexY}",
                 $"victorytech:            {settings.victoryTech}",
@@ -228,18 +235,20 @@ namespace SRScenarioCreatorEnhanced
                 $"fastfwddays:            {settings.fastFwdDays}",
                 $"svictorycond:           {settings.sVictoryCond}",
                 $"gamelength:             {settings.gameLength}",
-                $"missilenolimit:         {settings.missileNoLimit}",
-                $"alliedvictory:          {settings.alliedVictory}",
-                $"restricttechtrade:      {settings.restrictTechTrade}",
+                $"missilenolimit:         {(settings.missileNoLimit ? 1 : 0)}",
+                $"alliedvictory:          {(settings.alliedVictory ? 1 : 0)}",
+                $"restricttechtrade:      {(settings.restrictTechTrade ? 1 : 0)}",
                 $"approvaleff:            {settings.approvalEff}",
                 $"wmdeff:                 {settings.wmdEff}",
-                $"debtfree:               {settings.debtFree}",
-                $"noloypenalty:           {settings.noLoyPenalty}",
-                $"nosphere:               {settings.noSphere}",
+                $"debtfree:               {(settings.debtFree ? 1 : 0)}",
+                $"noloypenalty:           {(settings.noLoyPenalty ? 1 : 0)}",
+                $"nosphere:               {(settings.noSphere ? 1 : 0)}",
                 $"spherenn:               {settings.sphereNn}",
                 $"scenarioid:             {settings.scenarioid}",
-
                 $"&&END"
+
+                #endregion
+
             });
         }
         private void exportRegionInclFile()
