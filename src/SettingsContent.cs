@@ -1,6 +1,8 @@
 ﻿/// SettingsContent.cs file released under GNU GPL v3 licence.
 /// Originally used in the SRScenarioCreatorEnhanced project: https://github.com/r20de20/SRScenarioCreatorEnhanced
 
+using System;
+
 namespace SRScenarioCreatorEnhanced
 {
     public class SettingsContent
@@ -10,51 +12,102 @@ namespace SRScenarioCreatorEnhanced
         // not sure - value or range probable, but not tested
         // what is that? - never used / heard of / no idea what it does
 
-        /*DISABLED TEMPORARY FOR OPTIMIZATION REASONS, NOT USED YET
-        int startymd; // yyyymmdd
-        int defaultRegion; // region's id
-        string scenarioid; // what is that?
-        int militaryDifficulty; // 0 - 4
-        int diplomacyDifficulty; // 0 - 4
-        int economicDifficulty; // 0 - 4
-        int resourcesLevel; // 0 - 3 not sure
-        int initialFunds; // 0 - 3 not sure
-        int reserveLimit; // input?
-        int aistance; // input? guess 0-5
-        int startYear; // input?
-        int techTreeDefault; // what is that?
-        bool noCapitalMove; // fixedCapital 0-1
-        int regionEquip; // what is that? guess, by location, probably bool 0-1
-        bool limitDarEffect; // limit Domestic Approval Rating 0-1
-        bool limitMarEffect; // limit Military Approval Rating 0-1
-        bool wmInvolve; // what is this? 0-1
-        bool wmDuse; // use weapon of mass destruction 0-1
-        bool fastBuild; // what is this? 0-1
-        bool govChoice; // what is this? 0-1
-        bool groupLoyaltyMerge; // what is this?
-        bool groupResearchMerge; // what is this?
-        int relationsEffect; // what is this?
-        int limitInScenario; // what is this?
-        int mapMusic; // what is this?
-        int mapGui; // what is this?
-        int mapSplash; // what is this?
-        int campaignGame; // what is this?
-        int victoryHex; // what is this? ~probably hex needed to be taken to win
-        int victoryTech; // what is this? 
-        int regionAllies; // what is this?
-        int regionAxis; // what is this?
-        int fastFwdDays; // input?
-        int sVictoryCond; // input?
-        int gameLength; // input?
-        bool missileNoLimit; // what is this?
-        bool alliedVictory; // all countries allied is a win 0-1
-        int restrictTechTrade; // what is this?
-        int approvalEff; // approval effect, guess 0-4
-        int wmdEff; // weapon of mass destruction effect 0-2
-        bool debtFree; // no starting debt 0-1
-        bool noLoyPenalty; // no penalty because of low loyalty 0-1
-        bool noSphere; // no sphere of influence 0-1
-        int sphereNn; // what is this?
-        */
+        public string startymd; // yyyymmdd // FORMAT: ToString("yyyy, MM, dd");
+        public int? defaultRegion; // region's id
+        public string scenarioid; // what is that?
+        public int? militaryDifficulty; // 0 - 4
+        public int? diplomacyDifficulty; // 0 - 4
+        public int? economicDifficulty; // 0 - 4
+        public int? resourcesLevel; // 0 - 3 not sure
+        public int? initialFunds; // 0 - 3 not sure
+        public int? reserveLimit; // input?
+        public int? aistance; // input? guess 0-5
+        public int? startYear; // input?
+        public int? techTreeDefault; // what is that?
+        public bool noCapitalMove; // fixedCapital 0-1
+        public int? regionEquip; // what is that? guess, by location, probably bool 0-1
+        public bool limitDarEffect; // limit Domestic Approval Rating 0-1
+        public bool limitMarEffect; // limit Military Approval Rating 0-1
+        public bool wmInvolve; // what is this? 0-1
+        public bool wmdUse; // what is this? 0-1
+        public bool fastBuild; // what is this? 0-1
+        public bool govChoice; // what is this? 0-1
+        public bool groupLoyaltyMerge; // what is this?
+        public bool groupResearchMerge; // what is this?
+        public int? relationsEffect; // what is this?
+        public int? limitInScenario; // what is this?
+        public int? mapMusic; // what is this?
+        public int? mapGui; // what is this?
+        public int? mapSplash; // what is this?
+        public bool campaignGame; // what is this?
+        public int? victoryHexX; // what is this? ~probably hex needed to be taken to win
+        public int? victoryHexY; // what is this? ~probably hex needed to be taken to win
+        public int? victoryTech; // what is this? 
+        public int? regionAllies; // what is this?
+        public int? regionAxis; // what is this?
+        public int? fastFwdDays; // input?
+        public int? sVictoryCond; // input?
+        public int? gameLength; // input?
+        public bool missileNoLimit; // what is this?
+        public bool alliedVictory; // all countries allied is a win 0-1
+        public bool restrictTechTrade; // what is this?
+        public int? approvalEff; // approval effect, guess 0-4
+        public int? wmdEff; // what is this?
+        public bool debtFree; // no starting debt 0-1
+        public bool noLoyPenalty; // no penalty because of low loyalty 0-1
+        public bool noSphere; // no sphere of influence 0-1
+        public int? sphereNn; // what is this?
+
+        /// <summary>
+        /// Default values for variables, some randomly chosen
+        /// </summary>
+        public SettingsContent()
+        {
+            startymd = DateTime.Now.ToString("yyyy, MM, dd");
+            defaultRegion = 1000;
+            scenarioid = "";
+            militaryDifficulty = 2;
+            diplomacyDifficulty = 2;
+            economicDifficulty = 2;
+            resourcesLevel = 1;
+            initialFunds = 1;
+            //reserveLimit = ;
+            //aistance = ;
+            //startYear = ;
+            //techTreeDefault = ;
+            noCapitalMove = false;
+            regionEquip = 1;
+            limitDarEffect = false;
+            limitMarEffect = false;
+            wmInvolve = true;
+            wmdUse = true;
+            fastBuild = false;
+            govChoice = true;
+            groupLoyaltyMerge = true;
+            groupResearchMerge = true;
+            relationsEffect = 2;
+            limitInScenario = 1;
+            //mapMusic = ;
+            mapGui = 2;
+            mapSplash = 57;
+            campaignGame = false;
+            //victoryHexX = ;
+            //victoryHexY = ;
+            victoryTech = 1818;
+            //regionAllies = ;
+            //regionAxis = ;
+            fastFwdDays = 0;
+            //sVictoryCond = ;
+            //gameLength = ;
+            missileNoLimit = true;
+            alliedVictory = true;
+            restrictTechTrade = false;
+            approvalEff = 2;
+            wmdEff = 2;
+            debtFree = false;
+            noLoyPenalty = false;
+            noSphere = true;
+            sphereNn = 3;
+        }
     }
 }
