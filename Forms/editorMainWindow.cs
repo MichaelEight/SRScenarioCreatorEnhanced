@@ -28,6 +28,9 @@ namespace SRScenarioCreatorEnhanced
         public static extern bool ReleaseCapture();
         #endregion
 
+        // Use for editing scale of main window and UCs
+        float currentAppScale = 1.0f;
+
         public ScenarioContent currentScenario;
         public SettingsContent currentSettings;
 
