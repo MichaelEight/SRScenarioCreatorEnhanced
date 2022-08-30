@@ -29,12 +29,14 @@ namespace SRScenarioCreatorEnhanced
         #endregion
 
         public ScenarioContent currentScenario;
+        public SettingsContent currentSettings;
 
         public editorMainWindow()
         {
             InitializeComponent();
 
             currentScenario = new ScenarioContent();
+            currentSettings = new SettingsContent();
 
             // Load Scenario tab
             UC_Scenario uc = new UC_Scenario(this);

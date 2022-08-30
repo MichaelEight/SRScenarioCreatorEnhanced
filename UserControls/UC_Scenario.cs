@@ -514,6 +514,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void exportScenarioButton_Click(object sender, EventArgs e)
         {
+            // Copy settings data to scenario, prepare for export
+            mainWindow.currentScenario.settings = mainWindow.currentSettings;
+
             mainWindow.currentScenario.exportScenarioToFileAndFolder();
             _ = MessageBox.Show("Scenario exported! (Well, editor tried, at least)", "Export Finished",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);

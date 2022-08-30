@@ -64,6 +64,9 @@ namespace SRScenarioCreatorEnhanced
         public bool WMModifyCheck;
         public bool OOBModifyCheck;
 
+        // Reference to Other Tabs' Content
+        public SettingsContent settings;
+
         // DEBUG
         public string lastLoadedScenarioName; // Used as anti-loop when trying to reload tab
 
@@ -186,7 +189,57 @@ namespace SRScenarioCreatorEnhanced
 
                 string.IsNullOrEmpty(PostCacheName) ? null : $"#include \"{PostCacheName}\"\n", // Do not include, if empty
 
-                $"#endifset\n"
+                $"#endifset\n",
+
+                $"&&GMC",
+                $"startymd:               {settings.startymd}",
+                $"defaultregion:          {settings.defaultRegion}",
+                $"scenarioid:             {settings.scenarioid}",
+                $"difficulty:             {settings.militaryDifficulty}, " +
+                                        $"{settings.diplomacyDifficulty}, " +
+                                        $"{settings.economicDifficulty}",
+                $"resources:              {settings.resourcesLevel}",
+                $"initialFunds:           {settings.initialFunds}",
+                $"reservelimit:           {settings.reserveLimit}",
+                $"aistance:               {settings.aistance}",
+                $"startyear:              {settings.startYear}",
+                $"techtreedefault:        {settings.techTreeDefault}",
+                $"noCapitalMove:          {settings.noCapitalMove}",
+                $"regionequip:            {settings.regionEquip}",
+                $"limitdareffect:         {settings.limitDarEffect}",
+                $"limitmareffect:         {settings.limitMarEffect}",
+                $"wminvolve:              {settings.wmInvolve}",
+                $"wmduse:                 {settings.wmdUse}",
+                $"fastbuild:              {settings.fastBuild}",
+                $"govchoice:              {settings.govChoice}",
+                $"grouployaltymerge:      {settings.groupLoyaltyMerge}",
+                $"groupresearchmerge:     {settings.groupResearchMerge}",
+                $"relationseffect:        {settings.relationsEffect}",
+                $"limitinscenario:        {settings.limitInScenario}",
+                $"mapmusic:               {settings.mapMusic}",
+                $"mapgui:                 {settings.mapGui}",
+                $"mapsplash:              {settings.mapSplash}",
+                $"campaigngame:           {settings.campaignGame}",
+                $"victoryhex:             {settings.victoryHexX}, " +
+                                        $"{settings.victoryHexY}",
+                $"victorytech:            {settings.victoryTech}",
+                $"regionallies:           {settings.regionAllies}",
+                $"regionaxis:             {settings.regionAxis}",
+                $"fastfwddays:            {settings.fastFwdDays}",
+                $"svictorycond:           {settings.sVictoryCond}",
+                $"gamelength:             {settings.gameLength}",
+                $"missilenolimit:         {settings.missileNoLimit}",
+                $"alliedvictory:          {settings.alliedVictory}",
+                $"restricttechtrade:      {settings.restrictTechTrade}",
+                $"approvaleff:            {settings.approvalEff}",
+                $"wmdeff:                 {settings.wmdEff}",
+                $"debtfree:               {settings.debtFree}",
+                $"noloypenalty:           {settings.noLoyPenalty}",
+                $"nosphere:               {settings.noSphere}",
+                $"spherenn:               {settings.sphereNn}",
+                $"scenarioid:             {settings.scenarioid}",
+
+                $"&&END"
             });
         }
         private void exportRegionInclFile()
