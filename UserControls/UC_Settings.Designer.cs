@@ -118,7 +118,7 @@
             // textVictoryTech
             // 
             this.textVictoryTech.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textVictoryTech.Location = new System.Drawing.Point(100, 914);
+            this.textVictoryTech.Location = new System.Drawing.Point(120, 915);
             this.textVictoryTech.Name = "textVictoryTech";
             this.textVictoryTech.Size = new System.Drawing.Size(300, 37);
             this.textVictoryTech.TabIndex = 13;
@@ -390,7 +390,7 @@
             // 
             this.label34.AutoSize = true;
             this.label34.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label34.Location = new System.Drawing.Point(158, 881);
+            this.label34.Location = new System.Drawing.Point(178, 880);
             this.label34.Name = "label34";
             this.label34.Size = new System.Drawing.Size(161, 30);
             this.label34.TabIndex = 74;
@@ -401,7 +401,7 @@
             // 
             this.label35.AutoSize = true;
             this.label35.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label35.Location = new System.Drawing.Point(170, 801);
+            this.label35.Location = new System.Drawing.Point(190, 800);
             this.label35.Name = "label35";
             this.label35.Size = new System.Drawing.Size(147, 30);
             this.label35.TabIndex = 73;
@@ -482,6 +482,11 @@
             this.comboResourcesLevel.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboResourcesLevel.FormattingEnabled = true;
             this.comboResourcesLevel.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboResourcesLevel.Items.AddRange(new object[] {
+            "Depleted",
+            "Dwindling",
+            "Standard",
+            "Abundant"});
             this.comboResourcesLevel.Location = new System.Drawing.Point(770, 310);
             this.comboResourcesLevel.Name = "comboResourcesLevel";
             this.comboResourcesLevel.Size = new System.Drawing.Size(219, 38);
@@ -520,6 +525,11 @@
             this.comboInitialFunds.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboInitialFunds.FormattingEnabled = true;
             this.comboInitialFunds.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboInitialFunds.Items.AddRange(new object[] {
+            "No New Bonds",
+            "Low",
+            "Default",
+            "High"});
             this.comboInitialFunds.Location = new System.Drawing.Point(770, 260);
             this.comboInitialFunds.Name = "comboInitialFunds";
             this.comboInitialFunds.Size = new System.Drawing.Size(220, 38);
@@ -531,6 +541,13 @@
             this.comboAiStance.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboAiStance.FormattingEnabled = true;
             this.comboAiStance.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboAiStance.Items.AddRange(new object[] {
+            "Normal",
+            "Passive",
+            "Defensive",
+            "Aggresive",
+            "Unpredictable",
+            "None"});
             this.comboAiStance.Location = new System.Drawing.Point(250, 470);
             this.comboAiStance.Name = "comboAiStance";
             this.comboAiStance.Size = new System.Drawing.Size(210, 38);
@@ -540,7 +557,7 @@
             // 
             this.label45.AutoSize = true;
             this.label45.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label45.Location = new System.Drawing.Point(109, 838);
+            this.label45.Location = new System.Drawing.Point(129, 837);
             this.label45.Name = "label45";
             this.label45.Size = new System.Drawing.Size(35, 30);
             this.label45.TabIndex = 115;
@@ -551,7 +568,7 @@
             // 
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label46.Location = new System.Drawing.Point(245, 838);
+            this.label46.Location = new System.Drawing.Point(265, 837);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(36, 30);
             this.label46.TabIndex = 117;
@@ -564,6 +581,10 @@
             this.comboWMDEffect.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboWMDEffect.FormattingEnabled = true;
             this.comboWMDEffect.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboWMDEffect.Items.AddRange(new object[] {
+            "Low",
+            "Medium",
+            "High"});
             this.comboWMDEffect.Location = new System.Drawing.Point(250, 520);
             this.comboWMDEffect.Name = "comboWMDEffect";
             this.comboWMDEffect.Size = new System.Drawing.Size(210, 38);
@@ -815,9 +836,23 @@
             this.comboGameLength.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboGameLength.FormattingEnabled = true;
             this.comboGameLength.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboGameLength.Items.AddRange(new object[] {
+            "None",
+            "120 Months",
+            "108 Months",
+            "96 Months",
+            "84 Months",
+            "72 Months",
+            "60 Months",
+            "48 Months",
+            "36 Months",
+            "24 Months",
+            "18 Months",
+            "12 Months",
+            "6 Months"});
             this.comboGameLength.Location = new System.Drawing.Point(250, 700);
             this.comboGameLength.Name = "comboGameLength";
-            this.comboGameLength.Size = new System.Drawing.Size(170, 38);
+            this.comboGameLength.Size = new System.Drawing.Size(210, 38);
             this.comboGameLength.TabIndex = 148;
             // 
             // label19
@@ -843,7 +878,7 @@
             // numericVictoryHexX
             // 
             this.numericVictoryHexX.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericVictoryHexX.Location = new System.Drawing.Point(150, 835);
+            this.numericVictoryHexX.Location = new System.Drawing.Point(170, 834);
             this.numericVictoryHexX.Name = "numericVictoryHexX";
             this.numericVictoryHexX.Size = new System.Drawing.Size(85, 37);
             this.numericVictoryHexX.TabIndex = 151;
@@ -852,7 +887,7 @@
             // numericVictoryHexY
             // 
             this.numericVictoryHexY.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.numericVictoryHexY.Location = new System.Drawing.Point(287, 836);
+            this.numericVictoryHexY.Location = new System.Drawing.Point(307, 835);
             this.numericVictoryHexY.Name = "numericVictoryHexY";
             this.numericVictoryHexY.Size = new System.Drawing.Size(85, 37);
             this.numericVictoryHexY.TabIndex = 152;
@@ -864,6 +899,10 @@
             this.comboApprovalEffect.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboApprovalEffect.FormattingEnabled = true;
             this.comboApprovalEffect.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboApprovalEffect.Items.AddRange(new object[] {
+            "High",
+            "Medium",
+            "Low"});
             this.comboApprovalEffect.Location = new System.Drawing.Point(250, 570);
             this.comboApprovalEffect.Name = "comboApprovalEffect";
             this.comboApprovalEffect.Size = new System.Drawing.Size(210, 38);
@@ -875,6 +914,11 @@
             this.comboMapGui.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboMapGui.FormattingEnabled = true;
             this.comboMapGui.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboMapGui.Items.AddRange(new object[] {
+            "Skin 0 - 1936",
+            "Skin 1 - 1954",
+            "Skin 2 - 2020",
+            "Skin 3 - 1914"});
             this.comboMapGui.Location = new System.Drawing.Point(770, 470);
             this.comboMapGui.Name = "comboMapGui";
             this.comboMapGui.Size = new System.Drawing.Size(212, 38);
@@ -886,9 +930,22 @@
             this.comboVictoryCondition.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.comboVictoryCondition.FormattingEnabled = true;
             this.comboVictoryCondition.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.comboVictoryCondition.Items.AddRange(new object[] {
+            "Complete",
+            "Capital",
+            "Capture",
+            "Unification",
+            "Total Score",
+            "Diplomatic Score",
+            "Economic Score",
+            "Technology Score",
+            "Approval Score",
+            "Military Score",
+            "Sphere",
+            "Victory Points"});
             this.comboVictoryCondition.Location = new System.Drawing.Point(250, 750);
             this.comboVictoryCondition.Name = "comboVictoryCondition";
-            this.comboVictoryCondition.Size = new System.Drawing.Size(170, 38);
+            this.comboVictoryCondition.Size = new System.Drawing.Size(248, 38);
             this.comboVictoryCondition.TabIndex = 155;
             // 
             // checkLimitInScenario
