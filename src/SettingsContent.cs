@@ -52,7 +52,7 @@ namespace SRScenarioCreatorEnhanced
         public bool alliedVictory; // all countries allied is a win 0-1
         public bool restrictTechTrade; // what is this?
         public int? approvalEff; // approval effect, guess 0-4
-        public int? wmdEff; // what is this?
+        public int? wmdEff; // weapon of mass destruction effect 0-2
         public bool debtFree; // no starting debt 0-1
         public bool noLoyPenalty; // no penalty because of low loyalty 0-1
         public bool noSphere; // no sphere of influence 0-1
@@ -86,7 +86,7 @@ namespace SRScenarioCreatorEnhanced
             groupLoyaltyMerge = true;
             groupResearchMerge = true;
             relationsEffect = 2;
-            limitInScenario = 1;
+            limitInScenario = true;
             //mapMusic = ;
             mapGui = 2;
             mapSplash = 57;
