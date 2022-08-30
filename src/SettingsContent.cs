@@ -20,12 +20,12 @@ namespace SRScenarioCreatorEnhanced
         public int? economicDifficulty; // 0 - 4
         public int? resourcesLevel; // 0 - 3 not sure
         public int? initialFunds; // 0 - 3 not sure
-        public int? reserveLimit; // input?
+        public bool reserveLimit; // limits reserves
         public int? aistance; // input? guess 0-5
         public int? startYear; // input?
         public int? techTreeDefault; // what is that?
         public bool noCapitalMove; // fixedCapital 0-1
-        public int? regionEquip; // what is that? guess, by location, probably bool 0-1
+        public bool regionEquip; // what is that? guess, by location, probably bool 0-1
         public bool limitDarEffect; // limit Domestic Approval Rating 0-1
         public bool limitMarEffect; // limit Military Approval Rating 0-1
         public bool wmInvolve; // what is this? 0-1
@@ -34,8 +34,8 @@ namespace SRScenarioCreatorEnhanced
         public bool govChoice; // what is this? 0-1
         public bool groupLoyaltyMerge; // what is this?
         public bool groupResearchMerge; // what is this?
-        public int? relationsEffect; // what is this?
-        public int? limitInScenario; // what is this?
+        public bool relationsEffect; // what is this? guessed bool, but default in w2020 is 2
+        public bool limitInScenario; // limit regions in scenario
         public int? mapMusic; // what is this?
         public int? mapGui; // what is this?
         public int? mapSplash; // what is this?
@@ -46,13 +46,13 @@ namespace SRScenarioCreatorEnhanced
         public int? regionAllies; // what is this?
         public int? regionAxis; // what is this?
         public int? fastFwdDays; // input?
-        public int? sVictoryCond; // input?
+        public int? sVictoryCond; // input? -- victory by capital, complete etc.
         public int? gameLength; // input?
         public bool missileNoLimit; // what is this?
         public bool alliedVictory; // all countries allied is a win 0-1
         public bool restrictTechTrade; // what is this?
         public int? approvalEff; // approval effect, guess 0-4
-        public int? wmdEff; // what is this?
+        public int? wmdEff; // weapon of mass destruction effect 0-2
         public bool debtFree; // no starting debt 0-1
         public bool noLoyPenalty; // no penalty because of low loyalty 0-1
         public bool noSphere; // no sphere of influence 0-1
@@ -76,7 +76,7 @@ namespace SRScenarioCreatorEnhanced
             //startYear = ;
             //techTreeDefault = ;
             noCapitalMove = false;
-            regionEquip = 1;
+            regionEquip = true;
             limitDarEffect = false;
             limitMarEffect = false;
             wmInvolve = true;
@@ -85,8 +85,8 @@ namespace SRScenarioCreatorEnhanced
             govChoice = true;
             groupLoyaltyMerge = true;
             groupResearchMerge = true;
-            relationsEffect = 2;
-            limitInScenario = 1;
+            relationsEffect = true;
+            limitInScenario = true;
             //mapMusic = ;
             mapGui = 2;
             mapSplash = 57;
