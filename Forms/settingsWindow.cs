@@ -48,7 +48,7 @@ namespace SRScenarioCreatorEnhanced.Forms
             Configuration.currentAppScaleFactor = convertTrackValueToScaleFactor(trackScale.Value);
 
             // Activate scale change globally
-            mainWindow.AdjustScaleOfAllWindows();
+            mainWindow.AdjustEditorSizeToScale();
         }
     }
 }

@@ -14,27 +14,6 @@ namespace SRScenarioCreatorEnhanced.UserControls
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
-
-            // Event handling resize
-            mainWindow.ResizeEvent += HandleResizeEvent;
         }
-
-        #region Resizing
-
-        public void HandleResizeEvent(object sender, EventArgs e)
-        {
-            AdjustWindowSizeToScale();
-        }
-
-        private void AdjustWindowSizeToScale()
-        {
-            /*foreach (Control c in Controls)
-            {
-                c.Font = new Font(Configuration.defaultEditorFontFamily,
-                                 c.Font.Size * Configuration.currentAppScale.Width, FontStyle.Bold);
-            }*/
-        }
-
-        #endregion
     }
 }

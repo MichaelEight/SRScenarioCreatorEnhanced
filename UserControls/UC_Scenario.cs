@@ -26,8 +26,6 @@ namespace SRScenarioCreatorEnhanced.UserControls
         // Reference to editorMainWindow ; allows to edit currently active scenario's data
         private readonly editorMainWindow mainWindow;
 
-        private float localWindowScale;
-
         public UC_Scenario(editorMainWindow mainWindow)
         {
             InitializeComponent();
@@ -43,16 +41,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             // Not currently needed, disabled for optimalization
             //forceRemoveForbiddenWordsInAllCombos();
-
-            localWindowScale = 1.0f;
-
-            // Event handling resize
-            mainWindow.ResizeEvent += HandleResizeEvent;
-
-            AdjustWindowSizeToScale();
         }
-
-        
 
         /// <summary>
         /// Tries to remove all forbidden keywords in all scenarioTab comboboxes
@@ -378,8 +367,8 @@ namespace SRScenarioCreatorEnhanced.UserControls
                 // Update last used scenario name
                 mainWindow.currentScenario.lastLoadedScenarioName = comboScenarioName.Text;
 
-                // Reload tab by simulating tabScenarioBtn click
-                mainWindow.tabScenarioBtn_Click(sender, e);
+                // Load data (choices) to components
+                loadDataFromScenarioContent();
             }
         }
         
@@ -613,49 +602,6 @@ namespace SRScenarioCreatorEnhanced.UserControls
                     // Replace it with blank space (remove it)
                     targetCombo.Text = targetCombo.Text.Replace(keyword, "");
                 }
-            }
-        }
-
-        #endregion
-
-        #region Resizing
-
-        public void HandleResizeEvent(object sender, EventArgs e)
-        {
-            AdjustWindowSizeToScale();
-        }
-
-        private void AdjustWindowSizeToScale()
-        {
-            // If size has changed
-            if (localWindowScale != Configuration.currentAppScaleFactor)
-            {
-                // Calculate time from last reload
-                //TimeSpan ts = DateTime.Now - mainWindow.currentScenario.lastRescaled;
-
-                localWindowScale = Configuration.currentAppScaleFactor;
-
-                // Invert previous scale change and apply new ; scale = new * 1/previous
-                float factor = Configuration.currentAppScaleFactor / Configuration.previousAppScaleFactor;
-                SizeF fullScaleFactor = new SizeF(factor, factor);
-
-                // Rescale window
-                Scale(fullScaleFactor);
-
-                // Change font of every element in the window ; keep fontFamily and fontStyle
-                foreach (Control c in Controls)
-                {
-                    c.Font = new Font(c.Font.FontFamily, c.Font.Size * factor, c.Font.Style);
-                }
-
-                //if (ts.TotalMilliseconds >= 1000)
-                //{
-                // Update lastRescaled time
-                //mainWindow.currentScenario.lastRescaled = DateTime.Now;
-
-                // Reload tab -- bugged, loops app
-                //mainWindow.tabScenarioBtn_Click(this, new EventArgs());
-                //}
             }
         }
 

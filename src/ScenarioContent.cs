@@ -69,7 +69,6 @@ namespace SRScenarioCreatorEnhanced
 
         // DEBUG
         public string lastLoadedScenarioName; // Used as anti-loop when trying to reload tab
-        public DateTime lastRescaled; // Anti-loop, allows to rescale with single tab reload
 
         #endregion
 
@@ -84,7 +83,6 @@ namespace SRScenarioCreatorEnhanced
         public ScenarioContent()
         {
             lastLoadedScenarioName = "-";
-            lastRescaled = DateTime.Now;
 
             scenarioName = "";
             cacheName = scenarioName;

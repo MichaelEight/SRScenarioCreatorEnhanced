@@ -32,28 +32,53 @@ namespace SRScenarioCreatorEnhanced
 
         // Use for editing scale of main window and UCs
         public float currentEditorScale;
-        public event EventHandler ResizeEvent;
 
         public ScenarioContent currentScenario;
         public SettingsContent currentSettings;
 
-        //private UC_Scenario currentUCScenario;
+        private UC_Scenario currentUCScenario;
+        private UC_Settings currentUCSettings;
+        private UC_Theaters currentUCTheaters;
+        private UC_Regions currentUCRegions;
+        private UC_Resources currentUCResources;
+        private UC_WM currentUCWM;
+        private UC_Orbat currentUCOrbat;
 
         public editorMainWindow()
         {
             InitializeComponent();
 
+            // Create new instance of UC Data Holders
             currentScenario = new ScenarioContent();
             currentSettings = new SettingsContent();
 
-            // Load Scenario tab
-            UC_Scenario uc = new UC_Scenario(this);
-            addUserControl(uc);
+            // Create new instances of UCs
+            currentUCScenario = new UC_Scenario(this);
+            currentUCSettings = new UC_Settings(this);
+            currentUCTheaters = new UC_Theaters(this);
+            currentUCRegions = new UC_Regions(this);
+            currentUCResources = new UC_Resources(this);
+            currentUCWM = new UC_WM(this);
+            currentUCOrbat = new UC_Orbat(this);
 
+            // Load UCs to mainUCPanel
+            mainUCPanel.Controls.Add(currentUCScenario);
+            mainUCPanel.Controls.Add(currentUCSettings);
+            mainUCPanel.Controls.Add(currentUCTheaters);
+            mainUCPanel.Controls.Add(currentUCRegions);
+            mainUCPanel.Controls.Add(currentUCResources);
+            mainUCPanel.Controls.Add(currentUCWM);
+            mainUCPanel.Controls.Add(currentUCOrbat);
+
+            // Load Scenario tab
+            addUserControl(currentUCScenario);
+
+            // Save original size
             currentEditorScale = Configuration.currentAppScaleFactor;
         }   
 
         #region generalWindowControls
+
         // Make window movable by grabbing toolbar
         private void toolbarPanel_MouseDown(object sender, MouseEventArgs e)
         {
@@ -88,10 +113,18 @@ namespace SRScenarioCreatorEnhanced
         private void addUserControl(UserControl userControl)
         {
             userControl.Dock = DockStyle.Fill;
-            mainUCPanel.Controls.Clear();
-            mainUCPanel.Controls.Add(userControl);
+            
+            foreach(Control c in mainUCPanel.Controls)
+            {
+                if (c is UserControl)
+                    c.Visible = true;
+                else
+                    c.Visible = false;
+            }
+
             userControl.BringToFront();
         }
+        
         #endregion
 
         #region toolbarButtons
@@ -129,66 +162,29 @@ namespace SRScenarioCreatorEnhanced
         #endregion
 
         #region tabsButtons
+
         // Tab buttons click event
+
         // tabScenario is public, so export button can work
-        public void tabScenarioBtn_Click(object sender, EventArgs e)
-        {
-            UC_Scenario uc = new UC_Scenario(this);
-            addUserControl(uc);
-        }
+        public void tabScenarioBtn_Click(object sender, EventArgs e) => addUserControl(currentUCScenario);
 
-        private void tabSettingsBtn_Click(object sender, EventArgs e)
-        {
-            UC_Settings uc = new UC_Settings(this);
-            addUserControl(uc);
-        }
+        private void tabSettingsBtn_Click(object sender, EventArgs e) => addUserControl(currentUCSettings);
 
-        private void tabTheatersBtn_Click(object sender, EventArgs e)
-        {
-            UC_Theaters uc = new UC_Theaters(this);
-            addUserControl(uc);
-        }
+        private void tabTheatersBtn_Click(object sender, EventArgs e) => addUserControl(currentUCTheaters);
 
-        private void tabRegionsBtn_Click(object sender, EventArgs e)
-        {
-            UC_Regions uc = new UC_Regions(this);
-            addUserControl(uc);
-        }
+        private void tabRegionsBtn_Click(object sender, EventArgs e) => addUserControl(currentUCRegions);
 
-        private void tabResourcesBtn_Click(object sender, EventArgs e)
-        {
-            UC_Resources uc = new UC_Resources(this);
-            addUserControl(uc);
-        }
+        private void tabResourcesBtn_Click(object sender, EventArgs e) => addUserControl(currentUCResources);
 
-        private void tabWMBtn_Click(object sender, EventArgs e)
-        {
-            UC_WM uc = new UC_WM(this);
-            addUserControl(uc);
-        }
+        private void tabWMBtn_Click(object sender, EventArgs e) => addUserControl(currentUCWM);
 
-        private void tabOrbatBtn_Click(object sender, EventArgs e)
-        {
-            UC_Orbat uc = new UC_Orbat(this);
-            addUserControl(uc);
-        }
+        private void tabOrbatBtn_Click(object sender, EventArgs e) => addUserControl(currentUCOrbat);
+
         #endregion
 
         #region Resize
 
-        public void AdjustScaleOfAllWindows()
-        {
-            if (ResizeEvent != null)
-            {
-                ResizeEvent(this, null);
-            }
-
-            AdjustWindowSizeToScale();
-
-
-        }
-
-        private void AdjustWindowSizeToScale()
+        public void AdjustEditorSizeToScale()
         {
             // If size has changed
             if(currentEditorScale != Configuration.currentAppScaleFactor)
@@ -203,27 +199,29 @@ namespace SRScenarioCreatorEnhanced
                 // Rescale window
                 Scale(fullScaleFactor);
 
-                // Change font of every element in the window ; keep fontFamily and fontStyle
-                foreach (Control c in toolbarPanel.Controls)
-                {
-                    c.Font = new Font(c.Font.FontFamily, c.Font.Size * factor, c.Font.Style);
-                }
+                // Change font scale of main window elements
+                changeFontOfComponentsInContainer(toolbarPanel, factor);
+                changeFontOfComponentsInContainer(tabsPanel, factor);
 
-                foreach (Control c in tabsPanel.Controls)
-                {
-                    c.Font = new Font(c.Font.FontFamily, c.Font.Size * factor, c.Font.Style);
-                }
+                // Change font scale of tabs content
+                changeFontOfComponentsInContainer(currentUCScenario, factor);
+                changeFontOfComponentsInContainer(currentUCSettings, factor);
+                changeFontOfComponentsInContainer(currentUCTheaters, factor);
+                changeFontOfComponentsInContainer(currentUCRegions, factor);
+                changeFontOfComponentsInContainer(currentUCResources, factor);
+                changeFontOfComponentsInContainer(currentUCWM, factor);
+                changeFontOfComponentsInContainer(currentUCOrbat, factor);
             }
+        }
+
+        private void changeFontOfComponentsInContainer(Control component, float factor)
+        {
+            // Change font of every element in the window
+            // Keep fontFamily and fontStyle
+            foreach (Control c in component.Controls)
+                c.Font = new Font(c.Font.FontFamily, c.Font.Size * factor, c.Font.Style);
         }
 
         #endregion
     }
 }
-
-
-// u know, just make a slider, don't try to do it that way, if you're gonna edit that anyway
-// make previous scale factor. if curect != global.current, set 1/previous and then *global.current
-// slider with btn maybe? saves prev and curr
-
-
-// move resize functions from each UC to main window by holding constant reference (save in class-wide var)
