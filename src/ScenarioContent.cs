@@ -365,7 +365,11 @@ namespace SRScenarioCreatorEnhanced
                     {
                         /// EXAMPLE LINE
                         /// difficulty:     2, 2, 2
-
+                        
+                        // Split by ':'
+                        // Remove spaces
+                        // Figure out how to extract value from csv parts (comma separated values)
+                        // Also how to detect null
                     }
                 }
             }
@@ -415,6 +419,8 @@ namespace SRScenarioCreatorEnhanced
                 case "INI":
                 case "csv":
                     break;
+
+                
 
                 default:
                     {
