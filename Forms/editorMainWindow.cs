@@ -33,6 +33,7 @@ namespace SRScenarioCreatorEnhanced
         //private Size oldSize;
         public bool resized = false;
         public event EventHandler ResizeEvent;
+        private Size originalWindowSize;
 
         public ScenarioContent currentScenario;
         public SettingsContent currentSettings;
@@ -48,12 +49,8 @@ namespace SRScenarioCreatorEnhanced
             UC_Scenario uc = new UC_Scenario(this);
             addUserControl(uc);
 
-            // Apply scaling to window
-            //Scale(new SizeF(Configuration.currentAppScale, Configuration.currentAppScale));
-
-            //oldSize = base.Size;
-
-            //Resize();
+            // Scalling window
+            originalWindowSize = Size;
         }   
 
         #region generalWindowControls
@@ -184,23 +181,35 @@ namespace SRScenarioCreatorEnhanced
                 ResizeEvent(this, null);
             }
 
-            SizeF sf;
-            if (!resized)
-                sf = new SizeF(Configuration.currentAppScale, Configuration.currentAppScale);
-            else
-                sf = new SizeF(1 / Configuration.currentAppScale, 1 / Configuration.currentAppScale);
+            // Determine size change
+            if (!resized) // Resize with given factor
+                Configuration.currentAppScale = new SizeF(Configuration.currentAppScaleFactor, Configuration.currentAppScaleFactor);
+            else // Inverse resize to go back to original size
+                Configuration.currentAppScale = new SizeF(1 / Configuration.currentAppScaleFactor, 1 / Configuration.currentAppScaleFactor);
 
-            Scale(sf);
+            Scale(Configuration.currentAppScale);
+
+            // Change font of every element in the window
 
             foreach (Control c in toolbarPanel.Controls)
             {
-                c.Font = new Font(Configuration.defaultEditorFontFamily, c.Font.Size * sf.Width, FontStyle.Bold);
+                c.Font = new Font(Configuration.defaultEditorFontFamily, c.Font.Size * Configuration.currentAppScale.Width, FontStyle.Bold);
             }
 
             foreach (Control c in tabsPanel.Controls)
             {
-                c.Font = new Font(Configuration.defaultEditorFontFamily, c.Font.Size * sf.Width, FontStyle.Bold);
+                c.Font = new Font(Configuration.defaultEditorFontFamily, c.Font.Size * Configuration.currentAppScale.Width, FontStyle.Bold);
             }
+
+            if(originalWindowSize.Width != Size.Width && originalWindowSize.Height != Size.Height)
+            {
+                Configuration.editorWasResized = true;
+            }
+            else
+            {
+                Configuration.editorWasResized = false;
+            }
+
 
             resized = !resized;
         }
@@ -208,3 +217,8 @@ namespace SRScenarioCreatorEnhanced
         #endregion
     }
 }
+
+
+// u know, just make a slider, don't try to do it that way, if you're gonna edit that anyway
+// make previous scale factor. if curect != global.current, set 1/previous and then *global.current
+// slider with btn maybe? saves prev and curr

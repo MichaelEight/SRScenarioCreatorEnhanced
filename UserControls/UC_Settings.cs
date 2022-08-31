@@ -28,15 +28,10 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void AdjustWindowSizeToScale()
         {
-            SizeF sf;
-            if (!mainWindow.resized)
-                sf = new SizeF(Configuration.currentAppScale, Configuration.currentAppScale);
-            else
-                sf = new SizeF(1 / Configuration.currentAppScale, 1 / Configuration.currentAppScale);
-
             foreach (Control c in Controls)
             {
-                c.Font = new Font(Configuration.defaultEditorFontFamily, c.Font.Size * sf.Width, FontStyle.Bold);
+                c.Font = new Font(Configuration.defaultEditorFontFamily,
+                                 c.Font.Size * Configuration.currentAppScale.Width, FontStyle.Bold);
             }
         }
 

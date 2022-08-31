@@ -25,6 +25,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
     {
         // Reference to editorMainWindow ; allows to edit currently active scenario's data
         private readonly editorMainWindow mainWindow;
+
         public UC_Scenario(editorMainWindow mainWindow)
         {
             InitializeComponent();
@@ -43,6 +44,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             // Event handling resize
             mainWindow.ResizeEvent += HandleResizeEvent;
+
+            if (Configuration.editorWasResized)
+                AdjustWindowSizeToScale();
         }
 
         
@@ -616,22 +620,24 @@ namespace SRScenarioCreatorEnhanced.UserControls
         public void HandleResizeEvent(object sender, EventArgs e)
         {
             AdjustWindowSizeToScale();
+            Configuration.editorWasResized = !Configuration.editorWasResized;
         }
 
         private void AdjustWindowSizeToScale()
         {
-            SizeF sf;
-            if (!mainWindow.resized)
-                sf = new SizeF(Configuration.currentAppScale, Configuration.currentAppScale);
-            else
-                sf = new SizeF(1 / Configuration.currentAppScale, 1 / Configuration.currentAppScale);
-
             foreach (Control c in Controls)
             {
-                c.Font = new Font(Configuration.defaultEditorFontFamily, c.Font.Size * sf.Width, FontStyle.Bold);
+                c.Font = new Font(Configuration.defaultEditorFontFamily,
+                                 c.Font.Size * Configuration.currentAppScale.Width, FontStyle.Bold);
             }
         }
 
         #endregion
     }
 }
+
+
+/*
+Potential solution -- put into globals var with original size
+hard-coded or update it only if .editorwasresized = false
+*/
