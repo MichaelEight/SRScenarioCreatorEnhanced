@@ -11,7 +11,8 @@ namespace SRScenarioCreatorEnhanced.Forms
             mainWindow = emw;
 
             // Set current scale value to trackScale
-            trackScale.Value = convertScaleFactorToTrackValue(Configuration.currentAppScaleFactor);
+            trackWindowScale.Value = convertScaleFactorToTrackValue(Configuration.currentAppScaleFactor);
+            trackFontScale.Value = convertScaleFactorToTrackValue(Configuration.currentFontScaleFactor);
         }
 
         #region Converters
@@ -43,9 +44,18 @@ namespace SRScenarioCreatorEnhanced.Forms
 
         private void applyScaleButton_Click(object sender, System.EventArgs e)
         {
-            // Update data on scale in Configuration
-            Configuration.previousAppScaleFactor = Configuration.currentAppScaleFactor;
-            Configuration.currentAppScaleFactor = convertTrackValueToScaleFactor(trackScale.Value);
+            // Update data on app scale in Configuration, if different
+            if (Configuration.currentAppScaleFactor != convertTrackValueToScaleFactor(trackWindowScale.Value))
+            {
+                Configuration.previousAppScaleFactor = Configuration.currentAppScaleFactor;
+                Configuration.currentAppScaleFactor = convertTrackValueToScaleFactor(trackWindowScale.Value);
+            }
+            // Update data on font scale in Configuration, if different
+            if (Configuration.currentFontScaleFactor != convertTrackValueToScaleFactor(trackFontScale.Value))
+            {
+                Configuration.previousFontScaleFactor = Configuration.currentFontScaleFactor;
+                Configuration.currentFontScaleFactor = convertTrackValueToScaleFactor(trackFontScale.Value);
+            }
 
             // Activate scale change globally
             mainWindow.AdjustEditorSizeToScale();
