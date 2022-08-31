@@ -4,7 +4,6 @@
 using SRScenarioCreatorEnhanced.Forms;
 using SRScenarioCreatorEnhanced.UserControls;
 using System;
-using System.Collections.Generic;
 using System.Deployment.Application;
 using System.Drawing;
 using System.Reflection;
