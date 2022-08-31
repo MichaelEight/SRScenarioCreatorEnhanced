@@ -32,10 +32,14 @@ namespace SRScenarioCreatorEnhanced
 
         // Use for editing scale of main window and UCs
         public float currentEditorScale;
+        public float currentFontScale;
 
+        // Data holders for UC Tabs
         public ScenarioContent currentScenario;
         public SettingsContent currentSettings;
+        // ...
 
+        // UC Tabs
         private UC_Scenario currentUCScenario;
         private UC_Settings currentUCSettings;
         private UC_Theaters currentUCTheaters;
@@ -47,6 +51,8 @@ namespace SRScenarioCreatorEnhanced
         public editorMainWindow()
         {
             InitializeComponent();
+
+            #region tabsAndTheirData
 
             // Create new instance of UC Data Holders
             currentScenario = new ScenarioContent();
@@ -69,6 +75,8 @@ namespace SRScenarioCreatorEnhanced
             mainUCPanel.Controls.Add(currentUCResources);
             mainUCPanel.Controls.Add(currentUCWM);
             mainUCPanel.Controls.Add(currentUCOrbat);
+
+            #endregion
 
             // Load Scenario tab
             addUserControl(currentUCScenario);
@@ -186,7 +194,7 @@ namespace SRScenarioCreatorEnhanced
 
         public void AdjustEditorSizeToScale()
         {
-            // If size has changed
+            // If window size has changed
             if(currentEditorScale != Configuration.currentAppScaleFactor)
             {
                 // Update saved current editor scale
@@ -198,6 +206,16 @@ namespace SRScenarioCreatorEnhanced
 
                 // Rescale window
                 Scale(fullScaleFactor);
+            }
+
+            // If font size has changed
+            if(currentFontScale != Configuration.currentFontScaleFactor)
+            {
+                // Update saved current editor scale
+                currentFontScale = Configuration.currentFontScaleFactor;
+
+                // Invert previous scale change and apply new ; scale = new * 1/previous
+                float factor = Configuration.currentFontScaleFactor / Configuration.previousFontScaleFactor;
 
                 // Change font scale of main window elements
                 changeFontOfComponentsInContainer(toolbarPanel, factor);
