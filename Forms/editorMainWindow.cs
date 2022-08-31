@@ -4,6 +4,7 @@
 using SRScenarioCreatorEnhanced.UserControls;
 using System;
 using System.Deployment.Application;
+using System.Drawing;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -29,7 +30,9 @@ namespace SRScenarioCreatorEnhanced
         #endregion
 
         // Use for editing scale of main window and UCs
-        float currentAppScale = 1.0f;
+        //private Size oldSize;
+        public bool resized = false;
+        public event EventHandler ResizeEvent;
 
         public ScenarioContent currentScenario;
         public SettingsContent currentSettings;
@@ -44,7 +47,14 @@ namespace SRScenarioCreatorEnhanced
             // Load Scenario tab
             UC_Scenario uc = new UC_Scenario(this);
             addUserControl(uc);
-        }
+
+            // Apply scaling to window
+            //Scale(new SizeF(Configuration.currentAppScale, Configuration.currentAppScale));
+
+            //oldSize = base.Size;
+
+            //Resize();
+        }   
 
         #region generalWindowControls
         // Make window movable by grabbing toolbar
@@ -158,6 +168,43 @@ namespace SRScenarioCreatorEnhanced
             UC_Orbat uc = new UC_Orbat(this);
             addUserControl(uc);
         }
+        #endregion
+
+        #region Resize
+        // LOGOEIGHT IS JUST A PLACEHOLDER FUNCTION FOR A SLIDER
+        private void logoEight_Click(object sender, EventArgs e)
+        {
+            AdjustWindowSizeToScale();
+        }
+
+        private void AdjustWindowSizeToScale()
+        {
+            if (ResizeEvent != null)
+            {
+                ResizeEvent(this, null);
+            }
+
+            SizeF sf;
+            if (!resized)
+                sf = new SizeF(Configuration.currentAppScale, Configuration.currentAppScale);
+            else
+                sf = new SizeF(1 / Configuration.currentAppScale, 1 / Configuration.currentAppScale);
+
+            Scale(sf);
+
+            foreach (Control c in toolbarPanel.Controls)
+            {
+                c.Font = new Font(Configuration.defaultEditorFontFamily, c.Font.Size * sf.Width, FontStyle.Bold);
+            }
+
+            foreach (Control c in tabsPanel.Controls)
+            {
+                c.Font = new Font(Configuration.defaultEditorFontFamily, c.Font.Size * sf.Width, FontStyle.Bold);
+            }
+
+            resized = !resized;
+        }
+
         #endregion
     }
 }
