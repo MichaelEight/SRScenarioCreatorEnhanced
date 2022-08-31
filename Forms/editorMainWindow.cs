@@ -1,8 +1,10 @@
 ﻿/// editorMainWindow.cs file released under GNU GPL v3 licence.
 /// Originally used in the SRScenarioCreatorEnhanced project: https://github.com/r20de20/SRScenarioCreatorEnhanced
 
+using SRScenarioCreatorEnhanced.Forms;
 using SRScenarioCreatorEnhanced.UserControls;
 using System;
+using System.Collections.Generic;
 using System.Deployment.Application;
 using System.Drawing;
 using System.Reflection;
@@ -30,33 +32,54 @@ namespace SRScenarioCreatorEnhanced
         #endregion
 
         // Use for editing scale of main window and UCs
-        //private Size oldSize;
-        public bool resized = false;
-        public event EventHandler ResizeEvent;
+        public float currentEditorScale;
 
         public ScenarioContent currentScenario;
         public SettingsContent currentSettings;
+
+        private UC_Scenario currentUCScenario;
+        private UC_Settings currentUCSettings;
+        private UC_Theaters currentUCTheaters;
+        private UC_Regions currentUCRegions;
+        private UC_Resources currentUCResources;
+        private UC_WM currentUCWM;
+        private UC_Orbat currentUCOrbat;
 
         public editorMainWindow()
         {
             InitializeComponent();
 
+            // Create new instance of UC Data Holders
             currentScenario = new ScenarioContent();
             currentSettings = new SettingsContent();
 
+            // Create new instances of UCs
+            currentUCScenario = new UC_Scenario(this);
+            currentUCSettings = new UC_Settings(this);
+            currentUCTheaters = new UC_Theaters(this);
+            currentUCRegions = new UC_Regions(this);
+            currentUCResources = new UC_Resources(this);
+            currentUCWM = new UC_WM(this);
+            currentUCOrbat = new UC_Orbat(this);
+
+            // Load UCs to mainUCPanel
+            mainUCPanel.Controls.Add(currentUCScenario);
+            mainUCPanel.Controls.Add(currentUCSettings);
+            mainUCPanel.Controls.Add(currentUCTheaters);
+            mainUCPanel.Controls.Add(currentUCRegions);
+            mainUCPanel.Controls.Add(currentUCResources);
+            mainUCPanel.Controls.Add(currentUCWM);
+            mainUCPanel.Controls.Add(currentUCOrbat);
+
             // Load Scenario tab
-            UC_Scenario uc = new UC_Scenario(this);
-            addUserControl(uc);
+            addUserControl(currentUCScenario);
 
-            // Apply scaling to window
-            //Scale(new SizeF(Configuration.currentAppScale, Configuration.currentAppScale));
-
-            //oldSize = base.Size;
-
-            //Resize();
+            // Save original size
+            currentEditorScale = Configuration.currentAppScaleFactor;
         }   
 
         #region generalWindowControls
+
         // Make window movable by grabbing toolbar
         private void toolbarPanel_MouseDown(object sender, MouseEventArgs e)
         {
@@ -91,13 +114,22 @@ namespace SRScenarioCreatorEnhanced
         private void addUserControl(UserControl userControl)
         {
             userControl.Dock = DockStyle.Fill;
-            mainUCPanel.Controls.Clear();
-            mainUCPanel.Controls.Add(userControl);
+            
+            foreach(Control c in mainUCPanel.Controls)
+            {
+                if (c is UserControl)
+                    c.Visible = true;
+                else
+                    c.Visible = false;
+            }
+
             userControl.BringToFront();
         }
+        
         #endregion
 
         #region toolbarButtons
+
         // Exit button clicked
         private void exitButton_Click(object sender, EventArgs e)
         {
@@ -122,87 +154,73 @@ namespace SRScenarioCreatorEnhanced
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
         }
 
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            settingsWindow sw = new settingsWindow(this);
+            sw.ShowDialog();
+        }
+
         #endregion
 
         #region tabsButtons
+
         // Tab buttons click event
+
         // tabScenario is public, so export button can work
-        public void tabScenarioBtn_Click(object sender, EventArgs e)
-        {
-            UC_Scenario uc = new UC_Scenario(this);
-            addUserControl(uc);
-        }
+        public void tabScenarioBtn_Click(object sender, EventArgs e) => addUserControl(currentUCScenario);
 
-        private void tabSettingsBtn_Click(object sender, EventArgs e)
-        {
-            UC_Settings uc = new UC_Settings(this);
-            addUserControl(uc);
-        }
+        private void tabSettingsBtn_Click(object sender, EventArgs e) => addUserControl(currentUCSettings);
 
-        private void tabTheatersBtn_Click(object sender, EventArgs e)
-        {
-            UC_Theaters uc = new UC_Theaters(this);
-            addUserControl(uc);
-        }
+        private void tabTheatersBtn_Click(object sender, EventArgs e) => addUserControl(currentUCTheaters);
 
-        private void tabRegionsBtn_Click(object sender, EventArgs e)
-        {
-            UC_Regions uc = new UC_Regions(this);
-            addUserControl(uc);
-        }
+        private void tabRegionsBtn_Click(object sender, EventArgs e) => addUserControl(currentUCRegions);
 
-        private void tabResourcesBtn_Click(object sender, EventArgs e)
-        {
-            UC_Resources uc = new UC_Resources(this);
-            addUserControl(uc);
-        }
+        private void tabResourcesBtn_Click(object sender, EventArgs e) => addUserControl(currentUCResources);
 
-        private void tabWMBtn_Click(object sender, EventArgs e)
-        {
-            UC_WM uc = new UC_WM(this);
-            addUserControl(uc);
-        }
+        private void tabWMBtn_Click(object sender, EventArgs e) => addUserControl(currentUCWM);
 
-        private void tabOrbatBtn_Click(object sender, EventArgs e)
-        {
-            UC_Orbat uc = new UC_Orbat(this);
-            addUserControl(uc);
-        }
+        private void tabOrbatBtn_Click(object sender, EventArgs e) => addUserControl(currentUCOrbat);
+
         #endregion
 
         #region Resize
-        // LOGOEIGHT IS JUST A PLACEHOLDER FUNCTION FOR A SLIDER
-        private void logoEight_Click(object sender, EventArgs e)
+
+        public void AdjustEditorSizeToScale()
         {
-            AdjustWindowSizeToScale();
+            // If size has changed
+            if(currentEditorScale != Configuration.currentAppScaleFactor)
+            {
+                // Update saved current editor scale
+                currentEditorScale = Configuration.currentAppScaleFactor;
+
+                // Invert previous scale change and apply new ; scale = new * 1/previous
+                float factor = Configuration.currentAppScaleFactor / Configuration.previousAppScaleFactor;
+                SizeF fullScaleFactor = new SizeF(factor, factor);
+
+                // Rescale window
+                Scale(fullScaleFactor);
+
+                // Change font scale of main window elements
+                changeFontOfComponentsInContainer(toolbarPanel, factor);
+                changeFontOfComponentsInContainer(tabsPanel, factor);
+
+                // Change font scale of tabs content
+                changeFontOfComponentsInContainer(currentUCScenario, factor);
+                changeFontOfComponentsInContainer(currentUCSettings, factor);
+                changeFontOfComponentsInContainer(currentUCTheaters, factor);
+                changeFontOfComponentsInContainer(currentUCRegions, factor);
+                changeFontOfComponentsInContainer(currentUCResources, factor);
+                changeFontOfComponentsInContainer(currentUCWM, factor);
+                changeFontOfComponentsInContainer(currentUCOrbat, factor);
+            }
         }
 
-        private void AdjustWindowSizeToScale()
+        private void changeFontOfComponentsInContainer(Control component, float factor)
         {
-            if (ResizeEvent != null)
-            {
-                ResizeEvent(this, null);
-            }
-
-            SizeF sf;
-            if (!resized)
-                sf = new SizeF(Configuration.currentAppScale, Configuration.currentAppScale);
-            else
-                sf = new SizeF(1 / Configuration.currentAppScale, 1 / Configuration.currentAppScale);
-
-            Scale(sf);
-
-            foreach (Control c in toolbarPanel.Controls)
-            {
-                c.Font = new Font(Configuration.defaultEditorFontFamily, c.Font.Size * sf.Width, FontStyle.Bold);
-            }
-
-            foreach (Control c in tabsPanel.Controls)
-            {
-                c.Font = new Font(Configuration.defaultEditorFontFamily, c.Font.Size * sf.Width, FontStyle.Bold);
-            }
-
-            resized = !resized;
+            // Change font of every element in the window
+            // Keep fontFamily and fontStyle
+            foreach (Control c in component.Controls)
+                c.Font = new Font(c.Font.FontFamily, c.Font.Size * factor, c.Font.Style);
         }
 
         #endregion

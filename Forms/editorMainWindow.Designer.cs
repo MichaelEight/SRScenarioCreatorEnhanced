@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(editorMainWindow));
             this.toolbarPanel = new System.Windows.Forms.Panel();
+            this.settingsButton = new System.Windows.Forms.Button();
             this.logoApp = new System.Windows.Forms.PictureBox();
             this.logoEight = new System.Windows.Forms.PictureBox();
             this.exitButton = new System.Windows.Forms.Button();
@@ -53,6 +54,7 @@
             // toolbarPanel
             // 
             this.toolbarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
+            this.toolbarPanel.Controls.Add(this.settingsButton);
             this.toolbarPanel.Controls.Add(this.logoApp);
             this.toolbarPanel.Controls.Add(this.logoEight);
             this.toolbarPanel.Controls.Add(this.exitButton);
@@ -65,6 +67,18 @@
             this.toolbarPanel.Size = new System.Drawing.Size(1794, 100);
             this.toolbarPanel.TabIndex = 2;
             this.toolbarPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.toolbarPanel_MouseDown);
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.settingsButton.BackgroundImage = global::SRScenarioCreatorEnhanced.Properties.Resources.gearIcon;
+            this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.settingsButton.Location = new System.Drawing.Point(1489, 12);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(70, 70);
+            this.settingsButton.TabIndex = 5;
+            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // logoApp
             // 
@@ -85,7 +99,6 @@
             this.logoEight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoEight.TabIndex = 4;
             this.logoEight.TabStop = false;
-            this.logoEight.Click += new System.EventHandler(this.logoEight_Click);
             // 
             // exitButton
             // 
@@ -104,7 +117,7 @@
             this.infoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.infoButton.BackgroundImage = global::SRScenarioCreatorEnhanced.Properties.Resources.appInfoIcon2smaller;
             this.infoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.infoButton.Location = new System.Drawing.Point(1565, 12);
+            this.infoButton.Location = new System.Drawing.Point(1594, 12);
             this.infoButton.Name = "infoButton";
             this.infoButton.Size = new System.Drawing.Size(70, 70);
             this.infoButton.TabIndex = 1;
@@ -116,7 +129,7 @@
             this.titleLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.titleLabel.AutoSize = true;
             this.titleLabel.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.titleLabel.Location = new System.Drawing.Point(370, 21);
+            this.titleLabel.Location = new System.Drawing.Point(329, 21);
             this.titleLabel.Name = "titleLabel";
             this.titleLabel.Size = new System.Drawing.Size(1082, 51);
             this.titleLabel.TabIndex = 2;
@@ -336,6 +349,7 @@
         private Guna.UI2.WinForms.Guna2Button tabRegionsBtn;
         private System.Windows.Forms.PictureBox logoApp;
         private System.Windows.Forms.PictureBox logoEight;
+        private System.Windows.Forms.Button settingsButton;
     }
 }
 

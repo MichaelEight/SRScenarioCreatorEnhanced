@@ -4,7 +4,6 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
-using System.Drawing;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -14,7 +13,7 @@ using System.Windows.Forms;
 
 /// ***File controlling behaviour of 'Scenario' Tab***
 /// This tab provides info about file used in a specific scenario - names and what files will be edited
-/// Tab content is reseted on tab switch, so all data MUST be saved in a separate class
+/// (point fixed, data doesn't need to be saved in a separate class anymore)
 /// ON LOAD tab loads data from that class and fills modified components
 /// BASIC REQUIREMENTS are needed to safely unlock other tabs without files errors
 /// - e.g. if no file is selected and user tries to modify it
@@ -25,6 +24,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
     {
         // Reference to editorMainWindow ; allows to edit currently active scenario's data
         private readonly editorMainWindow mainWindow;
+
         public UC_Scenario(editorMainWindow mainWindow)
         {
             InitializeComponent();
@@ -37,15 +37,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
             loadDataFromScenarioContent();
 
             activateOtherTabsIfPossible();
-
-            // Not currently needed, disabled for optimalization
-            //forceRemoveForbiddenWordsInAllCombos();
-
-            // Event handling resize
-            mainWindow.ResizeEvent += HandleResizeEvent;
         }
-
-        
 
         /// <summary>
         /// Tries to remove all forbidden keywords in all scenarioTab comboboxes
@@ -371,8 +363,8 @@ namespace SRScenarioCreatorEnhanced.UserControls
                 // Update last used scenario name
                 mainWindow.currentScenario.lastLoadedScenarioName = comboScenarioName.Text;
 
-                // Reload tab by simulating tabScenarioBtn click
-                mainWindow.tabScenarioBtn_Click(sender, e);
+                // Load data (choices) to components
+                loadDataFromScenarioContent();
             }
         }
         
@@ -606,29 +598,6 @@ namespace SRScenarioCreatorEnhanced.UserControls
                     // Replace it with blank space (remove it)
                     targetCombo.Text = targetCombo.Text.Replace(keyword, "");
                 }
-            }
-        }
-
-        #endregion
-
-        #region Resizing
-
-        public void HandleResizeEvent(object sender, EventArgs e)
-        {
-            AdjustWindowSizeToScale();
-        }
-
-        private void AdjustWindowSizeToScale()
-        {
-            SizeF sf;
-            if (!mainWindow.resized)
-                sf = new SizeF(Configuration.currentAppScale, Configuration.currentAppScale);
-            else
-                sf = new SizeF(1 / Configuration.currentAppScale, 1 / Configuration.currentAppScale);
-
-            foreach (Control c in Controls)
-            {
-                c.Font = new Font(Configuration.defaultEditorFontFamily, c.Font.Size * sf.Width, FontStyle.Bold);
             }
         }
 

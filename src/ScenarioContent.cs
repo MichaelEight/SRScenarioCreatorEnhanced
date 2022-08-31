@@ -68,7 +68,7 @@ namespace SRScenarioCreatorEnhanced
         public SettingsContent settings;
 
         // DEBUG
-        public string lastLoadedScenarioName; // Used as anti-loop when trying to reload tab
+        public string lastLoadedScenarioName; // Used as anti-loop when trying to reload data in tab
 
         #endregion
 
