@@ -1,17 +1,19 @@
 ﻿/// UC_Settings.cs file released under GNU GPL v3 licence.
 /// Originally used in the SRScenarioCreatorEnhanced project: https://github.com/r20de20/SRScenarioCreatorEnhanced
 
+using System;
+using System.Drawing;
 using System.Windows.Forms;
 
 namespace SRScenarioCreatorEnhanced.UserControls
 {
     public partial class UC_Settings : UserControl
     {
-        private readonly editorMainWindow mainForm;
-        public UC_Settings(editorMainWindow mainForm)
+        private readonly editorMainWindow mainWindow;
+        public UC_Settings(editorMainWindow mainWindow)
         {
             InitializeComponent();
-            this.mainForm = mainForm;
+            this.mainWindow = mainWindow;
         }
     }
 }

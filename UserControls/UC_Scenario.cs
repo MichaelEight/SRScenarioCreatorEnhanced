@@ -13,7 +13,7 @@ using System.Windows.Forms;
 
 /// ***File controlling behaviour of 'Scenario' Tab***
 /// This tab provides info about file used in a specific scenario - names and what files will be edited
-/// Tab content is reseted on tab switch, so all data MUST be saved in a separate class
+/// (point fixed, data doesn't need to be saved in a separate class anymore)
 /// ON LOAD tab loads data from that class and fills modified components
 /// BASIC REQUIREMENTS are needed to safely unlock other tabs without files errors
 /// - e.g. if no file is selected and user tries to modify it
@@ -24,6 +24,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
     {
         // Reference to editorMainWindow ; allows to edit currently active scenario's data
         private readonly editorMainWindow mainWindow;
+
         public UC_Scenario(editorMainWindow mainWindow)
         {
             InitializeComponent();
@@ -36,9 +37,6 @@ namespace SRScenarioCreatorEnhanced.UserControls
             loadDataFromScenarioContent();
 
             activateOtherTabsIfPossible();
-
-            // Not currently needed, disabled for optimalization
-            //forceRemoveForbiddenWordsInAllCombos();
         }
 
         /// <summary>
@@ -326,7 +324,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         #endregion
 
-        #region ComboBoxesTextUpdateSecion
+        #region ComboBoxesTextOrIndexUpdateSecion
 
         #region generalInfo
         private void comboScenarioName_TextUpdate(object sender, EventArgs e)
@@ -347,6 +345,29 @@ namespace SRScenarioCreatorEnhanced.UserControls
             activateOtherTabsIfPossible();
         }
 
+        // Changed comboScenarioName index selection must be separate, to load data into other comboboxes correctly
+        private void comboScenarioName_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            // Remove forbidden keywords
+            removeForbiddenKeywordsFromText(ref comboScenarioName);
+
+            // Execute standard commands
+            comboScenarioName_TextUpdate(sender, e);
+
+            // Load content from selected .scenario file
+            mainWindow.currentScenario.loadDataFromScenarioFileToActiveScenario(comboScenarioName.Text);
+
+            // Prevent from looping, update only on actual change of scenario
+            if (mainWindow.currentScenario.lastLoadedScenarioName != comboScenarioName.Text)
+            {
+                // Update last used scenario name
+                mainWindow.currentScenario.lastLoadedScenarioName = comboScenarioName.Text;
+
+                // Load data (choices) to components
+                loadDataFromScenarioContent();
+            }
+        }
+        
         private void comboCacheName_TextUpdate(object sender, EventArgs e)
         {
             // Remove forbidden keywords
@@ -512,6 +533,8 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         #endregion
 
+        #region Exporting
+
         private void exportScenarioButton_Click(object sender, EventArgs e)
         {
             // Copy settings data to scenario, prepare for export
@@ -521,29 +544,36 @@ namespace SRScenarioCreatorEnhanced.UserControls
             _ = MessageBox.Show("Scenario exported! (Well, editor tried, at least)", "Export Finished",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
-
-        // Changed comboScenarioName index selection must be separate, to load data into other comboboxes correctly
-        private void comboScenarioName_SelectedIndexChanged(object sender, EventArgs e)
+        private void btnOpenExportedScenarioFolder_Click(object sender, EventArgs e)
         {
-            // Remove forbidden keywords
-            removeForbiddenKeywordsFromText(ref comboScenarioName);
-
-            // Execute standard commands
-            comboScenarioName_TextUpdate(sender, e);
-
-            // Load content from selected .scenario file
-            mainWindow.currentScenario.loadDataFromScenarioFileToActiveScenario(comboScenarioName.Text);
-
-            // Prevent from looping, update only on actual change of scenario
-            if (mainWindow.currentScenario.lastLoadedScenarioName != comboScenarioName.Text)
+            string folderPath = mainWindow.currentScenario.getBaseExportDirectory();
+            try
             {
-                // Update last used scenario name
-                mainWindow.currentScenario.lastLoadedScenarioName = comboScenarioName.Text;
+                if (Directory.Exists(folderPath))
+                {
+                    ProcessStartInfo startInfo = new ProcessStartInfo
+                    {
+                        Arguments = folderPath,
+                        FileName = "explorer.exe"
+                    };
 
-                // Reload tab by simulating tabScenarioBtn click
-                mainWindow.tabScenarioBtn_Click(sender, e);
+                    _ = Process.Start(startInfo);
+                }
+                else
+                {
+                    _ = MessageBox.Show(string.Format("{0} Directory does not exist!", folderPath));
+                }
+            }
+            catch (Exception err)
+            {
+                // Some error (exception) happened
+                _ = MessageBox.Show(err.Message);
             }
         }
+
+        #endregion
+
+        #region AdvancedFunctions
 
         /// <summary>
         /// From given string, remove all banned words (they can break editor or game)
@@ -571,31 +601,6 @@ namespace SRScenarioCreatorEnhanced.UserControls
             }
         }
 
-        private void btnOpenExportedScenarioFolder_Click(object sender, EventArgs e)
-        {
-            string folderPath = mainWindow.currentScenario.getBaseExportDirectory();
-            try
-            {
-                if (Directory.Exists(folderPath))
-                {
-                    ProcessStartInfo startInfo = new ProcessStartInfo
-                    {
-                        Arguments = folderPath,
-                        FileName = "explorer.exe"
-                    };
-
-                    _ = Process.Start(startInfo);
-                }
-                else
-                {
-                    _ = MessageBox.Show(string.Format("{0} Directory does not exist!", folderPath));
-                }
-            }
-            catch (Exception err)
-            {
-                // Some error (exception) happened
-                _ = MessageBox.Show(err.Message);
-            }
-        }
+        #endregion
     }
 }

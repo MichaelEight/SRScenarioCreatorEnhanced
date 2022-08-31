@@ -30,11 +30,12 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(editorMainWindow));
             this.toolbarPanel = new System.Windows.Forms.Panel();
-            this.logoEight = new System.Windows.Forms.PictureBox();
+            this.settingsButton = new System.Windows.Forms.Button();
             this.logoApp = new System.Windows.Forms.PictureBox();
-            this.titleLabel = new System.Windows.Forms.Label();
-            this.infoButton = new System.Windows.Forms.Button();
+            this.logoEight = new System.Windows.Forms.PictureBox();
             this.exitButton = new System.Windows.Forms.Button();
+            this.infoButton = new System.Windows.Forms.Button();
+            this.titleLabel = new System.Windows.Forms.Label();
             this.tabsPanel = new System.Windows.Forms.Panel();
             this.tabOrbatBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tabWMBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -45,19 +46,20 @@
             this.tabScenarioBtn = new Guna.UI2.WinForms.Guna2Button();
             this.mainUCPanel = new System.Windows.Forms.Panel();
             this.toolbarPanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logoEight)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoApp)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoEight)).BeginInit();
             this.tabsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolbarPanel
             // 
             this.toolbarPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(1)))), ((int)(((byte)(41)))), ((int)(((byte)(95)))));
-            this.toolbarPanel.Controls.Add(this.logoEight);
+            this.toolbarPanel.Controls.Add(this.settingsButton);
             this.toolbarPanel.Controls.Add(this.logoApp);
-            this.toolbarPanel.Controls.Add(this.titleLabel);
-            this.toolbarPanel.Controls.Add(this.infoButton);
+            this.toolbarPanel.Controls.Add(this.logoEight);
             this.toolbarPanel.Controls.Add(this.exitButton);
+            this.toolbarPanel.Controls.Add(this.infoButton);
+            this.toolbarPanel.Controls.Add(this.titleLabel);
             this.toolbarPanel.Dock = System.Windows.Forms.DockStyle.Top;
             this.toolbarPanel.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
             this.toolbarPanel.Location = new System.Drawing.Point(3, 0);
@@ -66,15 +68,17 @@
             this.toolbarPanel.TabIndex = 2;
             this.toolbarPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.toolbarPanel_MouseDown);
             // 
-            // logoEight
+            // settingsButton
             // 
-            this.logoEight.Image = global::SRScenarioCreatorEnhanced.Properties.Resources.eightPic;
-            this.logoEight.Location = new System.Drawing.Point(99, 12);
-            this.logoEight.Name = "logoEight";
-            this.logoEight.Size = new System.Drawing.Size(70, 70);
-            this.logoEight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoEight.TabIndex = 4;
-            this.logoEight.TabStop = false;
+            this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.settingsButton.BackgroundImage = global::SRScenarioCreatorEnhanced.Properties.Resources.gearIcon;
+            this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.settingsButton.Location = new System.Drawing.Point(1489, 12);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(70, 70);
+            this.settingsButton.TabIndex = 5;
+            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
             // 
             // logoApp
             // 
@@ -86,29 +90,15 @@
             this.logoApp.TabIndex = 3;
             this.logoApp.TabStop = false;
             // 
-            // titleLabel
+            // logoEight
             // 
-            this.titleLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.titleLabel.AutoSize = true;
-            this.titleLabel.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.titleLabel.Location = new System.Drawing.Point(370, 21);
-            this.titleLabel.Name = "titleLabel";
-            this.titleLabel.Size = new System.Drawing.Size(1082, 51);
-            this.titleLabel.TabIndex = 2;
-            this.titleLabel.Text = "Supreme Ruler Ultimate: Enhanced Scenario Editor";
-            this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseDown);
-            // 
-            // infoButton
-            // 
-            this.infoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.infoButton.BackgroundImage = global::SRScenarioCreatorEnhanced.Properties.Resources.appInfoIcon2smaller;
-            this.infoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.infoButton.Location = new System.Drawing.Point(1565, 12);
-            this.infoButton.Name = "infoButton";
-            this.infoButton.Size = new System.Drawing.Size(70, 70);
-            this.infoButton.TabIndex = 1;
-            this.infoButton.UseVisualStyleBackColor = true;
-            this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
+            this.logoEight.Image = global::SRScenarioCreatorEnhanced.Properties.Resources.eightPic;
+            this.logoEight.Location = new System.Drawing.Point(99, 12);
+            this.logoEight.Name = "logoEight";
+            this.logoEight.Size = new System.Drawing.Size(70, 70);
+            this.logoEight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoEight.TabIndex = 4;
+            this.logoEight.TabStop = false;
             // 
             // exitButton
             // 
@@ -121,6 +111,30 @@
             this.exitButton.TabIndex = 0;
             this.exitButton.UseVisualStyleBackColor = true;
             this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // infoButton
+            // 
+            this.infoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.infoButton.BackgroundImage = global::SRScenarioCreatorEnhanced.Properties.Resources.appInfoIcon2smaller;
+            this.infoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.infoButton.Location = new System.Drawing.Point(1594, 12);
+            this.infoButton.Name = "infoButton";
+            this.infoButton.Size = new System.Drawing.Size(70, 70);
+            this.infoButton.TabIndex = 1;
+            this.infoButton.UseVisualStyleBackColor = true;
+            this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
+            // 
+            // titleLabel
+            // 
+            this.titleLabel.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.titleLabel.AutoSize = true;
+            this.titleLabel.Font = new System.Drawing.Font("Century Gothic", 22F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.titleLabel.Location = new System.Drawing.Point(329, 21);
+            this.titleLabel.Name = "titleLabel";
+            this.titleLabel.Size = new System.Drawing.Size(1082, 51);
+            this.titleLabel.TabIndex = 2;
+            this.titleLabel.Text = "Supreme Ruler Ultimate: Enhanced Scenario Editor";
+            this.titleLabel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.titleLabel_MouseDown);
             // 
             // tabsPanel
             // 
@@ -312,8 +326,8 @@
             this.Text = "editorMainWindow";
             this.toolbarPanel.ResumeLayout(false);
             this.toolbarPanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.logoEight)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoApp)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.logoEight)).EndInit();
             this.tabsPanel.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -335,6 +349,7 @@
         private Guna.UI2.WinForms.Guna2Button tabRegionsBtn;
         private System.Windows.Forms.PictureBox logoApp;
         private System.Windows.Forms.PictureBox logoEight;
+        private System.Windows.Forms.Button settingsButton;
     }
 }
 
