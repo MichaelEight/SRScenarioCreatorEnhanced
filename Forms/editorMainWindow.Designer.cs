@@ -99,7 +99,6 @@
             this.logoEight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.logoEight.TabIndex = 4;
             this.logoEight.TabStop = false;
-            this.logoEight.Click += new System.EventHandler(this.logoEight_Click);
             // 
             // exitButton
             // 

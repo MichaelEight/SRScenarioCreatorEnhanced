@@ -37,6 +37,8 @@ namespace SRScenarioCreatorEnhanced
         public ScenarioContent currentScenario;
         public SettingsContent currentSettings;
 
+        //private UC_Scenario currentUCScenario;
+
         public editorMainWindow()
         {
             InitializeComponent();
@@ -173,11 +175,6 @@ namespace SRScenarioCreatorEnhanced
         #endregion
 
         #region Resize
-        // LOGOEIGHT IS JUST A PLACEHOLDER FUNCTION FOR A SLIDER
-        private void logoEight_Click(object sender, EventArgs e)
-        {
-            AdjustScaleOfAllWindows();
-        }
 
         public void AdjustScaleOfAllWindows()
         {
@@ -187,6 +184,8 @@ namespace SRScenarioCreatorEnhanced
             }
 
             AdjustWindowSizeToScale();
+
+
         }
 
         private void AdjustWindowSizeToScale()
@@ -225,3 +224,6 @@ namespace SRScenarioCreatorEnhanced
 // u know, just make a slider, don't try to do it that way, if you're gonna edit that anyway
 // make previous scale factor. if curect != global.current, set 1/previous and then *global.current
 // slider with btn maybe? saves prev and curr
+
+
+// move resize functions from each UC to main window by holding constant reference (save in class-wide var)
