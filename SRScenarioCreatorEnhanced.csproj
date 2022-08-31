@@ -87,6 +87,12 @@
     <Compile Include="Forms\editorMainWindow.Designer.cs">
       <DependentUpon>editorMainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\settingsWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\settingsWindow.Designer.cs">
+      <DependentUpon>settingsWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\GlobalsList.cs" />
@@ -137,6 +143,9 @@
     </Compile>
     <EmbeddedResource Include="Forms\editorMainWindow.resx">
       <DependentUpon>editorMainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\settingsWindow.resx">
+      <DependentUpon>settingsWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

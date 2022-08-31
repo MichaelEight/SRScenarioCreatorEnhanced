@@ -1,6 +1,7 @@
 ﻿/// editorMainWindow.cs file released under GNU GPL v3 licence.
 /// Originally used in the SRScenarioCreatorEnhanced project: https://github.com/r20de20/SRScenarioCreatorEnhanced
 
+using SRScenarioCreatorEnhanced.Forms;
 using SRScenarioCreatorEnhanced.UserControls;
 using System;
 using System.Deployment.Application;
@@ -30,10 +31,8 @@ namespace SRScenarioCreatorEnhanced
         #endregion
 
         // Use for editing scale of main window and UCs
-        //private Size oldSize;
-        public bool resized = false;
+        public float currentEditorScale;
         public event EventHandler ResizeEvent;
-        private Size originalWindowSize;
 
         public ScenarioContent currentScenario;
         public SettingsContent currentSettings;
@@ -49,8 +48,7 @@ namespace SRScenarioCreatorEnhanced
             UC_Scenario uc = new UC_Scenario(this);
             addUserControl(uc);
 
-            // Scalling window
-            originalWindowSize = Size;
+            currentEditorScale = Configuration.currentAppScaleFactor;
         }   
 
         #region generalWindowControls
@@ -95,6 +93,7 @@ namespace SRScenarioCreatorEnhanced
         #endregion
 
         #region toolbarButtons
+
         // Exit button clicked
         private void exitButton_Click(object sender, EventArgs e)
         {
@@ -117,6 +116,12 @@ namespace SRScenarioCreatorEnhanced
             _ = MessageBox.Show($"Current version: {versionNumber}\n" +
                 $"Contributors: Michael '8', xperga", "About Editor", MessageBoxButtons.OK,
                 MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+        }
+
+        private void settingsButton_Click(object sender, EventArgs e)
+        {
+            settingsWindow sw = new settingsWindow(this);
+            sw.ShowDialog();
         }
 
         #endregion
@@ -171,47 +176,45 @@ namespace SRScenarioCreatorEnhanced
         // LOGOEIGHT IS JUST A PLACEHOLDER FUNCTION FOR A SLIDER
         private void logoEight_Click(object sender, EventArgs e)
         {
-            AdjustWindowSizeToScale();
+            AdjustScaleOfAllWindows();
         }
 
-        private void AdjustWindowSizeToScale()
+        public void AdjustScaleOfAllWindows()
         {
             if (ResizeEvent != null)
             {
                 ResizeEvent(this, null);
             }
 
-            // Determine size change
-            if (!resized) // Resize with given factor
-                Configuration.currentAppScale = new SizeF(Configuration.currentAppScaleFactor, Configuration.currentAppScaleFactor);
-            else // Inverse resize to go back to original size
-                Configuration.currentAppScale = new SizeF(1 / Configuration.currentAppScaleFactor, 1 / Configuration.currentAppScaleFactor);
+            AdjustWindowSizeToScale();
+        }
 
-            Scale(Configuration.currentAppScale);
-
-            // Change font of every element in the window
-
-            foreach (Control c in toolbarPanel.Controls)
+        private void AdjustWindowSizeToScale()
+        {
+            // If size has changed
+            if(currentEditorScale != Configuration.currentAppScaleFactor)
             {
-                c.Font = new Font(Configuration.defaultEditorFontFamily, c.Font.Size * Configuration.currentAppScale.Width, FontStyle.Bold);
-            }
+                // Update saved current editor scale
+                currentEditorScale = Configuration.currentAppScaleFactor;
 
-            foreach (Control c in tabsPanel.Controls)
-            {
-                c.Font = new Font(Configuration.defaultEditorFontFamily, c.Font.Size * Configuration.currentAppScale.Width, FontStyle.Bold);
-            }
+                // Invert previous scale change and apply new ; scale = new * 1/previous
+                float factor = Configuration.currentAppScaleFactor / Configuration.previousAppScaleFactor;
+                SizeF fullScaleFactor = new SizeF(factor, factor);
 
-            if(originalWindowSize.Width != Size.Width && originalWindowSize.Height != Size.Height)
-            {
-                Configuration.editorWasResized = true;
-            }
-            else
-            {
-                Configuration.editorWasResized = false;
-            }
+                // Rescale window
+                Scale(fullScaleFactor);
 
+                // Change font of every element in the window ; keep fontFamily and fontStyle
+                foreach (Control c in toolbarPanel.Controls)
+                {
+                    c.Font = new Font(c.Font.FontFamily, c.Font.Size * factor, c.Font.Style);
+                }
 
-            resized = !resized;
+                foreach (Control c in tabsPanel.Controls)
+                {
+                    c.Font = new Font(c.Font.FontFamily, c.Font.Size * factor, c.Font.Style);
+                }
+            }
         }
 
         #endregion

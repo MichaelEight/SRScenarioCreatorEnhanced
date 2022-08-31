@@ -28,11 +28,11 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void AdjustWindowSizeToScale()
         {
-            foreach (Control c in Controls)
+            /*foreach (Control c in Controls)
             {
                 c.Font = new Font(Configuration.defaultEditorFontFamily,
                                  c.Font.Size * Configuration.currentAppScale.Width, FontStyle.Bold);
-            }
+            }*/
         }
 
         #endregion

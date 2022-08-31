@@ -19,11 +19,8 @@ public static class Configuration
     public const bool enableLoadingFilesFromGameDirectory = true; // DEFAULT: TRUE
     public const bool enableLoadingfilesErrorMessageBoxes = true; // DEFAULT: TRUE, set FALSE for production (!)
 
-    public static float currentAppScaleFactor = 0.75f; // DEFAULT: 1.0f
-    public static SizeF currentAppScale = new SizeF(1.0f, 1.0f); // DEFAULT: new SizeF(1.0f, 1.0f)
-
     public static string defaultEditorFontFamily = "Century Gothic"; // DEFAULT: "Century Gothic"
 
-    // Needed for editor's functionality
-    public static bool editorWasResized = false; // DEFAULT: false
+    public static float currentAppScaleFactor = 1.0f;
+    public static float previousAppScaleFactor = 1.0f;
 }

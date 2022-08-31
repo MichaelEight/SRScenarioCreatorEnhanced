@@ -45,8 +45,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
             // Event handling resize
             mainWindow.ResizeEvent += HandleResizeEvent;
 
-            if (Configuration.editorWasResized)
-                AdjustWindowSizeToScale();
+            
         }
 
         
@@ -617,18 +616,38 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         #region Resizing
 
+        
         public void HandleResizeEvent(object sender, EventArgs e)
         {
             AdjustWindowSizeToScale();
-            Configuration.editorWasResized = !Configuration.editorWasResized;
         }
 
-        private void AdjustWindowSizeToScale()
+        /*private void AdjustWindowSizeToScale()
         {
             foreach (Control c in Controls)
             {
                 c.Font = new Font(Configuration.defaultEditorFontFamily,
                                  c.Font.Size * Configuration.currentAppScale.Width, FontStyle.Bold);
+            }
+        }*/
+
+        private void AdjustWindowSizeToScale()
+        {
+            // If size has changed
+            if (mainWindow.currentEditorScale != Configuration.currentAppScaleFactor)
+            {
+                // Invert previous scale change and apply new ; scale = new * 1/previous
+                float factor = Configuration.currentAppScaleFactor / Configuration.previousAppScaleFactor;
+                //SizeF fullScaleFactor = new SizeF(factor, factor);
+
+                // Rescale window
+                //Scale(fullScaleFactor);
+
+                // Change font of every element in the window ; keep fontFamily and fontStyle
+                foreach (Control c in Controls)
+                {
+                    c.Font = new Font(c.Font.FontFamily, c.Font.Size * factor, c.Font.Style);
+                }
             }
         }
 
