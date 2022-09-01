@@ -4,8 +4,10 @@
 using SRScenarioCreatorEnhanced.Forms;
 using SRScenarioCreatorEnhanced.UserControls;
 using System;
+using System.Collections.Generic;
 using System.Deployment.Application;
 using System.Drawing;
+using System.IO;
 using System.Reflection;
 using System.Windows.Forms;
 
@@ -83,7 +85,70 @@ namespace SRScenarioCreatorEnhanced
 
             // Save original size
             currentEditorScale = Configuration.currentAppScaleFactor;
-        }   
+
+            // Adjust, load settings, reload -- such cycle does the job of loading settings
+            // Probably because previous only then the size is saved as "previous", but tbh not sure XD ~M8, 2022/09/02 0:55
+            AdjustEditorSizeToScale();
+            LoadEditorSettingsFromFile();
+            AdjustEditorSizeToScale();
+        }
+
+        private void LoadEditorSettingsFromFile()
+        {
+            // Load only if file exists -- stngs = settings
+            if(File.Exists(Directory.GetCurrentDirectory() + @"editor.stngs"))
+            {
+                List<string> lines = new List<string>(File.ReadAllLines(Directory.GetCurrentDirectory() + @"editor.stngs"));
+
+                lines.RemoveAll(string.IsNullOrWhiteSpace);
+
+                // If all options are present and only them
+                if(lines.Count == 7)
+                {
+                    float helperFloat;
+                    int helperInt;
+
+                    Configuration.baseGameDirectory = lines[0];
+                    Configuration.baseExportDirectory = lines[1];
+
+                    if(float.TryParse(lines[2], out helperFloat)) Configuration.currentAppScaleFactor = helperFloat;
+                    if(float.TryParse(lines[3], out helperFloat)) Configuration.previousAppScaleFactor = helperFloat;
+                    if(float.TryParse(lines[4], out helperFloat)) Configuration.currentFontScaleFactor = helperFloat;
+                    if(float.TryParse(lines[5], out helperFloat)) Configuration.previousFontScaleFactor = helperFloat;
+
+                    if(Int32.TryParse(lines[5], out helperInt)) Configuration.settingsDebugLevel = helperInt;
+                }
+            }
+            else // Else - generate the file
+            {
+                SaveEditorSettingsToFile();
+            }
+        }
+
+        public void SaveEditorSettingsToFile()
+        {
+            string directory = Directory.GetCurrentDirectory() + @"editor.stngs";
+
+            if (File.Exists(directory))
+            {
+                // Reset content of this file
+                File.WriteAllText(directory, "");
+            }
+
+            // Input hard-coded scheme
+            File.AppendAllLines(directory, new string[]{
+                Configuration.baseGameDirectory,
+                Configuration.baseExportDirectory,
+
+                Configuration.currentAppScaleFactor.ToString(),
+                Configuration.previousAppScaleFactor.ToString(),
+
+                Configuration.currentFontScaleFactor.ToString(),
+                Configuration.previousFontScaleFactor.ToString(),
+
+                Configuration.settingsDebugLevel.ToString()
+            });
+        }
 
         /// <summary>
         /// Editor holds data in the back-end *Content files. Load that data into front-end UC_*

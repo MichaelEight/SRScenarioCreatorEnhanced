@@ -45,6 +45,10 @@
             this.label11 = new System.Windows.Forms.Label();
             this.trackDebugMsgsLevel = new System.Windows.Forms.TrackBar();
             this.label12 = new System.Windows.Forms.Label();
+            this.textGameDirectory = new System.Windows.Forms.TextBox();
+            this.buttonBrowseGameFolder = new System.Windows.Forms.Button();
+            this.folderBrowserGameDirectory = new System.Windows.Forms.FolderBrowserDialog();
+            this.label13 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.trackWindowScale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackFontScale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackDebugMsgsLevel)).BeginInit();
@@ -105,7 +109,7 @@
             // buttonApply
             // 
             this.buttonApply.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonApply.Location = new System.Drawing.Point(226, 391);
+            this.buttonApply.Location = new System.Drawing.Point(226, 497);
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Size = new System.Drawing.Size(249, 103);
             this.buttonApply.TabIndex = 5;
@@ -217,11 +221,45 @@
             this.label12.Text = "Debug Messages\r\nDisplay Frequency";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // textGameDirectory
+            // 
+            this.textGameDirectory.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.textGameDirectory.Location = new System.Drawing.Point(12, 416);
+            this.textGameDirectory.Name = "textGameDirectory";
+            this.textGameDirectory.ReadOnly = true;
+            this.textGameDirectory.Size = new System.Drawing.Size(525, 37);
+            this.textGameDirectory.TabIndex = 16;
+            // 
+            // buttonBrowseGameFolder
+            // 
+            this.buttonBrowseGameFolder.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonBrowseGameFolder.Location = new System.Drawing.Point(543, 401);
+            this.buttonBrowseGameFolder.Name = "buttonBrowseGameFolder";
+            this.buttonBrowseGameFolder.Size = new System.Drawing.Size(154, 62);
+            this.buttonBrowseGameFolder.TabIndex = 17;
+            this.buttonBrowseGameFolder.Text = "Browse";
+            this.buttonBrowseGameFolder.UseVisualStyleBackColor = true;
+            this.buttonBrowseGameFolder.Click += new System.EventHandler(this.buttonBrowseGameFolder_Click);
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label13.Location = new System.Drawing.Point(176, 383);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(204, 30);
+            this.label13.TabIndex = 18;
+            this.label13.Text = "Game Directory";
+            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
             // settingsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 522);
+            this.ClientSize = new System.Drawing.Size(709, 655);
+            this.Controls.Add(this.label13);
+            this.Controls.Add(this.buttonBrowseGameFolder);
+            this.Controls.Add(this.textGameDirectory);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.label11);
@@ -273,5 +311,9 @@
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TrackBar trackDebugMsgsLevel;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.TextBox textGameDirectory;
+        private System.Windows.Forms.Button buttonBrowseGameFolder;
+        private System.Windows.Forms.FolderBrowserDialog folderBrowserGameDirectory;
+        private System.Windows.Forms.Label label13;
     }
 }

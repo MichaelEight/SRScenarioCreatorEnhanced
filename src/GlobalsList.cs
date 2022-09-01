@@ -1,6 +1,7 @@
 ﻿/// GlobalsList.cs file released under GNU GPL v3 licence.
 /// Originally used in the SRScenarioCreatorEnhanced project: https://github.com/r20de20/SRScenarioCreatorEnhanced
 
+using System.IO;
 using System.Windows.Forms;
 public static class Globals
 {
@@ -15,6 +16,11 @@ public static class Globals
 
 public static class Configuration
 {
+    // @"[path_to_steam]\Steam Games\steamapps\common\Supreme Ruler Ultimate"
+    // Preferably auto-detect SR folder OR leave it empty and force user to choose path at 1st start
+    public static string baseGameDirectory = Directory.GetCurrentDirectory();
+    public static string baseExportDirectory = baseGameDirectory + @"\Scenario\Custom";
+
     public const bool enableLoadingFilesFromGameDirectory = true; // DEFAULT: TRUE
     
     public static string defaultEditorFontFamily = "Century Gothic"; // DEFAULT: "Century Gothic", probably obsolete
@@ -24,6 +30,8 @@ public static class Configuration
 
     public static float currentFontScaleFactor  = 1.0f;
     public static float previousFontScaleFactor = 1.0f;
+
+    public static int settingsDebugLevel = 1;
 }
 
 public static class Info
@@ -34,10 +42,12 @@ public static class Info
     public static bool loadingDataIntoTabsError            = true;
     public static bool loadingDataFromFileError            = true;
     public static bool failedToRecogniseLabelFromfileError = true; // By default, it should be off
+    public static bool fileIsAlreadyInUseError             = true;
 
     /// <summary>
     /// Displays MessageBox with error description
     /// IDs: 0:loading files, 1:loading data into tabs, 2:while loading data from file
+    /// 3:failedToRecogniseLabel, 4:fileInUse
     /// </summary>
     /// <param name="errorTypeId">Error is checked, if it's allowed to be displayed</param>
     /// <param name="message">Description of error</param>
@@ -50,6 +60,7 @@ public static class Info
             case 1: if (loadingDataIntoTabsError)            return; break;
             case 2: if (loadingDataFromFileError)            return; break;
             case 3: if (failedToRecogniseLabelFromfileError) return; break;
+            case 4: if (fileIsAlreadyInUseError)             return; break;
 
             default:break;
         }

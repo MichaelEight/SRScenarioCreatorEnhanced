@@ -10,9 +10,12 @@ namespace SRScenarioCreatorEnhanced.Forms
             InitializeComponent();
             mainWindow = emw;
 
-            // Set current scale value to trackScale
+            textGameDirectory.Text = Configuration.baseGameDirectory;
+
+            // Set saved values to sliders
             trackWindowScale.Value = convertScaleFactorToTrackValue(Configuration.currentAppScaleFactor);
             trackFontScale.Value = convertScaleFactorToTrackValue(Configuration.currentFontScaleFactor);
+            trackDebugMsgsLevel.Value = Configuration.settingsDebugLevel;
         }
 
         #region Converters
@@ -72,20 +75,44 @@ namespace SRScenarioCreatorEnhanced.Forms
                     Info.loadingDataIntoTabsError            = false;
                     Info.loadingDataFromFileError            = false;
                     Info.failedToRecogniseLabelFromfileError = false;
+                    Info.fileIsAlreadyInUseError             = false;
                     break;
+
                 case 1: // Only Necessary (DEFAULT)
                     Info.loadingFilesError                   = true;
                     Info.loadingDataIntoTabsError            = true;
                     Info.loadingDataFromFileError            = false;
                     Info.failedToRecogniseLabelFromfileError = false;
+                    Info.fileIsAlreadyInUseError             = true;
                     break;
+
                 case 2: // All
                     Info.loadingFilesError                   = true;
                     Info.loadingDataIntoTabsError            = true;
                     Info.loadingDataFromFileError            = true;
                     Info.failedToRecogniseLabelFromfileError = true;
+                    Info.fileIsAlreadyInUseError             = true;
                     break;
+
                 default:break;
+            }
+            // Update setting in configuration
+            Configuration.settingsDebugLevel = trackDebugMsgsLevel.Value;
+
+            mainWindow.SaveEditorSettingsToFile();
+        }
+
+        private void buttonBrowseGameFolder_Click(object sender, System.EventArgs e)
+        {
+            // If path selected
+            if (folderBrowserGameDirectory.ShowDialog() == DialogResult.OK)
+            {
+                // Update textbox
+                textGameDirectory.Text = folderBrowserGameDirectory.SelectedPath;
+                // Update game directory
+                Configuration.baseGameDirectory = folderBrowserGameDirectory.SelectedPath;
+                // Update export directory
+                Configuration.baseExportDirectory = Configuration.baseGameDirectory + @"\Custom\Scenario";
             }
         }
     }

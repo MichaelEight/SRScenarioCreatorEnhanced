@@ -114,13 +114,13 @@ namespace SRScenarioCreatorEnhanced.UserControls
         private void loadDataToCombobox(ComboBox comboName, string extension, string searchDirectory)
         {
             // Check if directory is valid
-            if (Directory.Exists(mainWindow.currentScenario.getBaseGameDirectory() + searchDirectory))
+            if (Directory.Exists(Configuration.baseGameDirectory + searchDirectory))
             {
                 // Clear ComboBox content
                 comboName.Items.Clear();
 
                 // Add base game dir to make a full path
-                searchDirectory = mainWindow.currentScenario.getBaseGameDirectory() + searchDirectory;
+                searchDirectory = Configuration.baseGameDirectory + searchDirectory;
                 // Fill combobox with found names
                 comboName.Items.AddRange(getListOfFiles(searchDirectory, extension));
             }
@@ -370,6 +370,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
                 // Load data (choices) to components
                 loadDataFromScenarioContent();
             }
+
+            // Double-check, debug
+            activateOtherTabsIfPossible();
         }
         
         private void comboCacheName_TextUpdate(object sender, EventArgs e)
@@ -550,7 +553,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
         }
         private void btnOpenExportedScenarioFolder_Click(object sender, EventArgs e)
         {
-            string folderPath = mainWindow.currentScenario.getBaseExportDirectory();
+            string folderPath = Configuration.baseExportDirectory;
             try
             {
                 if (Directory.Exists(folderPath))

@@ -21,13 +21,7 @@ namespace SRScenarioCreatorEnhanced
                ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString()
                : Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-        // Set directory of export (default: editor's directory + "\Exported")
-        private readonly string baseExportDirectory = Directory.GetCurrentDirectory() + @"\Exported";
-        // Directory of SRU folder (TO AUTO/MANUAL CHANGE, TODO)
-        private readonly string baseGameDirectory = @"I:\Steam Games\steamapps\common\Supreme Ruler Ultimate";
-        // Return baseGameDirectory
-        public string getBaseGameDirectory() { return baseGameDirectory; }
-        public string getBaseExportDirectory() { return baseExportDirectory; }
+        private string adjustedExportDirectory;
 
         #endregion
 
@@ -118,8 +112,36 @@ namespace SRScenarioCreatorEnhanced
 
         public void exportScenarioToFileAndFolder()
         {
-            // Save .scenario file
-            exportScenarioFile();
+            // Check if export directory exists
+            if (!Directory.Exists(Configuration.baseExportDirectory))
+                Directory.CreateDirectory(Configuration.baseExportDirectory);
+
+            try
+            {
+                // Save .scenario file
+                exportScenarioFile();
+            }
+            catch (Exception e)
+            {
+                Info.errorMsg(4, "File already in use (bug). Retry!");
+            }
+
+            // Adjust export folder directory, connect it with scenario name
+            adjustedExportDirectory = Configuration.baseExportDirectory + $"\\{scenarioName}";
+
+            // Check scenario folder and subfolders
+            if(!Directory.Exists(adjustedExportDirectory))
+                Directory.CreateDirectory(adjustedExportDirectory);
+
+            if (!Directory.Exists(adjustedExportDirectory + @"\Maps"))
+                Directory.CreateDirectory(adjustedExportDirectory + @"\Maps");
+
+            if (!Directory.Exists(adjustedExportDirectory + @"\Maps\Orbat"))
+                Directory.CreateDirectory(adjustedExportDirectory + @"\Maps\Orbat");
+
+            if (!Directory.Exists(adjustedExportDirectory + @"\Maps\Data"))
+                Directory.CreateDirectory(adjustedExportDirectory + @"\Maps\Data");
+            
 
             // Save .cvp file (if modified)
             if (CVPModifyCheck)
@@ -145,7 +167,14 @@ namespace SRScenarioCreatorEnhanced
         private void exportScenarioFile()
         {
             // Set file location and name
-            string tempExportLocation = baseExportDirectory + $"\\{scenarioName}.scenario";
+            string tempExportLocation = Configuration.baseExportDirectory + $"\\{scenarioName}.scenario";
+
+            // If file doesn't exist
+            if (!File.Exists(tempExportLocation))
+            {
+                // Create the file
+                File.Create(tempExportLocation);
+            }
 
             // Reset content of file
             File.WriteAllText(tempExportLocation, "");
@@ -281,7 +310,11 @@ namespace SRScenarioCreatorEnhanced
         /// <param name="scenarioName">Name of .scenario file to load</param>
         public void loadDataFromScenarioFileToActiveScenario(string scenarioName)
         {
-            string scenarioDir = baseGameDirectory + @"\Scenario\Custom\" + scenarioName + @".SCENARIO";
+            string scenarioDir = Configuration.baseGameDirectory + @"\Scenario\Custom\" + scenarioName + @".SCENARIO";
+
+            // If Scenario\Custom doesn't exist, create it
+            if (!Directory.Exists(Configuration.baseGameDirectory + @"\Scenario\Custom\"))
+                Directory.CreateDirectory(Configuration.baseGameDirectory + @"\Scenario\Custom\");
 
             // Check if that scenario exists
             if (File.Exists(scenarioDir))

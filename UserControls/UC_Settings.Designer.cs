@@ -107,6 +107,8 @@
             this.numericStartingYear = new System.Windows.Forms.NumericUpDown();
             this.numericVictoryTech = new System.Windows.Forms.NumericUpDown();
             this.numericMapMusic = new System.Windows.Forms.NumericUpDown();
+            this.buttonResetSettings = new System.Windows.Forms.Button();
+            this.buttonUndoReset = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.numericMapSplash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericFastForwardDays)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericVictoryHexX)).BeginInit();
@@ -324,7 +326,7 @@
             // 
             this.label29.AutoSize = true;
             this.label29.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label29.Location = new System.Drawing.Point(66, 700);
+            this.label29.Location = new System.Drawing.Point(66, 703);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(178, 30);
             this.label29.TabIndex = 79;
@@ -1108,10 +1110,35 @@
             this.numericMapMusic.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericMapMusic.ValueChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
+            // buttonResetSettings
+            // 
+            this.buttonResetSettings.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonResetSettings.Location = new System.Drawing.Point(1429, 825);
+            this.buttonResetSettings.Name = "buttonResetSettings";
+            this.buttonResetSettings.Size = new System.Drawing.Size(299, 127);
+            this.buttonResetSettings.TabIndex = 166;
+            this.buttonResetSettings.Text = "RESET SETTINGS TO DEFAULT";
+            this.buttonResetSettings.UseVisualStyleBackColor = true;
+            this.buttonResetSettings.Click += new System.EventHandler(this.buttonResetSettings_Click);
+            // 
+            // buttonUndoReset
+            // 
+            this.buttonUndoReset.Enabled = false;
+            this.buttonUndoReset.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.buttonUndoReset.Location = new System.Drawing.Point(1180, 880);
+            this.buttonUndoReset.Name = "buttonUndoReset";
+            this.buttonUndoReset.Size = new System.Drawing.Size(230, 72);
+            this.buttonUndoReset.TabIndex = 167;
+            this.buttonUndoReset.Text = "UNDO RESET";
+            this.buttonUndoReset.UseVisualStyleBackColor = true;
+            this.buttonUndoReset.Click += new System.EventHandler(this.buttonUndoReset_Click);
+            // 
             // UC_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.buttonUndoReset);
+            this.Controls.Add(this.buttonResetSettings);
             this.Controls.Add(this.numericMapMusic);
             this.Controls.Add(this.numericVictoryTech);
             this.Controls.Add(this.numericStartingYear);
@@ -1286,5 +1313,7 @@
         private System.Windows.Forms.NumericUpDown numericStartingYear;
         private System.Windows.Forms.NumericUpDown numericVictoryTech;
         private System.Windows.Forms.NumericUpDown numericMapMusic;
+        private System.Windows.Forms.Button buttonResetSettings;
+        private System.Windows.Forms.Button buttonUndoReset;
     }
 }
