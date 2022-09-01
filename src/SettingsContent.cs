@@ -12,7 +12,7 @@ namespace SRScenarioCreatorEnhanced
         // not sure - value or range probable, but not tested
         // what is that? - never used / heard of / no idea what it does
 
-        public string startymd; // yyyymmdd // FORMAT: ToString("yyyy, MM, dd");
+        public string startymd; // yyyy, mm, dd // FORMAT: ToString("yyyy, MM, dd");
         public int? defaultRegion; // region's id
         public string scenarioid; // what is that?
         public int? militaryDifficulty; // 0 - 4

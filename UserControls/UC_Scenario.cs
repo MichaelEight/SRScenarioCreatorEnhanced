@@ -356,6 +356,8 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             // Load content from selected .scenario file
             mainWindow.currentScenario.loadDataFromScenarioFileToActiveScenario(comboScenarioName.Text);
+            // Move settings data from loading (scenario) class to settings class
+            mainWindow.currentSettings = mainWindow.currentScenario.settings;
 
             // Prevent from looping, update only on actual change of scenario
             if (mainWindow.currentScenario.lastLoadedScenarioName != comboScenarioName.Text)
