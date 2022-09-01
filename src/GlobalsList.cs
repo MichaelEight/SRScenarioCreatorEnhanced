@@ -2,6 +2,7 @@
 /// Originally used in the SRScenarioCreatorEnhanced project: https://github.com/r20de20/SRScenarioCreatorEnhanced
 
 using System.Windows.Forms;
+using System.Windows.Forms;
 public static class Globals
 {
     public static bool isSettingsActive  = false;
@@ -20,7 +21,6 @@ public static class Configuration
     public static string defaultEditorFontFamily = "Century Gothic"; // DEFAULT: "Century Gothic", probably obsolete
 
     public static float currentAppScaleFactor  = 1.0f;
-    public static float previousAppScaleFactor = 1.0f;
 }
 
 public static class Info
@@ -54,4 +54,4 @@ public static class Info
         // Display error box
         MessageBox.Show(message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
     }
-}
+}}
