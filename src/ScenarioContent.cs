@@ -4,11 +4,9 @@
 using System;
 using System.Collections.Generic;
 using System.Deployment.Application;
-using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Text.RegularExpressions;
-using System.Windows.Forms;
 
 namespace SRScenarioCreatorEnhanced
 {
@@ -469,8 +467,8 @@ namespace SRScenarioCreatorEnhanced
                     if(value.Length >= 3)
                     {
                         if(Int32.TryParse(value[0], out outVal1)) settings.militaryDifficulty  = outVal1;
-                        if(Int32.TryParse(value[1], out outVal2)) settings.diplomacyDifficulty = outVal2;
-                        if(Int32.TryParse(value[2], out outVal3)) settings.economicDifficulty  = outVal3;
+                        if(Int32.TryParse(value[1], out outVal2)) settings.economicDifficulty  = outVal2;
+                        if(Int32.TryParse(value[2], out outVal3)) settings.diplomacyDifficulty = outVal3;
                     }
                     break;
                 case "victoryhex":
@@ -527,7 +525,7 @@ namespace SRScenarioCreatorEnhanced
 
                 default:
                     // DEBUG Display error if label doesn't match any variable
-                    Info.errorMsg(2, $"Error! No variable found for that label! ({label})");
+                    Info.errorMsg(3, $"Error! No variable found for that label! ({label})");
                     break;
             }
         }
