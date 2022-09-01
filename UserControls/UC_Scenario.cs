@@ -345,7 +345,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
             activateOtherTabsIfPossible();
         }
 
-        // Changed comboScenarioName index selection must be separate, to load data into other comboboxes correctly
+        /// <summary>
+        /// User selected some scenario in combobox. Load .scenario file and other files and data within them
+        /// </summary>
         private void comboScenarioName_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Remove forbidden keywords
@@ -356,8 +358,8 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             // Load content from selected .scenario file
             mainWindow.currentScenario.loadDataFromScenarioFileToActiveScenario(comboScenarioName.Text);
-            // Move settings data from loading (scenario) class to settings class
-            mainWindow.currentSettings = mainWindow.currentScenario.settings;
+
+            mainWindow.LoadSavedDataIntoProperUCs();
 
             // Prevent from looping, update only on actual change of scenario
             if (mainWindow.currentScenario.lastLoadedScenarioName != comboScenarioName.Text)

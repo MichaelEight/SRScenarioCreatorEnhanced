@@ -14,7 +14,7 @@ namespace SRScenarioCreatorEnhanced
 
         public string startymd; // yyyy, mm, dd // FORMAT: ToString("yyyy, MM, dd");
         public int? defaultRegion; // region's id
-        public string scenarioid; // what is that?
+        public string scenarioid; // some kind of scenario id
         public int? militaryDifficulty; // 0 - 4
         public int? diplomacyDifficulty; // 0 - 4
         public int? economicDifficulty; // 0 - 4
@@ -28,27 +28,27 @@ namespace SRScenarioCreatorEnhanced
         public bool regionEquip; // what is that? guess, by location, probably bool 0-1
         public bool limitDarEffect; // limit Domestic Approval Rating 0-1
         public bool limitMarEffect; // limit Military Approval Rating 0-1
-        public bool wmInvolve; // what is this? 0-1
-        public bool wmdUse; // what is this? 0-1
+        public bool wmInvolve; // effects of using nukes 0-1
+        public bool wmdUse; // allow nukes 0-1
         public bool fastBuild; // what is this? 0-1
         public bool govChoice; // what is this? 0-1
-        public bool groupLoyaltyMerge; // what is this?
-        public bool groupResearchMerge; // what is this?
+        public bool groupLoyaltyMerge; // what is this? 0-1
+        public bool groupResearchMerge; // what is this? 0-1
         public bool relationsEffect; // what is this? guessed bool, but default in w2020 is 2
-        public bool limitInScenario; // limit regions in scenario
+        public bool limitInScenario; // limit regions in scenario 0-1
         public int? mapMusic; // what is this?
-        public int? mapGui; // what is this?
-        public int? mapSplash; // what is this?
+        public int? mapGui; // input? gui type (year) in-game 
+        public int? mapSplash; // input? map icon
         public bool campaignGame; // what is this?
-        public int? victoryHexX; // what is this? ~probably hex needed to be taken to win
-        public int? victoryHexY; // what is this? ~probably hex needed to be taken to win
-        public int? victoryTech; // what is this? 
-        public int? regionAllies; // what is this?
-        public int? regionAxis; // what is this?
-        public int? fastFwdDays; // input?
-        public int? sVictoryCond; // input? -- victory by capital, complete etc.
+        public int? victoryHexX; // hex needed to be taken to win
+        public int? victoryHexY; // hex needed to be taken to win
+        public int? victoryTech; // tech needed to win 
+        public int? regionAllies; // input? ~region ids marked as Allies side
+        public int? regionAxis; // input? ~region ids marked as Axis side
+        public int? fastFwdDays; // how many days to fast forward
+        public int? sVictoryCond; // input? victory by capital, complete etc.
         public int? gameLength; // input?
-        public bool missileNoLimit; // what is this?
+        public bool missileNoLimit; // no limit of missiles 0-1
         public bool alliedVictory; // all countries allied is a win 0-1
         public bool restrictTechTrade; // what is this?
         public int? approvalEff; // approval effect, guess 0-4

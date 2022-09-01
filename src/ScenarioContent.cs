@@ -300,14 +300,16 @@ namespace SRScenarioCreatorEnhanced
                 // Make a list with all the lines containing "#include"
                 List<string> linesContainingInclude = new List<string>();
 
-                string[] tempArray; // array for temporary operations
+                // Array used for temporary operations, to save memory
+                string[] tempArray; 
 
                 // Go through all lines
                 foreach (var line in linesFromFile)
                 {
-                    // Split line into parts with ' " ' char
                     // NOTE: Use index 1 for includes, mapfile and savfile, because data is inside the quotes
                     // .. However index 0 for settings, because there's no ' " ' char in there
+                    
+                    // Split line into parts with ' " ' char
                     tempArray = line.Split('"');
 
                     // If it's an '#include' line
@@ -386,17 +388,18 @@ namespace SRScenarioCreatorEnhanced
                             string[] values = tempArray[1].Split(',');
 
                             // --DEBUG--
-                            Debug.Print(setting + ":");
+                            /*Debug.Print(setting + ":");
                             for(int i = 0; i < values.Length; i++)
                             {
                                 Debug.Print(values[i]);
                             }
-                            Debug.Print("-\n");
+                            Debug.Print("-\n");*/
                             // --ENDDEBUG--
 
+                            // Check if array is valid
                             if (values.Length >= 1 && values.Length <= 3)
                                 saveValueToCorrectVariable(values,setting);
-
+                            // ... array is invalid
                             else if(Configuration.enableLoadingfilesErrorMessageBoxes)
                             {
                                 MessageBox.Show($"Error! Too few or too much arguments for setting {setting}!");

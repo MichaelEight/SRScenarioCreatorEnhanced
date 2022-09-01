@@ -14,6 +14,12 @@ namespace SRScenarioCreatorEnhanced.UserControls
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+
+            LoadSavedDataIntoComponents();
+        }
+        public void LoadSavedDataIntoComponents()
+        {
+
         }
     }
 }

@@ -77,6 +77,18 @@ namespace SRScenarioCreatorEnhanced
             currentEditorScale = Configuration.currentAppScaleFactor;
         }   
 
+        /// <summary>
+        /// Editor holds data in the back-end *Content files. Load that data into front-end UC_*
+        /// </summary>
+        public void LoadSavedDataIntoProperUCs()
+        {
+            // Move data on settings from placeholder to actual settings
+            currentSettings = currentScenario.settings;
+            
+            // Load settings from saved data to it's UC
+            currentUCSettings.LoadSavedDataIntoComponents();
+        }
+
         #region generalWindowControls
 
         // Make window movable by grabbing toolbar
