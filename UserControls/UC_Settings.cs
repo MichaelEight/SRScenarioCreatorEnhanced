@@ -56,7 +56,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
             // Graphic Options
             updateComboContentWithCheck(comboMapGui, sc.mapGui, 2);
             updateNumericalContentWithCheck(numericMapSplash, sc.mapSplash, 0);
-            textMapMusic.Text = sc.mapMusic.ToString();
+            updateNumericalContentWithCheck(numericMapMusic, sc.mapMusic, 0);
 
             // Miscellaneous
             updateNumericalContentWithCheck(numericStartingYear, sc.startYear, 0);
@@ -102,7 +102,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         #endregion
 
-        private void SettingsInputDataChanged(object sender, EventArgs e)
+        #region SavingSettingsFromTabToData
+
+        private void SettingsInputValuesChanged(object sender, EventArgs e)
         {
             TimeSpan ts = DateTime.Now - debugInputChangedTime;
 
@@ -114,8 +116,83 @@ namespace SRScenarioCreatorEnhanced.UserControls
                 // Update timer
                 debugInputChangedTime = DateTime.Now;
 
+                SettingsContent sc = new SettingsContent();
+
+                // General Info
+                sc.startymd = dateStartingDate.Value.ToString("yyyy, MM, dd");
+                sc.defaultRegion = (int)numericDefaultRegion.Value;
+                sc.scenarioid = textScenarioID.Text;
+                sc.fastFwdDays = (int)numericFastForwardDays.Value;
                 
+                // Difficulties
+                sc.militaryDifficulty  = comboMilitaryDiff.SelectedIndex;
+                sc.economicDifficulty  = comboEconomicDiff.SelectedIndex;
+                sc.diplomacyDifficulty = comboDiplomacyDiff.SelectedIndex;
+
+                // AI Settings
+                sc.aistance    = comboAiStance.SelectedIndex;
+                sc.wmdEff      = comboWMDEffect.SelectedIndex;
+                sc.approvalEff = comboApprovalEffect.SelectedIndex;
+
+                // Victory Conditions
+                sc.gameLength   = comboGameLength.SelectedIndex;
+                sc.sVictoryCond = comboVictoryCondition.SelectedIndex;
+                sc.victoryHexX  = (int)numericVictoryHexX.Value;
+                sc.victoryHexY  = (int)numericVictoryHexY.Value;
+                sc.victoryTech  = (int)numericVictoryTech.Value;
+
+                // Starting Conditions
+                sc.initialFunds   = comboInitialFunds.SelectedIndex;
+                sc.resourcesLevel = comboResourcesLevel.SelectedIndex;
+
+                // Graphic Options
+                sc.mapGui = comboMapGui.SelectedIndex;
+                sc.mapSplash = (int)numericMapSplash.Value;
+                sc.mapMusic  = (int)numericMapMusic.Value;
+
+                // Miscellaneous
+                sc.startYear        = (int)numericStartingYear.Value;
+
+                UpdateDataWithCheck(ref sc.techTreeDefault, textTechTreeDefault);
+                UpdateDataWithCheck(ref sc.regionAllies,    textRegionAllies);
+                UpdateDataWithCheck(ref sc.regionAxis,      textRegionAxis);
+                UpdateDataWithCheck(ref sc.sphereNn,        textSphereNN);
+
+                // Scenario Options (booleans)
+                sc.reserveLimit         = checkReserveLimit.Checked;
+                sc.noCapitalMove        = checkNoCapitalMove.Checked;
+                sc.regionEquip          = checkRegionEquip.Checked;
+                sc.limitDarEffect       = checkLimitDAReffect.Checked;
+                sc.limitMarEffect       = checkLimitMAReffect.Checked;
+                sc.wmInvolve            = checkWMinvolve.Checked;
+                sc.wmdUse               = checkWMDuse.Checked;
+                sc.fastBuild            = checkFastBuild.Checked;
+                sc.govChoice            = checkGovChoice.Checked;
+                sc.groupLoyaltyMerge    = checkGroupLoyaltyMerge.Checked;
+                sc.groupResearchMerge   = checkGroupResearchMerge.Checked;
+                sc.relationsEffect      = checkRelationsEffect.Checked;
+                sc.limitInScenario      = checkLimitInScenario.Checked;
+                sc.campaignGame         = checkCampaignGame.Checked;
+                sc.alliedVictory        = checkAlliedVictory.Checked;
+                sc.restrictTechTrade    = checkRestrictTechTrade.Checked;
+                sc.debtFree             = checkDebtFree.Checked;
+                sc.noLoyPenalty         = checkNoLoyPenalty.Checked;
+                sc.noSphere             = checkNoSphere.Checked;
+                sc.missileNoLimit       = !checkMissileNoLimit.Checked;
+
+                // Move data to main holder
+                mainWindow.currentSettings = sc;
             }
         }
+
+        void UpdateDataWithCheck(ref int? dataVar, TextBox sourceText)
+        {
+            if (Int32.TryParse(sourceText.Text, out int result))
+                dataVar = result;
+            else
+                dataVar = null;
+        }
+
+        #endregion
     }
 }
