@@ -30,7 +30,6 @@
         {
             this.textScenarioID = new System.Windows.Forms.TextBox();
             this.textRegionAllies = new System.Windows.Forms.TextBox();
-            this.textMapMusic = new System.Windows.Forms.TextBox();
             this.textRegionAxis = new System.Windows.Forms.TextBox();
             this.textTechTreeDefault = new System.Windows.Forms.TextBox();
             this.textSphereNN = new System.Windows.Forms.TextBox();
@@ -107,6 +106,7 @@
             this.label13 = new System.Windows.Forms.Label();
             this.numericStartingYear = new System.Windows.Forms.NumericUpDown();
             this.numericVictoryTech = new System.Windows.Forms.NumericUpDown();
+            this.numericMapMusic = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericMapSplash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericFastForwardDays)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericVictoryHexX)).BeginInit();
@@ -114,6 +114,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericDefaultRegion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericStartingYear)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericVictoryTech)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMapMusic)).BeginInit();
             this.SuspendLayout();
             // 
             // textScenarioID
@@ -123,6 +124,7 @@
             this.textScenarioID.Name = "textScenarioID";
             this.textScenarioID.Size = new System.Drawing.Size(165, 37);
             this.textScenarioID.TabIndex = 15;
+            this.textScenarioID.TextChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // textRegionAllies
             // 
@@ -132,15 +134,7 @@
             this.textRegionAllies.Size = new System.Drawing.Size(221, 37);
             this.textRegionAllies.TabIndex = 20;
             this.textRegionAllies.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
-            // 
-            // textMapMusic
-            // 
-            this.textMapMusic.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textMapMusic.Location = new System.Drawing.Point(770, 570);
-            this.textMapMusic.Name = "textMapMusic";
-            this.textMapMusic.Size = new System.Drawing.Size(212, 37);
-            this.textMapMusic.TabIndex = 22;
-            this.textMapMusic.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textRegionAllies.TextChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // textRegionAxis
             // 
@@ -150,6 +144,7 @@
             this.textRegionAxis.Size = new System.Drawing.Size(221, 37);
             this.textRegionAxis.TabIndex = 23;
             this.textRegionAxis.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textRegionAxis.TextChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // textTechTreeDefault
             // 
@@ -159,6 +154,7 @@
             this.textTechTreeDefault.Size = new System.Drawing.Size(221, 37);
             this.textTechTreeDefault.TabIndex = 28;
             this.textTechTreeDefault.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textTechTreeDefault.TextChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // textSphereNN
             // 
@@ -168,6 +164,7 @@
             this.textSphereNN.Size = new System.Drawing.Size(221, 37);
             this.textSphereNN.TabIndex = 44;
             this.textSphereNN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textSphereNN.TextChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // label1
             // 
@@ -450,6 +447,7 @@
             this.comboMilitaryDiff.Name = "comboMilitaryDiff";
             this.comboMilitaryDiff.Size = new System.Drawing.Size(156, 38);
             this.comboMilitaryDiff.TabIndex = 89;
+            this.comboMilitaryDiff.SelectedIndexChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // comboDiplomacyDiff
             // 
@@ -467,6 +465,7 @@
             this.comboDiplomacyDiff.Name = "comboDiplomacyDiff";
             this.comboDiplomacyDiff.Size = new System.Drawing.Size(156, 38);
             this.comboDiplomacyDiff.TabIndex = 90;
+            this.comboDiplomacyDiff.SelectedIndexChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // comboResourcesLevel
             // 
@@ -483,6 +482,7 @@
             this.comboResourcesLevel.Name = "comboResourcesLevel";
             this.comboResourcesLevel.Size = new System.Drawing.Size(219, 38);
             this.comboResourcesLevel.TabIndex = 92;
+            this.comboResourcesLevel.SelectedIndexChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // comboEconomicDiff
             // 
@@ -502,6 +502,7 @@
             this.comboEconomicDiff.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.comboEconomicDiff.Size = new System.Drawing.Size(156, 38);
             this.comboEconomicDiff.TabIndex = 91;
+            this.comboEconomicDiff.SelectedIndexChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // dateStartingDate
             // 
@@ -510,6 +511,7 @@
             this.dateStartingDate.Name = "dateStartingDate";
             this.dateStartingDate.Size = new System.Drawing.Size(405, 32);
             this.dateStartingDate.TabIndex = 93;
+            this.dateStartingDate.ValueChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // comboInitialFunds
             // 
@@ -526,6 +528,7 @@
             this.comboInitialFunds.Name = "comboInitialFunds";
             this.comboInitialFunds.Size = new System.Drawing.Size(220, 38);
             this.comboInitialFunds.TabIndex = 94;
+            this.comboInitialFunds.SelectedIndexChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // comboAiStance
             // 
@@ -544,6 +547,7 @@
             this.comboAiStance.Name = "comboAiStance";
             this.comboAiStance.Size = new System.Drawing.Size(210, 38);
             this.comboAiStance.TabIndex = 95;
+            this.comboAiStance.SelectedIndexChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // label45
             // 
@@ -581,6 +585,7 @@
             this.comboWMDEffect.Name = "comboWMDEffect";
             this.comboWMDEffect.Size = new System.Drawing.Size(210, 38);
             this.comboWMDEffect.TabIndex = 125;
+            this.comboWMDEffect.SelectedIndexChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkLimitDAReffect
             // 
@@ -592,6 +597,7 @@
             this.checkLimitDAReffect.TabIndex = 126;
             this.checkLimitDAReffect.Text = "Limit DAR Effect";
             this.checkLimitDAReffect.UseVisualStyleBackColor = true;
+            this.checkLimitDAReffect.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkLimitMAReffect
             // 
@@ -603,6 +609,7 @@
             this.checkLimitMAReffect.TabIndex = 127;
             this.checkLimitMAReffect.Text = "Limit MAR Effect";
             this.checkLimitMAReffect.UseVisualStyleBackColor = true;
+            this.checkLimitMAReffect.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkWMinvolve
             // 
@@ -614,6 +621,7 @@
             this.checkWMinvolve.TabIndex = 128;
             this.checkWMinvolve.Text = "Critical UN";
             this.checkWMinvolve.UseVisualStyleBackColor = true;
+            this.checkWMinvolve.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkWMDuse
             // 
@@ -625,6 +633,7 @@
             this.checkWMDuse.TabIndex = 129;
             this.checkWMDuse.Text = "Allow Nukes";
             this.checkWMDuse.UseVisualStyleBackColor = true;
+            this.checkWMDuse.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkFastBuild
             // 
@@ -636,6 +645,7 @@
             this.checkFastBuild.TabIndex = 130;
             this.checkFastBuild.Text = "Fast Build";
             this.checkFastBuild.UseVisualStyleBackColor = true;
+            this.checkFastBuild.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkNoCapitalMove
             // 
@@ -647,6 +657,7 @@
             this.checkNoCapitalMove.TabIndex = 131;
             this.checkNoCapitalMove.Text = "Fixed Capitals";
             this.checkNoCapitalMove.UseVisualStyleBackColor = true;
+            this.checkNoCapitalMove.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkGovChoice
             // 
@@ -658,6 +669,7 @@
             this.checkGovChoice.TabIndex = 132;
             this.checkGovChoice.Text = "Gov Choice";
             this.checkGovChoice.UseVisualStyleBackColor = true;
+            this.checkGovChoice.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkGroupLoyaltyMerge
             // 
@@ -669,6 +681,7 @@
             this.checkGroupLoyaltyMerge.TabIndex = 133;
             this.checkGroupLoyaltyMerge.Text = "Group Loyalty Merge";
             this.checkGroupLoyaltyMerge.UseVisualStyleBackColor = true;
+            this.checkGroupLoyaltyMerge.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkRegionEquip
             // 
@@ -680,6 +693,7 @@
             this.checkRegionEquip.TabIndex = 134;
             this.checkRegionEquip.Text = "Region Equip";
             this.checkRegionEquip.UseVisualStyleBackColor = true;
+            this.checkRegionEquip.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkGroupResearchMerge
             // 
@@ -691,6 +705,7 @@
             this.checkGroupResearchMerge.TabIndex = 135;
             this.checkGroupResearchMerge.Text = "Group Research Merge";
             this.checkGroupResearchMerge.UseVisualStyleBackColor = true;
+            this.checkGroupResearchMerge.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkMissileNoLimit
             // 
@@ -702,6 +717,7 @@
             this.checkMissileNoLimit.TabIndex = 136;
             this.checkMissileNoLimit.Text = "Missile Limit";
             this.checkMissileNoLimit.UseVisualStyleBackColor = true;
+            this.checkMissileNoLimit.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkAlliedVictory
             // 
@@ -713,6 +729,7 @@
             this.checkAlliedVictory.TabIndex = 137;
             this.checkAlliedVictory.Text = "Allied Victory";
             this.checkAlliedVictory.UseVisualStyleBackColor = true;
+            this.checkAlliedVictory.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkNoSphere
             // 
@@ -724,6 +741,7 @@
             this.checkNoSphere.TabIndex = 138;
             this.checkNoSphere.Text = "No Sphere";
             this.checkNoSphere.UseVisualStyleBackColor = true;
+            this.checkNoSphere.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkDebtFree
             // 
@@ -735,6 +753,7 @@
             this.checkDebtFree.TabIndex = 139;
             this.checkDebtFree.Text = "No Starting Debt";
             this.checkDebtFree.UseVisualStyleBackColor = true;
+            this.checkDebtFree.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkNoLoyPenalty
             // 
@@ -746,15 +765,22 @@
             this.checkNoLoyPenalty.TabIndex = 140;
             this.checkNoLoyPenalty.Text = "No Loyalty Penalty";
             this.checkNoLoyPenalty.UseVisualStyleBackColor = true;
+            this.checkNoLoyPenalty.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // numericMapSplash
             // 
             this.numericMapSplash.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.numericMapSplash.Location = new System.Drawing.Point(770, 520);
+            this.numericMapSplash.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.numericMapSplash.Name = "numericMapSplash";
             this.numericMapSplash.Size = new System.Drawing.Size(212, 37);
             this.numericMapSplash.TabIndex = 141;
             this.numericMapSplash.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericMapSplash.ValueChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // label8
             // 
@@ -846,6 +872,7 @@
             this.comboGameLength.Name = "comboGameLength";
             this.comboGameLength.Size = new System.Drawing.Size(210, 38);
             this.comboGameLength.TabIndex = 148;
+            this.comboGameLength.SelectedIndexChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // label19
             // 
@@ -871,6 +898,7 @@
             this.numericFastForwardDays.Size = new System.Drawing.Size(128, 37);
             this.numericFastForwardDays.TabIndex = 150;
             this.numericFastForwardDays.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericFastForwardDays.ValueChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // numericVictoryHexX
             // 
@@ -880,6 +908,7 @@
             this.numericVictoryHexX.Size = new System.Drawing.Size(85, 37);
             this.numericVictoryHexX.TabIndex = 151;
             this.numericVictoryHexX.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericVictoryHexX.ValueChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // numericVictoryHexY
             // 
@@ -889,6 +918,7 @@
             this.numericVictoryHexY.Size = new System.Drawing.Size(85, 37);
             this.numericVictoryHexY.TabIndex = 152;
             this.numericVictoryHexY.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericVictoryHexY.ValueChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // comboApprovalEffect
             // 
@@ -904,6 +934,7 @@
             this.comboApprovalEffect.Name = "comboApprovalEffect";
             this.comboApprovalEffect.Size = new System.Drawing.Size(210, 38);
             this.comboApprovalEffect.TabIndex = 153;
+            this.comboApprovalEffect.SelectedIndexChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // comboMapGui
             // 
@@ -920,6 +951,7 @@
             this.comboMapGui.Name = "comboMapGui";
             this.comboMapGui.Size = new System.Drawing.Size(212, 38);
             this.comboMapGui.TabIndex = 154;
+            this.comboMapGui.SelectedIndexChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // comboVictoryCondition
             // 
@@ -944,6 +976,7 @@
             this.comboVictoryCondition.Name = "comboVictoryCondition";
             this.comboVictoryCondition.Size = new System.Drawing.Size(248, 38);
             this.comboVictoryCondition.TabIndex = 155;
+            this.comboVictoryCondition.SelectedIndexChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkLimitInScenario
             // 
@@ -955,6 +988,7 @@
             this.checkLimitInScenario.TabIndex = 156;
             this.checkLimitInScenario.Text = "Limit Regions in Scenario";
             this.checkLimitInScenario.UseVisualStyleBackColor = true;
+            this.checkLimitInScenario.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkRestrictTechTrade
             // 
@@ -966,6 +1000,7 @@
             this.checkRestrictTechTrade.TabIndex = 157;
             this.checkRestrictTechTrade.Text = "Restrict Tech Trade";
             this.checkRestrictTechTrade.UseVisualStyleBackColor = true;
+            this.checkRestrictTechTrade.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkCampaignGame
             // 
@@ -977,6 +1012,7 @@
             this.checkCampaignGame.TabIndex = 158;
             this.checkCampaignGame.Text = "Campaign Game";
             this.checkCampaignGame.UseVisualStyleBackColor = true;
+            this.checkCampaignGame.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkReserveLimit
             // 
@@ -988,6 +1024,7 @@
             this.checkReserveLimit.TabIndex = 159;
             this.checkReserveLimit.Text = "Reserve Limit";
             this.checkReserveLimit.UseVisualStyleBackColor = true;
+            this.checkReserveLimit.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // numericDefaultRegion
             // 
@@ -1002,6 +1039,7 @@
             this.numericDefaultRegion.Size = new System.Drawing.Size(121, 37);
             this.numericDefaultRegion.TabIndex = 160;
             this.numericDefaultRegion.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericDefaultRegion.ValueChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // checkRelationsEffect
             // 
@@ -1013,6 +1051,7 @@
             this.checkRelationsEffect.TabIndex = 161;
             this.checkRelationsEffect.Text = "3rd Party Relations Effect";
             this.checkRelationsEffect.UseVisualStyleBackColor = true;
+            this.checkRelationsEffect.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // label13
             // 
@@ -1052,11 +1091,28 @@
             this.numericVictoryTech.Size = new System.Drawing.Size(197, 37);
             this.numericVictoryTech.TabIndex = 164;
             this.numericVictoryTech.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericVictoryTech.ValueChanged += new System.EventHandler(this.SettingsInputValuesChanged);
+            // 
+            // numericMapMusic
+            // 
+            this.numericMapMusic.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.numericMapMusic.Location = new System.Drawing.Point(770, 570);
+            this.numericMapMusic.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.numericMapMusic.Name = "numericMapMusic";
+            this.numericMapMusic.Size = new System.Drawing.Size(212, 37);
+            this.numericMapMusic.TabIndex = 165;
+            this.numericMapMusic.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.numericMapMusic.ValueChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
             // UC_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.numericMapMusic);
             this.Controls.Add(this.numericVictoryTech);
             this.Controls.Add(this.numericStartingYear);
             this.Controls.Add(this.label13);
@@ -1133,7 +1189,6 @@
             this.Controls.Add(this.textSphereNN);
             this.Controls.Add(this.textTechTreeDefault);
             this.Controls.Add(this.textRegionAxis);
-            this.Controls.Add(this.textMapMusic);
             this.Controls.Add(this.textRegionAllies);
             this.Controls.Add(this.textScenarioID);
             this.Name = "UC_Settings";
@@ -1145,6 +1200,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericDefaultRegion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericStartingYear)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericVictoryTech)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericMapMusic)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1153,7 +1209,6 @@
         #endregion
         private System.Windows.Forms.TextBox textScenarioID;
         private System.Windows.Forms.TextBox textRegionAllies;
-        private System.Windows.Forms.TextBox textMapMusic;
         private System.Windows.Forms.TextBox textRegionAxis;
         private System.Windows.Forms.TextBox textTechTreeDefault;
         private System.Windows.Forms.TextBox textSphereNN;
@@ -1230,5 +1285,6 @@
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numericStartingYear;
         private System.Windows.Forms.NumericUpDown numericVictoryTech;
+        private System.Windows.Forms.NumericUpDown numericMapMusic;
     }
 }
