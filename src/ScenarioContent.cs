@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Deployment.Application;
 using System.IO;
 using System.Reflection;
-using System.Windows.Forms;
+using System.Text.RegularExpressions;
 
 namespace SRScenarioCreatorEnhanced
 {
@@ -82,6 +82,7 @@ namespace SRScenarioCreatorEnhanced
         // Generate default data on creation
         public ScenarioContent()
         {
+            settings = new SettingsContent();
             lastLoadedScenarioName = "-";
 
             scenarioName = "";
@@ -211,7 +212,7 @@ namespace SRScenarioCreatorEnhanced
                 $"aistance:               {settings.aistance}",
                 $"startyear:              {settings.startYear}",
                 $"techtreedefault:        {settings.techTreeDefault}",
-                $"noCapitalMove:          {(settings.noCapitalMove ? 1 : 0)}",
+                $"nocapitalmove:          {(settings.noCapitalMove ? 1 : 0)}",
                 $"regionequip:            {(settings.regionEquip ? 1 : 0)}",
                 $"limitdareffect:         {(settings.limitDarEffect ? 1 : 0)}",
                 $"limitmareffect:         {(settings.limitMarEffect ? 1 : 0)}",
@@ -297,14 +298,16 @@ namespace SRScenarioCreatorEnhanced
                 // Make a list with all the lines containing "#include"
                 List<string> linesContainingInclude = new List<string>();
 
-                string[] tempArray; // array for temporary operations
+                // Array used for temporary operations, to save memory
+                string[] tempArray; 
 
                 // Go through all lines
                 foreach (var line in linesFromFile)
                 {
-                    // Split line into parts with ' " ' char
                     // NOTE: Use index 1 for includes, mapfile and savfile, because data is inside the quotes
                     // .. However index 0 for settings, because there's no ' " ' char in there
+                    
+                    // Split line into parts with ' " ' char
                     tempArray = line.Split('"');
 
                     // If it's an '#include' line
@@ -321,7 +324,7 @@ namespace SRScenarioCreatorEnhanced
                             if (tempArray.Length >= 2) // Check to eliminate array overflow
                             {
                                 // So elements of tempArray are 0) fileName and 1) fileExtension
-                                saveValueToCorrectVariable(tempArray[0], tempArray[1]);
+                                saveValueToCorrectVariable(new string[] { tempArray[0] }, tempArray[1]);
                             }
                         }
                     }
@@ -341,9 +344,9 @@ namespace SRScenarioCreatorEnhanced
                             if (tempArray.Length >= 2) // Check to eliminate array overflow
                             {
                                 if (line.Contains("mapfile"))
-                                    saveValueToCorrectVariable(tempArray[0], "MAPX");
+                                    saveValueToCorrectVariable(new string[] { tempArray[0] }, "MAPX");
                                 else // If it's not a map, it has to be cache
-                                    saveValueToCorrectVariable(tempArray[0], "CACHE");
+                                    saveValueToCorrectVariable(new string[] { tempArray[0] }, "CACHE");
                             }
                         }
                         // If there's no dot, it's correct, continue as normal
@@ -353,9 +356,9 @@ namespace SRScenarioCreatorEnhanced
                             {
                                 // Check what option is in line and value between quotes to saving function
                                 if (tempArray[0].Contains("mapfile"))
-                                    saveValueToCorrectVariable(tempArray[1], "MAPX");
+                                    saveValueToCorrectVariable(new string[] { tempArray[1] }, "MAPX");
                                 else // If it's not a map, it has to be cache
-                                    saveValueToCorrectVariable(tempArray[1], "CACHE");
+                                    saveValueToCorrectVariable(new string[] { tempArray[1] }, "CACHE");
                             }
                         }
                     }
@@ -366,16 +369,46 @@ namespace SRScenarioCreatorEnhanced
                         /// EXAMPLE LINE
                         /// difficulty:     2, 2, 2
 
+                        // NOTE: Select element '0' because no quotes exist there
+
+                        // Remove any kind of tabs and multispaces
+                        tempArray[0] = Regex.Replace(tempArray[0].Replace("\t", ""), @"[ ]{2,}", "");
+                        // Remove single spaces
+                        tempArray[0] = tempArray[0].Replace(" ", "");
+
+                        // Split by ':'
+                        tempArray = tempArray[0].Split(':');
+
+                        if (tempArray.Length >= 2) // Check to eliminate array overflow
+                        {
+                            string setting = tempArray[0];
+                            // Split values by ','
+                            string[] values = tempArray[1].Split(',');
+
+                            // --DEBUG--
+                            /*Debug.Print(setting + ":");
+                            for(int i = 0; i < values.Length; i++)
+                            {
+                                Debug.Print(values[i]);
+                            }
+                            Debug.Print("-\n");*/
+                            // --ENDDEBUG--
+
+                            // Check if array is valid
+                            if (values.Length >= 1 && values.Length <= 3)
+                                saveValueToCorrectVariable(values,setting);
+                            // ... array is invalid
+                            else
+                            {
+                                Info.errorMsg(2,$"Error! Too few or too much arguments for setting {setting}!");
+                            }
+                        }
                     }
                 }
             }
             else
             {
-                // Error, file not found
-                if (Configuration.enableLoadingfilesErrorMessageBoxes)
-                {
-                    _ = MessageBox.Show("Failed to find that .scenario file!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Info.errorMsg(0,"Failed to find that .scenario file!");
             }
         }
 
@@ -384,49 +417,116 @@ namespace SRScenarioCreatorEnhanced
         /// </summary>
         /// <param name="value">Value to be set into certain variable</param>
         /// <param name="label">Using that, find matching variable and set the value to it. Might be file extension.</param>
-        private void saveValueToCorrectVariable(string value, string label)
+        private void saveValueToCorrectVariable(string[] value, string label)
         {
+            int outVal1, outVal2, outVal3; // out value, used for string>>int conversion
+
             switch (label)
             {
-                case "CVP": CVPName = value; break;
-                case "REGIONINCL": regionInclName = value; break;
-                case "UNIT": UnitName = value; break;
-                case "PPLX": PPLXName = value; break;
-                case "TTRX": TTRXName = value; break;
-                case "TERX": TERXName = value; break;
-                case "NEWSITEMS": NewsItemsName = value; break;
-                case "OOB": OOBName = value; break;
-                case "PRF": ProfileName = value; break;
+
+                #region scenarioData
+
+                case "CVP": CVPName = value[0]; break;
+                case "REGIONINCL": regionInclName = value[0]; break;
+                case "UNIT": UnitName = value[0]; break;
+                case "PPLX": PPLXName = value[0]; break;
+                case "TTRX": TTRXName = value[0]; break;
+                case "TERX": TERXName = value[0]; break;
+                case "NEWSITEMS": NewsItemsName = value[0]; break;
+                case "OOB": OOBName = value[0]; break;
+                case "PRF": ProfileName = value[0]; break;
 
                 case "WMData":
                 case "WMDATA":
-                    WMName = value; break;
+                    WMName = value[0]; break;
 
                 // Compatibility for original editor's bug - saving OOF as SAV
                 // Possible, because .SAV is never used elsewhere
                 case "SAV":
                 case "OOF":
-                    OOFName = value; break;
+                    OOFName = value[0]; break;
 
-                case "MAPX": mapName = value; break;
-                case "CACHE": cacheName = value; break;
+                case "MAPX": mapName = value[0]; break;
+                case "CACHE": cacheName = value[0]; break;
 
                 // Ignore labels (they are not used and can't be edited within this editor)
                 case "INI":
                 case "csv":
                     break;
 
-                default:
-                    {
-                        // DEBUG Display error if label doesn't match any variable
-                        if (Configuration.enableLoadingfilesErrorMessageBoxes)
-                        {
-                            _ = MessageBox.Show($"Error! No variable found for that label! ({label})", "Error!",
-                                            MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        }
+                #endregion
 
-                        break;
+                #region settingsData
+
+                // Special: Multi-param settings
+                case "startymd":
+                    if (value.Length >= 3)
+                        settings.startymd = $"{value[0]}, {value[1]}, {value[2]}"; // Format: yyyy, MM, dd
+                    break;
+                case "difficulty":
+                    if(value.Length >= 3)
+                    {
+                        if(Int32.TryParse(value[0], out outVal1)) settings.militaryDifficulty  = outVal1;
+                        if(Int32.TryParse(value[1], out outVal2)) settings.economicDifficulty  = outVal2;
+                        if(Int32.TryParse(value[2], out outVal3)) settings.diplomacyDifficulty = outVal3;
                     }
+                    break;
+                case "victoryhex":
+                    if (value.Length >= 2)
+                    {
+                        if (Int32.TryParse(value[0], out outVal1)) settings.victoryHexX = outVal1;
+                        if (Int32.TryParse(value[1], out outVal2)) settings.victoryHexY = outVal2;
+                    }
+                    break;
+                // Special: No conversion needed
+                case "scenarioid": settings.scenarioid = value[0]; break;
+
+                // Normal cases
+                case "defaultregion":      if(Int32.TryParse(value[0], out outVal1)) settings.defaultRegion    = outVal1;break;
+                case "resources":          if(Int32.TryParse(value[0], out outVal1)) settings.resourcesLevel   = outVal1;break;
+                case "initialfunds":       if(Int32.TryParse(value[0], out outVal1)) settings.initialFunds     = outVal1;break;
+                case "aistance":           if(Int32.TryParse(value[0], out outVal1)) settings.aistance         = outVal1;break;
+                case "startyear":          if(Int32.TryParse(value[0], out outVal1)) settings.startYear        = outVal1;break;
+                case "techtreedefault":    if(Int32.TryParse(value[0], out outVal1)) settings.techTreeDefault  = outVal1;break;
+                case "mapmusic":           if(Int32.TryParse(value[0], out outVal1)) settings.mapMusic         = outVal1;break;
+                case "mapgui":             if(Int32.TryParse(value[0], out outVal1)) settings.mapGui           = outVal1;break;
+                case "mapsplash":          if(Int32.TryParse(value[0], out outVal1)) settings.mapSplash        = outVal1;break;
+                case "victorytech":        if(Int32.TryParse(value[0], out outVal1)) settings.victoryTech      = outVal1;break;
+                case "regionallies":       if(Int32.TryParse(value[0], out outVal1)) settings.regionAllies     = outVal1;break;
+                case "regionaxis":         if(Int32.TryParse(value[0], out outVal1)) settings.regionAxis       = outVal1;break;
+                case "fastfwddays":        if(Int32.TryParse(value[0], out outVal1)) settings.fastFwdDays      = outVal1;break;
+                case "svictorycond":       if(Int32.TryParse(value[0], out outVal1)) settings.sVictoryCond     = outVal1;break;
+                case "gamelength":         if(Int32.TryParse(value[0], out outVal1)) settings.gameLength       = outVal1;break;
+                case "approvaleff":        if(Int32.TryParse(value[0], out outVal1)) settings.approvalEff      = outVal1;break;
+                case "wmdeff":             if(Int32.TryParse(value[0], out outVal1)) settings.wmdEff           = outVal1;break;
+                case "spherenn":           if(Int32.TryParse(value[0], out outVal1)) settings.sphereNn         = outVal1;break;
+                case "reservelimit":       settings.reserveLimit        = (value[0] == "1" ? true : false);break;
+                case "nocapitalmove":      settings.noCapitalMove       = (value[0] == "1" ? true : false);break;
+                case "regionequip":        settings.regionEquip         = (value[0] == "1" ? true : false);break;
+                case "limitdareffect":     settings.limitDarEffect      = (value[0] == "1" ? true : false);break;
+                case "limitmareffect":     settings.limitMarEffect      = (value[0] == "1" ? true : false);break;
+                case "wminvolve":          settings.wmInvolve           = (value[0] == "1" ? true : false);break;
+                case "wmduse":             settings.wmdUse              = (value[0] == "1" ? true : false);break;
+                case "fastbuild":          settings.fastBuild           = (value[0] == "1" ? true : false);break;
+                case "govchoice":          settings.govChoice           = (value[0] == "1" ? true : false);break;
+                case "grouployaltymerge":  settings.groupLoyaltyMerge   = (value[0] == "1" ? true : false);break;
+                case "groupresearchmerge": settings.groupResearchMerge  = (value[0] == "1" ? true : false);break;
+                case "relationseffect":    settings.relationsEffect     = (value[0] == "1" ? true : false);break;
+                case "limitinscenario":    settings.limitInScenario     = (value[0] == "1" ? true : false);break;
+                case "campaigngame":       settings.campaignGame        = (value[0] == "1" ? true : false);break;
+                case "missilenolimit":     settings.missileNoLimit      = (value[0] == "1" ? true : false);break;
+                case "alliedvictory":      settings.alliedVictory       = (value[0] == "1" ? true : false);break;
+                case "restricttechtrade":  settings.restrictTechTrade   = (value[0] == "1" ? true : false);break;
+                case "debtfree":           settings.debtFree            = (value[0] == "1" ? true : false);break;
+                case "noloypenalty":       settings.noLoyPenalty        = (value[0] == "1" ? true : false);break;
+                case "nosphere":           settings.noSphere            = (value[0] == "1" ? true : false);break;
+
+                #endregion
+
+                default:
+                    // DEBUG Display error if label doesn't match any variable
+                    Info.errorMsg(3, $"Error! No variable found for that label! ({label})");
+                    break;
             }
         }
 

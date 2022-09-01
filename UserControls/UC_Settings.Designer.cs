@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.textVictoryTech = new System.Windows.Forms.TextBox();
             this.textScenarioID = new System.Windows.Forms.TextBox();
             this.textRegionAllies = new System.Windows.Forms.TextBox();
             this.textMapMusic = new System.Windows.Forms.TextBox();
@@ -107,22 +106,15 @@
             this.checkRelationsEffect = new System.Windows.Forms.CheckBox();
             this.label13 = new System.Windows.Forms.Label();
             this.numericStartingYear = new System.Windows.Forms.NumericUpDown();
+            this.numericVictoryTech = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.numericMapSplash)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericFastForwardDays)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericVictoryHexX)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericVictoryHexY)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDefaultRegion)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericStartingYear)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericVictoryTech)).BeginInit();
             this.SuspendLayout();
-            // 
-            // textVictoryTech
-            // 
-            this.textVictoryTech.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.textVictoryTech.Location = new System.Drawing.Point(120, 915);
-            this.textVictoryTech.Name = "textVictoryTech";
-            this.textVictoryTech.Size = new System.Drawing.Size(300, 37);
-            this.textVictoryTech.TabIndex = 13;
-            this.textVictoryTech.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // textScenarioID
             // 
@@ -825,9 +817,9 @@
             this.label18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.label18.Location = new System.Drawing.Point(682, 439);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(214, 28);
+            this.label18.Size = new System.Drawing.Size(203, 28);
             this.label18.TabIndex = 147;
-            this.label18.Text = "Graphics Options";
+            this.label18.Text = "Graphic Options";
             this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // comboGameLength
@@ -1047,10 +1039,25 @@
             this.numericStartingYear.TabIndex = 163;
             this.numericStartingYear.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
+            // numericVictoryTech
+            // 
+            this.numericVictoryTech.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.numericVictoryTech.Location = new System.Drawing.Point(170, 915);
+            this.numericVictoryTech.Maximum = new decimal(new int[] {
+            100000,
+            0,
+            0,
+            0});
+            this.numericVictoryTech.Name = "numericVictoryTech";
+            this.numericVictoryTech.Size = new System.Drawing.Size(197, 37);
+            this.numericVictoryTech.TabIndex = 164;
+            this.numericVictoryTech.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // UC_Settings
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.Controls.Add(this.numericVictoryTech);
             this.Controls.Add(this.numericStartingYear);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.checkRelationsEffect);
@@ -1129,7 +1136,6 @@
             this.Controls.Add(this.textMapMusic);
             this.Controls.Add(this.textRegionAllies);
             this.Controls.Add(this.textScenarioID);
-            this.Controls.Add(this.textVictoryTech);
             this.Name = "UC_Settings";
             this.Size = new System.Drawing.Size(1800, 1000);
             ((System.ComponentModel.ISupportInitialize)(this.numericMapSplash)).EndInit();
@@ -1138,13 +1144,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericVictoryHexY)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericDefaultRegion)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericStartingYear)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericVictoryTech)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-        private System.Windows.Forms.TextBox textVictoryTech;
         private System.Windows.Forms.TextBox textScenarioID;
         private System.Windows.Forms.TextBox textRegionAllies;
         private System.Windows.Forms.TextBox textMapMusic;
@@ -1223,5 +1229,6 @@
         private System.Windows.Forms.CheckBox checkRelationsEffect;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.NumericUpDown numericStartingYear;
+        private System.Windows.Forms.NumericUpDown numericVictoryTech;
     }
 }
