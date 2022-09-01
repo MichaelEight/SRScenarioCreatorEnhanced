@@ -14,11 +14,14 @@ namespace SRScenarioCreatorEnhanced.UserControls
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
-
-            LoadSavedDataIntoComponents();
         }
         public void LoadSavedDataIntoComponents()
         {
+            // Copy settings data to new var to simplify syntax
+            SettingsContent sc = mainWindow.currentSettings;
+
+            if (DateTime.TryParse(sc.startymd, out DateTime startymd)) dateStartingDate.Value = startymd;
+            else Info.errorMsg(1,"Wrong startymd date format!");
 
         }
     }

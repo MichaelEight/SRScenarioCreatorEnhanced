@@ -400,9 +400,9 @@ namespace SRScenarioCreatorEnhanced
                             if (values.Length >= 1 && values.Length <= 3)
                                 saveValueToCorrectVariable(values,setting);
                             // ... array is invalid
-                            else if(Configuration.enableLoadingfilesErrorMessageBoxes)
+                            else
                             {
-                                MessageBox.Show($"Error! Too few or too much arguments for setting {setting}!");
+                                Info.errorMsg(2,$"Error! Too few or too much arguments for setting {setting}!");
                             }
                         }
                     }
@@ -410,11 +410,7 @@ namespace SRScenarioCreatorEnhanced
             }
             else
             {
-                // Error, file not found
-                if (Configuration.enableLoadingfilesErrorMessageBoxes)
-                {
-                    _ = MessageBox.Show("Failed to find that .scenario file!", "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                Info.errorMsg(0,"Failed to find that .scenario file!");
             }
         }
 
@@ -531,12 +527,7 @@ namespace SRScenarioCreatorEnhanced
 
                 default:
                     // DEBUG Display error if label doesn't match any variable
-                    if (Configuration.enableLoadingfilesErrorMessageBoxes)
-                    {
-                        _ = MessageBox.Show($"Error! No variable found for that label! ({label})", "Error!",
-                                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
-
+                    Info.errorMsg(2, $"Error! No variable found for that label! ({label})");
                     break;
             }
         }
