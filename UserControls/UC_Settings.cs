@@ -9,10 +9,13 @@ namespace SRScenarioCreatorEnhanced.UserControls
     public partial class UC_Settings : UserControl
     {
         private readonly editorMainWindow mainWindow;
+        private DateTime debugInputChangedTime;
         public UC_Settings(editorMainWindow mainWindow)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+
+            debugInputChangedTime = DateTime.Now;
         }
 
         #region LoadingDataToDisplay
@@ -99,5 +102,20 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         #endregion
 
+        private void SettingsInputDataChanged(object sender, EventArgs e)
+        {
+            TimeSpan ts = DateTime.Now - debugInputChangedTime;
+
+            // Disallow changes faster than 1 per second
+            // NOTE: Every change generates event ; this prevents lags and overuse of CPU
+            //       Loading scenario also activates multiple events at once
+            if (ts.TotalMilliseconds > 1000)
+            {
+                // Update timer
+                debugInputChangedTime = DateTime.Now;
+
+                
+            }
+        }
     }
 }
