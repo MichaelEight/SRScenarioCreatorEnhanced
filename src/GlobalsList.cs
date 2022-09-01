@@ -30,10 +30,10 @@ public static class Info
 {
     // Error messages switches -- enable/disable
     // Might be useful to turn them off for production
-    public const bool loadingFilesError                   = true;
-    public const bool loadingDataIntoTabsError            = true;
-    public const bool loadingDataFromFileError            = true;
-    public const bool failedToRecogniseLabelFromfileError = true; // By default, it should be off
+    public static bool loadingFilesError                   = true;
+    public static bool loadingDataIntoTabsError            = true;
+    public static bool loadingDataFromFileError            = true;
+    public static bool failedToRecogniseLabelFromfileError = true; // By default, it should be off
 
     /// <summary>
     /// Displays MessageBox with error description

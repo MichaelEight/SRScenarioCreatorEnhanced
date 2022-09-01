@@ -42,8 +42,10 @@ namespace SRScenarioCreatorEnhanced.Forms
 
         #endregion
 
-        private void applyScaleButton_Click(object sender, System.EventArgs e)
+        private void buttonApply_Click(object sender, System.EventArgs e)
         {
+            #region UpdateScale
+
             // Update data on app scale in Configuration, if different
             if (Configuration.currentAppScaleFactor != convertTrackValueToScaleFactor(trackWindowScale.Value))
             {
@@ -59,6 +61,32 @@ namespace SRScenarioCreatorEnhanced.Forms
 
             // Activate scale change globally
             mainWindow.AdjustEditorSizeToScale();
+
+            #endregion
+
+            // Change debug level
+            switch(trackDebugMsgsLevel.Value)
+            {
+                case 0: // None
+                    Info.loadingFilesError                   = false;
+                    Info.loadingDataIntoTabsError            = false;
+                    Info.loadingDataFromFileError            = false;
+                    Info.failedToRecogniseLabelFromfileError = false;
+                    break;
+                case 1: // Only Necessary (DEFAULT)
+                    Info.loadingFilesError                   = true;
+                    Info.loadingDataIntoTabsError            = true;
+                    Info.loadingDataFromFileError            = false;
+                    Info.failedToRecogniseLabelFromfileError = false;
+                    break;
+                case 2: // All
+                    Info.loadingFilesError                   = true;
+                    Info.loadingDataIntoTabsError            = true;
+                    Info.loadingDataFromFileError            = true;
+                    Info.failedToRecogniseLabelFromfileError = true;
+                    break;
+                default:break;
+            }
         }
     }
 }
