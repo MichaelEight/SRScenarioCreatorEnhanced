@@ -33,12 +33,12 @@ namespace SRScenarioCreatorEnhanced
         #endregion
 
         // Use for editing scale of main window and UCs
-        public float currentEditorScale;
-        public float currentFontScale;
+        internal float currentEditorScale;
+        internal float currentFontScale;
 
         // Data holders for UC Tabs
-        public ScenarioContent currentScenario;
-        public SettingsContent currentSettings;
+        internal ScenarioContent currentScenario;
+        internal SettingsContent currentSettings;
         // ...
 
         // UC Tabs
@@ -132,7 +132,7 @@ namespace SRScenarioCreatorEnhanced
         }
 
 
-        public void SaveEditorSettingsToFile()
+        internal void SaveEditorSettingsToFile()
         {
             string directory = Directory.GetCurrentDirectory() + @"\editor.stngs";
 
@@ -160,7 +160,7 @@ namespace SRScenarioCreatorEnhanced
         /// <summary>
         /// Editor holds data in the back-end *Content files. Load that data into front-end UC_*
         /// </summary>
-        public void LoadSavedDataIntoProperUCs()
+        internal void LoadSavedDataIntoProperUCs()
         {
             // Move data on settings from placeholder to actual settings
             currentSettings = currentScenario.settings;
@@ -258,7 +258,7 @@ namespace SRScenarioCreatorEnhanced
         // Tab buttons click event
 
         // tabScenario is public, so export button can work
-        public void tabScenarioBtn_Click(object sender, EventArgs e) => addUserControl(currentUCScenario);
+        internal void tabScenarioBtn_Click(object sender, EventArgs e) => addUserControl(currentUCScenario);
 
         private void tabSettingsBtn_Click(object sender, EventArgs e) => addUserControl(currentUCSettings);
 
@@ -276,7 +276,7 @@ namespace SRScenarioCreatorEnhanced
 
         #region Resize
 
-        public void AdjustEditorSizeToScale()
+        internal void AdjustEditorSizeToScale()
         {
             // If window size has changed
             if(currentEditorScale != Configuration.currentAppScaleFactor)

@@ -87,7 +87,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         #region LoadingDataToDisplay
 
-        public void LoadSavedDataIntoComponents()
+        internal void LoadSavedDataIntoComponents()
         {
             // Copy settings data to new var to simplify syntax
             SettingsContent sc = mainWindow.currentSettings;

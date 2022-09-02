@@ -66,7 +66,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
         /// <summary>
         /// Load names of available files from game directory to each combo box
         /// </summary>
-        public void loadFileNamesToEachComponent()
+        internal void loadFileNamesToEachComponent()
         {
             if (Configuration.enableLoadingFilesFromGameDirectory)
             {
