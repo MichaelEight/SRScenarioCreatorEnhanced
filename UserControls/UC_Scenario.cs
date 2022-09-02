@@ -8,9 +8,6 @@ using System.IO;
 using System.Linq;
 using System.Windows.Forms;
 
-// Nice-To-Have
-// If you want -- make 'required' labels disappear when data is correct
-
 /// ***File controlling behaviour of 'Scenario' Tab***
 /// This tab provides info about file used in a specific scenario - names and what files will be edited
 /// (point fixed, data doesn't need to be saved in a separate class anymore)
