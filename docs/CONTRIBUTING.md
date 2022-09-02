@@ -6,6 +6,7 @@
 - [Details about scheme of the app](#how-does-should-the-editor-work)
 - [Which directories editor uses, what file scheme to expect while using it (for editor to work)](#directories-needed)
 - [What file does what, which to edit, where to find what while developing editor (project content)](#development-directories)
+- [What do version numbers mean? At what point are we now?](#versioning-system)
 - [Problems with development or loading project](#known-development-issues)
 
 ## How To Edit
@@ -99,6 +100,11 @@ Main Game folder -- Supreme Ruler Ultimate, from now on marked as ..\
   - `ScenarioContent.cs` - file containing all info and mechanic of a .scenario file. It has all of the data (names and values needed for the file). It is responsible for exporting files from **the whole** editor (including other tabs) and importing and loading data from .scenario file. It holds also the game directory string.
   - Everything else with `*content.cs` - contains data on other tabs and functions used in them.
 - `UserControls` - front-ent files. Collection of UserControls, so basically content of tabs. It is responsible for how tabs look like and for the mechanic of buttons, comboboxes and other components
+
+## Versioning System
+- Alpha X - State from the very beginning up until most basic version of editor is created i.e. when tabs Scenario, Settings, Regions and Orbat are fully operational.
+- Beta Y - first version is most basic version of editor (as mentioned in alpha). Beta continues until all original functions are present: basic tabs + Theaters, Resources, World Market and they are fully operational (loading, editing and saving without major problems)
+- Full Z.A - full-fledged version of editor. Main goal is achieved and editor is ready. From then on the goal is to do maintenance on the app, fix bugs, collect users' feedback and improve the work by adding special functions. 'Z' marks major updates + medium-sized changes and 'A' updates containing bug-fixes and small improvements.
 
 ## Known Development Issues
 - `GUNA.UI2` errors. GUNA.UI2 is a set of premade UI elements. You can try to solve it by updating the addon: Tools >> NuGet Package Manager >> Manage NuGet Packages for Solution. Make sure `Guna.UI2.WinForms` is present in "Installed" tab. Switch to "Updates" and update `Guna.UI2.WinForms`.
