@@ -91,14 +91,20 @@ namespace SRScenarioCreatorEnhanced
             AdjustEditorSizeToScale();
             LoadEditorSettingsFromFile();
             AdjustEditorSizeToScale();
+
+            UpdateComboListOnDirChange();
+        }
+        internal void UpdateComboListOnDirChange()
+        {
+            currentUCScenario.loadFileNamesToEachComponent();
         }
 
         private void LoadEditorSettingsFromFile()
         {
             // Load only if file exists -- stngs = settings
-            if(File.Exists(Directory.GetCurrentDirectory() + @"editor.stngs"))
+            if(File.Exists(Directory.GetCurrentDirectory() + @"\editor.stngs"))
             {
-                List<string> lines = new List<string>(File.ReadAllLines(Directory.GetCurrentDirectory() + @"editor.stngs"));
+                List<string> lines = new List<string>(File.ReadAllLines(Directory.GetCurrentDirectory() + @"\editor.stngs"));
 
                 lines.RemoveAll(string.IsNullOrWhiteSpace);
 
@@ -125,9 +131,10 @@ namespace SRScenarioCreatorEnhanced
             }
         }
 
+
         public void SaveEditorSettingsToFile()
         {
-            string directory = Directory.GetCurrentDirectory() + @"editor.stngs";
+            string directory = Directory.GetCurrentDirectory() + @"\editor.stngs";
 
             if (File.Exists(directory))
             {

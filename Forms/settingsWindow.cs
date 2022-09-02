@@ -107,12 +107,19 @@ namespace SRScenarioCreatorEnhanced.Forms
             // If path selected
             if (folderBrowserGameDirectory.ShowDialog() == DialogResult.OK)
             {
-                // Update textbox
-                textGameDirectory.Text = folderBrowserGameDirectory.SelectedPath;
-                // Update game directory
-                Configuration.baseGameDirectory = folderBrowserGameDirectory.SelectedPath;
-                // Update export directory
-                Configuration.baseExportDirectory = Configuration.baseGameDirectory + @"\Custom\Scenario";
+                if (folderBrowserGameDirectory.SelectedPath != Configuration.baseGameDirectory)
+                {
+                    // Update textbox
+                    textGameDirectory.Text = folderBrowserGameDirectory.SelectedPath;
+
+                    // Update game directory
+                    Configuration.baseGameDirectory = folderBrowserGameDirectory.SelectedPath;
+
+                    // Update export directory
+                    Configuration.baseExportDirectory = Configuration.baseGameDirectory + @"\Scenario\Custom";
+
+                    mainWindow.UpdateComboListOnDirChange();
+                }
             }
         }
     }
