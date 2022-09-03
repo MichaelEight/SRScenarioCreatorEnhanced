@@ -433,7 +433,7 @@ namespace SRScenarioCreatorEnhanced
                             // ... array is invalid
                             else
                             {
-                                Info.errorMsg(2,$"Error! Too few or too much arguments for setting {setting}!");
+                                Info.errorMsg(2,$"Too few or too much arguments for setting {setting}!");
                             }
                         }
                     }
@@ -558,7 +558,7 @@ namespace SRScenarioCreatorEnhanced
 
                 default:
                     // DEBUG Display error if label doesn't match any variable
-                    Info.errorMsg(3, $"Error! No variable found for that label! ({label})");
+                    Info.errorMsg(3, $"No variable found for that label! ({label})");
                     break;
             }
         }
