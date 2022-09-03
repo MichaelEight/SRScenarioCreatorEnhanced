@@ -1,4 +1,4 @@
-# SREditorEnhanced
+# Supreme Ruler Scenario Creator Enhanced
 
 ## Work in progress (!)
 [Contribution guidelines for this project](CONTRIBUTING.md)
