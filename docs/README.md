@@ -3,6 +3,8 @@
 ## Work in progress (!)
 [Contribution guidelines for this project](CONTRIBUTING.md)
 
+[What do these errors mean? How to fix them?](manual_debugging.md)
+
 ## Origin Story
 Supreme Ruler Ultimate is one of the most liked games by me & my friends. We decided to try modding it. It was fine, however stock editor has it's issues.
 There is a lack of options and exporting scenarios often break for no specific reason. In the end you had to go to the files and manually change the settings.
@@ -33,7 +35,7 @@ That's why we decided to make an editor of our own. Improved over the original o
 
 - Editor scale - general size of the window
 - Font scale - ... font size, obviously
-- Debug Messages - Some error/info message boxes are disabled to not frustrate the user because of their frequency within some stages (e.g. loading data from files). If you're experiencing any issue, it's recommended to show all debug messages. You might fix the problem yourself. If not, create an issue about that problem.
+- Debug Messages - Some error/info message boxes are disabled to not frustrate the user because of their frequency within some stages (e.g. loading data from files). If you're experiencing any issue, it's recommended to show all debug messages. You might fix the problem yourself. [Helpful guide to resolve the issues](manual_debugging.md) If not, create an issue about that problem. 
 
 ## Licence
 GNU GPL v3. Free to use and modify. Not allowed to release with closed source! Credit us as original creators of Enhanced SR Editor (however we are **not** the creators of the game OR the original, steam-version editor).
