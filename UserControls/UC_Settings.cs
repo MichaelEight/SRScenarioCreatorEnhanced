@@ -22,6 +22,8 @@ namespace SRScenarioCreatorEnhanced.UserControls
             ResetContentOfComponents();
 
             debugInputChangedTime = DateTime.Now;
+
+            betaTranslation();
         }
 
         /// <summary>
@@ -413,5 +415,132 @@ namespace SRScenarioCreatorEnhanced.UserControls
         }
 
         #endregion
+
+        void betaTranslation()
+        {
+
+        }
+
+        /// <summary>
+        /// If the label is on the left of box and they're misaligned (one overlaps the other or is too far away)
+        /// then correct the position of label (or anything holding text on the left)
+        /// </summary>
+        private void AdjustElementPosition(Control onLeft, Control onRight)
+        {
+            // If label and combo are misaligned, move label to the border of onRight element
+            if (onLeft.Right > onRight.Left || onLeft.Right < onRight.Left)
+                onLeft.Left = onRight.Left - onLeft.Width;
+        }
+        
+        // Difficulties
+        private void labelDiplomacyDifficulty_SizeChanged(object sender, EventArgs e)
+            => AdjustElementPosition(labelDiplomacyDifficulty, comboDiplomacyDiff);
+
+        private void labelMilitaryDifficulty_SizeChanged(object sender, EventArgs e)
+            => AdjustElementPosition(labelMilitaryDifficulty,comboMilitaryDiff);
+
+        private void labelEconomicDifficulty_SizeChanged(object sender, EventArgs e)
+            => AdjustElementPosition(labelEconomicDifficulty,comboEconomicDiff);
+
+        // AI Settings
+        private void labelAIStance_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelAIStance,comboAiStance);
+
+        private void labelWMDEffect_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelWMDEffect,comboWMDEffect);
+
+        private void labelApprovalEffect_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelApprovalEffect,comboApprovalEffect);
+
+        // Victory Conditions
+        private void labelGameLength_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelGameLength,comboGameLength);
+
+        private void labelVictory_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelVictory,comboVictoryCondition);
+
+        // General Info
+        private void labelStartingDate_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelStartingDate,dateStartingDate);
+
+        private void labelScenarioID_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelScenarioID,textScenarioID);
+
+        private void labelDefaultRegion_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelDefaultRegion,numericDefaultRegion);
+
+        private void labelFastForwardDays_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelFastForwardDays,numericFastForwardDays);
+
+        // Starting conditions
+        private void labelInitialFunds_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelInitialFunds,comboInitialFunds);
+
+        private void labelResourcesLevel_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelResourcesLevel,comboResourcesLevel);
+
+        // Graphic
+        private void labelMapGUI_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelMapGUI,comboMapGui);
+
+        private void labelMapSplash_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelMapSplash,numericMapSplash);
+
+        private void labelMapMusic_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelMapMusic,numericMapMusic);
+
+        // Miscellaneous
+        private void labelStartingYear_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelStartingYear,numericStartingYear);
+
+        private void labelTechTreeDefault_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelTechTreeDefault,textTechTreeDefault);
+
+        private void labelRegionAllies_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelRegionAllies,textRegionAllies);
+
+        private void labelRegionAxis_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelRegionAxis,textRegionAxis);
+
+        private void labelSphereNN_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(labelSphereNN,textSphereNN);
+
+        // Checks
+
+        private void checkNoCapitalMove_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(checkNoCapitalMove,checkNoLoyPenalty);
+
+        private void checkWMinvolve_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(checkWMinvolve,checkMissileNoLimit);
+
+        private void checkWMDuse_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(checkWMDuse,checkReserveLimit);
+
+        private void checkAlliedVictory_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(checkAlliedVictory,checkGroupLoyaltyMerge);
+
+        private void checkDebtFree_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(checkDebtFree,checkGroupResearchMerge);
+
+        private void checkLimitDAReffect_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(checkLimitDAReffect,checkLimitMAReffect);
+
+        private void checkLimitInScenario_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(checkLimitInScenario,checkNoSphere);
+
+        private void checkRestrictTechTrade_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(checkRestrictTechTrade,checkCampaignGame);
+
+        private void checkRegionEquip_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(checkRegionEquip,checkGovChoice);
+
+        private void checkFastBuild_SizeChanged(object sender, EventArgs e) 
+            => AdjustElementPosition(checkFastBuild,checkRelationsEffect);
+
+        // Keep checks in column
+        private void AdjustChecksColumnPosition()
+        {
+
+        }
     }
 }
