@@ -108,6 +108,12 @@
     <Compile Include="Forms\editorMainWindow.Designer.cs">
       <DependentUpon>editorMainWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\helpWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\helpWindow.Designer.cs">
+      <DependentUpon>helpWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\settingsWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -167,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\editorMainWindow.resx">
       <DependentUpon>editorMainWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\helpWindow.resx">
+      <DependentUpon>helpWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\settingsWindow.resx">
       <DependentUpon>settingsWindow.cs</DependentUpon>
@@ -240,6 +249,7 @@
     <None Include="Resources\gearIcon.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\questionMark.png" />
     <Content Include="SReditorIcon.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

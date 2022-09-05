@@ -40,19 +40,20 @@
             this.tabSettingsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tabScenarioBtn = new Guna.UI2.WinForms.Guna2Button();
             this.mainUCPanel = new System.Windows.Forms.Panel();
+            this.panelBottom = new System.Windows.Forms.Panel();
+            this.btnOpenExportedScenarioFolder = new System.Windows.Forms.Button();
+            this.exportScenarioButton = new System.Windows.Forms.Button();
+            this.buttonHelp = new System.Windows.Forms.Button();
             this.settingsButton = new System.Windows.Forms.Button();
             this.logoApp = new System.Windows.Forms.PictureBox();
             this.logoEight = new System.Windows.Forms.PictureBox();
             this.exitButton = new System.Windows.Forms.Button();
             this.infoButton = new System.Windows.Forms.Button();
-            this.panelBottom = new System.Windows.Forms.Panel();
-            this.btnOpenExportedScenarioFolder = new System.Windows.Forms.Button();
-            this.exportScenarioButton = new System.Windows.Forms.Button();
             this.toolbarPanel.SuspendLayout();
             this.tabsPanel.SuspendLayout();
+            this.panelBottom.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoApp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoEight)).BeginInit();
-            this.panelBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolbarPanel
@@ -256,6 +257,53 @@
             this.mainUCPanel.Size = new System.Drawing.Size(1800, 1150);
             this.mainUCPanel.TabIndex = 4;
             // 
+            // panelBottom
+            // 
+            this.panelBottom.BackColor = System.Drawing.Color.Gray;
+            this.panelBottom.Controls.Add(this.buttonHelp);
+            this.panelBottom.Controls.Add(this.btnOpenExportedScenarioFolder);
+            this.panelBottom.Controls.Add(this.exportScenarioButton);
+            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBottom.Location = new System.Drawing.Point(3, 1203);
+            this.panelBottom.Name = "panelBottom";
+            this.panelBottom.Size = new System.Drawing.Size(1800, 147);
+            this.panelBottom.TabIndex = 5;
+            // 
+            // btnOpenExportedScenarioFolder
+            // 
+            this.btnOpenExportedScenarioFolder.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnOpenExportedScenarioFolder.Location = new System.Drawing.Point(543, 33);
+            this.btnOpenExportedScenarioFolder.Name = "btnOpenExportedScenarioFolder";
+            this.btnOpenExportedScenarioFolder.Size = new System.Drawing.Size(257, 81);
+            this.btnOpenExportedScenarioFolder.TabIndex = 61;
+            this.btnOpenExportedScenarioFolder.Text = "Open Exported\r\nScenario Folder";
+            this.btnOpenExportedScenarioFolder.UseVisualStyleBackColor = true;
+            this.btnOpenExportedScenarioFolder.Click += new System.EventHandler(this.btnOpenExportedScenarioFolder_Click);
+            // 
+            // exportScenarioButton
+            // 
+            this.exportScenarioButton.Enabled = false;
+            this.exportScenarioButton.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.exportScenarioButton.Location = new System.Drawing.Point(857, 23);
+            this.exportScenarioButton.Name = "exportScenarioButton";
+            this.exportScenarioButton.Size = new System.Drawing.Size(400, 100);
+            this.exportScenarioButton.TabIndex = 60;
+            this.exportScenarioButton.Text = "Export Scenario";
+            this.exportScenarioButton.UseVisualStyleBackColor = true;
+            this.exportScenarioButton.Click += new System.EventHandler(this.exportScenarioButton_Click);
+            // 
+            // buttonHelp
+            // 
+            this.buttonHelp.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.buttonHelp.BackgroundImage = global::SRScenarioCreatorEnhanced.Properties.Resources.questionMark;
+            this.buttonHelp.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.buttonHelp.Location = new System.Drawing.Point(1677, 23);
+            this.buttonHelp.Name = "buttonHelp";
+            this.buttonHelp.Size = new System.Drawing.Size(100, 100);
+            this.buttonHelp.TabIndex = 6;
+            this.buttonHelp.UseVisualStyleBackColor = true;
+            this.buttonHelp.Click += new System.EventHandler(this.buttonHelp_Click);
+            // 
             // settingsButton
             // 
             this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -312,40 +360,6 @@
             this.infoButton.UseVisualStyleBackColor = true;
             this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
             // 
-            // panelBottom
-            // 
-            this.panelBottom.BackColor = System.Drawing.Color.Gray;
-            this.panelBottom.Controls.Add(this.btnOpenExportedScenarioFolder);
-            this.panelBottom.Controls.Add(this.exportScenarioButton);
-            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelBottom.Location = new System.Drawing.Point(3, 1203);
-            this.panelBottom.Name = "panelBottom";
-            this.panelBottom.Size = new System.Drawing.Size(1800, 147);
-            this.panelBottom.TabIndex = 5;
-            // 
-            // btnOpenExportedScenarioFolder
-            // 
-            this.btnOpenExportedScenarioFolder.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOpenExportedScenarioFolder.Location = new System.Drawing.Point(543, 33);
-            this.btnOpenExportedScenarioFolder.Name = "btnOpenExportedScenarioFolder";
-            this.btnOpenExportedScenarioFolder.Size = new System.Drawing.Size(257, 81);
-            this.btnOpenExportedScenarioFolder.TabIndex = 61;
-            this.btnOpenExportedScenarioFolder.Text = "Open Exported\r\nScenario Folder";
-            this.btnOpenExportedScenarioFolder.UseVisualStyleBackColor = true;
-            this.btnOpenExportedScenarioFolder.Click += new System.EventHandler(this.btnOpenExportedScenarioFolder_Click);
-            // 
-            // exportScenarioButton
-            // 
-            this.exportScenarioButton.Enabled = false;
-            this.exportScenarioButton.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.exportScenarioButton.Location = new System.Drawing.Point(857, 23);
-            this.exportScenarioButton.Name = "exportScenarioButton";
-            this.exportScenarioButton.Size = new System.Drawing.Size(400, 100);
-            this.exportScenarioButton.TabIndex = 60;
-            this.exportScenarioButton.Text = "Export Scenario";
-            this.exportScenarioButton.UseVisualStyleBackColor = true;
-            this.exportScenarioButton.Click += new System.EventHandler(this.exportScenarioButton_Click);
-            // 
             // editorMainWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
@@ -366,9 +380,9 @@
             this.toolbarPanel.ResumeLayout(false);
             this.toolbarPanel.PerformLayout();
             this.tabsPanel.ResumeLayout(false);
+            this.panelBottom.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logoApp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoEight)).EndInit();
-            this.panelBottom.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -393,6 +407,7 @@
         private System.Windows.Forms.Panel panelBottom;
         private System.Windows.Forms.Button btnOpenExportedScenarioFolder;
         private System.Windows.Forms.Button exportScenarioButton;
+        private System.Windows.Forms.Button buttonHelp;
     }
 }
 

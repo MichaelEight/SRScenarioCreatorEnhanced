@@ -5,11 +5,9 @@ using SRScenarioCreatorEnhanced.Forms;
 using SRScenarioCreatorEnhanced.UserControls;
 using System;
 using System.Collections.Generic;
-using System.Deployment.Application;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Reflection;
 using System.Windows.Forms;
 
 // ***NOTE***
@@ -50,6 +48,9 @@ namespace SRScenarioCreatorEnhanced
         private UC_Resources currentUCResources;
         private UC_WM currentUCWM;
         private UC_Orbat currentUCOrbat;
+
+        // Help window
+        internal event EventHandler TabChanged;
 
         public editorMainWindow()
         {
@@ -210,19 +211,25 @@ namespace SRScenarioCreatorEnhanced
         }
 
         // Display new tab
-        private void addUserControl(UserControl userControl)
+        private void addUserControl(UserControl uc)
         {
-            userControl.Dock = DockStyle.Fill;
+            // Send Tab Changed event
+            if(TabChanged != null)
+            {
+                TabChanged(this, null);
+            }
+
+            uc.Dock = DockStyle.Fill;
             
             foreach(Control c in mainUCPanel.Controls)
             {
-                if (c is UserControl)
+                if (c.Name == uc.Name)
                     c.Visible = true;
                 else
                     c.Visible = false;
             }
 
-            userControl.BringToFront();
+            uc.BringToFront();
         }
         
         #endregion
@@ -257,9 +264,7 @@ namespace SRScenarioCreatorEnhanced
         #region tabsButtons
 
         // Tab buttons click event
-
-        // tabScenario is public, so export button can work
-        internal void tabScenarioBtn_Click(object sender, EventArgs e) => addUserControl(currentUCScenario);
+        private void tabScenarioBtn_Click(object sender, EventArgs e) => addUserControl(currentUCScenario);
 
         private void tabSettingsBtn_Click(object sender, EventArgs e) => addUserControl(currentUCSettings);
 
@@ -374,5 +379,12 @@ namespace SRScenarioCreatorEnhanced
         }
 
         #endregion
+
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            helpWindow hw = new helpWindow(this, mainUCPanel);
+            // Do not show as dialog! It has to be available simultaneously with mainEditorWindow!
+            hw.Show(); 
+        }
     }
 }
