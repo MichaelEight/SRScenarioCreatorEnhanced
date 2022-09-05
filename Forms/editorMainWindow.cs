@@ -234,15 +234,8 @@ namespace SRScenarioCreatorEnhanced
         // Info button clicked
         private void infoButton_Click(object sender, EventArgs e)
         {
-            // Get assembly version
-            string versionNumber = ApplicationDeployment.IsNetworkDeployed
-               ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString()
-               : Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
-            // Display assembly version in message box
-            _ = MessageBox.Show($"Current version: {versionNumber}\n" +
-                $"Contributors: Michael '8', xperga", "About Editor", MessageBoxButtons.OK,
-                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            aboutWindow aw = new aboutWindow();
+            aw.ShowDialog();
         }
 
         private void settingsButton_Click(object sender, EventArgs e)

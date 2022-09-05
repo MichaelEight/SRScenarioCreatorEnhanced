@@ -16,6 +16,9 @@ public static class Globals
 
 public static class Configuration
 {
+    // EDIT EVERY NEW RELEASE!
+    public const string editorVersion = "Alpha 3";
+
     // @"[path_to_steam]\Steam Games\steamapps\common\Supreme Ruler Ultimate"
     // Preferably auto-detect SR folder OR leave it empty and force user to choose path at 1st start
     public static string baseGameDirectory = Directory.GetCurrentDirectory();
