@@ -6,6 +6,7 @@ using SRScenarioCreatorEnhanced.UserControls;
 using System;
 using System.Collections.Generic;
 using System.Deployment.Application;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
@@ -93,11 +94,29 @@ namespace SRScenarioCreatorEnhanced
             AdjustEditorSizeToScale();
 
             UpdateComboListOnDirChange();
+
+            currentUCScenario.ExportButtonEnabled += HandleExportButtonEnabled;
+            currentUCScenario.ExportButtonDisabled += HandleExportButtonDisabled;
         }
+
         internal void UpdateComboListOnDirChange()
         {
             currentUCScenario.loadFileNamesToEachComponent();
         }
+
+        /// <summary>
+        /// Editor holds data in the back-end *Content files. Load that data into front-end UC_*
+        /// </summary>
+        internal void LoadSavedDataIntoProperUCs()
+        {
+            // Move data on settings from placeholder to actual settings
+            currentSettings = currentScenario.settings;
+            
+            // Load settings from saved data to it's UC
+            currentUCSettings.LoadSavedDataIntoComponents();
+        }
+        
+        #region LoadingSavingEditorSettings
 
         private void LoadEditorSettingsFromFile()
         {
@@ -131,7 +150,6 @@ namespace SRScenarioCreatorEnhanced
             }
         }
 
-
         internal void SaveEditorSettingsToFile()
         {
             string directory = Directory.GetCurrentDirectory() + @"\editor.stngs";
@@ -157,17 +175,7 @@ namespace SRScenarioCreatorEnhanced
             });
         }
 
-        /// <summary>
-        /// Editor holds data in the back-end *Content files. Load that data into front-end UC_*
-        /// </summary>
-        internal void LoadSavedDataIntoProperUCs()
-        {
-            // Move data on settings from placeholder to actual settings
-            currentSettings = currentScenario.settings;
-            
-            // Load settings from saved data to it's UC
-            currentUCSettings.LoadSavedDataIntoComponents();
-        }
+        #endregion
 
         #region generalWindowControls
 
@@ -315,6 +323,54 @@ namespace SRScenarioCreatorEnhanced
             // Keep fontFamily and fontStyle
             foreach (Control c in component.Controls)
                 c.Font = new Font(c.Font.FontFamily, c.Font.Size * factor, c.Font.Style);
+        }
+
+        #endregion
+
+        #region Exporting
+        private void HandleExportButtonEnabled(object sender, EventArgs e)
+        {
+            exportScenarioButton.Enabled = true;
+        }
+        private void HandleExportButtonDisabled(object sender, EventArgs e)
+        {
+            exportScenarioButton.Enabled = false;
+        }
+
+        private void exportScenarioButton_Click(object sender, EventArgs e)
+        {
+            // Copy settings data to scenario, prepare for export
+            currentScenario.settings = currentSettings;
+
+            currentScenario.exportScenarioToFileAndFolder();
+            _ = MessageBox.Show("Scenario exported! (Well, editor tried, at least)", "Export Finished",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void btnOpenExportedScenarioFolder_Click(object sender, EventArgs e)
+        {
+            string folderPath = Configuration.baseExportDirectory;
+            try
+            {
+                if (Directory.Exists(folderPath))
+                {
+                    ProcessStartInfo startInfo = new ProcessStartInfo
+                    {
+                        Arguments = folderPath,
+                        FileName = "explorer.exe"
+                    };
+
+                    _ = Process.Start(startInfo);
+                }
+                else
+                {
+                    _ = MessageBox.Show(string.Format("{0} Directory does not exist!", folderPath));
+                }
+            }
+            catch (Exception err)
+            {
+                // Some error (exception) happened
+                _ = MessageBox.Show(err.Message);
+            }
         }
 
         #endregion

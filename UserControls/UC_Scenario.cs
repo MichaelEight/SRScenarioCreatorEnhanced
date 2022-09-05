@@ -3,7 +3,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -21,6 +20,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
     {
         // Reference to editorMainWindow ; allows to edit currently active scenario's data
         private readonly editorMainWindow mainWindow;
+
+        public event EventHandler ExportButtonEnabled;
+        public event EventHandler ExportButtonDisabled;
 
         public UC_Scenario(editorMainWindow mainWindow)
         {
@@ -191,7 +193,12 @@ namespace SRScenarioCreatorEnhanced.UserControls
             {
                 // Unlock Settings Tab and Export Button -- basic unlock
                 Globals.isSettingsActive = true;
-                exportScenarioButton.Enabled = true;
+                
+                // Enable Export Button
+                if(ExportButtonEnabled != null)
+                {
+                    ExportButtonEnabled(this, null);
+                }
 
                 // Unlock Theaters and Regions tabs
                 Globals.isTheatersActive = checkModifyCVP.Checked;
@@ -206,7 +213,11 @@ namespace SRScenarioCreatorEnhanced.UserControls
             }
             else // Disable them, if requirements are no longer met
             {
-                exportScenarioButton.Enabled = false;
+                // Disable Export Button
+                if (ExportButtonDisabled != null)
+                {
+                    ExportButtonDisabled(this, null);
+                }
 
                 Globals.isSettingsActive = false;
                 Globals.isTheatersActive = false;
@@ -534,46 +545,6 @@ namespace SRScenarioCreatorEnhanced.UserControls
             activateOtherTabsIfPossible();
         }
         #endregion
-
-        #endregion
-
-        #region Exporting
-
-        private void exportScenarioButton_Click(object sender, EventArgs e)
-        {
-            // Copy settings data to scenario, prepare for export
-            mainWindow.currentScenario.settings = mainWindow.currentSettings;
-
-            mainWindow.currentScenario.exportScenarioToFileAndFolder();
-            _ = MessageBox.Show("Scenario exported! (Well, editor tried, at least)", "Export Finished",
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-        private void btnOpenExportedScenarioFolder_Click(object sender, EventArgs e)
-        {
-            string folderPath = Configuration.baseExportDirectory;
-            try
-            {
-                if (Directory.Exists(folderPath))
-                {
-                    ProcessStartInfo startInfo = new ProcessStartInfo
-                    {
-                        Arguments = folderPath,
-                        FileName = "explorer.exe"
-                    };
-
-                    _ = Process.Start(startInfo);
-                }
-                else
-                {
-                    _ = MessageBox.Show(string.Format("{0} Directory does not exist!", folderPath));
-                }
-            }
-            catch (Exception err)
-            {
-                // Some error (exception) happened
-                _ = MessageBox.Show(err.Message);
-            }
-        }
 
         #endregion
 

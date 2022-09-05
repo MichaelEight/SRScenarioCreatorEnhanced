@@ -30,11 +30,6 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(editorMainWindow));
             this.toolbarPanel = new System.Windows.Forms.Panel();
-            this.settingsButton = new System.Windows.Forms.Button();
-            this.logoApp = new System.Windows.Forms.PictureBox();
-            this.logoEight = new System.Windows.Forms.PictureBox();
-            this.exitButton = new System.Windows.Forms.Button();
-            this.infoButton = new System.Windows.Forms.Button();
             this.titleLabel = new System.Windows.Forms.Label();
             this.tabsPanel = new System.Windows.Forms.Panel();
             this.tabOrbatBtn = new Guna.UI2.WinForms.Guna2Button();
@@ -45,10 +40,19 @@
             this.tabSettingsBtn = new Guna.UI2.WinForms.Guna2Button();
             this.tabScenarioBtn = new Guna.UI2.WinForms.Guna2Button();
             this.mainUCPanel = new System.Windows.Forms.Panel();
+            this.settingsButton = new System.Windows.Forms.Button();
+            this.logoApp = new System.Windows.Forms.PictureBox();
+            this.logoEight = new System.Windows.Forms.PictureBox();
+            this.exitButton = new System.Windows.Forms.Button();
+            this.infoButton = new System.Windows.Forms.Button();
+            this.panelBottom = new System.Windows.Forms.Panel();
+            this.btnOpenExportedScenarioFolder = new System.Windows.Forms.Button();
+            this.exportScenarioButton = new System.Windows.Forms.Button();
             this.toolbarPanel.SuspendLayout();
+            this.tabsPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoApp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoEight)).BeginInit();
-            this.tabsPanel.SuspendLayout();
+            this.panelBottom.SuspendLayout();
             this.SuspendLayout();
             // 
             // toolbarPanel
@@ -67,62 +71,6 @@
             this.toolbarPanel.Size = new System.Drawing.Size(1800, 100);
             this.toolbarPanel.TabIndex = 2;
             this.toolbarPanel.MouseDown += new System.Windows.Forms.MouseEventHandler(this.toolbarPanel_MouseDown);
-            // 
-            // settingsButton
-            // 
-            this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.settingsButton.BackgroundImage = global::SRScenarioCreatorEnhanced.Properties.Resources.gearIcon;
-            this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.settingsButton.Location = new System.Drawing.Point(1495, 12);
-            this.settingsButton.Name = "settingsButton";
-            this.settingsButton.Size = new System.Drawing.Size(70, 70);
-            this.settingsButton.TabIndex = 5;
-            this.settingsButton.UseVisualStyleBackColor = true;
-            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
-            // 
-            // logoApp
-            // 
-            this.logoApp.Image = global::SRScenarioCreatorEnhanced.Properties.Resources.SReditorIcon;
-            this.logoApp.Location = new System.Drawing.Point(12, 12);
-            this.logoApp.Name = "logoApp";
-            this.logoApp.Size = new System.Drawing.Size(70, 70);
-            this.logoApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.logoApp.TabIndex = 3;
-            this.logoApp.TabStop = false;
-            // 
-            // logoEight
-            // 
-            this.logoEight.Image = global::SRScenarioCreatorEnhanced.Properties.Resources.eightPic;
-            this.logoEight.Location = new System.Drawing.Point(99, 12);
-            this.logoEight.Name = "logoEight";
-            this.logoEight.Size = new System.Drawing.Size(70, 70);
-            this.logoEight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.logoEight.TabIndex = 4;
-            this.logoEight.TabStop = false;
-            // 
-            // exitButton
-            // 
-            this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.exitButton.BackgroundImage = global::SRScenarioCreatorEnhanced.Properties.Resources.appExitIcon;
-            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.exitButton.Location = new System.Drawing.Point(1707, 12);
-            this.exitButton.Name = "exitButton";
-            this.exitButton.Size = new System.Drawing.Size(70, 70);
-            this.exitButton.TabIndex = 0;
-            this.exitButton.UseVisualStyleBackColor = true;
-            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
-            // 
-            // infoButton
-            // 
-            this.infoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.infoButton.BackgroundImage = global::SRScenarioCreatorEnhanced.Properties.Resources.appInfoIcon2smaller;
-            this.infoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.infoButton.Location = new System.Drawing.Point(1600, 12);
-            this.infoButton.Name = "infoButton";
-            this.infoButton.Size = new System.Drawing.Size(70, 70);
-            this.infoButton.TabIndex = 1;
-            this.infoButton.UseVisualStyleBackColor = true;
-            this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
             // 
             // titleLabel
             // 
@@ -305,8 +253,98 @@
             this.mainUCPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.mainUCPanel.Location = new System.Drawing.Point(3, 200);
             this.mainUCPanel.Name = "mainUCPanel";
-            this.mainUCPanel.Size = new System.Drawing.Size(1800, 1000);
+            this.mainUCPanel.Size = new System.Drawing.Size(1800, 1150);
             this.mainUCPanel.TabIndex = 4;
+            // 
+            // settingsButton
+            // 
+            this.settingsButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.settingsButton.BackgroundImage = global::SRScenarioCreatorEnhanced.Properties.Resources.gearIcon;
+            this.settingsButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.settingsButton.Location = new System.Drawing.Point(1495, 12);
+            this.settingsButton.Name = "settingsButton";
+            this.settingsButton.Size = new System.Drawing.Size(70, 70);
+            this.settingsButton.TabIndex = 5;
+            this.settingsButton.UseVisualStyleBackColor = true;
+            this.settingsButton.Click += new System.EventHandler(this.settingsButton_Click);
+            // 
+            // logoApp
+            // 
+            this.logoApp.Image = global::SRScenarioCreatorEnhanced.Properties.Resources.SReditorIcon;
+            this.logoApp.Location = new System.Drawing.Point(12, 12);
+            this.logoApp.Name = "logoApp";
+            this.logoApp.Size = new System.Drawing.Size(70, 70);
+            this.logoApp.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.logoApp.TabIndex = 3;
+            this.logoApp.TabStop = false;
+            // 
+            // logoEight
+            // 
+            this.logoEight.Image = global::SRScenarioCreatorEnhanced.Properties.Resources.eightPic;
+            this.logoEight.Location = new System.Drawing.Point(99, 12);
+            this.logoEight.Name = "logoEight";
+            this.logoEight.Size = new System.Drawing.Size(70, 70);
+            this.logoEight.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.logoEight.TabIndex = 4;
+            this.logoEight.TabStop = false;
+            // 
+            // exitButton
+            // 
+            this.exitButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.exitButton.BackgroundImage = global::SRScenarioCreatorEnhanced.Properties.Resources.appExitIcon;
+            this.exitButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.exitButton.Location = new System.Drawing.Point(1707, 12);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.Size = new System.Drawing.Size(70, 70);
+            this.exitButton.TabIndex = 0;
+            this.exitButton.UseVisualStyleBackColor = true;
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // infoButton
+            // 
+            this.infoButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.infoButton.BackgroundImage = global::SRScenarioCreatorEnhanced.Properties.Resources.appInfoIcon2smaller;
+            this.infoButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.infoButton.Location = new System.Drawing.Point(1600, 12);
+            this.infoButton.Name = "infoButton";
+            this.infoButton.Size = new System.Drawing.Size(70, 70);
+            this.infoButton.TabIndex = 1;
+            this.infoButton.UseVisualStyleBackColor = true;
+            this.infoButton.Click += new System.EventHandler(this.infoButton_Click);
+            // 
+            // panelBottom
+            // 
+            this.panelBottom.BackColor = System.Drawing.Color.Gray;
+            this.panelBottom.Controls.Add(this.btnOpenExportedScenarioFolder);
+            this.panelBottom.Controls.Add(this.exportScenarioButton);
+            this.panelBottom.Dock = System.Windows.Forms.DockStyle.Bottom;
+            this.panelBottom.Location = new System.Drawing.Point(3, 1203);
+            this.panelBottom.Name = "panelBottom";
+            this.panelBottom.Size = new System.Drawing.Size(1800, 147);
+            this.panelBottom.TabIndex = 5;
+            // 
+            // btnOpenExportedScenarioFolder
+            // 
+            this.btnOpenExportedScenarioFolder.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.btnOpenExportedScenarioFolder.Location = new System.Drawing.Point(543, 33);
+            this.btnOpenExportedScenarioFolder.Name = "btnOpenExportedScenarioFolder";
+            this.btnOpenExportedScenarioFolder.Size = new System.Drawing.Size(257, 81);
+            this.btnOpenExportedScenarioFolder.TabIndex = 61;
+            this.btnOpenExportedScenarioFolder.Text = "Open Exported\r\nScenario Folder";
+            this.btnOpenExportedScenarioFolder.UseVisualStyleBackColor = true;
+            this.btnOpenExportedScenarioFolder.Click += new System.EventHandler(this.btnOpenExportedScenarioFolder_Click);
+            // 
+            // exportScenarioButton
+            // 
+            this.exportScenarioButton.Enabled = false;
+            this.exportScenarioButton.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.exportScenarioButton.Location = new System.Drawing.Point(857, 23);
+            this.exportScenarioButton.Name = "exportScenarioButton";
+            this.exportScenarioButton.Size = new System.Drawing.Size(400, 100);
+            this.exportScenarioButton.TabIndex = 60;
+            this.exportScenarioButton.Text = "Export Scenario";
+            this.exportScenarioButton.UseVisualStyleBackColor = true;
+            this.exportScenarioButton.Click += new System.EventHandler(this.exportScenarioButton_Click);
             // 
             // editorMainWindow
             // 
@@ -314,7 +352,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.BackColor = System.Drawing.Color.Black;
-            this.ClientSize = new System.Drawing.Size(1806, 1203);
+            this.ClientSize = new System.Drawing.Size(1806, 1353);
+            this.Controls.Add(this.panelBottom);
             this.Controls.Add(this.mainUCPanel);
             this.Controls.Add(this.tabsPanel);
             this.Controls.Add(this.toolbarPanel);
@@ -326,9 +365,10 @@
             this.Text = "editorMainWindow";
             this.toolbarPanel.ResumeLayout(false);
             this.toolbarPanel.PerformLayout();
+            this.tabsPanel.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.logoApp)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoEight)).EndInit();
-            this.tabsPanel.ResumeLayout(false);
+            this.panelBottom.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -350,6 +390,9 @@
         private System.Windows.Forms.PictureBox logoApp;
         private System.Windows.Forms.PictureBox logoEight;
         private System.Windows.Forms.Button settingsButton;
+        private System.Windows.Forms.Panel panelBottom;
+        private System.Windows.Forms.Button btnOpenExportedScenarioFolder;
+        private System.Windows.Forms.Button exportScenarioButton;
     }
 }
 

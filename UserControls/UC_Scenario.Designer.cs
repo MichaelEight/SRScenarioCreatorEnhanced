@@ -65,7 +65,6 @@
             this.checkModifyWM = new System.Windows.Forms.CheckBox();
             this.checkModifyOOB = new System.Windows.Forms.CheckBox();
             this.checkNoneditDefault = new System.Windows.Forms.CheckBox();
-            this.exportScenarioButton = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -83,7 +82,6 @@
             this.labelRequiredNewsItems = new System.Windows.Forms.Label();
             this.labelRequiredProfile = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
-            this.btnOpenExportedScenarioFolder = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // labelScenarioName
@@ -485,18 +483,6 @@
             this.checkNoneditDefault.UseVisualStyleBackColor = true;
             this.checkNoneditDefault.CheckedChanged += new System.EventHandler(this.checkNoneditDefault_CheckedChanged);
             // 
-            // exportScenarioButton
-            // 
-            this.exportScenarioButton.Enabled = false;
-            this.exportScenarioButton.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.exportScenarioButton.Location = new System.Drawing.Point(689, 827);
-            this.exportScenarioButton.Name = "exportScenarioButton";
-            this.exportScenarioButton.Size = new System.Drawing.Size(400, 100);
-            this.exportScenarioButton.TabIndex = 40;
-            this.exportScenarioButton.Text = "Export Scenario";
-            this.exportScenarioButton.UseVisualStyleBackColor = true;
-            this.exportScenarioButton.Click += new System.EventHandler(this.exportScenarioButton_Click);
-            // 
             // label11
             // 
             this.label11.AutoSize = true;
@@ -680,23 +666,10 @@
             this.label15.TabIndex = 58;
             this.label15.Text = "(R) -- Required to Proceed";
             // 
-            // btnOpenExportedScenarioFolder
-            // 
-            this.btnOpenExportedScenarioFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenExportedScenarioFolder.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOpenExportedScenarioFolder.Location = new System.Drawing.Point(375, 837);
-            this.btnOpenExportedScenarioFolder.Name = "btnOpenExportedScenarioFolder";
-            this.btnOpenExportedScenarioFolder.Size = new System.Drawing.Size(257, 81);
-            this.btnOpenExportedScenarioFolder.TabIndex = 59;
-            this.btnOpenExportedScenarioFolder.Text = "Open Exported\r\nScenario Folder";
-            this.btnOpenExportedScenarioFolder.UseVisualStyleBackColor = true;
-            this.btnOpenExportedScenarioFolder.Click += new System.EventHandler(this.btnOpenExportedScenarioFolder_Click);
-            // 
             // UC_Scenario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnOpenExportedScenarioFolder);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.labelRequiredProfile);
             this.Controls.Add(this.labelRequiredNewsItems);
@@ -714,7 +687,6 @@
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.label11);
-            this.Controls.Add(this.exportScenarioButton);
             this.Controls.Add(this.checkNoneditDefault);
             this.Controls.Add(this.checkModifyOOB);
             this.Controls.Add(this.checkModifyCVP);
@@ -798,7 +770,6 @@
         private System.Windows.Forms.CheckBox checkModifyWM;
         private System.Windows.Forms.CheckBox checkModifyOOB;
         private System.Windows.Forms.CheckBox checkNoneditDefault;
-        private System.Windows.Forms.Button exportScenarioButton;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label18;
@@ -816,6 +787,5 @@
         private System.Windows.Forms.Label labelRequiredNewsItems;
         private System.Windows.Forms.Label labelRequiredProfile;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnOpenExportedScenarioFolder;
     }
 }

@@ -2,6 +2,7 @@
 /// Originally used in the SRScenarioCreatorEnhanced project: https://github.com/r20de20/SRScenarioCreatorEnhanced
 
 using System.IO;
+using System.Reflection;
 using System.Windows.Forms;
 public static class Globals
 {
@@ -17,7 +18,10 @@ public static class Globals
 public static class Configuration
 {
     // EDIT EVERY NEW RELEASE!
+    // Manual version of app
     public const string editorVersion = "Alpha 3";
+    // Auto version of assembly
+    public static string assemblyVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
     // @"[path_to_steam]\Steam Games\steamapps\common\Supreme Ruler Ultimate"
     // Preferably auto-detect SR folder OR leave it empty and force user to choose path at 1st start
