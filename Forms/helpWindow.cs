@@ -7,24 +7,12 @@ namespace SRScenarioCreatorEnhanced.Forms
     {
         // Access to main editor window
         editorMainWindow mainWindow;
-        Panel mainPanel;
 
-        public helpWindow(editorMainWindow emw, Panel mucp)
+        public helpWindow(editorMainWindow emw)
         {
             InitializeComponent();
 
             mainWindow = emw;
-            mainPanel = mucp;
-
-            mainWindow.TabChanged += HandleTabChanged;
-        }
-
-        private void HandleTabChanged(object sender, EventArgs e)
-        {
-            foreach(UserControl c in mainPanel.Controls)
-            {
-                MessageBox.Show(c.Name + "-" + c.Visible);
-            }
         }
     }
 }

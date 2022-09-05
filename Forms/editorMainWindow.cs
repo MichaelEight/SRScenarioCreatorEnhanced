@@ -49,9 +49,6 @@ namespace SRScenarioCreatorEnhanced
         private UC_WM currentUCWM;
         private UC_Orbat currentUCOrbat;
 
-        // Help window
-        internal event EventHandler TabChanged;
-
         public editorMainWindow()
         {
             InitializeComponent();
@@ -213,12 +210,6 @@ namespace SRScenarioCreatorEnhanced
         // Display new tab
         private void addUserControl(UserControl uc)
         {
-            // Send Tab Changed event
-            if(TabChanged != null)
-            {
-                TabChanged(this, null);
-            }
-
             uc.Dock = DockStyle.Fill;
             
             foreach(Control c in mainUCPanel.Controls)
@@ -382,7 +373,7 @@ namespace SRScenarioCreatorEnhanced
 
         private void buttonHelp_Click(object sender, EventArgs e)
         {
-            helpWindow hw = new helpWindow(this, mainUCPanel);
+            helpWindow hw = new helpWindow(this);
             // Do not show as dialog! It has to be available simultaneously with mainEditorWindow!
             hw.Show(); 
         }
