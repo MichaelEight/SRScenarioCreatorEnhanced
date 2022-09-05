@@ -120,6 +120,7 @@
     <Compile Include="Forms\settingsWindow.Designer.cs">
       <DependentUpon>settingsWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="src\LanguageData.cs" />
     <Compile Include="src\Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="src\GlobalsList.cs" />

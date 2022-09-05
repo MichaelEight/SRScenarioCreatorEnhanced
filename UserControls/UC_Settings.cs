@@ -23,7 +23,8 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
             debugInputChangedTime = DateTime.Now;
 
-            betaTranslation();
+            // Reset labels and checks' text to fit them with according components (e.g. comboboxes)
+            ResetLabelsPositionsToFit();
         }
 
         /// <summary>
@@ -416,7 +417,13 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         #endregion
 
-        void betaTranslation()
+        #region Translation
+
+        /// <summary>
+        /// Adds space to all texts (labels and 1st column of checks) to trigger reposition event.
+        /// It's faster than calling each event separately
+        /// </summary>
+        void ResetLabelsPositionsToFit()
         {
             foreach(Control l in this.Controls)
             {
@@ -435,11 +442,13 @@ namespace SRScenarioCreatorEnhanced.UserControls
         {
             // If left and right elements are misaligned
             if (onLeft.Right > onRight.Left || onLeft.Right < onRight.Left)
-                // Move left to the border of right (if it's a checkbox, keep some distance)
+                // Move left to the border of right (if it's a checkbox, keep some additional distance)
                 onLeft.Left = onRight.Left - onLeft.Width + (onLeft.Name.Contains("check") ? -40:0);
         }
-        
-        // Difficulties
+
+        #region Events
+
+        #region Difficulties
         private void labelDiplomacyDifficulty_SizeChanged(object sender, EventArgs e)
             => AdjustElementPosition(labelDiplomacyDifficulty, comboDiplomacyDiff);
 
@@ -449,7 +458,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
         private void labelEconomicDifficulty_SizeChanged(object sender, EventArgs e)
             => AdjustElementPosition(labelEconomicDifficulty,comboEconomicDiff);
 
-        // AI Settings
+        #endregion
+
+        #region AISettings
         private void labelAIStance_SizeChanged(object sender, EventArgs e) 
             => AdjustElementPosition(labelAIStance,comboAiStance);
 
@@ -458,15 +469,19 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void labelApprovalEffect_SizeChanged(object sender, EventArgs e) 
             => AdjustElementPosition(labelApprovalEffect,comboApprovalEffect);
+        
+        #endregion
 
-        // Victory Conditions
+        #region VictoryConditions
         private void labelGameLength_SizeChanged(object sender, EventArgs e) 
             => AdjustElementPosition(labelGameLength,comboGameLength);
 
         private void labelVictory_SizeChanged(object sender, EventArgs e) 
             => AdjustElementPosition(labelVictory,comboVictoryCondition);
 
-        // General Info
+        #endregion
+
+        #region GeneralInfo
         private void labelStartingDate_SizeChanged(object sender, EventArgs e) 
             => AdjustElementPosition(labelStartingDate,dateStartingDate);
 
@@ -479,14 +494,19 @@ namespace SRScenarioCreatorEnhanced.UserControls
         private void labelFastForwardDays_SizeChanged(object sender, EventArgs e) 
             => AdjustElementPosition(labelFastForwardDays,numericFastForwardDays);
 
-        // Starting conditions
+        #endregion
+
+        #region StartingConditions
         private void labelInitialFunds_SizeChanged(object sender, EventArgs e) 
             => AdjustElementPosition(labelInitialFunds,comboInitialFunds);
 
         private void labelResourcesLevel_SizeChanged(object sender, EventArgs e) 
             => AdjustElementPosition(labelResourcesLevel,comboResourcesLevel);
 
-        // Graphic
+        #endregion
+
+        #region Graphic
+
         private void labelMapGUI_SizeChanged(object sender, EventArgs e) 
             => AdjustElementPosition(labelMapGUI,comboMapGui);
 
@@ -496,7 +516,10 @@ namespace SRScenarioCreatorEnhanced.UserControls
         private void labelMapMusic_SizeChanged(object sender, EventArgs e) 
             => AdjustElementPosition(labelMapMusic,numericMapMusic);
 
-        // Miscellaneous
+        #endregion
+
+        #region Miscellaneous
+
         private void labelStartingYear_SizeChanged(object sender, EventArgs e) 
             => AdjustElementPosition(labelStartingYear,numericStartingYear);
 
@@ -512,7 +535,9 @@ namespace SRScenarioCreatorEnhanced.UserControls
         private void labelSphereNN_SizeChanged(object sender, EventArgs e) 
             => AdjustElementPosition(labelSphereNN,textSphereNN);
 
-        // Checks
+        #endregion
+
+        #region Checks
 
         private void checkNoCapitalMove_SizeChanged(object sender, EventArgs e) 
             => AdjustElementPosition(checkNoCapitalMove,checkNoLoyPenalty);
@@ -544,10 +569,10 @@ namespace SRScenarioCreatorEnhanced.UserControls
         private void checkFastBuild_SizeChanged(object sender, EventArgs e) 
             => AdjustElementPosition(checkFastBuild,checkRelationsEffect);
 
-        // Keep checks in column
-        private void AdjustChecksColumnPosition()
-        {
+        #endregion
 
-        }
+        #endregion
+
+        #endregion
     }
 }
