@@ -11,12 +11,17 @@ namespace SRScenarioCreatorEnhanced.UserControls
         private readonly editorMainWindow mainWindow;
         private DateTime debugInputChangedTime;
 
+        private LanguageData lang;
+
         SettingsContent backupForUndo;
 
         public UC_Settings(editorMainWindow mainWindow)
         {
             InitializeComponent();
             this.mainWindow = mainWindow;
+
+            lang = new LanguageData();
+            LoadCurrentLanguageToTab();
 
             // Reset indexes, so no -1s appear
             ResetContentOfComponents();
@@ -420,10 +425,78 @@ namespace SRScenarioCreatorEnhanced.UserControls
         #region Translation
 
         /// <summary>
+        /// Overwrites all current label texts with language data
+        /// </summary>
+        private void LoadCurrentLanguageToTab()
+        {
+            labelGeneralInfo.Text = lang.generalInfo;
+            labelStartingDate.Text = lang.startingDate;
+            labelScenarioID.Text = lang.scenarioID;
+            labelFastForwardDays.Text = lang.fastForwardDays;
+            labelDefaultRegion.Text = lang.defaultRegion;
+            labelDifficulties.Text = lang.difficulties;
+            labelMilitaryDifficulty.Text = lang.military;
+            labelEconomicDifficulty.Text = lang.economic;
+            labelDiplomacyDifficulty.Text = lang.diplomacy;
+
+            labelAISettings.Text = lang.aiSettings;
+            labelAISettings.Text = lang.aiStance;
+            labelWMDEffect.Text = lang.nukePenalty;
+            labelApprovalEffect.Text = lang.approvalEffect;
+
+            labelVictoryConditions.Text = lang.victoryConditions;
+            labelGameLength.Text = lang.gameLength;
+            labelVictory.Text = lang.victory;
+            labelVictoryHex.Text = lang.victoryHex;
+            labelVictoryTech.Text = lang.victoryTech;
+
+            labelStartingConditions.Text = lang.startingConditions;
+            labelInitialFunds.Text = lang.initialFunds;
+            labelResourcesLevel.Text = lang.resourcesLevel;
+
+            labelGraphicOptions.Text = lang.graphicOptions;
+            labelMapGUI.Text = lang.mapGUI;
+            labelMapSplash.Text = lang.mapSplash;
+            labelMapMusic.Text = lang.mapMusic;
+
+            labelMiscellaneous.Text = lang.miscellaneous;
+            labelStartingYear.Text = lang.startingYear;
+            labelTechTreeDefault.Text = lang.techTreeDefault;
+            labelRegionAllies.Text = lang.regionAllies;
+            labelRegionAxis.Text = lang.regionAxis;
+            labelSphereNN.Text = lang.sphereNN;
+
+            labelScenarioOptions.Text = lang.scenarioOptions;
+            checkNoCapitalMove.Text = lang.fixedCapitals;
+            checkWMinvolve.Text = lang.criticalUN;
+            checkWMDuse.Text = lang.allowNukes;
+            checkAlliedVictory.Text = lang.alliedVictory;
+            checkDebtFree.Text = lang.noStartingDebt;
+            checkLimitDAReffect.Text = lang.limitDAR;
+            checkLimitInScenario.Text = lang.limitRegions;
+            checkRestrictTechTrade.Text = lang.restrictTech;
+            checkRegionEquip.Text = lang.regionEquip;
+            checkFastBuild.Text = lang.fastBuild;
+            checkGroupLoyaltyMerge.Text = lang.noLoyaltyPenalty;
+            checkMissileNoLimit.Text = lang.missileLimit;
+            checkReserveLimit.Text = lang.reserveLimit;
+            checkGroupLoyaltyMerge.Text = lang.groupLoyalty;
+            checkGroupResearchMerge.Text = lang.groupResearch;
+            checkLimitMAReffect.Text = lang.limitMAR;
+            checkNoSphere.Text = lang.noSphere;
+            checkCampaignGame.Text = lang.campaignGame;
+            checkGovChoice.Text = lang.govChoice;
+            checkRelationsEffect.Text = lang.relationsEff;
+
+            buttonUndoReset.Text = lang.undoReset;
+            buttonResetSettings.Text = lang.resetSettings;
+        }
+
+        /// <summary>
         /// Adds space to all texts (labels and 1st column of checks) to trigger reposition event.
         /// It's faster than calling each event separately
         /// </summary>
-        void ResetLabelsPositionsToFit()
+        private void ResetLabelsPositionsToFit()
         {
             foreach(Control l in this.Controls)
             {

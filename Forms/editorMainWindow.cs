@@ -50,6 +50,9 @@ namespace SRScenarioCreatorEnhanced
         private UC_WM currentUCWM;
         private UC_Orbat currentUCOrbat;
 
+        // Language
+        LanguageData currentLanguage;
+
         public editorMainWindow()
         {
             InitializeComponent();
@@ -86,6 +89,8 @@ namespace SRScenarioCreatorEnhanced
             // Save original size
             currentEditorScale = Configuration.currentAppScaleFactor;
 
+            LoadLanguageDataFromFileToData();
+
             // Adjust, load settings, reload -- such cycle does the job of loading settings
             // Probably because previous only then the size is saved as "previous", but tbh not sure XD ~M8, 2022/09/02 0:55
             AdjustEditorSizeToScale();
@@ -96,6 +101,25 @@ namespace SRScenarioCreatorEnhanced
 
             currentUCScenario.ExportButtonEnabled += HandleExportButtonEnabled;
             currentUCScenario.ExportButtonDisabled += HandleExportButtonDisabled;
+        }
+
+        private void LoadLanguageDataFromFileToData()
+        {
+            string langDir = Directory.GetCurrentDirectory() + @"\Lang";
+
+            // Set of directiories e.g. LANG\en-US or \pl-PL
+
+            // Create dir if nonexistent
+            if (!Directory.Exists(langDir))
+            {
+                Directory.CreateDirectory(langDir);
+            }
+
+            string[] files = Directory.GetFiles(langDir);
+
+            // get list of all langs
+            // put them into combobox in settings window
+            // save chosen lang in editor settings file
         }
 
         internal void UpdateComboListOnDirChange()

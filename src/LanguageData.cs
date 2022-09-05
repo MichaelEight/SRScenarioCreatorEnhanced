@@ -1,8 +1,11 @@
-﻿namespace SRScenarioCreatorEnhanced
+﻿/// LanguageData.cs file released under GNU GPL v3 licence.
+/// Originally used in the SRScenarioCreatorEnhanced project: https://github.com/r20de20/SRScenarioCreatorEnhanced
+
+namespace SRScenarioCreatorEnhanced
 {
     class LanguageData
     {
-        public string languageName;
+        public string languageName; // e.g. en-US, pl-PL etc.
 
         #region SettingsSection
 
@@ -34,7 +37,7 @@
 
         public string graphicOptions;
         public string mapGUI;
-        public string mapSplhash;
+        public string mapSplash;
         public string mapMusic;
 
         public string miscellaneous;
@@ -71,8 +74,10 @@
 
         #endregion
 
-        LanguageData()
+        public LanguageData(string langName = "DEFAULT")
         {
+            languageName = langName;
+
             generalInfo = "General Info";
             startingDate = "Starting Date";
             scenarioID = "Scenario ID";
@@ -101,7 +106,7 @@
 
             graphicOptions = "Graphic Options";
             mapGUI = "Map GUI";
-            mapSplhash = "Map Splash";
+            mapSplash = "Map Splash";
             mapMusic = "Map Music";
 
             miscellaneous = "Miscellaneous";
@@ -136,5 +141,6 @@
             undoReset = "UNDO RESET";
             resetSettings = "RESET SETTINGS TO DEFAULT";
         }
+
     }
 }

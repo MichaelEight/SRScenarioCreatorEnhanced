@@ -19,9 +19,11 @@ public static class Configuration
 {
     // EDIT EVERY NEW RELEASE!
     // Manual version of app
-    public const string editorVersion = "Alpha 3";
+    public const string editorVersion = "Alpha 4";
     // Auto version of assembly
     public static string assemblyVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
+
+    public static string currentLanguage = "en-US";
 
     // @"[path_to_steam]\Steam Games\steamapps\common\Supreme Ruler Ultimate"
     // Preferably auto-detect SR folder OR leave it empty and force user to choose path at 1st start
