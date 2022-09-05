@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Drawing;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
 
 // ***NOTE***
@@ -373,9 +374,18 @@ namespace SRScenarioCreatorEnhanced
 
         private void buttonHelp_Click(object sender, EventArgs e)
         {
-            helpWindow hw = new helpWindow(this);
-            // Do not show as dialog! It has to be available simultaneously with mainEditorWindow!
-            hw.Show(); 
+            // Algorithm Source: https://stackoverflow.com/a/71203963/12934099
+            // Credit: Antonis
+            var obj = Application.OpenForms.OfType<helpWindow>().Select(t => t).FirstOrDefault();
+            if (obj != null)
+            {
+                obj.BringToFront();
+            }
+            else
+            {
+                obj = new helpWindow(this);
+                obj.Show();
+            }
         }
     }
 }

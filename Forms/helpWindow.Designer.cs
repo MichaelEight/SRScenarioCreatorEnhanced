@@ -39,9 +39,19 @@
             this.helpTabOrbat = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox7 = new System.Windows.Forms.TextBox();
             this.tabsHelp.SuspendLayout();
             this.helpTabScenario.SuspendLayout();
             this.helpTabSettings.SuspendLayout();
+            this.helpTabTheaters.SuspendLayout();
+            this.helpTabRegions.SuspendLayout();
+            this.helpTabResources.SuspendLayout();
+            this.helpTabWorldMarket.SuspendLayout();
+            this.helpTabOrbat.SuspendLayout();
             this.SuspendLayout();
             // 
             // tabsHelp
@@ -88,6 +98,7 @@
             // 
             // helpTabTheaters
             // 
+            this.helpTabTheaters.Controls.Add(this.textBox3);
             this.helpTabTheaters.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.helpTabTheaters.Location = new System.Drawing.Point(4, 32);
             this.helpTabTheaters.Name = "helpTabTheaters";
@@ -99,6 +110,7 @@
             // 
             // helpTabRegions
             // 
+            this.helpTabRegions.Controls.Add(this.textBox4);
             this.helpTabRegions.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.helpTabRegions.Location = new System.Drawing.Point(4, 32);
             this.helpTabRegions.Name = "helpTabRegions";
@@ -110,6 +122,7 @@
             // 
             // helpTabResources
             // 
+            this.helpTabResources.Controls.Add(this.textBox5);
             this.helpTabResources.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.helpTabResources.Location = new System.Drawing.Point(4, 32);
             this.helpTabResources.Name = "helpTabResources";
@@ -121,6 +134,7 @@
             // 
             // helpTabWorldMarket
             // 
+            this.helpTabWorldMarket.Controls.Add(this.textBox6);
             this.helpTabWorldMarket.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.helpTabWorldMarket.Location = new System.Drawing.Point(4, 32);
             this.helpTabWorldMarket.Name = "helpTabWorldMarket";
@@ -132,6 +146,7 @@
             // 
             // helpTabOrbat
             // 
+            this.helpTabOrbat.Controls.Add(this.textBox7);
             this.helpTabOrbat.Font = new System.Drawing.Font("Century Gothic", 12F);
             this.helpTabOrbat.Location = new System.Drawing.Point(4, 32);
             this.helpTabOrbat.Name = "helpTabOrbat";
@@ -150,7 +165,7 @@
             this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(679, 602);
             this.textBox1.TabIndex = 0;
-            this.textBox1.Text = "[Scenario]\r\nthis is for that\r\n";
+            this.textBox1.Text = "n/a";
             // 
             // textBox2
             // 
@@ -161,7 +176,62 @@
             this.textBox2.ReadOnly = true;
             this.textBox2.Size = new System.Drawing.Size(679, 602);
             this.textBox2.TabIndex = 1;
-            this.textBox2.Text = "[Settings]\r\nthis is for that or that\r\n";
+            this.textBox2.Text = "n/a";
+            // 
+            // textBox3
+            // 
+            this.textBox3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox3.Location = new System.Drawing.Point(3, 3);
+            this.textBox3.Multiline = true;
+            this.textBox3.Name = "textBox3";
+            this.textBox3.ReadOnly = true;
+            this.textBox3.Size = new System.Drawing.Size(679, 602);
+            this.textBox3.TabIndex = 2;
+            this.textBox3.Text = "n/a";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox4.Location = new System.Drawing.Point(3, 3);
+            this.textBox4.Multiline = true;
+            this.textBox4.Name = "textBox4";
+            this.textBox4.ReadOnly = true;
+            this.textBox4.Size = new System.Drawing.Size(679, 602);
+            this.textBox4.TabIndex = 2;
+            this.textBox4.Text = "n/a";
+            // 
+            // textBox5
+            // 
+            this.textBox5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox5.Location = new System.Drawing.Point(3, 3);
+            this.textBox5.Multiline = true;
+            this.textBox5.Name = "textBox5";
+            this.textBox5.ReadOnly = true;
+            this.textBox5.Size = new System.Drawing.Size(679, 602);
+            this.textBox5.TabIndex = 2;
+            this.textBox5.Text = "n/a";
+            // 
+            // textBox6
+            // 
+            this.textBox6.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox6.Location = new System.Drawing.Point(3, 3);
+            this.textBox6.Multiline = true;
+            this.textBox6.Name = "textBox6";
+            this.textBox6.ReadOnly = true;
+            this.textBox6.Size = new System.Drawing.Size(679, 602);
+            this.textBox6.TabIndex = 2;
+            this.textBox6.Text = "n/a";
+            // 
+            // textBox7
+            // 
+            this.textBox7.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.textBox7.Location = new System.Drawing.Point(3, 3);
+            this.textBox7.Multiline = true;
+            this.textBox7.Name = "textBox7";
+            this.textBox7.ReadOnly = true;
+            this.textBox7.Size = new System.Drawing.Size(679, 602);
+            this.textBox7.TabIndex = 2;
+            this.textBox7.Text = "n/a";
             // 
             // helpWindow
             // 
@@ -173,6 +243,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
+            this.MinimumSize = new System.Drawing.Size(715, 700);
             this.Name = "helpWindow";
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -182,6 +253,16 @@
             this.helpTabScenario.PerformLayout();
             this.helpTabSettings.ResumeLayout(false);
             this.helpTabSettings.PerformLayout();
+            this.helpTabTheaters.ResumeLayout(false);
+            this.helpTabTheaters.PerformLayout();
+            this.helpTabRegions.ResumeLayout(false);
+            this.helpTabRegions.PerformLayout();
+            this.helpTabResources.ResumeLayout(false);
+            this.helpTabResources.PerformLayout();
+            this.helpTabWorldMarket.ResumeLayout(false);
+            this.helpTabWorldMarket.PerformLayout();
+            this.helpTabOrbat.ResumeLayout(false);
+            this.helpTabOrbat.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -197,5 +278,10 @@
         private System.Windows.Forms.TabPage helpTabOrbat;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox7;
     }
 }
