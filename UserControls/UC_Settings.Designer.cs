@@ -616,8 +616,9 @@
             // 
             this.checkLimitDAReffect.AutoSize = true;
             this.checkLimitDAReffect.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkLimitDAReffect.Location = new System.Drawing.Point(1110, 380);
+            this.checkLimitDAReffect.Location = new System.Drawing.Point(1198, 380);
             this.checkLimitDAReffect.Name = "checkLimitDAReffect";
+            this.checkLimitDAReffect.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkLimitDAReffect.Size = new System.Drawing.Size(227, 34);
             this.checkLimitDAReffect.TabIndex = 126;
             this.checkLimitDAReffect.Text = "Limit DAR Effect";
@@ -641,8 +642,9 @@
             // 
             this.checkWMinvolve.AutoSize = true;
             this.checkWMinvolve.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkWMinvolve.Location = new System.Drawing.Point(1110, 180);
+            this.checkWMinvolve.Location = new System.Drawing.Point(1260, 180);
             this.checkWMinvolve.Name = "checkWMinvolve";
+            this.checkWMinvolve.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkWMinvolve.Size = new System.Drawing.Size(165, 34);
             this.checkWMinvolve.TabIndex = 128;
             this.checkWMinvolve.Text = "Critical UN";
@@ -654,8 +656,9 @@
             // 
             this.checkWMDuse.AutoSize = true;
             this.checkWMDuse.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkWMDuse.Location = new System.Drawing.Point(1110, 230);
+            this.checkWMDuse.Location = new System.Drawing.Point(1243, 230);
             this.checkWMDuse.Name = "checkWMDuse";
+            this.checkWMDuse.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkWMDuse.Size = new System.Drawing.Size(182, 34);
             this.checkWMDuse.TabIndex = 129;
             this.checkWMDuse.Text = "Allow Nukes";
@@ -667,8 +670,9 @@
             // 
             this.checkFastBuild.AutoSize = true;
             this.checkFastBuild.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkFastBuild.Location = new System.Drawing.Point(1110, 580);
+            this.checkFastBuild.Location = new System.Drawing.Point(1276, 580);
             this.checkFastBuild.Name = "checkFastBuild";
+            this.checkFastBuild.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkFastBuild.Size = new System.Drawing.Size(149, 34);
             this.checkFastBuild.TabIndex = 130;
             this.checkFastBuild.Text = "Fast Build";
@@ -680,8 +684,9 @@
             // 
             this.checkNoCapitalMove.AutoSize = true;
             this.checkNoCapitalMove.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkNoCapitalMove.Location = new System.Drawing.Point(1110, 130);
+            this.checkNoCapitalMove.Location = new System.Drawing.Point(1219, 130);
             this.checkNoCapitalMove.Name = "checkNoCapitalMove";
+            this.checkNoCapitalMove.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkNoCapitalMove.Size = new System.Drawing.Size(206, 34);
             this.checkNoCapitalMove.TabIndex = 131;
             this.checkNoCapitalMove.Text = "Fixed Capitals";
@@ -717,8 +722,9 @@
             // 
             this.checkRegionEquip.AutoSize = true;
             this.checkRegionEquip.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkRegionEquip.Location = new System.Drawing.Point(1110, 530);
+            this.checkRegionEquip.Location = new System.Drawing.Point(1229, 530);
             this.checkRegionEquip.Name = "checkRegionEquip";
+            this.checkRegionEquip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkRegionEquip.Size = new System.Drawing.Size(196, 34);
             this.checkRegionEquip.TabIndex = 134;
             this.checkRegionEquip.Text = "Region Equip";
@@ -754,8 +760,9 @@
             // 
             this.checkAlliedVictory.AutoSize = true;
             this.checkAlliedVictory.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkAlliedVictory.Location = new System.Drawing.Point(1110, 280);
+            this.checkAlliedVictory.Location = new System.Drawing.Point(1229, 280);
             this.checkAlliedVictory.Name = "checkAlliedVictory";
+            this.checkAlliedVictory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkAlliedVictory.Size = new System.Drawing.Size(196, 34);
             this.checkAlliedVictory.TabIndex = 137;
             this.checkAlliedVictory.Text = "Allied Victory";
@@ -779,8 +786,9 @@
             // 
             this.checkDebtFree.AutoSize = true;
             this.checkDebtFree.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkDebtFree.Location = new System.Drawing.Point(1110, 330);
+            this.checkDebtFree.Location = new System.Drawing.Point(1192, 330);
             this.checkDebtFree.Name = "checkDebtFree";
+            this.checkDebtFree.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkDebtFree.Size = new System.Drawing.Size(233, 34);
             this.checkDebtFree.TabIndex = 139;
             this.checkDebtFree.Text = "No Starting Debt";
@@ -1015,8 +1023,9 @@
             // 
             this.checkLimitInScenario.AutoSize = true;
             this.checkLimitInScenario.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkLimitInScenario.Location = new System.Drawing.Point(1110, 430);
+            this.checkLimitInScenario.Location = new System.Drawing.Point(1091, 430);
             this.checkLimitInScenario.Name = "checkLimitInScenario";
+            this.checkLimitInScenario.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkLimitInScenario.Size = new System.Drawing.Size(334, 34);
             this.checkLimitInScenario.TabIndex = 156;
             this.checkLimitInScenario.Text = "Limit Regions in Scenario";
@@ -1028,8 +1037,9 @@
             // 
             this.checkRestrictTechTrade.AutoSize = true;
             this.checkRestrictTechTrade.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkRestrictTechTrade.Location = new System.Drawing.Point(1110, 480);
+            this.checkRestrictTechTrade.Location = new System.Drawing.Point(1162, 480);
             this.checkRestrictTechTrade.Name = "checkRestrictTechTrade";
+            this.checkRestrictTechTrade.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkRestrictTechTrade.Size = new System.Drawing.Size(263, 34);
             this.checkRestrictTechTrade.TabIndex = 157;
             this.checkRestrictTechTrade.Text = "Restrict Tech Trade";

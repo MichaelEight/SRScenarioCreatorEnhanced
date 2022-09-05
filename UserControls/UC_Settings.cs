@@ -418,7 +418,13 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         void betaTranslation()
         {
-
+            foreach(Control l in this.Controls)
+            {
+                if(l.Name.Contains("label") || l.Name.Contains("check"))
+                {
+                    l.Text += " ";
+                }
+            }
         }
 
         /// <summary>
@@ -427,9 +433,10 @@ namespace SRScenarioCreatorEnhanced.UserControls
         /// </summary>
         private void AdjustElementPosition(Control onLeft, Control onRight)
         {
-            // If label and combo are misaligned, move label to the border of onRight element
+            // If left and right elements are misaligned
             if (onLeft.Right > onRight.Left || onLeft.Right < onRight.Left)
-                onLeft.Left = onRight.Left - onLeft.Width;
+                // Move left to the border of right (if it's a checkbox, keep some distance)
+                onLeft.Left = onRight.Left - onLeft.Width + (onLeft.Name.Contains("check") ? -40:0);
         }
         
         // Difficulties
