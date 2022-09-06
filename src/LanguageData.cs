@@ -9,68 +9,7 @@ namespace SRScenarioCreatorEnhanced
 
         #region SettingsSection
 
-        public string generalInfo;
-        public string startingDate;
-        public string scenarioID;
-        public string fastForwardDays;
-        public string defaultRegion;
-
-        public string difficulties;
-        public string military;
-        public string economic;
-        public string diplomacy;
-
-        public string aiSettings;
-        public string aiStance;
-        public string nukePenalty;
-        public string approvalEffect;
-
-        public string victoryConditions;
-        public string gameLength;
-        public string victory;
-        public string victoryHex;
-        public string victoryTech;
-
-        public string startingConditions;
-        public string initialFunds;
-        public string resourcesLevel;
-
-        public string graphicOptions;
-        public string mapGUI;
-        public string mapSplash;
-        public string mapMusic;
-
-        public string miscellaneous;
-        public string startingYear;
-        public string techTreeDefault;
-        public string regionAllies;
-        public string regionAxis;
-        public string sphereNN;
-
-        public string scenarioOptions;
-        public string fixedCapitals;
-        public string criticalUN;
-        public string allowNukes;
-        public string alliedVictory;
-        public string noStartingDebt;
-        public string limitDAR;
-        public string limitRegions;
-        public string restrictTech;
-        public string regionEquip;
-        public string fastBuild;
-        public string noLoyaltyPenalty;
-        public string missileLimit;
-        public string reserveLimit;
-        public string groupLoyalty;
-        public string groupResearch;
-        public string limitMAR;
-        public string noSphere;
-        public string campaignGame;
-        public string govChoice;
-        public string relationsEff;
-
-        public string undoReset;
-        public string resetSettings;
+        public string[] settingsSection = new string[54]; // 0 - 54
 
         #endregion
 
@@ -78,68 +17,64 @@ namespace SRScenarioCreatorEnhanced
         {
             languageName = langName;
 
-            generalInfo = "General Info";
-            startingDate = "Starting Date";
-            scenarioID = "Scenario ID";
-            fastForwardDays = "Fast Forward Days";
-            defaultRegion = "Default region";
+            #region SettingsTab
 
-            difficulties = "Difficulties";
-            military = "Military";
-            economic = "Economic";
-            diplomacy = "Diplomacy";
+            settingsSection[0] = "General Info";
+            settingsSection[1] = "Starting Date";
+            settingsSection[2] = "Scenario ID";
+            settingsSection[3] = "Fast Forward Days";
+            settingsSection[4] = "Default region";
+            settingsSection[5] = "Difficulties";
+            settingsSection[6] = "Military";
+            settingsSection[7] = "Economic";
+            settingsSection[8] = "Diplomacy";
+            settingsSection[9] = "AI Settings";
+            settingsSection[10] = "AI Stance";
+            settingsSection[11] = "Nuke Penalty";
+            settingsSection[12] = "Approval Effect";
+            settingsSection[13] = "Victory Conditions";
+            settingsSection[14] = "Game Length";
+            settingsSection[15] = "Victory";
+            settingsSection[16] = "Victory Hex";
+            settingsSection[17] = "Victory Tech";
+            settingsSection[18] = "Starting Conditions";
+            settingsSection[19] = "Initial Funds";
+            settingsSection[20] = "Resources Level";
+            settingsSection[21] = "Graphic Options";
+            settingsSection[22] = "Map GUI";
+            settingsSection[23] = "Map Splash";
+            settingsSection[24] = "Map Music";
+            settingsSection[25] = "Miscellaneous";
+            settingsSection[26] = "Starting Year";
+            settingsSection[27] = "Tech Tree Default";
+            settingsSection[28] = "Region Allies";
+            settingsSection[29] = "Region Axis";
+            settingsSection[30] = "Sphere NN";
+            settingsSection[31] = "Scenario Options";
+            settingsSection[32] = "Fixed Capitals";
+            settingsSection[33] = "Critical UN";
+            settingsSection[34] = "Allow Nukes";
+            settingsSection[35] = "Allied Victory";
+            settingsSection[36] = "No Starting Debt";
+            settingsSection[37] = "Limit DAR Effect";
+            settingsSection[38] = "Limit Regions in Scenario";
+            settingsSection[39] = "Restrict Tech Trade";
+            settingsSection[40] = "Region Equip";
+            settingsSection[41] = "Fast Build";
+            settingsSection[42] = "No Loyalty Penalty";
+            settingsSection[43] = "Missile Limit";
+            settingsSection[44] = "Reserve Limit";
+            settingsSection[45] = "Group Loalty Merge";
+            settingsSection[46] = "Group Research Merge";
+            settingsSection[47] = "Limit MAR Effect";
+            settingsSection[48] = "No Sphere";
+            settingsSection[49] = "Campaign Game";
+            settingsSection[50] = "Gov Choice";
+            settingsSection[51] = "3rd Party Relations Effect";
+            settingsSection[52] = "UNDO RESET";
+            settingsSection[53] = "RESET SETTINGS TO DEFAULT";
 
-            aiSettings = "AI Settings";
-            aiStance = "AI Stance";
-            nukePenalty = "Nuke Penalty";
-            approvalEffect = "Approval Effect";
-
-            victoryConditions = "Victory Conditions";
-            gameLength = "Game Length";
-            victory = "Victory";
-            victoryHex = "Victory Hex";
-            victoryTech = "Victory Tech";
-
-            startingConditions = "Starting Conditions";
-            initialFunds = "Initial Funds";
-            resourcesLevel = "Resources Level";
-
-            graphicOptions = "Graphic Options";
-            mapGUI = "Map GUI";
-            mapSplash = "Map Splash";
-            mapMusic = "Map Music";
-
-            miscellaneous = "Miscellaneous";
-            startingYear = "Starting Year";
-            techTreeDefault = "Tech Tree Default";
-            regionAllies = "Region Allies";
-            regionAxis = "Region Axis";
-            sphereNN = "Sphere NN";
-
-            scenarioOptions = "Scenario Options";
-            fixedCapitals = "Fixed Capitals";
-            criticalUN = "Critical UN";
-            allowNukes = "Allow Nukes";
-            alliedVictory = "Allied Victory";
-            noStartingDebt = "No Starting Debt";
-            limitDAR = "Limit DAR Effect";
-            limitRegions = "Limit Regions in Scenario";
-            restrictTech = "Restrict Tech Trade";
-            regionEquip = "Region Equip";
-            fastBuild = "Fast Build";
-            noLoyaltyPenalty = "No Loyalty Penalty";
-            missileLimit = "Missile Limit";
-            reserveLimit = "Reserve Limit";
-            groupLoyalty = "Group Loalty Merge";
-            groupResearch = "Group Research Merge";
-            limitMAR = "Limit MAR Effect";
-            noSphere = "No Sphere";
-            campaignGame = "Campaign Game";
-            govChoice = "Gov Choice";
-            relationsEff = "3rd Party Relations Effect";
-
-            undoReset = "UNDO RESET";
-            resetSettings = "RESET SETTINGS TO DEFAULT";
+            #endregion
         }
 
     }

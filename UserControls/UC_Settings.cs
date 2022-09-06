@@ -437,67 +437,60 @@ namespace SRScenarioCreatorEnhanced.UserControls
         /// </summary>
         private void LoadCurrentLanguageToTab()
         {
-            labelGeneralInfo.Text = lang.generalInfo;
-            labelStartingDate.Text = lang.startingDate;
-            labelScenarioID.Text = lang.scenarioID;
-            labelFastForwardDays.Text = lang.fastForwardDays;
-            labelDefaultRegion.Text = lang.defaultRegion;
-            labelDifficulties.Text = lang.difficulties;
-            labelMilitaryDifficulty.Text = lang.military;
-            labelEconomicDifficulty.Text = lang.economic;
-            labelDiplomacyDifficulty.Text = lang.diplomacy;
-
-            labelAISettings.Text = lang.aiSettings;
-            labelAISettings.Text = lang.aiStance;
-            labelWMDEffect.Text = lang.nukePenalty;
-            labelApprovalEffect.Text = lang.approvalEffect;
-
-            labelVictoryConditions.Text = lang.victoryConditions;
-            labelGameLength.Text = lang.gameLength;
-            labelVictory.Text = lang.victory;
-            labelVictoryHex.Text = lang.victoryHex;
-            labelVictoryTech.Text = lang.victoryTech;
-
-            labelStartingConditions.Text = lang.startingConditions;
-            labelInitialFunds.Text = lang.initialFunds;
-            labelResourcesLevel.Text = lang.resourcesLevel;
-
-            labelGraphicOptions.Text = lang.graphicOptions;
-            labelMapGUI.Text = lang.mapGUI;
-            labelMapSplash.Text = lang.mapSplash;
-            labelMapMusic.Text = lang.mapMusic;
-
-            labelMiscellaneous.Text = lang.miscellaneous;
-            labelStartingYear.Text = lang.startingYear;
-            labelTechTreeDefault.Text = lang.techTreeDefault;
-            labelRegionAllies.Text = lang.regionAllies;
-            labelRegionAxis.Text = lang.regionAxis;
-            labelSphereNN.Text = lang.sphereNN;
-
-            labelScenarioOptions.Text = lang.scenarioOptions;
-            checkNoCapitalMove.Text = lang.fixedCapitals;
-            checkWMinvolve.Text = lang.criticalUN;
-            checkWMDuse.Text = lang.allowNukes;
-            checkAlliedVictory.Text = lang.alliedVictory;
-            checkDebtFree.Text = lang.noStartingDebt;
-            checkLimitDAReffect.Text = lang.limitDAR;
-            checkLimitInScenario.Text = lang.limitRegions;
-            checkRestrictTechTrade.Text = lang.restrictTech;
-            checkRegionEquip.Text = lang.regionEquip;
-            checkFastBuild.Text = lang.fastBuild;
-            checkGroupLoyaltyMerge.Text = lang.noLoyaltyPenalty;
-            checkMissileNoLimit.Text = lang.missileLimit;
-            checkReserveLimit.Text = lang.reserveLimit;
-            checkGroupLoyaltyMerge.Text = lang.groupLoyalty;
-            checkGroupResearchMerge.Text = lang.groupResearch;
-            checkLimitMAReffect.Text = lang.limitMAR;
-            checkNoSphere.Text = lang.noSphere;
-            checkCampaignGame.Text = lang.campaignGame;
-            checkGovChoice.Text = lang.govChoice;
-            checkRelationsEffect.Text = lang.relationsEff;
-
-            buttonUndoReset.Text = lang.undoReset;
-            buttonResetSettings.Text = lang.resetSettings;
+            labelGeneralInfo.Text               = lang.settingsSection[0];
+            labelStartingDate.Text              = lang.settingsSection[1];
+            labelScenarioID.Text                = lang.settingsSection[2];
+            labelFastForwardDays.Text           = lang.settingsSection[3];
+            labelDefaultRegion.Text             = lang.settingsSection[4];
+            labelDifficulties.Text              = lang.settingsSection[5];
+            labelMilitaryDifficulty.Text        = lang.settingsSection[6];
+            labelEconomicDifficulty.Text        = lang.settingsSection[7];
+            labelDiplomacyDifficulty.Text       = lang.settingsSection[8];
+            labelAISettings.Text                = lang.settingsSection[9];
+            labelAISettings.Text                = lang.settingsSection[10];
+            labelWMDEffect.Text                 = lang.settingsSection[11];
+            labelApprovalEffect.Text            = lang.settingsSection[12];
+            labelVictoryConditions.Text         = lang.settingsSection[13];
+            labelGameLength.Text                = lang.settingsSection[14];
+            labelVictory.Text                   = lang.settingsSection[15];
+            labelVictoryHex.Text                = lang.settingsSection[16];
+            labelVictoryTech.Text               = lang.settingsSection[17];
+            labelStartingConditions.Text        = lang.settingsSection[18];
+            labelInitialFunds.Text              = lang.settingsSection[19];
+            labelResourcesLevel.Text            = lang.settingsSection[20];
+            labelGraphicOptions.Text            = lang.settingsSection[21];
+            labelMapGUI.Text                    = lang.settingsSection[22];
+            labelMapSplash.Text                 = lang.settingsSection[23];
+            labelMapMusic.Text                  = lang.settingsSection[24];
+            labelMiscellaneous.Text             = lang.settingsSection[25];
+            labelStartingYear.Text              = lang.settingsSection[26];
+            labelTechTreeDefault.Text           = lang.settingsSection[27];
+            labelRegionAllies.Text              = lang.settingsSection[28];
+            labelRegionAxis.Text                = lang.settingsSection[29];
+            labelSphereNN.Text                  = lang.settingsSection[30];
+            labelScenarioOptions.Text           = lang.settingsSection[31];
+            checkNoCapitalMove.Text             = lang.settingsSection[32];
+            checkWMinvolve.Text                 = lang.settingsSection[33];
+            checkWMDuse.Text                    = lang.settingsSection[34];
+            checkAlliedVictory.Text             = lang.settingsSection[35];
+            checkDebtFree.Text                  = lang.settingsSection[36];
+            checkLimitDAReffect.Text            = lang.settingsSection[37];
+            checkLimitInScenario.Text           = lang.settingsSection[38];
+            checkRestrictTechTrade.Text         = lang.settingsSection[39];
+            checkRegionEquip.Text               = lang.settingsSection[40];
+            checkFastBuild.Text                 = lang.settingsSection[41];
+            checkGroupLoyaltyMerge.Text         = lang.settingsSection[42];
+            checkMissileNoLimit.Text            = lang.settingsSection[43];
+            checkReserveLimit.Text              = lang.settingsSection[44];
+            checkGroupLoyaltyMerge.Text         = lang.settingsSection[45];
+            checkGroupResearchMerge.Text        = lang.settingsSection[46];
+            checkLimitMAReffect.Text            = lang.settingsSection[47];
+            checkNoSphere.Text                  = lang.settingsSection[48];
+            checkCampaignGame.Text              = lang.settingsSection[49];
+            checkGovChoice.Text                 = lang.settingsSection[50];
+            checkRelationsEffect.Text           = lang.settingsSection[51];
+            buttonUndoReset.Text                = lang.settingsSection[52];
+            buttonResetSettings.Text            = lang.settingsSection[53];
         }
 
         /// <summary>
