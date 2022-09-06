@@ -231,7 +231,7 @@ namespace SRScenarioCreatorEnhanced
                                         $"{settings.economicDifficulty}, " +
                                         $"{settings.diplomacyDifficulty}",
                 $"resources:              {settings.resourcesLevel}",
-                $"initialFunds:           {settings.initialFunds}",
+                $"initialfunds:           {settings.initialFunds}",
                 $"reservelimit:           {(settings.reserveLimit ? 1 : 0)}",
                 $"aistance:               {settings.aistance}",
                 $"startyear:              {settings.startYear}",

@@ -20,8 +20,10 @@ namespace SRScenarioCreatorEnhanced.UserControls
             InitializeComponent();
             this.mainWindow = mainWindow;
 
+            // Language
             lang = new LanguageData();
             LoadCurrentLanguageToTab();
+            mainWindow.LanguageHasChanged += HandleLanguageChange;
 
             // Reset indexes, so no -1s appear
             ResetContentOfComponents();
@@ -423,6 +425,12 @@ namespace SRScenarioCreatorEnhanced.UserControls
         #endregion
 
         #region Translation
+
+        private void HandleLanguageChange(object sender, EventArgs e)
+        {
+            lang = mainWindow.currentLanguage;
+            LoadCurrentLanguageToTab();
+        }
 
         /// <summary>
         /// Overwrites all current label texts with language data

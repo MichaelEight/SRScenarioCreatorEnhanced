@@ -23,7 +23,7 @@ public static class Configuration
     // Auto version of assembly
     public static string assemblyVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
-    public static string currentLanguage = "en-US";
+    public static string currentLanguage = "DEFAULT"; // Default for hardcoded, en-US, pl-PL etc. for other
 
     // @"[path_to_steam]\Steam Games\steamapps\common\Supreme Ruler Ultimate"
     // Preferably auto-detect SR folder OR leave it empty and force user to choose path at 1st start
@@ -47,11 +47,12 @@ public static class Info
 {
     // Error messages switches -- enable/disable
     // Might be useful to turn them off for production
-    public static bool loadingFilesError                   = true;
-    public static bool loadingDataIntoTabsError            = true;
-    public static bool loadingDataFromFileError            = true;
-    public static bool failedToRecogniseLabelFromfileError = true; // By default, it should be off
-    public static bool fileIsAlreadyInUseError             = true;
+    public static bool loadingFilesError                    = true;
+    public static bool loadingDataIntoTabsError             = true;
+    public static bool loadingDataFromFileError             = true;
+    public static bool failedToRecogniseLabelFromfileError  = true; // By default, it should be off
+    public static bool fileIsAlreadyInUseError              = true;
+    public static bool failedToLoadLanguageFile             = true;
 
     /// <summary>
     /// Displays MessageBox with error description
@@ -70,6 +71,7 @@ public static class Info
             case 2: if (loadingDataFromFileError)            return; break;
             case 3: if (failedToRecogniseLabelFromfileError) return; break;
             case 4: if (fileIsAlreadyInUseError)             return; break;
+            case 5: if (failedToLoadLanguageFile)            return; break;
 
             default:break;
         }

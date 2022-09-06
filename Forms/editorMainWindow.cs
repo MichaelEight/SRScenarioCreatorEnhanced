@@ -51,7 +51,9 @@ namespace SRScenarioCreatorEnhanced
         private UC_Orbat currentUCOrbat;
 
         // Language
-        LanguageData currentLanguage;
+        internal LanguageData currentLanguage;
+        internal List<LanguageData> allLanguages;
+        internal event EventHandler LanguageHasChanged;
 
         public editorMainWindow()
         {
@@ -89,6 +91,8 @@ namespace SRScenarioCreatorEnhanced
             // Save original size
             currentEditorScale = Configuration.currentAppScaleFactor;
 
+            // Language
+            allLanguages = new List<LanguageData>();
             LoadLanguageDataFromFileToData();
 
             // Adjust, load settings, reload -- such cycle does the job of loading settings
@@ -103,11 +107,34 @@ namespace SRScenarioCreatorEnhanced
             currentUCScenario.ExportButtonDisabled += HandleExportButtonDisabled;
         }
 
+        internal void UpdateLanguageInEditor()
+        {
+            if (Configuration.currentLanguage == "DEFAULT")
+                currentLanguage = new LanguageData(); // Revert to default, hardcoded values
+            
+            // Loop through all loaded languages
+            foreach(var language in allLanguages)
+            {
+                // Pick the one, which was selected in settings window
+                if(language.languageName == Configuration.currentLanguage)
+                {
+                    currentLanguage = language;
+                    break;
+                }
+            }
+
+            // Send event
+            if(LanguageHasChanged != null)
+                LanguageHasChanged(this, EventArgs.Empty);
+        }
+
         private void LoadLanguageDataFromFileToData()
         {
-            string langDir = Directory.GetCurrentDirectory() + @"\Lang";
+            /// Directory example: Lang\en-US.LANG or Lang\pl-PL.LANG
 
-            // Set of directiories e.g. LANG\en-US or \pl-PL
+            /// NOTE : Only Settings Tab lang data is done so far
+
+            string langDir = Directory.GetCurrentDirectory() + @"\Lang";
 
             // Create dir if nonexistent
             if (!Directory.Exists(langDir))
@@ -115,11 +142,90 @@ namespace SRScenarioCreatorEnhanced
                 Directory.CreateDirectory(langDir);
             }
 
+            // Get list of all files
             string[] files = Directory.GetFiles(langDir);
 
-            // get list of all langs
-            // put them into combobox in settings window
-            // save chosen lang in editor settings file
+            // Loop through them and load .lang ones
+            foreach(string file in files)
+            {
+                if(Path.GetExtension(file) == ".LANG")
+                {
+                    string[] lines = File.ReadAllLines(file);
+                    LanguageData tempLang = new LanguageData(); // Create temporary language var
+
+                    // Try to load all texts, line by line
+                    try
+                    {
+                        tempLang.generalInfo        = lines[0];
+                        tempLang.startingDate       = lines[1];
+                        tempLang.scenarioID         = lines[2];
+                        tempLang.fastForwardDays    = lines[3];
+                        tempLang.defaultRegion      = lines[4];
+                        tempLang.difficulties       = lines[5];
+                        tempLang.military           = lines[6];
+                        tempLang.economic           = lines[7];
+                        tempLang.diplomacy          = lines[8];
+                        tempLang.aiSettings         = lines[9];
+                        tempLang.aiStance           = lines[10];
+                        tempLang.nukePenalty        = lines[11];
+                        tempLang.approvalEffect     = lines[12];
+                        tempLang.victoryConditions  = lines[13];
+                        tempLang.gameLength         = lines[14];
+                        tempLang.victory            = lines[15];
+                        tempLang.victoryHex         = lines[16];
+                        tempLang.victoryTech        = lines[17];
+                        tempLang.startingConditions = lines[18];
+                        tempLang.initialFunds       = lines[19];
+                        tempLang.resourcesLevel     = lines[20];
+                        tempLang.graphicOptions     = lines[21];
+                        tempLang.mapGUI             = lines[22];
+                        tempLang.mapSplash          = lines[23];
+                        tempLang.mapMusic           = lines[24];
+                        tempLang.miscellaneous      = lines[25];
+                        tempLang.startingYear       = lines[26];
+                        tempLang.techTreeDefault    = lines[27];
+                        tempLang.regionAllies       = lines[28];
+                        tempLang.regionAxis         = lines[29];
+                        tempLang.sphereNN           = lines[30];
+                        tempLang.scenarioOptions    = lines[31];
+                        tempLang.fixedCapitals      = lines[32];
+                        tempLang.criticalUN         = lines[33];
+                        tempLang.allowNukes         = lines[34];
+                        tempLang.alliedVictory      = lines[35];
+                        tempLang.noStartingDebt     = lines[36];
+                        tempLang.limitDAR           = lines[37];
+                        tempLang.limitRegions       = lines[38];
+                        tempLang.restrictTech       = lines[39];
+                        tempLang.regionEquip        = lines[40];
+                        tempLang.fastBuild          = lines[41];
+                        tempLang.noLoyaltyPenalty   = lines[42];
+                        tempLang.missileLimit       = lines[43];
+                        tempLang.reserveLimit       = lines[44];
+                        tempLang.groupLoyalty       = lines[45];
+                        tempLang.groupResearch      = lines[46];
+                        tempLang.limitMAR           = lines[47];
+                        tempLang.noSphere           = lines[48];
+                        tempLang.campaignGame       = lines[49];
+                        tempLang.govChoice          = lines[50];
+                        tempLang.relationsEff       = lines[51];
+                        tempLang.undoReset          = lines[52];
+                        tempLang.resetSettings      = lines[53];
+
+                        // Remove all dir text but filename
+                        tempLang.languageName = Path.GetFileNameWithoutExtension(file);
+
+                        // Add this language to the general list
+                        allLanguages.Add(tempLang);
+                    }
+                    catch(Exception e)
+                    {
+                        Debug.WriteLine(e.Message);
+                        Info.errorMsg(5, $"Loading language {file}: missing lines");
+                    }
+                }
+            }
+
+            UpdateLanguageInEditor();
         }
 
         internal void UpdateComboListOnDirChange()
@@ -151,7 +257,8 @@ namespace SRScenarioCreatorEnhanced
                 lines.RemoveAll(string.IsNullOrWhiteSpace);
 
                 // If all options are present and only them
-                if(lines.Count == 7)
+                // HARDCODED COUNT NUMBER (!)
+                if(lines.Count == 8)
                 {
                     float helperFloat;
                     int helperInt;
@@ -165,6 +272,7 @@ namespace SRScenarioCreatorEnhanced
                     if(float.TryParse(lines[5], out helperFloat)) Configuration.previousFontScaleFactor = helperFloat;
 
                     if(Int32.TryParse(lines[5], out helperInt)) Configuration.settingsDebugLevel = helperInt;
+                    Configuration.currentLanguage = lines[6];
                 }
             }
             else // Else - generate the file
@@ -194,7 +302,8 @@ namespace SRScenarioCreatorEnhanced
                 Configuration.currentFontScaleFactor.ToString(),
                 Configuration.previousFontScaleFactor.ToString(),
 
-                Configuration.settingsDebugLevel.ToString()
+                Configuration.settingsDebugLevel.ToString(),
+                Configuration.currentLanguage
             });
         }
 
