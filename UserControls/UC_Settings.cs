@@ -447,7 +447,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
             labelEconomicDifficulty.Text        = lang.settingsSection[7];
             labelDiplomacyDifficulty.Text       = lang.settingsSection[8];
             labelAISettings.Text                = lang.settingsSection[9];
-            labelAISettings.Text                = lang.settingsSection[10];
+            labelAIStance.Text                  = lang.settingsSection[10];
             labelWMDEffect.Text                 = lang.settingsSection[11];
             labelApprovalEffect.Text            = lang.settingsSection[12];
             labelVictoryConditions.Text         = lang.settingsSection[13];

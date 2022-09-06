@@ -138,6 +138,7 @@ namespace SRScenarioCreatorEnhanced
             /// Directory example: Lang\en-US.LANG or Lang\pl-PL.LANG
 
             /// NOTE : Only Settings Tab lang data is done so far
+            
 
             string langDir = Directory.GetCurrentDirectory() + @"\Lang";
 

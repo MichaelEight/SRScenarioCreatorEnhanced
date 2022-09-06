@@ -5,6 +5,9 @@ namespace SRScenarioCreatorEnhanced
 {
     class LanguageData
     {
+        // TODO Settings Tab also needs to have comboboxes content translated
+        // TODO Translate tab names and other buttons, settings
+
         public string languageName; // e.g. en-US, pl-PL etc.
 
         #region SettingsSection
