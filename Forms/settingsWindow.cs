@@ -121,6 +121,7 @@ namespace SRScenarioCreatorEnhanced.Forms
             Configuration.settingsDebugLevel = trackDebugMsgsLevel.Value;
 
             Configuration.currentLanguage = comboLanguage.Text;
+            mainWindow.UpdateLanguageInEditor();
 
             mainWindow.SaveEditorSettingsToFile();
         }

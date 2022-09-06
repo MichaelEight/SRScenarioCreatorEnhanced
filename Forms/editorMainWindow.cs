@@ -101,11 +101,16 @@ namespace SRScenarioCreatorEnhanced
             LoadEditorSettingsFromFile();
             AdjustEditorSizeToScale();
 
+            // Reload language to apply settings from file
+            UpdateLanguageInEditor();
+
             UpdateComboListOnDirChange();
 
             currentUCScenario.ExportButtonEnabled += HandleExportButtonEnabled;
             currentUCScenario.ExportButtonDisabled += HandleExportButtonDisabled;
         }
+
+        #region Language
 
         internal void UpdateLanguageInEditor()
         {
@@ -228,6 +233,8 @@ namespace SRScenarioCreatorEnhanced
             UpdateLanguageInEditor();
         }
 
+        #endregion
+
         internal void UpdateComboListOnDirChange()
         {
             currentUCScenario.loadFileNamesToEachComponent();
@@ -268,11 +275,12 @@ namespace SRScenarioCreatorEnhanced
 
                     if(float.TryParse(lines[2], out helperFloat)) Configuration.currentAppScaleFactor = helperFloat;
                     if(float.TryParse(lines[3], out helperFloat)) Configuration.previousAppScaleFactor = helperFloat;
+
                     if(float.TryParse(lines[4], out helperFloat)) Configuration.currentFontScaleFactor = helperFloat;
                     if(float.TryParse(lines[5], out helperFloat)) Configuration.previousFontScaleFactor = helperFloat;
 
-                    if(Int32.TryParse(lines[5], out helperInt)) Configuration.settingsDebugLevel = helperInt;
-                    Configuration.currentLanguage = lines[6];
+                    if(Int32.TryParse(lines[6], out helperInt)) Configuration.settingsDebugLevel = helperInt;
+                    Configuration.currentLanguage = lines[7];
                 }
             }
             else // Else - generate the file
