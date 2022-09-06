@@ -3,6 +3,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Windows.Forms;
@@ -36,6 +37,11 @@ namespace SRScenarioCreatorEnhanced.UserControls
             loadDataFromScenarioContent();
 
             activateOtherTabsIfPossible();
+
+            // Language
+            LoadCurrentLanguageToWindow();
+            mainWindow.LanguageHasChanged += HandleLanguageChanged;
+            GraphicHelper.ResetLabelsPositionsToFit(this);
         }
 
         /// <summary>
@@ -574,6 +580,80 @@ namespace SRScenarioCreatorEnhanced.UserControls
                     targetCombo.Text = targetCombo.Text.Replace(keyword, "");
                 }
             }
+        }
+
+        #endregion
+
+        #region Translation
+
+        private void HandleLanguageChanged(object sender, EventArgs e)
+        {
+            LoadCurrentLanguageToWindow();
+        }
+
+        /// <summary>
+        /// Adjust position of labels so they don't overlap with combo
+        /// </summary>
+        private void labels_SizeChanged(object sender, EventArgs e)
+        {
+            try
+            {
+                GraphicHelper.AdjustElementPosition(labelScenarioName, comboScenarioName);
+                GraphicHelper.AdjustElementPosition(labelCacheName, comboCacheName);
+                GraphicHelper.AdjustElementPosition(labelUnit, comboUnit);
+                GraphicHelper.AdjustElementPosition(labelPPLX, comboPPLX);
+                GraphicHelper.AdjustElementPosition(labelTTRX, comboTTRX);
+                GraphicHelper.AdjustElementPosition(labelTERX, comboTERX);
+                GraphicHelper.AdjustElementPosition(labelNewsItems, comboNewsItems);
+                GraphicHelper.AdjustElementPosition(labelProfile, comboProfile);
+                GraphicHelper.AdjustElementPosition(labelMapName, comboMapName);
+                GraphicHelper.AdjustElementPosition(labelOOF, comboOOF);
+                GraphicHelper.AdjustElementPosition(labelCVP, comboCVP);
+                GraphicHelper.AdjustElementPosition(labelWM, comboWM);
+                GraphicHelper.AdjustElementPosition(labelOOB, comboOOB);
+                GraphicHelper.AdjustElementPosition(labelPreCache, comboPreCache);
+                GraphicHelper.AdjustElementPosition(labelPostCache, comboPostCache);
+            }
+            catch(Exception err)
+            {
+                Debug.WriteLine(err.Message);
+            }
+        }
+
+        /// <summary>
+        /// Overwrites all current label texts with language data
+        /// </summary>
+        private void LoadCurrentLanguageToWindow()
+        {
+            // Start on the 1st and increment to go futher
+            int langIndex = 0;
+
+            labelGeneralInformation.Text    = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelScenarioName.Text          = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelCacheName.Text             = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            checkCacheName.Text             = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelNonEditableData.Text       = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            checkNoneditDefault.Text        = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelUnit.Text                  = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelPPLX.Text                  = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelTTRX.Text                  = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelTERX.Text                  = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelNewsItems.Text             = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelProfile.Text               = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelMapFiles.Text              = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelMapName.Text               = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelOOF.Text                   = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            checkNewMap.Text                = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            checkOOF.Text                   = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelEditableData.Text          = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelCVP.Text                   = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelWM.Text                    = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelOOB.Text                   = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelPreCache.Text              = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelPostCache.Text             = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            checkModifyCVP.Text             = mainWindow.currentLanguage.scenarioSection[langIndex];
+            checkModifyWM.Text              = mainWindow.currentLanguage.scenarioSection[langIndex];
+            checkModifyOOB.Text             = mainWindow.currentLanguage.scenarioSection[langIndex];
         }
 
         #endregion

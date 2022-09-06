@@ -32,6 +32,8 @@ namespace SRScenarioCreatorEnhanced
         public static extern bool ReleaseCapture();
         #endregion
 
+        #region Variables
+
         // Use for editing scale of main window and UCs
         internal float currentEditorScale;
         internal float currentFontScale;
@@ -55,9 +57,16 @@ namespace SRScenarioCreatorEnhanced
         internal List<LanguageData> allLanguages;
         internal event EventHandler LanguageHasChanged;
 
+        #endregion
+
+        // Constructor
         public editorMainWindow()
         {
             InitializeComponent();
+
+            // Language
+            allLanguages = new List<LanguageData>();
+            LoadLanguageDataFromFileToData();
 
             #region tabsAndTheirData
 
@@ -91,10 +100,6 @@ namespace SRScenarioCreatorEnhanced
             // Save original size
             currentEditorScale = Configuration.currentAppScaleFactor;
 
-            // Language
-            allLanguages = new List<LanguageData>();
-            LoadLanguageDataFromFileToData();
-
             // Adjust, load settings, reload -- such cycle does the job of loading settings
             // Probably because previous only then the size is saved as "previous", but tbh not sure XD ~M8, 2022/09/02 0:55
             AdjustEditorSizeToScale();
@@ -112,34 +117,18 @@ namespace SRScenarioCreatorEnhanced
 
         #region Language
 
-        internal void UpdateLanguageInEditor()
-        {
-            if (Configuration.currentLanguage == "DEFAULT")
-                currentLanguage = new LanguageData(); // Revert to default, hardcoded values
-            
-            // Loop through all loaded languages
-            foreach(var language in allLanguages)
-            {
-                // Pick the one, which was selected in settings window
-                if(language.languageName == Configuration.currentLanguage)
-                {
-                    currentLanguage = language;
-                    break;
-                }
-            }
+        #region LoadingFromFile
 
-            // Send event
-            if(LanguageHasChanged != null)
-                LanguageHasChanged(this, EventArgs.Empty);
-        }
-
+        /// <summary>
+        /// Load all language files from Lang\**-**.LANG
+        /// Save text from them in allLanguages list (list of languages, each has own text list)
+        /// </summary>
         private void LoadLanguageDataFromFileToData()
         {
             /// Directory example: Lang\en-US.LANG or Lang\pl-PL.LANG
 
             /// NOTE : Only Settings Tab lang data is done so far
             
-
             string langDir = Directory.GetCurrentDirectory() + @"\Lang";
 
             // Create dir if nonexistent
@@ -163,10 +152,17 @@ namespace SRScenarioCreatorEnhanced
                     try
                     {
                         int lineIndex = 0;
-                        for(; lineIndex < tempLang.settingsSection.Length; lineIndex++)
-                        {
-                            tempLang.settingsSection[lineIndex] = lines[lineIndex]; 
-                        }
+
+                        LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.mainWindowSection);
+                        LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.scenarioSection);
+                        LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.settingsSection);
+
+                        // TODO Unlock, when other tabs are made
+                        //LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.);
+                        //LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.);
+                        //LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.);
+                        //LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.);
+                        //LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.);
 
                         // Remove all dir text but filename
                         tempLang.languageName = Path.GetFileNameWithoutExtension(file);
@@ -185,7 +181,80 @@ namespace SRScenarioCreatorEnhanced
             UpdateLanguageInEditor();
         }
 
+        /// <summary>
+        /// Load lines from file to specific section of LangData
+        /// Ignore // as they're comments
+        /// Load until all space in given section is taken
+        /// </summary>
+        private void LoadLangSectionFromFile(string[] lines, ref int lineIndex, ref string[] section)
+        {
+            // Go through lines in file, amount is set by length of section (array holding text)
+            for (int langIndex = 0; langIndex < section.Length; ++lineIndex, ++langIndex)
+            {
+                // Ignore line, if it's a comment or is empty
+                if (lines[lineIndex].Contains("//") || string.IsNullOrEmpty(lines[lineIndex]))
+                {
+                    --langIndex; // Don't count it as new lang line
+                    continue;
+                }
+
+                section[langIndex] = lines[lineIndex];
+            }
+        }
+
         #endregion
+
+        #region UpdatingLanguageInApp
+
+        internal void UpdateLanguageInEditor()
+        {
+            if (Configuration.currentLanguage == "DEFAULT")
+                currentLanguage = new LanguageData(); // Revert to default, hardcoded values
+            
+            // Loop through all loaded languages
+            foreach(var language in allLanguages)
+            {
+                // Pick the one, which was selected in settings window
+                if(language.languageName == Configuration.currentLanguage)
+                {
+                    currentLanguage = language;
+                    break;
+                }
+            }
+
+            // Send event
+            if(LanguageHasChanged != null)
+                LanguageHasChanged(this, EventArgs.Empty);
+
+            // Update language in this window
+            LoadCurrentLanguageToWindow();
+        }
+
+        /// <summary>
+        /// Overwrites all current label texts with language data
+        /// </summary>
+        private void LoadCurrentLanguageToWindow()
+        {
+            // Start on the 1st and increment to go futher
+            int langIndex = 0;
+
+            titleLabel.Text                     = currentLanguage.mainWindowSection[langIndex++];
+            tabScenarioBtn.Text                 = currentLanguage.mainWindowSection[langIndex++];
+            tabSettingsBtn.Text                 = currentLanguage.mainWindowSection[langIndex++];
+            tabTheatersBtn.Text                 = currentLanguage.mainWindowSection[langIndex++];
+            tabRegionsBtn.Text                  = currentLanguage.mainWindowSection[langIndex++];
+            tabResourcesBtn.Text                = currentLanguage.mainWindowSection[langIndex++];
+            tabWMBtn.Text                       = currentLanguage.mainWindowSection[langIndex++];
+            tabOrbatBtn.Text                    = currentLanguage.mainWindowSection[langIndex++];
+            btnOpenExportedScenarioFolder.Text  = currentLanguage.mainWindowSection[langIndex++];
+            exportScenarioButton.Text           = currentLanguage.mainWindowSection[langIndex];
+        }
+
+        #endregion
+
+        #endregion
+
+        #region LoadingDataIntoTabsAndComboboxes
 
         internal void UpdateComboListOnDirChange()
         {
@@ -203,7 +272,9 @@ namespace SRScenarioCreatorEnhanced
             // Load settings from saved data to it's UC
             currentUCSettings.LoadSavedDataIntoComponents();
         }
-        
+
+        #endregion
+
         #region LoadingSavingEditorSettings
 
         private void LoadEditorSettingsFromFile()
@@ -343,6 +414,21 @@ namespace SRScenarioCreatorEnhanced
             settingsWindow sw = new settingsWindow(this);
             sw.ShowDialog();
         }
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            // Algorithm Source: https://stackoverflow.com/a/71203963/12934099
+            // Credit: Antonis
+            var obj = Application.OpenForms.OfType<helpWindow>().Select(t => t).FirstOrDefault();
+            if (obj != null)
+            {
+                obj.BringToFront();
+            }
+            else
+            {
+                obj = new helpWindow(this);
+                obj.Show();
+            }
+        }
 
         #endregion
 
@@ -464,21 +550,5 @@ namespace SRScenarioCreatorEnhanced
         }
 
         #endregion
-
-        private void buttonHelp_Click(object sender, EventArgs e)
-        {
-            // Algorithm Source: https://stackoverflow.com/a/71203963/12934099
-            // Credit: Antonis
-            var obj = Application.OpenForms.OfType<helpWindow>().Select(t => t).FirstOrDefault();
-            if (obj != null)
-            {
-                obj.BringToFront();
-            }
-            else
-            {
-                obj = new helpWindow(this);
-                obj.Show();
-            }
-        }
     }
 }

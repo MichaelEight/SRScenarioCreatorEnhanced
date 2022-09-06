@@ -65,10 +65,10 @@
             this.checkModifyWM = new System.Windows.Forms.CheckBox();
             this.checkModifyOOB = new System.Windows.Forms.CheckBox();
             this.checkNoneditDefault = new System.Windows.Forms.CheckBox();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.labelGeneralInformation = new System.Windows.Forms.Label();
+            this.labelMapFiles = new System.Windows.Forms.Label();
+            this.labelNonEditableData = new System.Windows.Forms.Label();
+            this.labelEditableData = new System.Windows.Forms.Label();
             this.labelRequiredScenarioName = new System.Windows.Forms.Label();
             this.labelRequiredCacheName = new System.Windows.Forms.Label();
             this.labelRequiredMapName = new System.Windows.Forms.Label();
@@ -93,6 +93,7 @@
             this.labelScenarioName.Size = new System.Drawing.Size(226, 34);
             this.labelScenarioName.TabIndex = 0;
             this.labelScenarioName.Text = "Scenario Name";
+            this.labelScenarioName.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // labelCacheName
             // 
@@ -103,6 +104,7 @@
             this.labelCacheName.Size = new System.Drawing.Size(202, 34);
             this.labelCacheName.TabIndex = 1;
             this.labelCacheName.Text = "Cache Name";
+            this.labelCacheName.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // comboScenarioName
             // 
@@ -181,6 +183,7 @@
             this.labelOOF.Size = new System.Drawing.Size(77, 34);
             this.labelOOF.TabIndex = 6;
             this.labelOOF.Text = "OOF";
+            this.labelOOF.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // labelMapName
             // 
@@ -191,6 +194,7 @@
             this.labelMapName.Size = new System.Drawing.Size(170, 34);
             this.labelMapName.TabIndex = 5;
             this.labelMapName.Text = "Map Name";
+            this.labelMapName.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // checkNewMap
             // 
@@ -235,6 +239,7 @@
             this.labelPPLX.Size = new System.Drawing.Size(79, 34);
             this.labelPPLX.TabIndex = 12;
             this.labelPPLX.Text = "PPLX";
+            this.labelPPLX.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // labelUnit
             // 
@@ -245,6 +250,7 @@
             this.labelUnit.Size = new System.Drawing.Size(70, 34);
             this.labelUnit.TabIndex = 11;
             this.labelUnit.Text = "UNIT";
+            this.labelUnit.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // comboTERX
             // 
@@ -277,6 +283,7 @@
             this.labelTERX.Size = new System.Drawing.Size(75, 34);
             this.labelTERX.TabIndex = 16;
             this.labelTERX.Text = "TERX";
+            this.labelTERX.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // labelTTRX
             // 
@@ -287,6 +294,7 @@
             this.labelTTRX.Size = new System.Drawing.Size(71, 34);
             this.labelTTRX.TabIndex = 15;
             this.labelTTRX.Text = "TTRX";
+            this.labelTTRX.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // comboProfile
             // 
@@ -319,6 +327,7 @@
             this.labelProfile.Size = new System.Drawing.Size(121, 34);
             this.labelProfile.TabIndex = 20;
             this.labelProfile.Text = "PROFILE";
+            this.labelProfile.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // labelNewsItems
             // 
@@ -329,6 +338,7 @@
             this.labelNewsItems.Size = new System.Drawing.Size(163, 34);
             this.labelNewsItems.TabIndex = 19;
             this.labelNewsItems.Text = "NEWSITEMS";
+            this.labelNewsItems.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // comboPostCache
             // 
@@ -350,6 +360,7 @@
             this.labelPostCache.Size = new System.Drawing.Size(174, 34);
             this.labelPostCache.TabIndex = 33;
             this.labelPostCache.Text = "Post Cache";
+            this.labelPostCache.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // comboPreCache
             // 
@@ -382,6 +393,7 @@
             this.labelPreCache.Size = new System.Drawing.Size(162, 34);
             this.labelPreCache.TabIndex = 30;
             this.labelPreCache.Text = "Pre-Cache";
+            this.labelPreCache.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // labelOOB
             // 
@@ -392,6 +404,7 @@
             this.labelOOB.Size = new System.Drawing.Size(79, 34);
             this.labelOOB.TabIndex = 29;
             this.labelOOB.Text = "OOB";
+            this.labelOOB.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // comboWM
             // 
@@ -424,6 +437,7 @@
             this.labelWM.Size = new System.Drawing.Size(136, 34);
             this.labelWM.TabIndex = 26;
             this.labelWM.Text = "WMData";
+            this.labelWM.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // labelCVP
             // 
@@ -434,6 +448,7 @@
             this.labelCVP.Size = new System.Drawing.Size(76, 34);
             this.labelCVP.TabIndex = 25;
             this.labelCVP.Text = "CVP";
+            this.labelCVP.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // checkModifyCVP
             // 
@@ -483,45 +498,45 @@
             this.checkNoneditDefault.UseVisualStyleBackColor = true;
             this.checkNoneditDefault.CheckedChanged += new System.EventHandler(this.checkNoneditDefault_CheckedChanged);
             // 
-            // label11
+            // labelGeneralInformation
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(290, 69);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(326, 38);
-            this.label11.TabIndex = 41;
-            this.label11.Text = "General Information";
+            this.labelGeneralInformation.AutoSize = true;
+            this.labelGeneralInformation.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
+            this.labelGeneralInformation.Location = new System.Drawing.Point(290, 69);
+            this.labelGeneralInformation.Name = "labelGeneralInformation";
+            this.labelGeneralInformation.Size = new System.Drawing.Size(326, 38);
+            this.labelGeneralInformation.TabIndex = 41;
+            this.labelGeneralInformation.Text = "General Information";
             // 
-            // label12
+            // labelMapFiles
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label12.Location = new System.Drawing.Point(1272, 69);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(162, 38);
-            this.label12.TabIndex = 42;
-            this.label12.Text = "Map Files";
+            this.labelMapFiles.AutoSize = true;
+            this.labelMapFiles.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelMapFiles.Location = new System.Drawing.Point(1272, 69);
+            this.labelMapFiles.Name = "labelMapFiles";
+            this.labelMapFiles.Size = new System.Drawing.Size(162, 38);
+            this.labelMapFiles.TabIndex = 42;
+            this.labelMapFiles.Text = "Map Files";
             // 
-            // label18
+            // labelNonEditableData
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(199, 409);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(379, 38);
-            this.label18.TabIndex = 43;
-            this.label18.Text = "Non-editable Data Files";
+            this.labelNonEditableData.AutoSize = true;
+            this.labelNonEditableData.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
+            this.labelNonEditableData.Location = new System.Drawing.Point(199, 409);
+            this.labelNonEditableData.Name = "labelNonEditableData";
+            this.labelNonEditableData.Size = new System.Drawing.Size(379, 38);
+            this.labelNonEditableData.TabIndex = 43;
+            this.labelNonEditableData.Text = "Non-editable Data Files";
             // 
-            // label19
+            // labelEditableData
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
-            this.label19.Location = new System.Drawing.Point(1178, 442);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(300, 38);
-            this.label19.TabIndex = 44;
-            this.label19.Text = "Editable Data Files";
+            this.labelEditableData.AutoSize = true;
+            this.labelEditableData.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
+            this.labelEditableData.Location = new System.Drawing.Point(1178, 442);
+            this.labelEditableData.Name = "labelEditableData";
+            this.labelEditableData.Size = new System.Drawing.Size(300, 38);
+            this.labelEditableData.TabIndex = 44;
+            this.labelEditableData.Text = "Editable Data Files";
             // 
             // labelRequiredScenarioName
             // 
@@ -683,10 +698,10 @@
             this.Controls.Add(this.labelRequiredMapName);
             this.Controls.Add(this.labelRequiredCacheName);
             this.Controls.Add(this.labelRequiredScenarioName);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
+            this.Controls.Add(this.labelEditableData);
+            this.Controls.Add(this.labelNonEditableData);
+            this.Controls.Add(this.labelMapFiles);
+            this.Controls.Add(this.labelGeneralInformation);
             this.Controls.Add(this.checkNoneditDefault);
             this.Controls.Add(this.checkModifyOOB);
             this.Controls.Add(this.checkModifyCVP);
@@ -726,6 +741,7 @@
             this.Controls.Add(this.labelScenarioName);
             this.Name = "UC_Scenario";
             this.Size = new System.Drawing.Size(1800, 1000);
+            this.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -770,10 +786,10 @@
         private System.Windows.Forms.CheckBox checkModifyWM;
         private System.Windows.Forms.CheckBox checkModifyOOB;
         private System.Windows.Forms.CheckBox checkNoneditDefault;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label labelGeneralInformation;
+        private System.Windows.Forms.Label labelMapFiles;
+        private System.Windows.Forms.Label labelNonEditableData;
+        private System.Windows.Forms.Label labelEditableData;
         private System.Windows.Forms.Label labelRequiredScenarioName;
         private System.Windows.Forms.Label labelRequiredCacheName;
         private System.Windows.Forms.Label labelRequiredMapName;

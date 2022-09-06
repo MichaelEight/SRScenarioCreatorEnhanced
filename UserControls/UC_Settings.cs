@@ -11,8 +11,6 @@ namespace SRScenarioCreatorEnhanced.UserControls
         private readonly editorMainWindow mainWindow;
         private DateTime debugInputChangedTime;
 
-        private LanguageData lang;
-
         SettingsContent backupForUndo;
 
         public UC_Settings(editorMainWindow mainWindow)
@@ -21,7 +19,6 @@ namespace SRScenarioCreatorEnhanced.UserControls
             this.mainWindow = mainWindow;
 
             // Language
-            lang = new LanguageData();
             LoadCurrentLanguageToTab();
             mainWindow.LanguageHasChanged += HandleLanguageChange;
 
@@ -31,7 +28,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
             debugInputChangedTime = DateTime.Now;
 
             // Reset labels and checks' text to fit them with according components (e.g. comboboxes)
-            ResetLabelsPositionsToFit();
+            GraphicHelper.ResetLabelsPositionsToFit(this);
         }
 
         /// <summary>
@@ -428,7 +425,6 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         private void HandleLanguageChange(object sender, EventArgs e)
         {
-            lang = mainWindow.currentLanguage;
             LoadCurrentLanguageToTab();
         }
 
@@ -437,211 +433,187 @@ namespace SRScenarioCreatorEnhanced.UserControls
         /// </summary>
         private void LoadCurrentLanguageToTab()
         {
-            labelGeneralInfo.Text               = lang.settingsSection[0];
-            labelStartingDate.Text              = lang.settingsSection[1];
-            labelScenarioID.Text                = lang.settingsSection[2];
-            labelFastForwardDays.Text           = lang.settingsSection[3];
-            labelDefaultRegion.Text             = lang.settingsSection[4];
-            labelDifficulties.Text              = lang.settingsSection[5];
-            labelMilitaryDifficulty.Text        = lang.settingsSection[6];
-            labelEconomicDifficulty.Text        = lang.settingsSection[7];
-            labelDiplomacyDifficulty.Text       = lang.settingsSection[8];
-            labelAISettings.Text                = lang.settingsSection[9];
-            labelAIStance.Text                  = lang.settingsSection[10];
-            labelWMDEffect.Text                 = lang.settingsSection[11];
-            labelApprovalEffect.Text            = lang.settingsSection[12];
-            labelVictoryConditions.Text         = lang.settingsSection[13];
-            labelGameLength.Text                = lang.settingsSection[14];
-            labelVictory.Text                   = lang.settingsSection[15];
-            labelVictoryHex.Text                = lang.settingsSection[16];
-            labelVictoryTech.Text               = lang.settingsSection[17];
-            labelStartingConditions.Text        = lang.settingsSection[18];
-            labelInitialFunds.Text              = lang.settingsSection[19];
-            labelResourcesLevel.Text            = lang.settingsSection[20];
-            labelGraphicOptions.Text            = lang.settingsSection[21];
-            labelMapGUI.Text                    = lang.settingsSection[22];
-            labelMapSplash.Text                 = lang.settingsSection[23];
-            labelMapMusic.Text                  = lang.settingsSection[24];
-            labelMiscellaneous.Text             = lang.settingsSection[25];
-            labelStartingYear.Text              = lang.settingsSection[26];
-            labelTechTreeDefault.Text           = lang.settingsSection[27];
-            labelRegionAllies.Text              = lang.settingsSection[28];
-            labelRegionAxis.Text                = lang.settingsSection[29];
-            labelSphereNN.Text                  = lang.settingsSection[30];
-            labelScenarioOptions.Text           = lang.settingsSection[31];
-            checkNoCapitalMove.Text             = lang.settingsSection[32];
-            checkWMinvolve.Text                 = lang.settingsSection[33];
-            checkWMDuse.Text                    = lang.settingsSection[34];
-            checkAlliedVictory.Text             = lang.settingsSection[35];
-            checkDebtFree.Text                  = lang.settingsSection[36];
-            checkLimitDAReffect.Text            = lang.settingsSection[37];
-            checkLimitInScenario.Text           = lang.settingsSection[38];
-            checkRestrictTechTrade.Text         = lang.settingsSection[39];
-            checkRegionEquip.Text               = lang.settingsSection[40];
-            checkFastBuild.Text                 = lang.settingsSection[41];
-            checkGroupLoyaltyMerge.Text         = lang.settingsSection[42];
-            checkMissileNoLimit.Text            = lang.settingsSection[43];
-            checkReserveLimit.Text              = lang.settingsSection[44];
-            checkGroupLoyaltyMerge.Text         = lang.settingsSection[45];
-            checkGroupResearchMerge.Text        = lang.settingsSection[46];
-            checkLimitMAReffect.Text            = lang.settingsSection[47];
-            checkNoSphere.Text                  = lang.settingsSection[48];
-            checkCampaignGame.Text              = lang.settingsSection[49];
-            checkGovChoice.Text                 = lang.settingsSection[50];
-            checkRelationsEffect.Text           = lang.settingsSection[51];
-            buttonUndoReset.Text                = lang.settingsSection[52];
-            buttonResetSettings.Text            = lang.settingsSection[53];
-        }
+            // Start on the 1st and increment to go futher
+            int langIndex = 0;
 
-        /// <summary>
-        /// Adds space to all texts (labels and 1st column of checks) to trigger reposition event.
-        /// It's faster than calling each event separately
-        /// </summary>
-        private void ResetLabelsPositionsToFit()
-        {
-            foreach(Control l in this.Controls)
-            {
-                if(l.Name.Contains("label") || l.Name.Contains("check"))
-                {
-                    l.Text += " ";
-                }
-            }
-        }
-
-        /// <summary>
-        /// If the label is on the left of box and they're misaligned (one overlaps the other or is too far away)
-        /// then correct the position of label (or anything holding text on the left)
-        /// </summary>
-        private void AdjustElementPosition(Control onLeft, Control onRight)
-        {
-            // If left and right elements are misaligned
-            if (onLeft.Right > onRight.Left || onLeft.Right < onRight.Left)
-                // Move left to the border of right (if it's a checkbox, keep some additional distance)
-                onLeft.Left = onRight.Left - onLeft.Width + (onLeft.Name.Contains("check") ? -40:0);
+            labelGeneralInfo.Text               = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelStartingDate.Text              = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelScenarioID.Text                = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelFastForwardDays.Text           = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelDefaultRegion.Text             = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelDifficulties.Text              = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelMilitaryDifficulty.Text        = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelEconomicDifficulty.Text        = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelDiplomacyDifficulty.Text       = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelAISettings.Text                = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelAIStance.Text                  = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelWMDEffect.Text                 = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelApprovalEffect.Text            = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelVictoryConditions.Text         = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelGameLength.Text                = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelVictory.Text                   = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelVictoryHex.Text                = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelVictoryTech.Text               = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelStartingConditions.Text        = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelInitialFunds.Text              = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelResourcesLevel.Text            = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelGraphicOptions.Text            = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelMapGUI.Text                    = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelMapSplash.Text                 = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelMapMusic.Text                  = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelMiscellaneous.Text             = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelStartingYear.Text              = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelTechTreeDefault.Text           = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelRegionAllies.Text              = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelRegionAxis.Text                = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelSphereNN.Text                  = mainWindow.currentLanguage.settingsSection[langIndex++];
+            labelScenarioOptions.Text           = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkNoCapitalMove.Text             = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkWMinvolve.Text                 = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkWMDuse.Text                    = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkAlliedVictory.Text             = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkDebtFree.Text                  = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkLimitDAReffect.Text            = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkLimitInScenario.Text           = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkRestrictTechTrade.Text         = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkRegionEquip.Text               = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkFastBuild.Text                 = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkGroupLoyaltyMerge.Text         = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkMissileNoLimit.Text            = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkReserveLimit.Text              = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkGroupLoyaltyMerge.Text         = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkGroupResearchMerge.Text        = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkLimitMAReffect.Text            = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkNoSphere.Text                  = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkCampaignGame.Text              = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkGovChoice.Text                 = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkRelationsEffect.Text           = mainWindow.currentLanguage.settingsSection[langIndex++];
+            buttonUndoReset.Text                = mainWindow.currentLanguage.settingsSection[langIndex++];
+            buttonResetSettings.Text            = mainWindow.currentLanguage.settingsSection[langIndex];
         }
 
         #region Events
 
         #region Difficulties
         private void labelDiplomacyDifficulty_SizeChanged(object sender, EventArgs e)
-            => AdjustElementPosition(labelDiplomacyDifficulty, comboDiplomacyDiff);
+            => GraphicHelper.AdjustElementPosition(labelDiplomacyDifficulty, comboDiplomacyDiff);
 
         private void labelMilitaryDifficulty_SizeChanged(object sender, EventArgs e)
-            => AdjustElementPosition(labelMilitaryDifficulty,comboMilitaryDiff);
+            => GraphicHelper.AdjustElementPosition(labelMilitaryDifficulty,comboMilitaryDiff);
 
         private void labelEconomicDifficulty_SizeChanged(object sender, EventArgs e)
-            => AdjustElementPosition(labelEconomicDifficulty,comboEconomicDiff);
+            => GraphicHelper.AdjustElementPosition(labelEconomicDifficulty,comboEconomicDiff);
 
         #endregion
 
         #region AISettings
         private void labelAIStance_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelAIStance,comboAiStance);
+            => GraphicHelper.AdjustElementPosition(labelAIStance,comboAiStance);
 
         private void labelWMDEffect_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelWMDEffect,comboWMDEffect);
+            => GraphicHelper.AdjustElementPosition(labelWMDEffect,comboWMDEffect);
 
         private void labelApprovalEffect_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelApprovalEffect,comboApprovalEffect);
+            => GraphicHelper.AdjustElementPosition(labelApprovalEffect,comboApprovalEffect);
         
         #endregion
 
         #region VictoryConditions
         private void labelGameLength_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelGameLength,comboGameLength);
+            => GraphicHelper.AdjustElementPosition(labelGameLength,comboGameLength);
 
         private void labelVictory_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelVictory,comboVictoryCondition);
+            => GraphicHelper.AdjustElementPosition(labelVictory,comboVictoryCondition);
 
         #endregion
 
         #region GeneralInfo
         private void labelStartingDate_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelStartingDate,dateStartingDate);
+            => GraphicHelper.AdjustElementPosition(labelStartingDate,dateStartingDate);
 
         private void labelScenarioID_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelScenarioID,textScenarioID);
+            => GraphicHelper.AdjustElementPosition(labelScenarioID,textScenarioID);
 
         private void labelDefaultRegion_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelDefaultRegion,numericDefaultRegion);
+            => GraphicHelper.AdjustElementPosition(labelDefaultRegion,numericDefaultRegion);
 
         private void labelFastForwardDays_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelFastForwardDays,numericFastForwardDays);
+            => GraphicHelper.AdjustElementPosition(labelFastForwardDays,numericFastForwardDays);
 
         #endregion
 
         #region StartingConditions
         private void labelInitialFunds_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelInitialFunds,comboInitialFunds);
+            => GraphicHelper.AdjustElementPosition(labelInitialFunds,comboInitialFunds);
 
         private void labelResourcesLevel_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelResourcesLevel,comboResourcesLevel);
+            => GraphicHelper.AdjustElementPosition(labelResourcesLevel,comboResourcesLevel);
 
         #endregion
 
         #region Graphic
 
         private void labelMapGUI_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelMapGUI,comboMapGui);
+            => GraphicHelper.AdjustElementPosition(labelMapGUI,comboMapGui);
 
         private void labelMapSplash_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelMapSplash,numericMapSplash);
+            => GraphicHelper.AdjustElementPosition(labelMapSplash,numericMapSplash);
 
         private void labelMapMusic_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelMapMusic,numericMapMusic);
+            => GraphicHelper.AdjustElementPosition(labelMapMusic,numericMapMusic);
 
         #endregion
 
         #region Miscellaneous
 
         private void labelStartingYear_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelStartingYear,numericStartingYear);
+            => GraphicHelper.AdjustElementPosition(labelStartingYear,numericStartingYear);
 
         private void labelTechTreeDefault_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelTechTreeDefault,textTechTreeDefault);
+            => GraphicHelper.AdjustElementPosition(labelTechTreeDefault,textTechTreeDefault);
 
         private void labelRegionAllies_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelRegionAllies,textRegionAllies);
+            => GraphicHelper.AdjustElementPosition(labelRegionAllies,textRegionAllies);
 
         private void labelRegionAxis_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelRegionAxis,textRegionAxis);
+            => GraphicHelper.AdjustElementPosition(labelRegionAxis,textRegionAxis);
 
         private void labelSphereNN_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(labelSphereNN,textSphereNN);
+            => GraphicHelper.AdjustElementPosition(labelSphereNN,textSphereNN);
 
         #endregion
 
         #region Checks
 
         private void checkNoCapitalMove_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(checkNoCapitalMove,checkNoLoyPenalty);
+            => GraphicHelper.AdjustElementPosition(checkNoCapitalMove,checkNoLoyPenalty);
 
         private void checkWMinvolve_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(checkWMinvolve,checkMissileNoLimit);
+            => GraphicHelper.AdjustElementPosition(checkWMinvolve,checkMissileNoLimit);
 
         private void checkWMDuse_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(checkWMDuse,checkReserveLimit);
+            => GraphicHelper.AdjustElementPosition(checkWMDuse,checkReserveLimit);
 
         private void checkAlliedVictory_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(checkAlliedVictory,checkGroupLoyaltyMerge);
+            => GraphicHelper.AdjustElementPosition(checkAlliedVictory,checkGroupLoyaltyMerge);
 
         private void checkDebtFree_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(checkDebtFree,checkGroupResearchMerge);
+            => GraphicHelper.AdjustElementPosition(checkDebtFree,checkGroupResearchMerge);
 
         private void checkLimitDAReffect_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(checkLimitDAReffect,checkLimitMAReffect);
+            => GraphicHelper.AdjustElementPosition(checkLimitDAReffect,checkLimitMAReffect);
 
         private void checkLimitInScenario_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(checkLimitInScenario,checkNoSphere);
+            => GraphicHelper.AdjustElementPosition(checkLimitInScenario,checkNoSphere);
 
         private void checkRestrictTechTrade_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(checkRestrictTechTrade,checkCampaignGame);
+            => GraphicHelper.AdjustElementPosition(checkRestrictTechTrade,checkCampaignGame);
 
         private void checkRegionEquip_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(checkRegionEquip,checkGovChoice);
+            => GraphicHelper.AdjustElementPosition(checkRegionEquip,checkGovChoice);
 
         private void checkFastBuild_SizeChanged(object sender, EventArgs e) 
-            => AdjustElementPosition(checkFastBuild,checkRelationsEffect);
+            => GraphicHelper.AdjustElementPosition(checkFastBuild,checkRelationsEffect);
 
         #endregion
 
