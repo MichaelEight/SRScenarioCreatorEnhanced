@@ -1,5 +1,9 @@
 # Guide to help you solve few issues, which may appear
 
+## Basic Issues
+### App doesn't start
+**Solution:** Make sure you've extracted all files from .rar, especially .exe and .dll-s. If you use Norton Antivirus, it may help to turn it off for a second, because this thing is so officious it will delete the app instantly, if it learns it has more that 10 comboboxes (proved by experiments). 
+
 ## Format
 (Error Code) "*Error Message*"
 
