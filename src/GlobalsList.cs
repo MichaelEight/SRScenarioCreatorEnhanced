@@ -17,7 +17,7 @@ public static class Globals
 
 public static class Configuration
 {
-    // EDIT EVERY NEW RELEASE!
+    // EDIT EVERY NEW RELEASE! Same with Properties >> Application >> Assembly Information 
     // Manual version of app
     public const string editorVersion = "Alpha 4";
     // Auto version of assembly

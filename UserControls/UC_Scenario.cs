@@ -283,7 +283,6 @@ namespace SRScenarioCreatorEnhanced.UserControls
         private void checkNewMap_CheckedChanged(object sender, EventArgs e)
         {
             mainWindow.currentScenario.newMapCheck = checkNewMap.Checked;
-            // Create new map: either copy-paste default map and empty it or copy-paste hard-coded content
         }
 
         private void checkOOF_CheckedChanged(object sender, EventArgs e)

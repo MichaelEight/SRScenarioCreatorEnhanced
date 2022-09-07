@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Windows.Forms;
 
 namespace SRScenarioCreatorEnhanced
 {
@@ -122,21 +123,37 @@ namespace SRScenarioCreatorEnhanced
             }
 
             // Adjust export folder directory, connect it with scenario name
-            adjustedExportDirectory = Configuration.baseExportDirectory + $"\\{scenarioName}";
+            adjustedExportDirectory = Configuration.baseExportDirectory + $"\\{scenarioName}\\Maps\\";
 
             // Check scenario folder and subfolders
             if(!Directory.Exists(adjustedExportDirectory))
                 Directory.CreateDirectory(adjustedExportDirectory);
 
-            if (!Directory.Exists(adjustedExportDirectory + @"\Maps"))
-                Directory.CreateDirectory(adjustedExportDirectory + @"\Maps");
+            if (!Directory.Exists(adjustedExportDirectory + @"Orbat"))
+                Directory.CreateDirectory(adjustedExportDirectory + @"Orbat");
 
-            if (!Directory.Exists(adjustedExportDirectory + @"\Maps\Orbat"))
-                Directory.CreateDirectory(adjustedExportDirectory + @"\Maps\Orbat");
-
-            if (!Directory.Exists(adjustedExportDirectory + @"\Maps\Data"))
-                Directory.CreateDirectory(adjustedExportDirectory + @"\Maps\Data");
+            if (!Directory.Exists(adjustedExportDirectory + @"Data"))
+                Directory.CreateDirectory(adjustedExportDirectory + @"Data");
             
+            // If "Create New Map" is checked
+            if(newMapCheck)
+            {
+                string mapDir = adjustedExportDirectory + mapName + @".MAPX";
+                if (File.Exists(mapDir))
+                {
+                    DialogResult dialogResult = MessageBox.Show("Map file with that name already exists in your scenario! " +
+                        "If you press 'Yes', it will be overwritten! Proceed?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if(dialogResult == DialogResult.Yes)
+                    {
+                        File.Create(mapDir);
+                    }
+                }
+                else
+                {
+                    File.Create(mapDir);
+                }
+            }
 
             // Save .cvp file (if modified)
             if (CVPModifyCheck)
