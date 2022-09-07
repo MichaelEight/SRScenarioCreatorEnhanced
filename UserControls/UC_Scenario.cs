@@ -613,6 +613,22 @@ namespace SRScenarioCreatorEnhanced.UserControls
                 GraphicHelper.AdjustElementPosition(labelOOB, comboOOB);
                 GraphicHelper.AdjustElementPosition(labelPreCache, comboPreCache);
                 GraphicHelper.AdjustElementPosition(labelPostCache, comboPostCache);
+                
+                // Adjust (R) labels
+                GraphicHelper.AdjustElementPosition(labelRequiredScenarioName, labelScenarioName);
+                GraphicHelper.AdjustElementPosition(labelRequiredCacheName, labelCacheName);
+                GraphicHelper.AdjustElementPosition(labelRequiredUnit, labelUnit);
+                GraphicHelper.AdjustElementPosition(labelRequiredPPLX, labelPPLX);
+                GraphicHelper.AdjustElementPosition(labelRequiredPPLX, labelTTRX);
+                GraphicHelper.AdjustElementPosition(labelRequiredTERX, labelTERX);
+                GraphicHelper.AdjustElementPosition(labelRequiredNewsItems, labelNewsItems);
+                GraphicHelper.AdjustElementPosition(labelRequiredProfile, labelProfile);
+                GraphicHelper.AdjustElementPosition(labelRequiredMapName, labelMapName);
+                GraphicHelper.AdjustElementPosition(labelRequiredOOF, labelOOF);
+                GraphicHelper.AdjustElementPosition(labelRequiredCVP, labelCVP);
+                GraphicHelper.AdjustElementPosition(labelRequiredWM, labelWM);
+
+                
             }
             catch(Exception err)
             {
@@ -653,7 +669,8 @@ namespace SRScenarioCreatorEnhanced.UserControls
             labelPostCache.Text             = mainWindow.currentLanguage.scenarioSection[langIndex++];
             checkModifyCVP.Text             = mainWindow.currentLanguage.scenarioSection[langIndex];
             checkModifyWM.Text              = mainWindow.currentLanguage.scenarioSection[langIndex];
-            checkModifyOOB.Text             = mainWindow.currentLanguage.scenarioSection[langIndex];
+            checkModifyOOB.Text             = mainWindow.currentLanguage.scenarioSection[langIndex++];
+            labelRequiredInfo.Text          = mainWindow.currentLanguage.scenarioSection[langIndex];
         }
 
         #endregion

@@ -489,7 +489,98 @@ namespace SRScenarioCreatorEnhanced.UserControls
             checkGovChoice.Text                 = mainWindow.currentLanguage.settingsSection[langIndex++];
             checkRelationsEffect.Text           = mainWindow.currentLanguage.settingsSection[langIndex++];
             buttonUndoReset.Text                = mainWindow.currentLanguage.settingsSection[langIndex++];
-            buttonResetSettings.Text            = mainWindow.currentLanguage.settingsSection[langIndex];
+            buttonResetSettings.Text            = mainWindow.currentLanguage.settingsSection[langIndex++];
+
+            string[] difficulties = new string[] {
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++]
+                                                };
+
+            string[] aistance = new string[] {
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++]
+                                                };
+            
+            string[] gamelength = new string[] {
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++]
+                                                };
+            
+            string[] victory = new string[] {
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++]
+                                                };
+
+            string[] lowmediumhigh = new string[] {
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++]
+                                                };
+
+            string[] resources = new string[] {
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++],
+                                                mainWindow.currentLanguage.settingsSection[langIndex++]
+                                                };
+
+
+            LoadTranslationsToCombo(comboMilitaryDiff,  difficulties);
+            LoadTranslationsToCombo(comboEconomicDiff,  difficulties);
+            LoadTranslationsToCombo(comboDiplomacyDiff, difficulties);
+
+            LoadTranslationsToCombo(comboAiStance, aistance);
+            LoadTranslationsToCombo(comboGameLength, gamelength);
+            LoadTranslationsToCombo(comboVictoryCondition, victory);
+            LoadTranslationsToCombo(comboResourcesLevel, resources);
+            LoadTranslationsToCombo(comboWMDEffect, lowmediumhigh);
+            // Reverse order
+            Array.Reverse(lowmediumhigh);
+            LoadTranslationsToCombo(comboApprovalEffect, lowmediumhigh);
+            // Reverse order back
+            Array.Reverse(lowmediumhigh);
+            // Add missing element
+            lowmediumhigh = new string[] { mainWindow.currentLanguage.settingsSection[langIndex],
+                                            lowmediumhigh[0], lowmediumhigh[1], lowmediumhigh[2] };
+            LoadTranslationsToCombo(comboInitialFunds, lowmediumhigh);
+        }
+
+        private void LoadTranslationsToCombo(ComboBox combo, string[] translations)
+        {
+            // Save index, because it's reseted
+            int saveIndex = combo.SelectedIndex;
+
+            combo.Items.Clear();
+            combo.Items.AddRange(translations);
+
+            combo.SelectedIndex = saveIndex; // Revert selected index
         }
 
         #region Events

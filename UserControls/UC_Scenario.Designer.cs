@@ -81,7 +81,7 @@
             this.labelRequiredTERX = new System.Windows.Forms.Label();
             this.labelRequiredNewsItems = new System.Windows.Forms.Label();
             this.labelRequiredProfile = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
+            this.labelRequiredInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelScenarioName
@@ -670,22 +670,22 @@
             this.labelRequiredProfile.TabIndex = 57;
             this.labelRequiredProfile.Text = "(R)";
             // 
-            // label15
+            // labelRequiredInfo
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(1304, 837);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(371, 34);
-            this.label15.TabIndex = 58;
-            this.label15.Text = "(R) -- Required to Proceed";
+            this.labelRequiredInfo.AutoSize = true;
+            this.labelRequiredInfo.Font = new System.Drawing.Font("Century Gothic", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelRequiredInfo.ForeColor = System.Drawing.Color.Red;
+            this.labelRequiredInfo.Location = new System.Drawing.Point(1304, 837);
+            this.labelRequiredInfo.Name = "labelRequiredInfo";
+            this.labelRequiredInfo.Size = new System.Drawing.Size(371, 34);
+            this.labelRequiredInfo.TabIndex = 58;
+            this.labelRequiredInfo.Text = "(R) -- Required to Proceed";
             // 
             // UC_Scenario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label15);
+            this.Controls.Add(this.labelRequiredInfo);
             this.Controls.Add(this.labelRequiredProfile);
             this.Controls.Add(this.labelRequiredNewsItems);
             this.Controls.Add(this.labelRequiredTERX);
@@ -802,6 +802,6 @@
         private System.Windows.Forms.Label labelRequiredTERX;
         private System.Windows.Forms.Label labelRequiredNewsItems;
         private System.Windows.Forms.Label labelRequiredProfile;
-        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label labelRequiredInfo;
     }
 }

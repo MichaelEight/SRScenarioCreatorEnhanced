@@ -13,8 +13,8 @@ namespace SRScenarioCreatorEnhanced
         #region TextSections
 
         public string[] mainWindowSection = new string[10]; // 10 texts, file indexes 0-9
-        public string[] scenarioSection   = new string[24]; // 24 texts
-        public string[] settingsSection   = new string[54]; // 54 texts
+        public string[] scenarioSection   = new string[25]; // 24 texts
+        public string[] settingsSection   = new string[97]; // 97 texts
 
         #endregion
 
@@ -65,7 +65,8 @@ namespace SRScenarioCreatorEnhanced
             scenarioSection[langIndex++] = "OOB";
             scenarioSection[langIndex++] = "Pre-Cache";
             scenarioSection[langIndex++] = "Post Cache";
-            scenarioSection[langIndex]   = "Modify";
+            scenarioSection[langIndex++] = "Modify";
+            scenarioSection[langIndex]   = "(R) -- Required to Proceed";
 
             #endregion
 
@@ -125,7 +126,50 @@ namespace SRScenarioCreatorEnhanced
             settingsSection[langIndex++] = "Gov Choice";
             settingsSection[langIndex++] = "3rd Party Relations Effect";
             settingsSection[langIndex++] = "UNDO RESET";
-            settingsSection[langIndex]   = "RESET SETTINGS TO DEFAULT";
+            settingsSection[langIndex++] = "RESET SETTINGS TO DEFAULT";
+            settingsSection[langIndex++] = "Very Easy";
+            settingsSection[langIndex++] = "Easy";
+            settingsSection[langIndex++] = "Default";
+            settingsSection[langIndex++] = "Hard";
+            settingsSection[langIndex++] = "Very Hard";
+            settingsSection[langIndex++] = "Normal";
+            settingsSection[langIndex++] = "Passive";
+            settingsSection[langIndex++] = "Defensive";
+            settingsSection[langIndex++] = "Aggresive";
+            settingsSection[langIndex++] = "Unpredictable";
+            settingsSection[langIndex++] = "None";
+            settingsSection[langIndex++] = "120 Months";
+            settingsSection[langIndex++] = "108 Months";
+            settingsSection[langIndex++] = "96 Months";
+            settingsSection[langIndex++] = "84 Months";
+            settingsSection[langIndex++] = "72 Months";
+            settingsSection[langIndex++] = "60 Months";
+            settingsSection[langIndex++] = "48 Months";
+            settingsSection[langIndex++] = "36 Months";
+            settingsSection[langIndex++] = "24 Months";
+            settingsSection[langIndex++] = "18 Months";
+            settingsSection[langIndex++] = "12 Months";
+            settingsSection[langIndex++] = "6 Months";
+            settingsSection[langIndex++] = "Complete";
+            settingsSection[langIndex++] = "Capital";
+            settingsSection[langIndex++] = "Capture";
+            settingsSection[langIndex++] = "Unification";
+            settingsSection[langIndex++] = "Total Score";
+            settingsSection[langIndex++] = "Diplomatic Score";
+            settingsSection[langIndex++] = "Economic Score";
+            settingsSection[langIndex++] = "Technology Score";
+            settingsSection[langIndex++] = "Approval Score";
+            settingsSection[langIndex++] = "Military Score";
+            settingsSection[langIndex++] = "Sphere";
+            settingsSection[langIndex++] = "Victory Points";
+            settingsSection[langIndex++] = "Low";
+            settingsSection[langIndex++] = "Medium";
+            settingsSection[langIndex++] = "High";
+            settingsSection[langIndex++] = "Depleted";
+            settingsSection[langIndex++] = "Dwindling";
+            settingsSection[langIndex++] = "Standard";
+            settingsSection[langIndex++] = "Abundant";
+            settingsSection[langIndex]   = "No New Bonds";
 
             #endregion
         }
