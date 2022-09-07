@@ -1,0 +1,138 @@
+// Lines with '//' (anywhere in the line) are comments and are ignored by The Editor
+// Main Window
+Supreme Ruler Ultimate: Enhanced Scenario Editor
+Scenario
+Settings
+Theaters
+Regions
+Resources
+World Market
+Orbat
+Open Exported Scenario Folder
+Export Scenario
+
+// Scenario Tab
+General Information
+Scenario Name
+Cache Name
+Same as Scenario Name
+Non-editable Data Files
+Use Default Files
+UNIT
+PPLX
+TTRX
+TERX
+NEWSITEMS
+PROFILE
+Map Files
+Map Name
+OOF
+Create New Map
+Same as Map Name
+Editable Data Files
+CVP
+WMData
+OOB
+Pre-Cache
+Post Cache
+Modify
+(R) -- Required to Proceed
+
+// Settings Tab
+General Info
+Starting Date
+Scenario ID
+Fast Forward Days
+Default region
+Difficulties
+Military
+Economic
+Diplomacy
+AI Settings
+AI Stance
+Nuke Penalty
+Approval Effect
+Victory Conditions
+Game Length
+Victory
+Victory Hex
+Victory Tech
+Starting Conditions
+Initial Funds
+Resources Level
+Graphic Options
+Map GUI
+Map Splash
+Map Music
+Miscellaneous
+Starting Year
+Tech Tree Default
+Region Allies
+Region Axis
+Sphere NN
+Scenario Options
+Fixed Capitals
+Critical UN
+Allow Nukes
+Allied Victory
+No Starting Debt
+Limit DAR Effect
+Limit Regions in Scenario
+Restrict Tech Trade
+Region Equip
+Fast Build
+No Loyalty Penalty
+Missile Limit
+Reserve Limit
+Group Loalty Merge
+Group Research Merge
+Limit MAR Effect
+No Sphere
+Campaign Game
+Gov Choice
+3rd Party Relations Effect
+UNDO RESET
+RESET SETTINGS TO DEFAULT
+Very Easy
+Easy
+Default
+Hard
+Very Hard
+Normal
+Passive
+Defensive
+Aggresive
+Unpredictable
+None
+120 Months
+108 Months
+96 Months
+84 Months
+72 Months
+60 Months
+48 Months
+36 Months
+24 Months
+18 Months
+12 Months
+6 Months
+Complete
+Capital
+Capture
+Unification
+Total Score
+Diplomatic Score
+Economic Score
+Technology Score
+Approval Score
+Military Score
+Sphere
+Victory Points
+Low
+Medium
+High
+Depleted
+Dwindling
+Standard
+Abundant
+No New Bonds

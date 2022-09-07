@@ -354,7 +354,7 @@
             this.exportScenarioButton.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.exportScenarioButton.Location = new System.Drawing.Point(857, 23);
             this.exportScenarioButton.Name = "exportScenarioButton";
-            this.exportScenarioButton.Size = new System.Drawing.Size(400, 100);
+            this.exportScenarioButton.Size = new System.Drawing.Size(465, 100);
             this.exportScenarioButton.TabIndex = 60;
             this.exportScenarioButton.Text = "Export Scenario";
             this.exportScenarioButton.UseVisualStyleBackColor = true;

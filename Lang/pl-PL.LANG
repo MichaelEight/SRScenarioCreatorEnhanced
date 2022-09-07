@@ -1,0 +1,138 @@
+// Linijki z '//' (gdziekolwiek w linii) są komentarzami i są ignorowane przez Edytor
+// Główne Okienko
+Supreme Ruler Ultimate: Ulepszony Edytor Scenariuszy
+Scenariusz
+Ustawienia
+Teatry
+Regiony
+Zasoby
+Rynek Światowy
+Jednostki
+Otwórz Folder Eksportu
+Eksportuj Scenariusz
+
+// Zakładka Scenariuszy
+Ogólne Informacje
+Nazwa Scenariusza
+Nazwa Cache
+Taka Sama Jak Scenariusz
+Nieedytowalne Pliki
+Użyj Domyślnych
+UNIT
+PPLX
+TTRX
+TERX
+NEWSITEMS
+PROFILE
+Pliki Mapy
+Nazwa Mapy
+OOF
+Stwórz Nową Mapę
+Taka Sama Jak Mapa
+Edytowalne Pliki
+CVP
+WMData
+OOB
+Pre-Cache
+Post Cache
+Modyfikuj
+(R) -- Wymagane
+
+// Zakładka Ustawień
+Ogólne Informacje
+Data Rozpoczęcia
+ID Scenariusza
+Pomiń Tyle Dni
+Domyślny Region
+Poziomy Trudności
+Wojsko
+Ekonomia
+Dyplomacja
+Ustawienia AI
+Podejście AI
+Kara za Atomówki
+Skuteczność Aprobaty
+Zwycięstwo
+Długość Gry
+Rodzaj Zwycięstwa
+Pole Wygrywające
+Tech Wygrywająca
+Warunki Początkowe
+Startowe Fundusze
+Ilość Zasobów
+Ustawienia Graficzne
+GUI Mapy
+Splash Mapy
+Muzyka Mapy
+Różne
+Rok Startowy
+Domyślne Drzewo Tech
+Regiony Aliantów
+Regiony Osi
+Sfera NN
+Opcje Scenariusza
+Nieruchome Stolice
+Krytyczna Opinia UN
+Zezwól Atomówki
+Zwycięstwo Sojusznicze
+Bez Długu na Start
+Ogranicz Efekt DAR
+Ogranicz Regiony w Scenariuszu
+Ogranicz Handel Tech
+Region Equip
+Szybkie Budowanie
+Bez Kary Za Lojalność
+Limit Rakiet
+Limit Rezerw
+Grupuj Poprzez Lojalność
+Grupuj Poprzez Technologię
+Ogranicz Efekt MAR
+Brak Sfer
+Kampania
+Wybór Rządu
+Wpływ Państw 3cich
+COFNIJ RESET
+RESET USTAWIEŃ DO DOMYŚLNYCH
+B. Łatwy
+Łatwy
+Domyślny
+Trudny
+B. Trudny
+Normalny
+Bierny
+Defensywny
+Agresywny
+Nieprzewidywalny
+Brak
+120 Miesięcy
+108 Miesięcy
+96 Miesięcy
+84 Miesiące
+72 Miesiące
+60 Miesięcy
+48 Miesięcy
+36 Miesięcy
+24 Miesiące
+18 Miesięcy
+12 Miesięcy
+6 Miesięcy
+Całkowite
+Stolica
+Przejęcie
+Zjednoczenie
+Wynik Całkowity
+Wynik Dyplomatyczny
+Wynik Ekonomiczny
+Wynik Tech
+Wynik Aprobaty
+Wynik Wojskowy
+Sfera
+Punkty Zwycięstwa
+Niskie
+Średnie
+Wysokie
+Wyczerpane
+Kończące Się
+Standardowe
+Obfite
+Bez Kredytów

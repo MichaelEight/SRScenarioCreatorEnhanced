@@ -212,6 +212,12 @@
     <EmbeddedResource Include="UserControls\UC_WM.resx">
       <DependentUpon>UC_WM.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Lang\en-US.LANG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Include="Lang\pl-PL.LANG">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\Settings.settings">

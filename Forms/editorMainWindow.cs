@@ -481,6 +481,7 @@ namespace SRScenarioCreatorEnhanced
                 // Change font scale of main window elements
                 changeFontOfComponentsInContainer(toolbarPanel, factor);
                 changeFontOfComponentsInContainer(tabsPanel, factor);
+                changeFontOfComponentsInContainer(panelBottom, factor);
 
                 // Change font scale of tabs content
                 changeFontOfComponentsInContainer(currentUCScenario, factor);
