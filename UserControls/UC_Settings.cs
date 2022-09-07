@@ -478,7 +478,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
             checkRestrictTechTrade.Text         = mainWindow.currentLanguage.settingsSection[langIndex++];
             checkRegionEquip.Text               = mainWindow.currentLanguage.settingsSection[langIndex++];
             checkFastBuild.Text                 = mainWindow.currentLanguage.settingsSection[langIndex++];
-            checkGroupLoyaltyMerge.Text         = mainWindow.currentLanguage.settingsSection[langIndex++];
+            checkNoLoyPenalty.Text              = mainWindow.currentLanguage.settingsSection[langIndex++];
             checkMissileNoLimit.Text            = mainWindow.currentLanguage.settingsSection[langIndex++];
             checkReserveLimit.Text              = mainWindow.currentLanguage.settingsSection[langIndex++];
             checkGroupLoyaltyMerge.Text         = mainWindow.currentLanguage.settingsSection[langIndex++];
