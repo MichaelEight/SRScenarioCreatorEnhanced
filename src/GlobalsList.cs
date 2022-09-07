@@ -109,7 +109,7 @@ public static class GraphicHelper
         // If left and right elements are misaligned
         if (onLeft.Right > onRight.Left || onLeft.Right < onRight.Left)
             // Move left to the border of right (if it's a checkbox, keep some additional distance)
-            onLeft.Left = onRight.Left - onLeft.Width + (onLeft.Name.Contains("check") ? -40 : 0);
+            onLeft.Left = onRight.Left - onLeft.Width + (onLeft.Name.Contains("check") ? -20 : 0);
     }
 
     #endregion

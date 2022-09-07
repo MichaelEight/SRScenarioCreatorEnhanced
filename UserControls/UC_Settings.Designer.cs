@@ -1168,9 +1168,9 @@
             // 
             this.buttonUndoReset.Enabled = false;
             this.buttonUndoReset.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonUndoReset.Location = new System.Drawing.Point(1180, 880);
+            this.buttonUndoReset.Location = new System.Drawing.Point(1149, 880);
             this.buttonUndoReset.Name = "buttonUndoReset";
-            this.buttonUndoReset.Size = new System.Drawing.Size(230, 72);
+            this.buttonUndoReset.Size = new System.Drawing.Size(261, 72);
             this.buttonUndoReset.TabIndex = 167;
             this.buttonUndoReset.Text = "UNDO RESET";
             this.buttonUndoReset.UseVisualStyleBackColor = true;
