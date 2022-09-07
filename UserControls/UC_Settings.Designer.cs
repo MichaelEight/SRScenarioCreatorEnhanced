@@ -33,30 +33,30 @@
             this.textRegionAxis = new System.Windows.Forms.TextBox();
             this.textTechTreeDefault = new System.Windows.Forms.TextBox();
             this.textSphereNN = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
-            this.label24 = new System.Windows.Forms.Label();
-            this.label25 = new System.Windows.Forms.Label();
-            this.label29 = new System.Windows.Forms.Label();
-            this.label30 = new System.Windows.Forms.Label();
-            this.label31 = new System.Windows.Forms.Label();
-            this.label32 = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
-            this.label34 = new System.Windows.Forms.Label();
-            this.label35 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
-            this.label39 = new System.Windows.Forms.Label();
-            this.label43 = new System.Windows.Forms.Label();
+            this.labelStartingDate = new System.Windows.Forms.Label();
+            this.labelDefaultRegion = new System.Windows.Forms.Label();
+            this.labelMilitaryDifficulty = new System.Windows.Forms.Label();
+            this.labelScenarioID = new System.Windows.Forms.Label();
+            this.labelResourcesLevel = new System.Windows.Forms.Label();
+            this.labelEconomicDifficulty = new System.Windows.Forms.Label();
+            this.labelDiplomacyDifficulty = new System.Windows.Forms.Label();
+            this.labelTechTreeDefault = new System.Windows.Forms.Label();
+            this.labelStartingYear = new System.Windows.Forms.Label();
+            this.labelAIStance = new System.Windows.Forms.Label();
+            this.labelInitialFunds = new System.Windows.Forms.Label();
+            this.labelMapSplash = new System.Windows.Forms.Label();
+            this.labelMapGUI = new System.Windows.Forms.Label();
+            this.labelMapMusic = new System.Windows.Forms.Label();
+            this.labelGameLength = new System.Windows.Forms.Label();
+            this.labelVictory = new System.Windows.Forms.Label();
+            this.labelFastForwardDays = new System.Windows.Forms.Label();
+            this.labelRegionAxis = new System.Windows.Forms.Label();
+            this.labelRegionAllies = new System.Windows.Forms.Label();
+            this.labelVictoryTech = new System.Windows.Forms.Label();
+            this.labelVictoryHex = new System.Windows.Forms.Label();
+            this.labelWMDEffect = new System.Windows.Forms.Label();
+            this.labelApprovalEffect = new System.Windows.Forms.Label();
+            this.labelSphereNN = new System.Windows.Forms.Label();
             this.comboMilitaryDiff = new System.Windows.Forms.ComboBox();
             this.comboDiplomacyDiff = new System.Windows.Forms.ComboBox();
             this.comboResourcesLevel = new System.Windows.Forms.ComboBox();
@@ -64,8 +64,8 @@
             this.dateStartingDate = new System.Windows.Forms.DateTimePicker();
             this.comboInitialFunds = new System.Windows.Forms.ComboBox();
             this.comboAiStance = new System.Windows.Forms.ComboBox();
-            this.label45 = new System.Windows.Forms.Label();
-            this.label46 = new System.Windows.Forms.Label();
+            this.labelVictoryHexX = new System.Windows.Forms.Label();
+            this.labelVictoryHexY = new System.Windows.Forms.Label();
             this.comboWMDEffect = new System.Windows.Forms.ComboBox();
             this.checkLimitDAReffect = new System.Windows.Forms.CheckBox();
             this.checkLimitMAReffect = new System.Windows.Forms.CheckBox();
@@ -83,14 +83,14 @@
             this.checkDebtFree = new System.Windows.Forms.CheckBox();
             this.checkNoLoyPenalty = new System.Windows.Forms.CheckBox();
             this.numericMapSplash = new System.Windows.Forms.NumericUpDown();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
+            this.labelDifficulties = new System.Windows.Forms.Label();
+            this.labelGeneralInfo = new System.Windows.Forms.Label();
+            this.labelVictoryConditions = new System.Windows.Forms.Label();
+            this.labelStartingConditions = new System.Windows.Forms.Label();
+            this.labelAISettings = new System.Windows.Forms.Label();
+            this.labelGraphicOptions = new System.Windows.Forms.Label();
             this.comboGameLength = new System.Windows.Forms.ComboBox();
-            this.label19 = new System.Windows.Forms.Label();
+            this.labelScenarioOptions = new System.Windows.Forms.Label();
             this.numericFastForwardDays = new System.Windows.Forms.NumericUpDown();
             this.numericVictoryHexX = new System.Windows.Forms.NumericUpDown();
             this.numericVictoryHexY = new System.Windows.Forms.NumericUpDown();
@@ -103,7 +103,7 @@
             this.checkReserveLimit = new System.Windows.Forms.CheckBox();
             this.numericDefaultRegion = new System.Windows.Forms.NumericUpDown();
             this.checkRelationsEffect = new System.Windows.Forms.CheckBox();
-            this.label13 = new System.Windows.Forms.Label();
+            this.labelMiscellaneous = new System.Windows.Forms.Label();
             this.numericStartingYear = new System.Windows.Forms.NumericUpDown();
             this.numericVictoryTech = new System.Windows.Forms.NumericUpDown();
             this.numericMapMusic = new System.Windows.Forms.NumericUpDown();
@@ -168,269 +168,292 @@
             this.textSphereNN.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textSphereNN.TextChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
-            // label1
+            // labelStartingDate
             // 
-            this.label1.AutoSize = true;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label1.Location = new System.Drawing.Point(190, 50);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(164, 30);
-            this.label1.TabIndex = 45;
-            this.label1.Text = "Starting date";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelStartingDate.AutoSize = true;
+            this.labelStartingDate.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelStartingDate.Location = new System.Drawing.Point(190, 50);
+            this.labelStartingDate.Name = "labelStartingDate";
+            this.labelStartingDate.Size = new System.Drawing.Size(164, 30);
+            this.labelStartingDate.TabIndex = 45;
+            this.labelStartingDate.Text = "Starting date";
+            this.labelStartingDate.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelStartingDate.SizeChanged += new System.EventHandler(this.labelStartingDate_SizeChanged);
             // 
-            // label2
+            // labelDefaultRegion
             // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label2.Location = new System.Drawing.Point(170, 150);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(183, 30);
-            this.label2.TabIndex = 46;
-            this.label2.Text = "Default region";
-            this.label2.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelDefaultRegion.AutoSize = true;
+            this.labelDefaultRegion.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelDefaultRegion.Location = new System.Drawing.Point(170, 150);
+            this.labelDefaultRegion.Name = "labelDefaultRegion";
+            this.labelDefaultRegion.Size = new System.Drawing.Size(183, 30);
+            this.labelDefaultRegion.TabIndex = 46;
+            this.labelDefaultRegion.Text = "Default region";
+            this.labelDefaultRegion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelDefaultRegion.SizeChanged += new System.EventHandler(this.labelDefaultRegion_SizeChanged);
             // 
-            // label3
+            // labelMilitaryDifficulty
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label3.Location = new System.Drawing.Point(144, 260);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(98, 30);
-            this.label3.TabIndex = 48;
-            this.label3.Text = "Military";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMilitaryDifficulty.AutoSize = true;
+            this.labelMilitaryDifficulty.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelMilitaryDifficulty.Location = new System.Drawing.Point(144, 260);
+            this.labelMilitaryDifficulty.Name = "labelMilitaryDifficulty";
+            this.labelMilitaryDifficulty.Size = new System.Drawing.Size(98, 30);
+            this.labelMilitaryDifficulty.TabIndex = 48;
+            this.labelMilitaryDifficulty.Text = "Military";
+            this.labelMilitaryDifficulty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMilitaryDifficulty.SizeChanged += new System.EventHandler(this.labelMilitaryDifficulty_SizeChanged);
             // 
-            // label4
+            // labelScenarioID
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label4.Location = new System.Drawing.Point(206, 100);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(148, 30);
-            this.label4.TabIndex = 47;
-            this.label4.Text = "Scenario ID";
-            this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelScenarioID.AutoSize = true;
+            this.labelScenarioID.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelScenarioID.Location = new System.Drawing.Point(206, 100);
+            this.labelScenarioID.Name = "labelScenarioID";
+            this.labelScenarioID.Size = new System.Drawing.Size(148, 30);
+            this.labelScenarioID.TabIndex = 47;
+            this.labelScenarioID.Text = "Scenario ID";
+            this.labelScenarioID.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelScenarioID.SizeChanged += new System.EventHandler(this.labelScenarioID_SizeChanged);
             // 
-            // label5
+            // labelResourcesLevel
             // 
-            this.label5.AutoSize = true;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label5.Location = new System.Drawing.Point(559, 310);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(205, 30);
-            this.label5.TabIndex = 51;
-            this.label5.Text = "Resources Level";
-            this.label5.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelResourcesLevel.AutoSize = true;
+            this.labelResourcesLevel.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelResourcesLevel.Location = new System.Drawing.Point(559, 310);
+            this.labelResourcesLevel.Name = "labelResourcesLevel";
+            this.labelResourcesLevel.Size = new System.Drawing.Size(205, 30);
+            this.labelResourcesLevel.TabIndex = 51;
+            this.labelResourcesLevel.Text = "Resources Level";
+            this.labelResourcesLevel.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelResourcesLevel.SizeChanged += new System.EventHandler(this.labelResourcesLevel_SizeChanged);
             // 
-            // label6
+            // labelEconomicDifficulty
             // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label6.Location = new System.Drawing.Point(109, 310);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(135, 30);
-            this.label6.TabIndex = 50;
-            this.label6.Text = "Economic";
-            this.label6.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelEconomicDifficulty.AutoSize = true;
+            this.labelEconomicDifficulty.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelEconomicDifficulty.Location = new System.Drawing.Point(109, 310);
+            this.labelEconomicDifficulty.Name = "labelEconomicDifficulty";
+            this.labelEconomicDifficulty.Size = new System.Drawing.Size(135, 30);
+            this.labelEconomicDifficulty.TabIndex = 50;
+            this.labelEconomicDifficulty.Text = "Economic";
+            this.labelEconomicDifficulty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelEconomicDifficulty.SizeChanged += new System.EventHandler(this.labelEconomicDifficulty_SizeChanged);
             // 
-            // label7
+            // labelDiplomacyDifficulty
             // 
-            this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label7.Location = new System.Drawing.Point(100, 360);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(144, 30);
-            this.label7.TabIndex = 49;
-            this.label7.Text = "Diplomacy";
-            this.label7.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelDiplomacyDifficulty.AutoSize = true;
+            this.labelDiplomacyDifficulty.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelDiplomacyDifficulty.Location = new System.Drawing.Point(100, 360);
+            this.labelDiplomacyDifficulty.Name = "labelDiplomacyDifficulty";
+            this.labelDiplomacyDifficulty.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.labelDiplomacyDifficulty.Size = new System.Drawing.Size(144, 30);
+            this.labelDiplomacyDifficulty.TabIndex = 49;
+            this.labelDiplomacyDifficulty.Text = "Diplomacy";
+            this.labelDiplomacyDifficulty.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelDiplomacyDifficulty.SizeChanged += new System.EventHandler(this.labelDiplomacyDifficulty_SizeChanged);
             // 
-            // label10
+            // labelTechTreeDefault
             // 
-            this.label10.AutoSize = true;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label10.Location = new System.Drawing.Point(546, 750);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(222, 30);
-            this.label10.TabIndex = 56;
-            this.label10.Text = "Tech Tree Default";
-            this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelTechTreeDefault.AutoSize = true;
+            this.labelTechTreeDefault.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelTechTreeDefault.Location = new System.Drawing.Point(546, 750);
+            this.labelTechTreeDefault.Name = "labelTechTreeDefault";
+            this.labelTechTreeDefault.Size = new System.Drawing.Size(222, 30);
+            this.labelTechTreeDefault.TabIndex = 56;
+            this.labelTechTreeDefault.Text = "Tech Tree Default";
+            this.labelTechTreeDefault.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelTechTreeDefault.SizeChanged += new System.EventHandler(this.labelTechTreeDefault_SizeChanged);
             // 
-            // label11
+            // labelStartingYear
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label11.Location = new System.Drawing.Point(605, 700);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(163, 30);
-            this.label11.TabIndex = 55;
-            this.label11.Text = "Starting Year";
-            this.label11.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelStartingYear.AutoSize = true;
+            this.labelStartingYear.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelStartingYear.Location = new System.Drawing.Point(605, 700);
+            this.labelStartingYear.Name = "labelStartingYear";
+            this.labelStartingYear.Size = new System.Drawing.Size(163, 30);
+            this.labelStartingYear.TabIndex = 55;
+            this.labelStartingYear.Text = "Starting Year";
+            this.labelStartingYear.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelStartingYear.SizeChanged += new System.EventHandler(this.labelStartingYear_SizeChanged);
             // 
-            // label12
+            // labelAIStance
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label12.Location = new System.Drawing.Point(116, 470);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(126, 30);
-            this.label12.TabIndex = 54;
-            this.label12.Text = "AI Stance";
-            this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAIStance.AutoSize = true;
+            this.labelAIStance.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelAIStance.Location = new System.Drawing.Point(116, 470);
+            this.labelAIStance.Name = "labelAIStance";
+            this.labelAIStance.Size = new System.Drawing.Size(126, 30);
+            this.labelAIStance.TabIndex = 54;
+            this.labelAIStance.Text = "AI Stance";
+            this.labelAIStance.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAIStance.SizeChanged += new System.EventHandler(this.labelAIStance_SizeChanged);
             // 
-            // label14
+            // labelInitialFunds
             // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label14.Location = new System.Drawing.Point(613, 260);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(151, 30);
-            this.label14.TabIndex = 52;
-            this.label14.Text = "Initial Funds";
-            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelInitialFunds.AutoSize = true;
+            this.labelInitialFunds.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelInitialFunds.Location = new System.Drawing.Point(613, 260);
+            this.labelInitialFunds.Name = "labelInitialFunds";
+            this.labelInitialFunds.Size = new System.Drawing.Size(151, 30);
+            this.labelInitialFunds.TabIndex = 52;
+            this.labelInitialFunds.Text = "Initial Funds";
+            this.labelInitialFunds.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelInitialFunds.SizeChanged += new System.EventHandler(this.labelInitialFunds_SizeChanged);
             // 
-            // label23
+            // labelMapSplash
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label23.Location = new System.Drawing.Point(618, 520);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(150, 30);
-            this.label23.TabIndex = 71;
-            this.label23.Text = "Map Splash";
-            this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMapSplash.AutoSize = true;
+            this.labelMapSplash.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelMapSplash.Location = new System.Drawing.Point(618, 520);
+            this.labelMapSplash.Name = "labelMapSplash";
+            this.labelMapSplash.Size = new System.Drawing.Size(150, 30);
+            this.labelMapSplash.TabIndex = 71;
+            this.labelMapSplash.Text = "Map Splash";
+            this.labelMapSplash.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMapSplash.SizeChanged += new System.EventHandler(this.labelMapSplash_SizeChanged);
             // 
-            // label24
+            // labelMapGUI
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label24.Location = new System.Drawing.Point(650, 470);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(118, 30);
-            this.label24.TabIndex = 70;
-            this.label24.Text = "Map GUI";
-            this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMapGUI.AutoSize = true;
+            this.labelMapGUI.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelMapGUI.Location = new System.Drawing.Point(650, 470);
+            this.labelMapGUI.Name = "labelMapGUI";
+            this.labelMapGUI.Size = new System.Drawing.Size(118, 30);
+            this.labelMapGUI.TabIndex = 70;
+            this.labelMapGUI.Text = "Map GUI";
+            this.labelMapGUI.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMapGUI.SizeChanged += new System.EventHandler(this.labelMapGUI_SizeChanged);
             // 
-            // label25
+            // labelMapMusic
             // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label25.Location = new System.Drawing.Point(623, 570);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(145, 30);
-            this.label25.TabIndex = 69;
-            this.label25.Text = "Map Music";
-            this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMapMusic.AutoSize = true;
+            this.labelMapMusic.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelMapMusic.Location = new System.Drawing.Point(623, 570);
+            this.labelMapMusic.Name = "labelMapMusic";
+            this.labelMapMusic.Size = new System.Drawing.Size(145, 30);
+            this.labelMapMusic.TabIndex = 69;
+            this.labelMapMusic.Text = "Map Music";
+            this.labelMapMusic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMapMusic.SizeChanged += new System.EventHandler(this.labelMapMusic_SizeChanged);
             // 
-            // label29
+            // labelGameLength
             // 
-            this.label29.AutoSize = true;
-            this.label29.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label29.Location = new System.Drawing.Point(66, 703);
-            this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(178, 30);
-            this.label29.TabIndex = 79;
-            this.label29.Text = "Game Length";
-            this.label29.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelGameLength.AutoSize = true;
+            this.labelGameLength.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelGameLength.Location = new System.Drawing.Point(66, 703);
+            this.labelGameLength.Name = "labelGameLength";
+            this.labelGameLength.Size = new System.Drawing.Size(178, 30);
+            this.labelGameLength.TabIndex = 79;
+            this.labelGameLength.Text = "Game Length";
+            this.labelGameLength.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelGameLength.SizeChanged += new System.EventHandler(this.labelGameLength_SizeChanged);
             // 
-            // label30
+            // labelVictory
             // 
-            this.label30.AutoSize = true;
-            this.label30.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label30.Location = new System.Drawing.Point(148, 750);
-            this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(96, 30);
-            this.label30.TabIndex = 78;
-            this.label30.Text = "Victory";
-            this.label30.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelVictory.AutoSize = true;
+            this.labelVictory.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelVictory.Location = new System.Drawing.Point(148, 750);
+            this.labelVictory.Name = "labelVictory";
+            this.labelVictory.Size = new System.Drawing.Size(96, 30);
+            this.labelVictory.TabIndex = 78;
+            this.labelVictory.Text = "Victory";
+            this.labelVictory.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelVictory.SizeChanged += new System.EventHandler(this.labelVictory_SizeChanged);
             // 
-            // label31
+            // labelFastForwardDays
             // 
-            this.label31.AutoSize = true;
-            this.label31.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label31.Location = new System.Drawing.Point(544, 100);
-            this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(224, 30);
-            this.label31.TabIndex = 77;
-            this.label31.Text = "Fast Forward Days";
-            this.label31.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelFastForwardDays.AutoSize = true;
+            this.labelFastForwardDays.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelFastForwardDays.Location = new System.Drawing.Point(544, 100);
+            this.labelFastForwardDays.Name = "labelFastForwardDays";
+            this.labelFastForwardDays.Size = new System.Drawing.Size(224, 30);
+            this.labelFastForwardDays.TabIndex = 77;
+            this.labelFastForwardDays.Text = "Fast Forward Days";
+            this.labelFastForwardDays.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelFastForwardDays.SizeChanged += new System.EventHandler(this.labelFastForwardDays_SizeChanged);
             // 
-            // label32
+            // labelRegionAxis
             // 
-            this.label32.AutoSize = true;
-            this.label32.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label32.Location = new System.Drawing.Point(619, 850);
-            this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(149, 30);
-            this.label32.TabIndex = 76;
-            this.label32.Text = "Region Axis";
-            this.label32.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelRegionAxis.AutoSize = true;
+            this.labelRegionAxis.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelRegionAxis.Location = new System.Drawing.Point(619, 850);
+            this.labelRegionAxis.Name = "labelRegionAxis";
+            this.labelRegionAxis.Size = new System.Drawing.Size(149, 30);
+            this.labelRegionAxis.TabIndex = 76;
+            this.labelRegionAxis.Text = "Region Axis";
+            this.labelRegionAxis.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelRegionAxis.SizeChanged += new System.EventHandler(this.labelRegionAxis_SizeChanged);
             // 
-            // label33
+            // labelRegionAllies
             // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label33.Location = new System.Drawing.Point(601, 800);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(165, 30);
-            this.label33.TabIndex = 75;
-            this.label33.Text = "Region Allies";
-            this.label33.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelRegionAllies.AutoSize = true;
+            this.labelRegionAllies.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelRegionAllies.Location = new System.Drawing.Point(601, 800);
+            this.labelRegionAllies.Name = "labelRegionAllies";
+            this.labelRegionAllies.Size = new System.Drawing.Size(165, 30);
+            this.labelRegionAllies.TabIndex = 75;
+            this.labelRegionAllies.Text = "Region Allies";
+            this.labelRegionAllies.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelRegionAllies.SizeChanged += new System.EventHandler(this.labelRegionAllies_SizeChanged);
             // 
-            // label34
+            // labelVictoryTech
             // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label34.Location = new System.Drawing.Point(178, 880);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(161, 30);
-            this.label34.TabIndex = 74;
-            this.label34.Text = "Victory Tech";
-            this.label34.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelVictoryTech.AutoSize = true;
+            this.labelVictoryTech.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelVictoryTech.Location = new System.Drawing.Point(178, 880);
+            this.labelVictoryTech.Name = "labelVictoryTech";
+            this.labelVictoryTech.Size = new System.Drawing.Size(161, 30);
+            this.labelVictoryTech.TabIndex = 74;
+            this.labelVictoryTech.Text = "Victory Tech";
+            this.labelVictoryTech.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label35
+            // labelVictoryHex
             // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label35.Location = new System.Drawing.Point(190, 800);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(147, 30);
-            this.label35.TabIndex = 73;
-            this.label35.Text = "Victory Hex";
-            this.label35.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelVictoryHex.AutoSize = true;
+            this.labelVictoryHex.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelVictoryHex.Location = new System.Drawing.Point(190, 800);
+            this.labelVictoryHex.Name = "labelVictoryHex";
+            this.labelVictoryHex.Size = new System.Drawing.Size(147, 30);
+            this.labelVictoryHex.TabIndex = 73;
+            this.labelVictoryHex.Text = "Victory Hex";
+            this.labelVictoryHex.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label38
+            // labelWMDEffect
             // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label38.Location = new System.Drawing.Point(75, 520);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(169, 30);
-            this.label38.TabIndex = 84;
-            this.label38.Text = "Nuke Penalty";
-            this.label38.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelWMDEffect.AutoSize = true;
+            this.labelWMDEffect.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelWMDEffect.Location = new System.Drawing.Point(75, 520);
+            this.labelWMDEffect.Name = "labelWMDEffect";
+            this.labelWMDEffect.Size = new System.Drawing.Size(169, 30);
+            this.labelWMDEffect.TabIndex = 84;
+            this.labelWMDEffect.Text = "Nuke Penalty";
+            this.labelWMDEffect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelWMDEffect.SizeChanged += new System.EventHandler(this.labelWMDEffect_SizeChanged);
             // 
-            // label39
+            // labelApprovalEffect
             // 
-            this.label39.AutoSize = true;
-            this.label39.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label39.Location = new System.Drawing.Point(46, 570);
-            this.label39.Name = "label39";
-            this.label39.Size = new System.Drawing.Size(198, 30);
-            this.label39.TabIndex = 83;
-            this.label39.Text = "Approval Effect";
-            this.label39.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelApprovalEffect.AutoSize = true;
+            this.labelApprovalEffect.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelApprovalEffect.Location = new System.Drawing.Point(46, 570);
+            this.labelApprovalEffect.Name = "labelApprovalEffect";
+            this.labelApprovalEffect.Size = new System.Drawing.Size(198, 30);
+            this.labelApprovalEffect.TabIndex = 83;
+            this.labelApprovalEffect.Text = "Approval Effect";
+            this.labelApprovalEffect.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelApprovalEffect.SizeChanged += new System.EventHandler(this.labelApprovalEffect_SizeChanged);
             // 
-            // label43
+            // labelSphereNN
             // 
-            this.label43.AutoSize = true;
-            this.label43.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label43.Location = new System.Drawing.Point(630, 900);
-            this.label43.Name = "label43";
-            this.label43.Size = new System.Drawing.Size(138, 30);
-            this.label43.TabIndex = 88;
-            this.label43.Text = "Sphere NN";
-            this.label43.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelSphereNN.AutoSize = true;
+            this.labelSphereNN.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelSphereNN.Location = new System.Drawing.Point(630, 900);
+            this.labelSphereNN.Name = "labelSphereNN";
+            this.labelSphereNN.Size = new System.Drawing.Size(138, 30);
+            this.labelSphereNN.TabIndex = 88;
+            this.labelSphereNN.Text = "Sphere NN";
+            this.labelSphereNN.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelSphereNN.SizeChanged += new System.EventHandler(this.labelSphereNN_SizeChanged);
             // 
             // comboMilitaryDiff
             // 
@@ -551,27 +574,27 @@
             this.comboAiStance.TabIndex = 95;
             this.comboAiStance.SelectedIndexChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
-            // label45
+            // labelVictoryHexX
             // 
-            this.label45.AutoSize = true;
-            this.label45.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label45.Location = new System.Drawing.Point(129, 837);
-            this.label45.Name = "label45";
-            this.label45.Size = new System.Drawing.Size(35, 30);
-            this.label45.TabIndex = 115;
-            this.label45.Text = "X:";
-            this.label45.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelVictoryHexX.AutoSize = true;
+            this.labelVictoryHexX.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelVictoryHexX.Location = new System.Drawing.Point(129, 837);
+            this.labelVictoryHexX.Name = "labelVictoryHexX";
+            this.labelVictoryHexX.Size = new System.Drawing.Size(35, 30);
+            this.labelVictoryHexX.TabIndex = 115;
+            this.labelVictoryHexX.Text = "X:";
+            this.labelVictoryHexX.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label46
+            // labelVictoryHexY
             // 
-            this.label46.AutoSize = true;
-            this.label46.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.label46.Location = new System.Drawing.Point(265, 837);
-            this.label46.Name = "label46";
-            this.label46.Size = new System.Drawing.Size(36, 30);
-            this.label46.TabIndex = 117;
-            this.label46.Text = "Y:";
-            this.label46.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelVictoryHexY.AutoSize = true;
+            this.labelVictoryHexY.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.labelVictoryHexY.Location = new System.Drawing.Point(265, 837);
+            this.labelVictoryHexY.Name = "labelVictoryHexY";
+            this.labelVictoryHexY.Size = new System.Drawing.Size(36, 30);
+            this.labelVictoryHexY.TabIndex = 117;
+            this.labelVictoryHexY.Text = "Y:";
+            this.labelVictoryHexY.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // comboWMDEffect
             // 
@@ -593,13 +616,15 @@
             // 
             this.checkLimitDAReffect.AutoSize = true;
             this.checkLimitDAReffect.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkLimitDAReffect.Location = new System.Drawing.Point(1110, 380);
+            this.checkLimitDAReffect.Location = new System.Drawing.Point(1198, 380);
             this.checkLimitDAReffect.Name = "checkLimitDAReffect";
+            this.checkLimitDAReffect.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkLimitDAReffect.Size = new System.Drawing.Size(227, 34);
             this.checkLimitDAReffect.TabIndex = 126;
             this.checkLimitDAReffect.Text = "Limit DAR Effect";
             this.checkLimitDAReffect.UseVisualStyleBackColor = true;
             this.checkLimitDAReffect.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
+            this.checkLimitDAReffect.SizeChanged += new System.EventHandler(this.checkLimitDAReffect_SizeChanged);
             // 
             // checkLimitMAReffect
             // 
@@ -617,49 +642,57 @@
             // 
             this.checkWMinvolve.AutoSize = true;
             this.checkWMinvolve.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkWMinvolve.Location = new System.Drawing.Point(1110, 180);
+            this.checkWMinvolve.Location = new System.Drawing.Point(1260, 180);
             this.checkWMinvolve.Name = "checkWMinvolve";
+            this.checkWMinvolve.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkWMinvolve.Size = new System.Drawing.Size(165, 34);
             this.checkWMinvolve.TabIndex = 128;
             this.checkWMinvolve.Text = "Critical UN";
             this.checkWMinvolve.UseVisualStyleBackColor = true;
             this.checkWMinvolve.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
+            this.checkWMinvolve.SizeChanged += new System.EventHandler(this.checkWMinvolve_SizeChanged);
             // 
             // checkWMDuse
             // 
             this.checkWMDuse.AutoSize = true;
             this.checkWMDuse.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkWMDuse.Location = new System.Drawing.Point(1110, 230);
+            this.checkWMDuse.Location = new System.Drawing.Point(1243, 230);
             this.checkWMDuse.Name = "checkWMDuse";
+            this.checkWMDuse.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkWMDuse.Size = new System.Drawing.Size(182, 34);
             this.checkWMDuse.TabIndex = 129;
             this.checkWMDuse.Text = "Allow Nukes";
             this.checkWMDuse.UseVisualStyleBackColor = true;
             this.checkWMDuse.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
+            this.checkWMDuse.SizeChanged += new System.EventHandler(this.checkWMDuse_SizeChanged);
             // 
             // checkFastBuild
             // 
             this.checkFastBuild.AutoSize = true;
             this.checkFastBuild.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkFastBuild.Location = new System.Drawing.Point(1110, 580);
+            this.checkFastBuild.Location = new System.Drawing.Point(1276, 580);
             this.checkFastBuild.Name = "checkFastBuild";
+            this.checkFastBuild.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkFastBuild.Size = new System.Drawing.Size(149, 34);
             this.checkFastBuild.TabIndex = 130;
             this.checkFastBuild.Text = "Fast Build";
             this.checkFastBuild.UseVisualStyleBackColor = true;
             this.checkFastBuild.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
+            this.checkFastBuild.SizeChanged += new System.EventHandler(this.checkFastBuild_SizeChanged);
             // 
             // checkNoCapitalMove
             // 
             this.checkNoCapitalMove.AutoSize = true;
             this.checkNoCapitalMove.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkNoCapitalMove.Location = new System.Drawing.Point(1110, 130);
+            this.checkNoCapitalMove.Location = new System.Drawing.Point(1219, 130);
             this.checkNoCapitalMove.Name = "checkNoCapitalMove";
+            this.checkNoCapitalMove.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkNoCapitalMove.Size = new System.Drawing.Size(206, 34);
             this.checkNoCapitalMove.TabIndex = 131;
             this.checkNoCapitalMove.Text = "Fixed Capitals";
             this.checkNoCapitalMove.UseVisualStyleBackColor = true;
             this.checkNoCapitalMove.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
+            this.checkNoCapitalMove.SizeChanged += new System.EventHandler(this.checkNoCapitalMove_SizeChanged);
             // 
             // checkGovChoice
             // 
@@ -689,13 +722,15 @@
             // 
             this.checkRegionEquip.AutoSize = true;
             this.checkRegionEquip.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkRegionEquip.Location = new System.Drawing.Point(1110, 530);
+            this.checkRegionEquip.Location = new System.Drawing.Point(1229, 530);
             this.checkRegionEquip.Name = "checkRegionEquip";
+            this.checkRegionEquip.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkRegionEquip.Size = new System.Drawing.Size(196, 34);
             this.checkRegionEquip.TabIndex = 134;
             this.checkRegionEquip.Text = "Region Equip";
             this.checkRegionEquip.UseVisualStyleBackColor = true;
             this.checkRegionEquip.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
+            this.checkRegionEquip.SizeChanged += new System.EventHandler(this.checkRegionEquip_SizeChanged);
             // 
             // checkGroupResearchMerge
             // 
@@ -725,13 +760,15 @@
             // 
             this.checkAlliedVictory.AutoSize = true;
             this.checkAlliedVictory.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkAlliedVictory.Location = new System.Drawing.Point(1110, 280);
+            this.checkAlliedVictory.Location = new System.Drawing.Point(1229, 280);
             this.checkAlliedVictory.Name = "checkAlliedVictory";
+            this.checkAlliedVictory.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkAlliedVictory.Size = new System.Drawing.Size(196, 34);
             this.checkAlliedVictory.TabIndex = 137;
             this.checkAlliedVictory.Text = "Allied Victory";
             this.checkAlliedVictory.UseVisualStyleBackColor = true;
             this.checkAlliedVictory.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
+            this.checkAlliedVictory.SizeChanged += new System.EventHandler(this.checkAlliedVictory_SizeChanged);
             // 
             // checkNoSphere
             // 
@@ -749,13 +786,15 @@
             // 
             this.checkDebtFree.AutoSize = true;
             this.checkDebtFree.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkDebtFree.Location = new System.Drawing.Point(1110, 330);
+            this.checkDebtFree.Location = new System.Drawing.Point(1192, 330);
             this.checkDebtFree.Name = "checkDebtFree";
+            this.checkDebtFree.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkDebtFree.Size = new System.Drawing.Size(233, 34);
             this.checkDebtFree.TabIndex = 139;
             this.checkDebtFree.Text = "No Starting Debt";
             this.checkDebtFree.UseVisualStyleBackColor = true;
             this.checkDebtFree.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
+            this.checkDebtFree.SizeChanged += new System.EventHandler(this.checkDebtFree_SizeChanged);
             // 
             // checkNoLoyPenalty
             // 
@@ -784,71 +823,71 @@
             this.numericMapSplash.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.numericMapSplash.ValueChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
-            // label8
+            // labelDifficulties
             // 
-            this.label8.AutoSize = true;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label8.Location = new System.Drawing.Point(188, 223);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(129, 28);
-            this.label8.TabIndex = 142;
-            this.label8.Text = "Difficulties";
-            this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelDifficulties.AutoSize = true;
+            this.labelDifficulties.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelDifficulties.Location = new System.Drawing.Point(188, 223);
+            this.labelDifficulties.Name = "labelDifficulties";
+            this.labelDifficulties.Size = new System.Drawing.Size(129, 28);
+            this.labelDifficulties.TabIndex = 142;
+            this.labelDifficulties.Text = "Difficulties";
+            this.labelDifficulties.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label9
+            // labelGeneralInfo
             // 
-            this.label9.AutoSize = true;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label9.Location = new System.Drawing.Point(452, 19);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(156, 28);
-            this.label9.TabIndex = 143;
-            this.label9.Text = "General Info";
-            this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelGeneralInfo.AutoSize = true;
+            this.labelGeneralInfo.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelGeneralInfo.Location = new System.Drawing.Point(452, 19);
+            this.labelGeneralInfo.Name = "labelGeneralInfo";
+            this.labelGeneralInfo.Size = new System.Drawing.Size(156, 28);
+            this.labelGeneralInfo.TabIndex = 143;
+            this.labelGeneralInfo.Text = "General Info";
+            this.labelGeneralInfo.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label15
+            // labelVictoryConditions
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label15.Location = new System.Drawing.Point(144, 669);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(224, 28);
-            this.label15.TabIndex = 144;
-            this.label15.Text = "Victory Conditions";
-            this.label15.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelVictoryConditions.AutoSize = true;
+            this.labelVictoryConditions.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelVictoryConditions.Location = new System.Drawing.Point(144, 669);
+            this.labelVictoryConditions.Name = "labelVictoryConditions";
+            this.labelVictoryConditions.Size = new System.Drawing.Size(224, 28);
+            this.labelVictoryConditions.TabIndex = 144;
+            this.labelVictoryConditions.Text = "Victory Conditions";
+            this.labelVictoryConditions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label16
+            // labelStartingConditions
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label16.Location = new System.Drawing.Point(682, 223);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(228, 28);
-            this.label16.TabIndex = 145;
-            this.label16.Text = "Starting Conditions";
-            this.label16.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelStartingConditions.AutoSize = true;
+            this.labelStartingConditions.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelStartingConditions.Location = new System.Drawing.Point(682, 223);
+            this.labelStartingConditions.Name = "labelStartingConditions";
+            this.labelStartingConditions.Size = new System.Drawing.Size(228, 28);
+            this.labelStartingConditions.TabIndex = 145;
+            this.labelStartingConditions.Text = "Starting Conditions";
+            this.labelStartingConditions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label17
+            // labelAISettings
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label17.Location = new System.Drawing.Point(185, 439);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(132, 28);
-            this.label17.TabIndex = 146;
-            this.label17.Text = "AI Settings";
-            this.label17.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelAISettings.AutoSize = true;
+            this.labelAISettings.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelAISettings.Location = new System.Drawing.Point(185, 439);
+            this.labelAISettings.Name = "labelAISettings";
+            this.labelAISettings.Size = new System.Drawing.Size(132, 28);
+            this.labelAISettings.TabIndex = 146;
+            this.labelAISettings.Text = "AI Settings";
+            this.labelAISettings.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // label18
+            // labelGraphicOptions
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label18.Location = new System.Drawing.Point(682, 439);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(203, 28);
-            this.label18.TabIndex = 147;
-            this.label18.Text = "Graphic Options";
-            this.label18.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelGraphicOptions.AutoSize = true;
+            this.labelGraphicOptions.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelGraphicOptions.Location = new System.Drawing.Point(682, 439);
+            this.labelGraphicOptions.Name = "labelGraphicOptions";
+            this.labelGraphicOptions.Size = new System.Drawing.Size(203, 28);
+            this.labelGraphicOptions.TabIndex = 147;
+            this.labelGraphicOptions.Text = "Graphic Options";
+            this.labelGraphicOptions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // comboGameLength
             // 
@@ -876,16 +915,16 @@
             this.comboGameLength.TabIndex = 148;
             this.comboGameLength.SelectedIndexChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
-            // label19
+            // labelScenarioOptions
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label19.Location = new System.Drawing.Point(1302, 87);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(209, 28);
-            this.label19.TabIndex = 149;
-            this.label19.Text = "Scenario Options";
-            this.label19.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelScenarioOptions.AutoSize = true;
+            this.labelScenarioOptions.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelScenarioOptions.Location = new System.Drawing.Point(1319, 85);
+            this.labelScenarioOptions.Name = "labelScenarioOptions";
+            this.labelScenarioOptions.Size = new System.Drawing.Size(209, 28);
+            this.labelScenarioOptions.TabIndex = 149;
+            this.labelScenarioOptions.Text = "Scenario Options";
+            this.labelScenarioOptions.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // numericFastForwardDays
             // 
@@ -984,25 +1023,29 @@
             // 
             this.checkLimitInScenario.AutoSize = true;
             this.checkLimitInScenario.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkLimitInScenario.Location = new System.Drawing.Point(1110, 430);
+            this.checkLimitInScenario.Location = new System.Drawing.Point(1091, 430);
             this.checkLimitInScenario.Name = "checkLimitInScenario";
+            this.checkLimitInScenario.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkLimitInScenario.Size = new System.Drawing.Size(334, 34);
             this.checkLimitInScenario.TabIndex = 156;
             this.checkLimitInScenario.Text = "Limit Regions in Scenario";
             this.checkLimitInScenario.UseVisualStyleBackColor = true;
             this.checkLimitInScenario.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
+            this.checkLimitInScenario.SizeChanged += new System.EventHandler(this.checkLimitInScenario_SizeChanged);
             // 
             // checkRestrictTechTrade
             // 
             this.checkRestrictTechTrade.AutoSize = true;
             this.checkRestrictTechTrade.Font = new System.Drawing.Font("Century Gothic", 12F);
-            this.checkRestrictTechTrade.Location = new System.Drawing.Point(1110, 480);
+            this.checkRestrictTechTrade.Location = new System.Drawing.Point(1162, 480);
             this.checkRestrictTechTrade.Name = "checkRestrictTechTrade";
+            this.checkRestrictTechTrade.RightToLeft = System.Windows.Forms.RightToLeft.Yes;
             this.checkRestrictTechTrade.Size = new System.Drawing.Size(263, 34);
             this.checkRestrictTechTrade.TabIndex = 157;
             this.checkRestrictTechTrade.Text = "Restrict Tech Trade";
             this.checkRestrictTechTrade.UseVisualStyleBackColor = true;
             this.checkRestrictTechTrade.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
+            this.checkRestrictTechTrade.SizeChanged += new System.EventHandler(this.checkRestrictTechTrade_SizeChanged);
             // 
             // checkCampaignGame
             // 
@@ -1055,16 +1098,16 @@
             this.checkRelationsEffect.UseVisualStyleBackColor = true;
             this.checkRelationsEffect.CheckedChanged += new System.EventHandler(this.SettingsInputValuesChanged);
             // 
-            // label13
+            // labelMiscellaneous
             // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label13.Location = new System.Drawing.Point(706, 669);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(178, 28);
-            this.label13.TabIndex = 162;
-            this.label13.Text = "Miscellaneous";
-            this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.labelMiscellaneous.AutoSize = true;
+            this.labelMiscellaneous.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelMiscellaneous.Location = new System.Drawing.Point(706, 669);
+            this.labelMiscellaneous.Name = "labelMiscellaneous";
+            this.labelMiscellaneous.Size = new System.Drawing.Size(178, 28);
+            this.labelMiscellaneous.TabIndex = 162;
+            this.labelMiscellaneous.Text = "Miscellaneous";
+            this.labelMiscellaneous.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // numericStartingYear
             // 
@@ -1142,7 +1185,7 @@
             this.Controls.Add(this.numericMapMusic);
             this.Controls.Add(this.numericVictoryTech);
             this.Controls.Add(this.numericStartingYear);
-            this.Controls.Add(this.label13);
+            this.Controls.Add(this.labelMiscellaneous);
             this.Controls.Add(this.checkRelationsEffect);
             this.Controls.Add(this.numericDefaultRegion);
             this.Controls.Add(this.checkReserveLimit);
@@ -1155,14 +1198,14 @@
             this.Controls.Add(this.numericVictoryHexY);
             this.Controls.Add(this.numericVictoryHexX);
             this.Controls.Add(this.numericFastForwardDays);
-            this.Controls.Add(this.label19);
+            this.Controls.Add(this.labelScenarioOptions);
             this.Controls.Add(this.comboGameLength);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.label17);
-            this.Controls.Add(this.label16);
-            this.Controls.Add(this.label15);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
+            this.Controls.Add(this.labelGraphicOptions);
+            this.Controls.Add(this.labelAISettings);
+            this.Controls.Add(this.labelStartingConditions);
+            this.Controls.Add(this.labelVictoryConditions);
+            this.Controls.Add(this.labelGeneralInfo);
+            this.Controls.Add(this.labelDifficulties);
             this.Controls.Add(this.numericMapSplash);
             this.Controls.Add(this.checkNoLoyPenalty);
             this.Controls.Add(this.checkDebtFree);
@@ -1180,8 +1223,8 @@
             this.Controls.Add(this.checkLimitMAReffect);
             this.Controls.Add(this.checkLimitDAReffect);
             this.Controls.Add(this.comboWMDEffect);
-            this.Controls.Add(this.label46);
-            this.Controls.Add(this.label45);
+            this.Controls.Add(this.labelVictoryHexY);
+            this.Controls.Add(this.labelVictoryHexX);
             this.Controls.Add(this.comboAiStance);
             this.Controls.Add(this.comboInitialFunds);
             this.Controls.Add(this.dateStartingDate);
@@ -1189,30 +1232,30 @@
             this.Controls.Add(this.comboEconomicDiff);
             this.Controls.Add(this.comboDiplomacyDiff);
             this.Controls.Add(this.comboMilitaryDiff);
-            this.Controls.Add(this.label43);
-            this.Controls.Add(this.label38);
-            this.Controls.Add(this.label39);
-            this.Controls.Add(this.label29);
-            this.Controls.Add(this.label30);
-            this.Controls.Add(this.label31);
-            this.Controls.Add(this.label32);
-            this.Controls.Add(this.label33);
-            this.Controls.Add(this.label34);
-            this.Controls.Add(this.label35);
-            this.Controls.Add(this.label23);
-            this.Controls.Add(this.label24);
-            this.Controls.Add(this.label25);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.labelSphereNN);
+            this.Controls.Add(this.labelWMDEffect);
+            this.Controls.Add(this.labelApprovalEffect);
+            this.Controls.Add(this.labelGameLength);
+            this.Controls.Add(this.labelVictory);
+            this.Controls.Add(this.labelFastForwardDays);
+            this.Controls.Add(this.labelRegionAxis);
+            this.Controls.Add(this.labelRegionAllies);
+            this.Controls.Add(this.labelVictoryTech);
+            this.Controls.Add(this.labelVictoryHex);
+            this.Controls.Add(this.labelMapSplash);
+            this.Controls.Add(this.labelMapGUI);
+            this.Controls.Add(this.labelMapMusic);
+            this.Controls.Add(this.labelTechTreeDefault);
+            this.Controls.Add(this.labelStartingYear);
+            this.Controls.Add(this.labelAIStance);
+            this.Controls.Add(this.labelInitialFunds);
+            this.Controls.Add(this.labelResourcesLevel);
+            this.Controls.Add(this.labelEconomicDifficulty);
+            this.Controls.Add(this.labelDiplomacyDifficulty);
+            this.Controls.Add(this.labelMilitaryDifficulty);
+            this.Controls.Add(this.labelScenarioID);
+            this.Controls.Add(this.labelDefaultRegion);
+            this.Controls.Add(this.labelStartingDate);
             this.Controls.Add(this.textSphereNN);
             this.Controls.Add(this.textTechTreeDefault);
             this.Controls.Add(this.textRegionAxis);
@@ -1239,30 +1282,30 @@
         private System.Windows.Forms.TextBox textRegionAxis;
         private System.Windows.Forms.TextBox textTechTreeDefault;
         private System.Windows.Forms.TextBox textSphereNN;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.Label label30;
-        private System.Windows.Forms.Label label31;
-        private System.Windows.Forms.Label label32;
-        private System.Windows.Forms.Label label33;
-        private System.Windows.Forms.Label label34;
-        private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.Label label38;
-        private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Label labelStartingDate;
+        private System.Windows.Forms.Label labelDefaultRegion;
+        private System.Windows.Forms.Label labelMilitaryDifficulty;
+        private System.Windows.Forms.Label labelScenarioID;
+        private System.Windows.Forms.Label labelResourcesLevel;
+        private System.Windows.Forms.Label labelEconomicDifficulty;
+        private System.Windows.Forms.Label labelDiplomacyDifficulty;
+        private System.Windows.Forms.Label labelTechTreeDefault;
+        private System.Windows.Forms.Label labelStartingYear;
+        private System.Windows.Forms.Label labelAIStance;
+        private System.Windows.Forms.Label labelInitialFunds;
+        private System.Windows.Forms.Label labelMapSplash;
+        private System.Windows.Forms.Label labelMapGUI;
+        private System.Windows.Forms.Label labelMapMusic;
+        private System.Windows.Forms.Label labelGameLength;
+        private System.Windows.Forms.Label labelVictory;
+        private System.Windows.Forms.Label labelFastForwardDays;
+        private System.Windows.Forms.Label labelRegionAxis;
+        private System.Windows.Forms.Label labelRegionAllies;
+        private System.Windows.Forms.Label labelVictoryTech;
+        private System.Windows.Forms.Label labelVictoryHex;
+        private System.Windows.Forms.Label labelWMDEffect;
+        private System.Windows.Forms.Label labelApprovalEffect;
+        private System.Windows.Forms.Label labelSphereNN;
         private System.Windows.Forms.ComboBox comboMilitaryDiff;
         private System.Windows.Forms.ComboBox comboDiplomacyDiff;
         private System.Windows.Forms.ComboBox comboResourcesLevel;
@@ -1270,8 +1313,8 @@
         private System.Windows.Forms.DateTimePicker dateStartingDate;
         private System.Windows.Forms.ComboBox comboInitialFunds;
         private System.Windows.Forms.ComboBox comboAiStance;
-        private System.Windows.Forms.Label label45;
-        private System.Windows.Forms.Label label46;
+        private System.Windows.Forms.Label labelVictoryHexX;
+        private System.Windows.Forms.Label labelVictoryHexY;
         private System.Windows.Forms.ComboBox comboWMDEffect;
         private System.Windows.Forms.CheckBox checkLimitDAReffect;
         private System.Windows.Forms.CheckBox checkLimitMAReffect;
@@ -1289,14 +1332,14 @@
         private System.Windows.Forms.CheckBox checkDebtFree;
         private System.Windows.Forms.CheckBox checkNoLoyPenalty;
         private System.Windows.Forms.NumericUpDown numericMapSplash;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Label label17;
-        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label labelDifficulties;
+        private System.Windows.Forms.Label labelGeneralInfo;
+        private System.Windows.Forms.Label labelVictoryConditions;
+        private System.Windows.Forms.Label labelStartingConditions;
+        private System.Windows.Forms.Label labelAISettings;
+        private System.Windows.Forms.Label labelGraphicOptions;
         private System.Windows.Forms.ComboBox comboGameLength;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label labelScenarioOptions;
         private System.Windows.Forms.NumericUpDown numericFastForwardDays;
         private System.Windows.Forms.NumericUpDown numericVictoryHexX;
         private System.Windows.Forms.NumericUpDown numericVictoryHexY;
@@ -1309,7 +1352,7 @@
         private System.Windows.Forms.CheckBox checkReserveLimit;
         private System.Windows.Forms.NumericUpDown numericDefaultRegion;
         private System.Windows.Forms.CheckBox checkRelationsEffect;
-        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label labelMiscellaneous;
         private System.Windows.Forms.NumericUpDown numericStartingYear;
         private System.Windows.Forms.NumericUpDown numericVictoryTech;
         private System.Windows.Forms.NumericUpDown numericMapMusic;

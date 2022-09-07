@@ -65,11 +65,10 @@
             this.checkModifyWM = new System.Windows.Forms.CheckBox();
             this.checkModifyOOB = new System.Windows.Forms.CheckBox();
             this.checkNoneditDefault = new System.Windows.Forms.CheckBox();
-            this.exportScenarioButton = new System.Windows.Forms.Button();
-            this.label11 = new System.Windows.Forms.Label();
-            this.label12 = new System.Windows.Forms.Label();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label19 = new System.Windows.Forms.Label();
+            this.labelGeneralInformation = new System.Windows.Forms.Label();
+            this.labelMapFiles = new System.Windows.Forms.Label();
+            this.labelNonEditableData = new System.Windows.Forms.Label();
+            this.labelEditableData = new System.Windows.Forms.Label();
             this.labelRequiredScenarioName = new System.Windows.Forms.Label();
             this.labelRequiredCacheName = new System.Windows.Forms.Label();
             this.labelRequiredMapName = new System.Windows.Forms.Label();
@@ -82,8 +81,7 @@
             this.labelRequiredTERX = new System.Windows.Forms.Label();
             this.labelRequiredNewsItems = new System.Windows.Forms.Label();
             this.labelRequiredProfile = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.btnOpenExportedScenarioFolder = new System.Windows.Forms.Button();
+            this.labelRequiredInfo = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // labelScenarioName
@@ -95,6 +93,7 @@
             this.labelScenarioName.Size = new System.Drawing.Size(226, 34);
             this.labelScenarioName.TabIndex = 0;
             this.labelScenarioName.Text = "Scenario Name";
+            this.labelScenarioName.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // labelCacheName
             // 
@@ -105,6 +104,7 @@
             this.labelCacheName.Size = new System.Drawing.Size(202, 34);
             this.labelCacheName.TabIndex = 1;
             this.labelCacheName.Text = "Cache Name";
+            this.labelCacheName.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // comboScenarioName
             // 
@@ -183,6 +183,7 @@
             this.labelOOF.Size = new System.Drawing.Size(77, 34);
             this.labelOOF.TabIndex = 6;
             this.labelOOF.Text = "OOF";
+            this.labelOOF.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // labelMapName
             // 
@@ -193,6 +194,7 @@
             this.labelMapName.Size = new System.Drawing.Size(170, 34);
             this.labelMapName.TabIndex = 5;
             this.labelMapName.Text = "Map Name";
+            this.labelMapName.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // checkNewMap
             // 
@@ -210,7 +212,7 @@
             // 
             this.comboPPLX.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.comboPPLX.FormattingEnabled = true;
-            this.comboPPLX.Location = new System.Drawing.Point(312, 495);
+            this.comboPPLX.Location = new System.Drawing.Point(312, 565);
             this.comboPPLX.Name = "comboPPLX";
             this.comboPPLX.Size = new System.Drawing.Size(266, 42);
             this.comboPPLX.TabIndex = 14;
@@ -221,7 +223,7 @@
             // 
             this.comboUnit.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.comboUnit.FormattingEnabled = true;
-            this.comboUnit.Location = new System.Drawing.Point(312, 445);
+            this.comboUnit.Location = new System.Drawing.Point(312, 515);
             this.comboUnit.Name = "comboUnit";
             this.comboUnit.Size = new System.Drawing.Size(266, 42);
             this.comboUnit.TabIndex = 13;
@@ -232,27 +234,29 @@
             // 
             this.labelPPLX.AutoSize = true;
             this.labelPPLX.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelPPLX.Location = new System.Drawing.Point(222, 503);
+            this.labelPPLX.Location = new System.Drawing.Point(222, 573);
             this.labelPPLX.Name = "labelPPLX";
             this.labelPPLX.Size = new System.Drawing.Size(79, 34);
             this.labelPPLX.TabIndex = 12;
             this.labelPPLX.Text = "PPLX";
+            this.labelPPLX.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // labelUnit
             // 
             this.labelUnit.AutoSize = true;
             this.labelUnit.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelUnit.Location = new System.Drawing.Point(222, 453);
+            this.labelUnit.Location = new System.Drawing.Point(222, 523);
             this.labelUnit.Name = "labelUnit";
             this.labelUnit.Size = new System.Drawing.Size(70, 34);
             this.labelUnit.TabIndex = 11;
             this.labelUnit.Text = "UNIT";
+            this.labelUnit.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // comboTERX
             // 
             this.comboTERX.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.comboTERX.FormattingEnabled = true;
-            this.comboTERX.Location = new System.Drawing.Point(312, 593);
+            this.comboTERX.Location = new System.Drawing.Point(312, 663);
             this.comboTERX.Name = "comboTERX";
             this.comboTERX.Size = new System.Drawing.Size(266, 42);
             this.comboTERX.TabIndex = 18;
@@ -263,7 +267,7 @@
             // 
             this.comboTTRX.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.comboTTRX.FormattingEnabled = true;
-            this.comboTTRX.Location = new System.Drawing.Point(312, 543);
+            this.comboTTRX.Location = new System.Drawing.Point(312, 613);
             this.comboTTRX.Name = "comboTTRX";
             this.comboTTRX.Size = new System.Drawing.Size(266, 42);
             this.comboTTRX.TabIndex = 17;
@@ -274,27 +278,29 @@
             // 
             this.labelTERX.AutoSize = true;
             this.labelTERX.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelTERX.Location = new System.Drawing.Point(222, 601);
+            this.labelTERX.Location = new System.Drawing.Point(222, 671);
             this.labelTERX.Name = "labelTERX";
             this.labelTERX.Size = new System.Drawing.Size(75, 34);
             this.labelTERX.TabIndex = 16;
             this.labelTERX.Text = "TERX";
+            this.labelTERX.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // labelTTRX
             // 
             this.labelTTRX.AutoSize = true;
             this.labelTTRX.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelTTRX.Location = new System.Drawing.Point(222, 551);
+            this.labelTTRX.Location = new System.Drawing.Point(222, 621);
             this.labelTTRX.Name = "labelTTRX";
             this.labelTTRX.Size = new System.Drawing.Size(71, 34);
             this.labelTTRX.TabIndex = 15;
             this.labelTTRX.Text = "TTRX";
+            this.labelTTRX.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // comboProfile
             // 
             this.comboProfile.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.comboProfile.FormattingEnabled = true;
-            this.comboProfile.Location = new System.Drawing.Point(312, 691);
+            this.comboProfile.Location = new System.Drawing.Point(312, 761);
             this.comboProfile.Name = "comboProfile";
             this.comboProfile.Size = new System.Drawing.Size(266, 42);
             this.comboProfile.TabIndex = 22;
@@ -305,7 +311,7 @@
             // 
             this.comboNewsItems.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.comboNewsItems.FormattingEnabled = true;
-            this.comboNewsItems.Location = new System.Drawing.Point(312, 641);
+            this.comboNewsItems.Location = new System.Drawing.Point(312, 711);
             this.comboNewsItems.Name = "comboNewsItems";
             this.comboNewsItems.Size = new System.Drawing.Size(266, 42);
             this.comboNewsItems.TabIndex = 21;
@@ -316,27 +322,29 @@
             // 
             this.labelProfile.AutoSize = true;
             this.labelProfile.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelProfile.Location = new System.Drawing.Point(171, 694);
+            this.labelProfile.Location = new System.Drawing.Point(171, 764);
             this.labelProfile.Name = "labelProfile";
             this.labelProfile.Size = new System.Drawing.Size(121, 34);
             this.labelProfile.TabIndex = 20;
             this.labelProfile.Text = "PROFILE";
+            this.labelProfile.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // labelNewsItems
             // 
             this.labelNewsItems.AutoSize = true;
             this.labelNewsItems.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelNewsItems.Location = new System.Drawing.Point(134, 649);
+            this.labelNewsItems.Location = new System.Drawing.Point(134, 719);
             this.labelNewsItems.Name = "labelNewsItems";
             this.labelNewsItems.Size = new System.Drawing.Size(163, 34);
             this.labelNewsItems.TabIndex = 19;
             this.labelNewsItems.Text = "NEWSITEMS";
+            this.labelNewsItems.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // comboPostCache
             // 
             this.comboPostCache.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.comboPostCache.FormattingEnabled = true;
-            this.comboPostCache.Location = new System.Drawing.Point(1201, 636);
+            this.comboPostCache.Location = new System.Drawing.Point(1201, 706);
             this.comboPostCache.Name = "comboPostCache";
             this.comboPostCache.Size = new System.Drawing.Size(266, 42);
             this.comboPostCache.TabIndex = 35;
@@ -347,17 +355,18 @@
             // 
             this.labelPostCache.AutoSize = true;
             this.labelPostCache.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelPostCache.Location = new System.Drawing.Point(1015, 639);
+            this.labelPostCache.Location = new System.Drawing.Point(1015, 709);
             this.labelPostCache.Name = "labelPostCache";
             this.labelPostCache.Size = new System.Drawing.Size(174, 34);
             this.labelPostCache.TabIndex = 33;
             this.labelPostCache.Text = "Post Cache";
+            this.labelPostCache.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // comboPreCache
             // 
             this.comboPreCache.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.comboPreCache.FormattingEnabled = true;
-            this.comboPreCache.Location = new System.Drawing.Point(1201, 588);
+            this.comboPreCache.Location = new System.Drawing.Point(1201, 658);
             this.comboPreCache.Name = "comboPreCache";
             this.comboPreCache.Size = new System.Drawing.Size(266, 42);
             this.comboPreCache.TabIndex = 32;
@@ -368,7 +377,7 @@
             // 
             this.comboOOB.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.comboOOB.FormattingEnabled = true;
-            this.comboOOB.Location = new System.Drawing.Point(1201, 538);
+            this.comboOOB.Location = new System.Drawing.Point(1201, 608);
             this.comboOOB.Name = "comboOOB";
             this.comboOOB.Size = new System.Drawing.Size(266, 42);
             this.comboOOB.TabIndex = 31;
@@ -379,27 +388,29 @@
             // 
             this.labelPreCache.AutoSize = true;
             this.labelPreCache.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelPreCache.Location = new System.Drawing.Point(1027, 591);
+            this.labelPreCache.Location = new System.Drawing.Point(1027, 661);
             this.labelPreCache.Name = "labelPreCache";
             this.labelPreCache.Size = new System.Drawing.Size(162, 34);
             this.labelPreCache.TabIndex = 30;
             this.labelPreCache.Text = "Pre-Cache";
+            this.labelPreCache.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // labelOOB
             // 
             this.labelOOB.AutoSize = true;
             this.labelOOB.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelOOB.Location = new System.Drawing.Point(1109, 543);
+            this.labelOOB.Location = new System.Drawing.Point(1109, 613);
             this.labelOOB.Name = "labelOOB";
             this.labelOOB.Size = new System.Drawing.Size(79, 34);
             this.labelOOB.TabIndex = 29;
             this.labelOOB.Text = "OOB";
+            this.labelOOB.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // comboWM
             // 
             this.comboWM.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.comboWM.FormattingEnabled = true;
-            this.comboWM.Location = new System.Drawing.Point(1201, 490);
+            this.comboWM.Location = new System.Drawing.Point(1201, 560);
             this.comboWM.Name = "comboWM";
             this.comboWM.Size = new System.Drawing.Size(266, 42);
             this.comboWM.TabIndex = 28;
@@ -410,7 +421,7 @@
             // 
             this.comboCVP.Font = new System.Drawing.Font("Century Gothic", 14F);
             this.comboCVP.FormattingEnabled = true;
-            this.comboCVP.Location = new System.Drawing.Point(1201, 440);
+            this.comboCVP.Location = new System.Drawing.Point(1201, 510);
             this.comboCVP.Name = "comboCVP";
             this.comboCVP.Size = new System.Drawing.Size(266, 42);
             this.comboCVP.TabIndex = 27;
@@ -421,27 +432,29 @@
             // 
             this.labelWM.AutoSize = true;
             this.labelWM.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelWM.Location = new System.Drawing.Point(1053, 493);
+            this.labelWM.Location = new System.Drawing.Point(1053, 563);
             this.labelWM.Name = "labelWM";
             this.labelWM.Size = new System.Drawing.Size(136, 34);
             this.labelWM.TabIndex = 26;
             this.labelWM.Text = "WMData";
+            this.labelWM.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // labelCVP
             // 
             this.labelCVP.AutoSize = true;
             this.labelCVP.Font = new System.Drawing.Font("Century Gothic", 14F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.labelCVP.Location = new System.Drawing.Point(1112, 445);
+            this.labelCVP.Location = new System.Drawing.Point(1112, 515);
             this.labelCVP.Name = "labelCVP";
             this.labelCVP.Size = new System.Drawing.Size(76, 34);
             this.labelCVP.TabIndex = 25;
             this.labelCVP.Text = "CVP";
+            this.labelCVP.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             // 
             // checkModifyCVP
             // 
             this.checkModifyCVP.AutoSize = true;
             this.checkModifyCVP.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkModifyCVP.Location = new System.Drawing.Point(1496, 452);
+            this.checkModifyCVP.Location = new System.Drawing.Point(1496, 522);
             this.checkModifyCVP.Name = "checkModifyCVP";
             this.checkModifyCVP.Size = new System.Drawing.Size(100, 27);
             this.checkModifyCVP.TabIndex = 37;
@@ -453,7 +466,7 @@
             // 
             this.checkModifyWM.AutoSize = true;
             this.checkModifyWM.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkModifyWM.Location = new System.Drawing.Point(1496, 502);
+            this.checkModifyWM.Location = new System.Drawing.Point(1496, 572);
             this.checkModifyWM.Name = "checkModifyWM";
             this.checkModifyWM.Size = new System.Drawing.Size(100, 27);
             this.checkModifyWM.TabIndex = 36;
@@ -465,7 +478,7 @@
             // 
             this.checkModifyOOB.AutoSize = true;
             this.checkModifyOOB.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkModifyOOB.Location = new System.Drawing.Point(1496, 550);
+            this.checkModifyOOB.Location = new System.Drawing.Point(1496, 620);
             this.checkModifyOOB.Name = "checkModifyOOB";
             this.checkModifyOOB.Size = new System.Drawing.Size(100, 27);
             this.checkModifyOOB.TabIndex = 38;
@@ -477,7 +490,7 @@
             // 
             this.checkNoneditDefault.AutoSize = true;
             this.checkNoneditDefault.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.checkNoneditDefault.Location = new System.Drawing.Point(312, 401);
+            this.checkNoneditDefault.Location = new System.Drawing.Point(312, 471);
             this.checkNoneditDefault.Name = "checkNoneditDefault";
             this.checkNoneditDefault.Size = new System.Drawing.Size(193, 27);
             this.checkNoneditDefault.TabIndex = 39;
@@ -485,57 +498,45 @@
             this.checkNoneditDefault.UseVisualStyleBackColor = true;
             this.checkNoneditDefault.CheckedChanged += new System.EventHandler(this.checkNoneditDefault_CheckedChanged);
             // 
-            // exportScenarioButton
+            // labelGeneralInformation
             // 
-            this.exportScenarioButton.Enabled = false;
-            this.exportScenarioButton.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.exportScenarioButton.Location = new System.Drawing.Point(689, 827);
-            this.exportScenarioButton.Name = "exportScenarioButton";
-            this.exportScenarioButton.Size = new System.Drawing.Size(400, 100);
-            this.exportScenarioButton.TabIndex = 40;
-            this.exportScenarioButton.Text = "Export Scenario";
-            this.exportScenarioButton.UseVisualStyleBackColor = true;
-            this.exportScenarioButton.Click += new System.EventHandler(this.exportScenarioButton_Click);
+            this.labelGeneralInformation.AutoSize = true;
+            this.labelGeneralInformation.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
+            this.labelGeneralInformation.Location = new System.Drawing.Point(290, 69);
+            this.labelGeneralInformation.Name = "labelGeneralInformation";
+            this.labelGeneralInformation.Size = new System.Drawing.Size(326, 38);
+            this.labelGeneralInformation.TabIndex = 41;
+            this.labelGeneralInformation.Text = "General Information";
             // 
-            // label11
+            // labelMapFiles
             // 
-            this.label11.AutoSize = true;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
-            this.label11.Location = new System.Drawing.Point(290, 69);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(326, 38);
-            this.label11.TabIndex = 41;
-            this.label11.Text = "General Information";
+            this.labelMapFiles.AutoSize = true;
+            this.labelMapFiles.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelMapFiles.Location = new System.Drawing.Point(1272, 69);
+            this.labelMapFiles.Name = "labelMapFiles";
+            this.labelMapFiles.Size = new System.Drawing.Size(162, 38);
+            this.labelMapFiles.TabIndex = 42;
+            this.labelMapFiles.Text = "Map Files";
             // 
-            // label12
+            // labelNonEditableData
             // 
-            this.label12.AutoSize = true;
-            this.label12.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label12.Location = new System.Drawing.Point(1272, 69);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(162, 38);
-            this.label12.TabIndex = 42;
-            this.label12.Text = "Map Files";
+            this.labelNonEditableData.AutoSize = true;
+            this.labelNonEditableData.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
+            this.labelNonEditableData.Location = new System.Drawing.Point(199, 409);
+            this.labelNonEditableData.Name = "labelNonEditableData";
+            this.labelNonEditableData.Size = new System.Drawing.Size(379, 38);
+            this.labelNonEditableData.TabIndex = 43;
+            this.labelNonEditableData.Text = "Non-editable Data Files";
             // 
-            // label18
+            // labelEditableData
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
-            this.label18.Location = new System.Drawing.Point(199, 339);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(379, 38);
-            this.label18.TabIndex = 43;
-            this.label18.Text = "Non-editable Data Files";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
-            this.label19.Location = new System.Drawing.Point(1178, 372);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(300, 38);
-            this.label19.TabIndex = 44;
-            this.label19.Text = "Editable Data Files";
+            this.labelEditableData.AutoSize = true;
+            this.labelEditableData.Font = new System.Drawing.Font("Century Gothic", 16F, System.Drawing.FontStyle.Bold);
+            this.labelEditableData.Location = new System.Drawing.Point(1178, 442);
+            this.labelEditableData.Name = "labelEditableData";
+            this.labelEditableData.Size = new System.Drawing.Size(300, 38);
+            this.labelEditableData.TabIndex = 44;
+            this.labelEditableData.Text = "Editable Data Files";
             // 
             // labelRequiredScenarioName
             // 
@@ -586,7 +587,7 @@
             this.labelRequiredCVP.AutoSize = true;
             this.labelRequiredCVP.Font = new System.Drawing.Font("Century Gothic", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelRequiredCVP.ForeColor = System.Drawing.Color.Red;
-            this.labelRequiredCVP.Location = new System.Drawing.Point(1065, 446);
+            this.labelRequiredCVP.Location = new System.Drawing.Point(1065, 516);
             this.labelRequiredCVP.Name = "labelRequiredCVP";
             this.labelRequiredCVP.Size = new System.Drawing.Size(53, 34);
             this.labelRequiredCVP.TabIndex = 49;
@@ -597,7 +598,7 @@
             this.labelRequiredWM.AutoSize = true;
             this.labelRequiredWM.Font = new System.Drawing.Font("Century Gothic", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelRequiredWM.ForeColor = System.Drawing.Color.Red;
-            this.labelRequiredWM.Location = new System.Drawing.Point(1003, 493);
+            this.labelRequiredWM.Location = new System.Drawing.Point(1003, 563);
             this.labelRequiredWM.Name = "labelRequiredWM";
             this.labelRequiredWM.Size = new System.Drawing.Size(53, 34);
             this.labelRequiredWM.TabIndex = 50;
@@ -608,7 +609,7 @@
             this.labelRequiredUnit.AutoSize = true;
             this.labelRequiredUnit.Font = new System.Drawing.Font("Century Gothic", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelRequiredUnit.ForeColor = System.Drawing.Color.Red;
-            this.labelRequiredUnit.Location = new System.Drawing.Point(171, 454);
+            this.labelRequiredUnit.Location = new System.Drawing.Point(171, 524);
             this.labelRequiredUnit.Name = "labelRequiredUnit";
             this.labelRequiredUnit.Size = new System.Drawing.Size(53, 34);
             this.labelRequiredUnit.TabIndex = 52;
@@ -619,7 +620,7 @@
             this.labelRequiredPPLX.AutoSize = true;
             this.labelRequiredPPLX.Font = new System.Drawing.Font("Century Gothic", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelRequiredPPLX.ForeColor = System.Drawing.Color.Red;
-            this.labelRequiredPPLX.Location = new System.Drawing.Point(171, 503);
+            this.labelRequiredPPLX.Location = new System.Drawing.Point(171, 573);
             this.labelRequiredPPLX.Name = "labelRequiredPPLX";
             this.labelRequiredPPLX.Size = new System.Drawing.Size(53, 34);
             this.labelRequiredPPLX.TabIndex = 53;
@@ -630,7 +631,7 @@
             this.labelRequiredTTRX.AutoSize = true;
             this.labelRequiredTTRX.Font = new System.Drawing.Font("Century Gothic", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelRequiredTTRX.ForeColor = System.Drawing.Color.Red;
-            this.labelRequiredTTRX.Location = new System.Drawing.Point(171, 552);
+            this.labelRequiredTTRX.Location = new System.Drawing.Point(171, 622);
             this.labelRequiredTTRX.Name = "labelRequiredTTRX";
             this.labelRequiredTTRX.Size = new System.Drawing.Size(53, 34);
             this.labelRequiredTTRX.TabIndex = 54;
@@ -641,7 +642,7 @@
             this.labelRequiredTERX.AutoSize = true;
             this.labelRequiredTERX.Font = new System.Drawing.Font("Century Gothic", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelRequiredTERX.ForeColor = System.Drawing.Color.Red;
-            this.labelRequiredTERX.Location = new System.Drawing.Point(171, 602);
+            this.labelRequiredTERX.Location = new System.Drawing.Point(171, 672);
             this.labelRequiredTERX.Name = "labelRequiredTERX";
             this.labelRequiredTERX.Size = new System.Drawing.Size(53, 34);
             this.labelRequiredTERX.TabIndex = 55;
@@ -652,7 +653,7 @@
             this.labelRequiredNewsItems.AutoSize = true;
             this.labelRequiredNewsItems.Font = new System.Drawing.Font("Century Gothic", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelRequiredNewsItems.ForeColor = System.Drawing.Color.Red;
-            this.labelRequiredNewsItems.Location = new System.Drawing.Point(80, 650);
+            this.labelRequiredNewsItems.Location = new System.Drawing.Point(80, 720);
             this.labelRequiredNewsItems.Name = "labelRequiredNewsItems";
             this.labelRequiredNewsItems.Size = new System.Drawing.Size(53, 34);
             this.labelRequiredNewsItems.TabIndex = 56;
@@ -663,41 +664,28 @@
             this.labelRequiredProfile.AutoSize = true;
             this.labelRequiredProfile.Font = new System.Drawing.Font("Century Gothic", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.labelRequiredProfile.ForeColor = System.Drawing.Color.Red;
-            this.labelRequiredProfile.Location = new System.Drawing.Point(112, 695);
+            this.labelRequiredProfile.Location = new System.Drawing.Point(112, 765);
             this.labelRequiredProfile.Name = "labelRequiredProfile";
             this.labelRequiredProfile.Size = new System.Drawing.Size(53, 34);
             this.labelRequiredProfile.TabIndex = 57;
             this.labelRequiredProfile.Text = "(R)";
             // 
-            // label15
+            // labelRequiredInfo
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Century Gothic", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label15.ForeColor = System.Drawing.Color.Red;
-            this.label15.Location = new System.Drawing.Point(1304, 837);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(371, 34);
-            this.label15.TabIndex = 58;
-            this.label15.Text = "(R) -- Required to Proceed";
-            // 
-            // btnOpenExportedScenarioFolder
-            // 
-            this.btnOpenExportedScenarioFolder.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnOpenExportedScenarioFolder.Font = new System.Drawing.Font("Century Gothic", 10F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.btnOpenExportedScenarioFolder.Location = new System.Drawing.Point(375, 837);
-            this.btnOpenExportedScenarioFolder.Name = "btnOpenExportedScenarioFolder";
-            this.btnOpenExportedScenarioFolder.Size = new System.Drawing.Size(257, 81);
-            this.btnOpenExportedScenarioFolder.TabIndex = 59;
-            this.btnOpenExportedScenarioFolder.Text = "Open Exported\r\nScenario Folder";
-            this.btnOpenExportedScenarioFolder.UseVisualStyleBackColor = true;
-            this.btnOpenExportedScenarioFolder.Click += new System.EventHandler(this.btnOpenExportedScenarioFolder_Click);
+            this.labelRequiredInfo.AutoSize = true;
+            this.labelRequiredInfo.Font = new System.Drawing.Font("Century Gothic", 14F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))), System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.labelRequiredInfo.ForeColor = System.Drawing.Color.Red;
+            this.labelRequiredInfo.Location = new System.Drawing.Point(1304, 837);
+            this.labelRequiredInfo.Name = "labelRequiredInfo";
+            this.labelRequiredInfo.Size = new System.Drawing.Size(371, 34);
+            this.labelRequiredInfo.TabIndex = 58;
+            this.labelRequiredInfo.Text = "(R) -- Required to Proceed";
             // 
             // UC_Scenario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.btnOpenExportedScenarioFolder);
-            this.Controls.Add(this.label15);
+            this.Controls.Add(this.labelRequiredInfo);
             this.Controls.Add(this.labelRequiredProfile);
             this.Controls.Add(this.labelRequiredNewsItems);
             this.Controls.Add(this.labelRequiredTERX);
@@ -710,11 +698,10 @@
             this.Controls.Add(this.labelRequiredMapName);
             this.Controls.Add(this.labelRequiredCacheName);
             this.Controls.Add(this.labelRequiredScenarioName);
-            this.Controls.Add(this.label19);
-            this.Controls.Add(this.label18);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.exportScenarioButton);
+            this.Controls.Add(this.labelEditableData);
+            this.Controls.Add(this.labelNonEditableData);
+            this.Controls.Add(this.labelMapFiles);
+            this.Controls.Add(this.labelGeneralInformation);
             this.Controls.Add(this.checkNoneditDefault);
             this.Controls.Add(this.checkModifyOOB);
             this.Controls.Add(this.checkModifyCVP);
@@ -754,6 +741,7 @@
             this.Controls.Add(this.labelScenarioName);
             this.Name = "UC_Scenario";
             this.Size = new System.Drawing.Size(1800, 1000);
+            this.SizeChanged += new System.EventHandler(this.labels_SizeChanged);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -798,11 +786,10 @@
         private System.Windows.Forms.CheckBox checkModifyWM;
         private System.Windows.Forms.CheckBox checkModifyOOB;
         private System.Windows.Forms.CheckBox checkNoneditDefault;
-        private System.Windows.Forms.Button exportScenarioButton;
-        private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label labelGeneralInformation;
+        private System.Windows.Forms.Label labelMapFiles;
+        private System.Windows.Forms.Label labelNonEditableData;
+        private System.Windows.Forms.Label labelEditableData;
         private System.Windows.Forms.Label labelRequiredScenarioName;
         private System.Windows.Forms.Label labelRequiredCacheName;
         private System.Windows.Forms.Label labelRequiredMapName;
@@ -815,7 +802,6 @@
         private System.Windows.Forms.Label labelRequiredTERX;
         private System.Windows.Forms.Label labelRequiredNewsItems;
         private System.Windows.Forms.Label labelRequiredProfile;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Button btnOpenExportedScenarioFolder;
+        private System.Windows.Forms.Label labelRequiredInfo;
     }
 }

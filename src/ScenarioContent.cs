@@ -3,9 +3,8 @@
 
 using System;
 using System.Collections.Generic;
-using System.Deployment.Application;
+using System.Diagnostics;
 using System.IO;
-using System.Reflection;
 using System.Text.RegularExpressions;
 
 namespace SRScenarioCreatorEnhanced
@@ -15,11 +14,6 @@ namespace SRScenarioCreatorEnhanced
         #region setupVariablesAndConstructor
 
         #region editorInfo
-
-        // Current version of the editor
-        private readonly string editorVersion = ApplicationDeployment.IsNetworkDeployed
-               ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString()
-               : Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
         private string adjustedExportDirectory;
 
@@ -123,7 +117,8 @@ namespace SRScenarioCreatorEnhanced
             }
             catch (Exception e)
             {
-                Info.errorMsg(4, "File already in use (bug). Retry!");
+                Debug.WriteLine(e.Message);
+                Info.errorMsg(4, $"File already in use (bug). Retry! Exception:{e.Message}");
             }
 
             // Adjust export folder directory, connect it with scenario name
@@ -185,7 +180,7 @@ namespace SRScenarioCreatorEnhanced
                 #region scenarioInfoPart
 
                 $"// SCENARIO DEFINITION - {scenarioName}",
-                $"// Created using Enhanced Scenario Creator V{editorVersion} - {DateTime.Now}",
+                $"// Created using Enhanced Scenario Creator V{Configuration.editorVersion}:{Configuration.assemblyVersion} - {DateTime.Now}",
                 $"// ifset key: 0x01: Load CVP; 0x02: Load Rest of Source; 0x03: Load all; 0x04: Load Cache\n",
 
                 $"#ifset 0x01",
@@ -236,7 +231,7 @@ namespace SRScenarioCreatorEnhanced
                                         $"{settings.economicDifficulty}, " +
                                         $"{settings.diplomacyDifficulty}",
                 $"resources:              {settings.resourcesLevel}",
-                $"initialFunds:           {settings.initialFunds}",
+                $"initialfunds:           {settings.initialFunds}",
                 $"reservelimit:           {(settings.reserveLimit ? 1 : 0)}",
                 $"aistance:               {settings.aistance}",
                 $"startyear:              {settings.startYear}",

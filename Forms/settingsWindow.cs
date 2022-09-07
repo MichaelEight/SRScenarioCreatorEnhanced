@@ -12,6 +12,24 @@ namespace SRScenarioCreatorEnhanced.Forms
 
             textGameDirectory.Text = Configuration.baseGameDirectory;
 
+            // Add languages from languages list to combo
+            foreach(var lang in mainWindow.allLanguages)
+            {
+                comboLanguage.Items.Add(lang.languageName);
+            }
+
+            // Set active language
+            if (comboLanguage.Items.Count > 0)
+            {
+                comboLanguage.SelectedIndex = comboLanguage.FindString(Configuration.currentLanguage);
+            }
+
+            // Do not let index -1
+            if(comboLanguage.SelectedIndex == -1)
+            {
+                comboLanguage.SelectedIndex = 0;
+            }
+
             // Set saved values to sliders
             trackWindowScale.Value = convertScaleFactorToTrackValue(Configuration.currentAppScaleFactor);
             trackFontScale.Value = convertScaleFactorToTrackValue(Configuration.currentFontScaleFactor);
@@ -71,33 +89,39 @@ namespace SRScenarioCreatorEnhanced.Forms
             switch(trackDebugMsgsLevel.Value)
             {
                 case 0: // None
-                    Info.loadingFilesError                   = false;
-                    Info.loadingDataIntoTabsError            = false;
-                    Info.loadingDataFromFileError            = false;
-                    Info.failedToRecogniseLabelFromfileError = false;
-                    Info.fileIsAlreadyInUseError             = false;
-                    break;
-
-                case 1: // Only Necessary (DEFAULT)
-                    Info.loadingFilesError                   = true;
-                    Info.loadingDataIntoTabsError            = true;
-                    Info.loadingDataFromFileError            = false;
-                    Info.failedToRecogniseLabelFromfileError = false;
-                    Info.fileIsAlreadyInUseError             = true;
-                    break;
-
-                case 2: // All
-                    Info.loadingFilesError                   = true;
-                    Info.loadingDataIntoTabsError            = true;
-                    Info.loadingDataFromFileError            = true;
-                    Info.failedToRecogniseLabelFromfileError = true;
-                    Info.fileIsAlreadyInUseError             = true;
+                    Info.loadingFilesError                    = false;
+                    Info.loadingDataIntoTabsError             = false;
+                    Info.loadingDataFromFileError             = false;
+                    Info.failedToRecogniseLabelFromfileError  = false;
+                    Info.fileIsAlreadyInUseError              = false;
+                    Info.failedToLoadLanguageFile             = false;
+                    break;                                    
+                                                              
+                case 1: // Only Necessary (DEFAULT)           
+                    Info.loadingFilesError                    = true;
+                    Info.loadingDataIntoTabsError             = true;
+                    Info.loadingDataFromFileError             = false;
+                    Info.failedToRecogniseLabelFromfileError  = false;
+                    Info.fileIsAlreadyInUseError              = true;
+                    Info.failedToLoadLanguageFile             = true;
+                    break;                                    
+                                                              
+                case 2: // All                                
+                    Info.loadingFilesError                    = true;
+                    Info.loadingDataIntoTabsError             = true;
+                    Info.loadingDataFromFileError             = true;
+                    Info.failedToRecogniseLabelFromfileError  = true;
+                    Info.fileIsAlreadyInUseError              = true;
+                    Info.failedToLoadLanguageFile             = true;
                     break;
 
                 default:break;
             }
             // Update setting in configuration
             Configuration.settingsDebugLevel = trackDebugMsgsLevel.Value;
+
+            Configuration.currentLanguage = comboLanguage.Text;
+            mainWindow.UpdateLanguageInEditor();
 
             mainWindow.SaveEditorSettingsToFile();
         }

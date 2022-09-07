@@ -49,6 +49,8 @@
             this.buttonBrowseGameFolder = new System.Windows.Forms.Button();
             this.folderBrowserGameDirectory = new System.Windows.Forms.FolderBrowserDialog();
             this.label13 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.comboLanguage = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.trackWindowScale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackFontScale)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.trackDebugMsgsLevel)).BeginInit();
@@ -109,7 +111,7 @@
             // buttonApply
             // 
             this.buttonApply.Font = new System.Drawing.Font("Century Gothic", 20F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.buttonApply.Location = new System.Drawing.Point(226, 497);
+            this.buttonApply.Location = new System.Drawing.Point(226, 604);
             this.buttonApply.Name = "buttonApply";
             this.buttonApply.Size = new System.Drawing.Size(249, 103);
             this.buttonApply.TabIndex = 5;
@@ -252,11 +254,36 @@
             this.label13.Text = "Game Directory";
             this.label13.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label14.Location = new System.Drawing.Point(162, 487);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(134, 30);
+            this.label14.TabIndex = 19;
+            this.label14.Text = "Language";
+            this.label14.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // comboLanguage
+            // 
+            this.comboLanguage.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboLanguage.Font = new System.Drawing.Font("Century Gothic", 12F);
+            this.comboLanguage.FormattingEnabled = true;
+            this.comboLanguage.Items.AddRange(new object[] {
+            "DEFAULT"});
+            this.comboLanguage.Location = new System.Drawing.Point(304, 484);
+            this.comboLanguage.Name = "comboLanguage";
+            this.comboLanguage.Size = new System.Drawing.Size(233, 38);
+            this.comboLanguage.TabIndex = 20;
+            // 
             // settingsWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(709, 655);
+            this.ClientSize = new System.Drawing.Size(709, 719);
+            this.Controls.Add(this.comboLanguage);
+            this.Controls.Add(this.label14);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.buttonBrowseGameFolder);
             this.Controls.Add(this.textGameDirectory);
@@ -315,5 +342,7 @@
         private System.Windows.Forms.Button buttonBrowseGameFolder;
         private System.Windows.Forms.FolderBrowserDialog folderBrowserGameDirectory;
         private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.ComboBox comboLanguage;
     }
 }

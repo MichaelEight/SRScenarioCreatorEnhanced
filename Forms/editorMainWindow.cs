@@ -5,10 +5,10 @@ using SRScenarioCreatorEnhanced.Forms;
 using SRScenarioCreatorEnhanced.UserControls;
 using System;
 using System.Collections.Generic;
-using System.Deployment.Application;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
-using System.Reflection;
+using System.Linq;
 using System.Windows.Forms;
 
 // ***NOTE***
@@ -32,6 +32,8 @@ namespace SRScenarioCreatorEnhanced
         public static extern bool ReleaseCapture();
         #endregion
 
+        #region Variables
+
         // Use for editing scale of main window and UCs
         internal float currentEditorScale;
         internal float currentFontScale;
@@ -50,9 +52,21 @@ namespace SRScenarioCreatorEnhanced
         private UC_WM currentUCWM;
         private UC_Orbat currentUCOrbat;
 
+        // Language
+        internal LanguageData currentLanguage;
+        internal List<LanguageData> allLanguages;
+        internal event EventHandler LanguageHasChanged;
+
+        #endregion
+
+        // Constructor
         public editorMainWindow()
         {
             InitializeComponent();
+
+            // Language
+            allLanguages = new List<LanguageData>();
+            LoadLanguageDataFromFileToData();
 
             #region tabsAndTheirData
 
@@ -92,12 +106,176 @@ namespace SRScenarioCreatorEnhanced
             LoadEditorSettingsFromFile();
             AdjustEditorSizeToScale();
 
+            // Reload language to apply settings from file
+            UpdateLanguageInEditor();
+
             UpdateComboListOnDirChange();
+
+            currentUCScenario.ExportButtonEnabled += HandleExportButtonEnabled;
+            currentUCScenario.ExportButtonDisabled += HandleExportButtonDisabled;
         }
+
+        #region Language
+
+        #region LoadingFromFile
+
+        /// <summary>
+        /// Load all language files from Lang\**-**.LANG
+        /// Save text from them in allLanguages list (list of languages, each has own text list)
+        /// </summary>
+        private void LoadLanguageDataFromFileToData()
+        {
+            /// Directory example: Lang\en-US.LANG or Lang\pl-PL.LANG
+
+            /// NOTE : Only Settings Tab lang data is done so far
+            
+            string langDir = Directory.GetCurrentDirectory() + @"\Lang";
+
+            // Create dir if nonexistent
+            if (!Directory.Exists(langDir))
+            {
+                Directory.CreateDirectory(langDir);
+            }
+
+            // Get list of all files
+            string[] files = Directory.GetFiles(langDir);
+
+            // Loop through them and load .lang ones
+            foreach(string file in files)
+            {
+                if(Path.GetExtension(file) == ".LANG")
+                {
+                    string[] lines = File.ReadAllLines(file);
+                    LanguageData tempLang = new LanguageData(); // Create temporary language var
+
+                    // Try to load all texts, line by line
+                    try
+                    {
+                        int lineIndex = 0;
+
+                        LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.mainWindowSection);
+                        LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.scenarioSection);
+                        LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.settingsSection);
+
+                        // TODO Unlock, when other tabs are made
+                        //LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.);
+                        //LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.);
+                        //LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.);
+                        //LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.);
+                        //LoadLangSectionFromFile(lines, ref lineIndex, ref tempLang.);
+
+                        // Remove all dir text but filename
+                        tempLang.languageName = Path.GetFileNameWithoutExtension(file);
+
+                        // Add this language to the general list
+                        allLanguages.Add(tempLang);
+                    }
+                    catch(Exception e)
+                    {
+                        Debug.WriteLine(e.Message);
+                        Info.errorMsg(5, $"Loading language {file}: missing lines");
+                    }
+                }
+            }
+
+            UpdateLanguageInEditor();
+        }
+
+        /// <summary>
+        /// Load lines from file to specific section of LangData
+        /// Ignore // as they're comments
+        /// Load until all space in given section is taken
+        /// </summary>
+        private void LoadLangSectionFromFile(string[] lines, ref int lineIndex, ref string[] section)
+        {
+            // Go through lines in file, amount is set by length of section (array holding text)
+            for (int langIndex = 0; langIndex < section.Length; ++lineIndex, ++langIndex)
+            {
+                // Ignore line, if it's a comment or is empty
+                if (lines[lineIndex].Contains("//") || string.IsNullOrEmpty(lines[lineIndex]))
+                {
+                    --langIndex; // Don't count it as new lang line
+                    continue;
+                }
+
+                section[langIndex] = lines[lineIndex];
+            }
+        }
+
+        #endregion
+
+        #region UpdatingLanguageInApp
+
+        internal void UpdateLanguageInEditor()
+        {
+            if (Configuration.currentLanguage == "DEFAULT")
+                currentLanguage = new LanguageData(); // Revert to default, hardcoded values
+            
+            // Loop through all loaded languages
+            foreach(var language in allLanguages)
+            {
+                // Pick the one, which was selected in settings window
+                if(language.languageName == Configuration.currentLanguage)
+                {
+                    currentLanguage = language;
+                    break;
+                }
+            }
+
+            // Send event
+            if(LanguageHasChanged != null)
+                LanguageHasChanged(this, EventArgs.Empty);
+
+            // Update language in this window
+            LoadCurrentLanguageToWindow();
+        }
+
+        /// <summary>
+        /// Overwrites all current label texts with language data
+        /// </summary>
+        private void LoadCurrentLanguageToWindow()
+        {
+            // Start on the 1st and increment to go futher
+            int langIndex = 0;
+
+            titleLabel.Text                     = currentLanguage.mainWindowSection[langIndex++];
+            tabScenarioBtn.Text                 = currentLanguage.mainWindowSection[langIndex++];
+            tabSettingsBtn.Text                 = currentLanguage.mainWindowSection[langIndex++];
+            tabTheatersBtn.Text                 = currentLanguage.mainWindowSection[langIndex++];
+            tabRegionsBtn.Text                  = currentLanguage.mainWindowSection[langIndex++];
+            tabResourcesBtn.Text                = currentLanguage.mainWindowSection[langIndex++];
+            tabWMBtn.Text                       = currentLanguage.mainWindowSection[langIndex++];
+            tabOrbatBtn.Text                    = currentLanguage.mainWindowSection[langIndex++];
+            btnOpenExportedScenarioFolder.Text  = currentLanguage.mainWindowSection[langIndex++];
+            exportScenarioButton.Text           = currentLanguage.mainWindowSection[langIndex];
+        }
+
+        #endregion
+
+        #endregion
+
+        #region LoadingDataIntoTabsAndComboboxes
+
         internal void UpdateComboListOnDirChange()
         {
             currentUCScenario.loadFileNamesToEachComponent();
         }
+
+        /// <summary>
+        /// Editor holds data in the back-end *Content files. Load that data into front-end UC_*
+        /// </summary>
+        internal void LoadSavedDataIntoProperUCs()
+        {
+            // Move data on settings from placeholder to actual settings
+            currentSettings = currentScenario.settings;
+            
+            // Load settings from saved data to it's UC
+            currentUCSettings.LoadSavedDataIntoComponents();
+        }
+
+        #endregion
+
+        #region LoadingSavingEditorSettings
 
         private void LoadEditorSettingsFromFile()
         {
@@ -109,7 +287,8 @@ namespace SRScenarioCreatorEnhanced
                 lines.RemoveAll(string.IsNullOrWhiteSpace);
 
                 // If all options are present and only them
-                if(lines.Count == 7)
+                // HARDCODED COUNT NUMBER (!)
+                if(lines.Count == 8)
                 {
                     float helperFloat;
                     int helperInt;
@@ -119,10 +298,12 @@ namespace SRScenarioCreatorEnhanced
 
                     if(float.TryParse(lines[2], out helperFloat)) Configuration.currentAppScaleFactor = helperFloat;
                     if(float.TryParse(lines[3], out helperFloat)) Configuration.previousAppScaleFactor = helperFloat;
+
                     if(float.TryParse(lines[4], out helperFloat)) Configuration.currentFontScaleFactor = helperFloat;
                     if(float.TryParse(lines[5], out helperFloat)) Configuration.previousFontScaleFactor = helperFloat;
 
-                    if(Int32.TryParse(lines[5], out helperInt)) Configuration.settingsDebugLevel = helperInt;
+                    if(Int32.TryParse(lines[6], out helperInt)) Configuration.settingsDebugLevel = helperInt;
+                    Configuration.currentLanguage = lines[7];
                 }
             }
             else // Else - generate the file
@@ -130,7 +311,6 @@ namespace SRScenarioCreatorEnhanced
                 SaveEditorSettingsToFile();
             }
         }
-
 
         internal void SaveEditorSettingsToFile()
         {
@@ -153,21 +333,12 @@ namespace SRScenarioCreatorEnhanced
                 Configuration.currentFontScaleFactor.ToString(),
                 Configuration.previousFontScaleFactor.ToString(),
 
-                Configuration.settingsDebugLevel.ToString()
+                Configuration.settingsDebugLevel.ToString(),
+                Configuration.currentLanguage
             });
         }
 
-        /// <summary>
-        /// Editor holds data in the back-end *Content files. Load that data into front-end UC_*
-        /// </summary>
-        internal void LoadSavedDataIntoProperUCs()
-        {
-            // Move data on settings from placeholder to actual settings
-            currentSettings = currentScenario.settings;
-            
-            // Load settings from saved data to it's UC
-            currentUCSettings.LoadSavedDataIntoComponents();
-        }
+        #endregion
 
         #region generalWindowControls
 
@@ -202,19 +373,19 @@ namespace SRScenarioCreatorEnhanced
         }
 
         // Display new tab
-        private void addUserControl(UserControl userControl)
+        private void addUserControl(UserControl uc)
         {
-            userControl.Dock = DockStyle.Fill;
+            uc.Dock = DockStyle.Fill;
             
             foreach(Control c in mainUCPanel.Controls)
             {
-                if (c is UserControl)
+                if (c.Name == uc.Name)
                     c.Visible = true;
                 else
                     c.Visible = false;
             }
 
-            userControl.BringToFront();
+            uc.BringToFront();
         }
         
         #endregion
@@ -234,15 +405,8 @@ namespace SRScenarioCreatorEnhanced
         // Info button clicked
         private void infoButton_Click(object sender, EventArgs e)
         {
-            // Get assembly version
-            string versionNumber = ApplicationDeployment.IsNetworkDeployed
-               ? ApplicationDeployment.CurrentDeployment.CurrentVersion.ToString()
-               : Assembly.GetExecutingAssembly().GetName().Version.ToString();
-
-            // Display assembly version in message box
-            _ = MessageBox.Show($"Current version: {versionNumber}\n" +
-                $"Contributors: Michael '8', xperga", "About Editor", MessageBoxButtons.OK,
-                MessageBoxIcon.Information, MessageBoxDefaultButton.Button1);
+            aboutWindow aw = new aboutWindow();
+            aw.ShowDialog();
         }
 
         private void settingsButton_Click(object sender, EventArgs e)
@@ -250,15 +414,28 @@ namespace SRScenarioCreatorEnhanced
             settingsWindow sw = new settingsWindow(this);
             sw.ShowDialog();
         }
+        private void buttonHelp_Click(object sender, EventArgs e)
+        {
+            // Algorithm Source: https://stackoverflow.com/a/71203963/12934099
+            // Credit: Antonis
+            var obj = Application.OpenForms.OfType<helpWindow>().Select(t => t).FirstOrDefault();
+            if (obj != null)
+            {
+                obj.BringToFront();
+            }
+            else
+            {
+                obj = new helpWindow(this);
+                obj.Show();
+            }
+        }
 
         #endregion
 
         #region tabsButtons
 
         // Tab buttons click event
-
-        // tabScenario is public, so export button can work
-        internal void tabScenarioBtn_Click(object sender, EventArgs e) => addUserControl(currentUCScenario);
+        private void tabScenarioBtn_Click(object sender, EventArgs e) => addUserControl(currentUCScenario);
 
         private void tabSettingsBtn_Click(object sender, EventArgs e) => addUserControl(currentUCSettings);
 
@@ -322,6 +499,54 @@ namespace SRScenarioCreatorEnhanced
             // Keep fontFamily and fontStyle
             foreach (Control c in component.Controls)
                 c.Font = new Font(c.Font.FontFamily, c.Font.Size * factor, c.Font.Style);
+        }
+
+        #endregion
+
+        #region Exporting
+        private void HandleExportButtonEnabled(object sender, EventArgs e)
+        {
+            exportScenarioButton.Enabled = true;
+        }
+        private void HandleExportButtonDisabled(object sender, EventArgs e)
+        {
+            exportScenarioButton.Enabled = false;
+        }
+
+        private void exportScenarioButton_Click(object sender, EventArgs e)
+        {
+            // Copy settings data to scenario, prepare for export
+            currentScenario.settings = currentSettings;
+
+            currentScenario.exportScenarioToFileAndFolder();
+            _ = MessageBox.Show("Scenario exported! (Well, editor tried, at least)", "Export Finished",
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        private void btnOpenExportedScenarioFolder_Click(object sender, EventArgs e)
+        {
+            string folderPath = Configuration.baseExportDirectory;
+            try
+            {
+                if (Directory.Exists(folderPath))
+                {
+                    ProcessStartInfo startInfo = new ProcessStartInfo
+                    {
+                        Arguments = folderPath,
+                        FileName = "explorer.exe"
+                    };
+
+                    _ = Process.Start(startInfo);
+                }
+                else
+                {
+                    _ = MessageBox.Show(string.Format("{0} Directory does not exist!", folderPath));
+                }
+            }
+            catch (Exception err)
+            {
+                // Some error (exception) happened
+                _ = MessageBox.Show(err.Message);
+            }
         }
 
         #endregion
