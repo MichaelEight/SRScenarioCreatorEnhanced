@@ -139,6 +139,8 @@ namespace SRScenarioCreatorEnhanced
             if(newMapCheck)
             {
                 string mapDir = adjustedExportDirectory + mapName + @".MAPX";
+                string oofDir = adjustedExportDirectory + OOFName + @".OOF";
+
                 if (File.Exists(mapDir))
                 {
                     DialogResult dialogResult = MessageBox.Show("Map file with that name already exists in your scenario! " +
@@ -152,6 +154,21 @@ namespace SRScenarioCreatorEnhanced
                 else
                 {
                     File.Create(mapDir);
+                }
+                
+                if (File.Exists(oofDir))
+                {
+                    DialogResult dialogResult = MessageBox.Show("OOF file with that name already exists in your scenario! " +
+                        "If you press 'Yes', it will be overwritten! Proceed?", "Warning!", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+
+                    if(dialogResult == DialogResult.Yes)
+                    {
+                        File.Create(oofDir);
+                    }
+                }
+                else
+                {
+                    File.Create(oofDir);
                 }
             }
 
