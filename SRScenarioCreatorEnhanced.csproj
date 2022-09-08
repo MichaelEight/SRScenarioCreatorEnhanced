@@ -96,6 +96,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DataSets\cvpFile.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cvpFile.xsd</DependentUpon>
+    </Compile>
     <Compile Include="Forms\aboutWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -212,6 +217,17 @@
     <EmbeddedResource Include="UserControls\UC_WM.resx">
       <DependentUpon>UC_WM.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="DataSets\cvpFile.xsc">
+      <DependentUpon>cvpFile.xsd</DependentUpon>
+    </None>
+    <None Include="DataSets\cvpFile.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>cvpFile.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="DataSets\cvpFile.xss">
+      <DependentUpon>cvpFile.xsd</DependentUpon>
+    </None>
     <None Include="Lang\en-US.LANG">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>

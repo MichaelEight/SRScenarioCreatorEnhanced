@@ -263,6 +263,7 @@ namespace SRScenarioCreatorEnhanced
 
         /// <summary>
         /// Editor holds data in the back-end *Content files. Load that data into front-end UC_*
+        /// Used by scenarioName change in UC_Scenario
         /// </summary>
         internal void LoadSavedDataIntoProperUCs()
         {
@@ -271,6 +272,8 @@ namespace SRScenarioCreatorEnhanced
             
             // Load settings from saved data to it's UC
             currentUCSettings.LoadSavedDataIntoComponents();
+
+            Globals.activeScenarioName = currentScenario.scenarioName;
         }
 
         #endregion

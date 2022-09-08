@@ -13,6 +13,8 @@ public static class Globals
     public static bool isWMActive        = false;
     public static bool isOrbatActive     = false;
     public static bool isExportBtnActive = false;
+
+    public static string activeScenarioName = "";
 }
 
 public static class Configuration

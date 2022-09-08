@@ -329,6 +329,7 @@ namespace SRScenarioCreatorEnhanced
         {
             throw new NotImplementedException();
         }
+
         #endregion
 
         #region loadingDataFromFile
