@@ -3,8 +3,11 @@
 
 using SRScenarioCreatorEnhanced.DataSets;
 using System;
+using System.Collections.Generic;
 using System.Data;
 using System.Diagnostics;
+using System.IO;
+using System.Linq;
 
 namespace SRScenarioCreatorEnhanced
 {
@@ -189,18 +192,89 @@ namespace SRScenarioCreatorEnhanced
     
         public void LoadDataFromFileToDataSet()
         {
-            // Open file (scenario if exists, else refer to \Maps in gameDir)
-            // Load lines
-            // Ignore theatres
-            // Load each country
-            // Refresh list of countries
+            // Potential paths
+            string fileInScenarioFolderDir = Configuration.baseExportDirectory + Globals.activeScenarioName
+                                            + @"\Maps\" + Globals.activeCVPFileName + @".CVP";
+            string fileInDefaultGameFolderDir = Configuration.baseGameDirectory + @"\Maps\" + Globals.activeCVPFileName + "@.CVP";
+            // Final path of the CVP file
+            string cvpDir;
 
+            // Open file (from scenario folder if it exists there, else refer to \Maps in gameDir)
+            if (File.Exists(fileInScenarioFolderDir))
+            {
+                cvpDir = fileInDefaultGameFolderDir;
+            }
+            // If the file doesn't exist in scenario folder, check for it in game folder with default files
+            else if(File.Exists(fileInDefaultGameFolderDir))
+            {
+                cvpDir=fileInDefaultGameFolderDir;
+            }
+            // If the file doesn't exist in either of these places, it doesn't exist
+            // TODO Alternative: Look for the file in the whole game folder
+            else
+            {
+                // Stop loading
+                return;
+            }
+
+
+            // Load lines
+            //
+            List<string> lines = new List<string>(File.ReadAllLines(cvpDir));
+
+            // Eliminate useless lines
+            //
+            // Remove all comments (everything after and including "//")
+            lines = lines.Select(p => (!string.IsNullOrEmpty(p) && p.Contains("//")) ? p.Substring(0, p.IndexOf("//")) : p).ToList(); 
+            // Remove all spaces and blank lines
+            lines.RemoveAll(string.IsNullOrWhiteSpace); 
+
+            // Ignore theatres
+            //
+            if(lines.Contains("&&THEATRES") && lines.Contains("&&END"))
+            {
+                // Start at the "&&THEATRES" keyword
+                // End at the "&&END" keyword
+                // Remove all the lines inbetween
+
+                int theatreIndex = lines.IndexOf("&&THEATRES");
+                int endIndex = lines.IndexOf("&&END");
+
+                // Need to add 1 to index diff to remove the end line as well
+                lines.RemoveRange(theatreIndex, endIndex - theatreIndex + 1);
+            }
+
+            // Load each country
+            //
+            // If the list even has any countries
+            if (lines.Contains("&&CVP")) {
+                // Row holding data on country
+                cvpFile.CountryListRow countryRow;
+
+                int numberOfCountries = 0;
+
+                // Count number of countries, so you know how many to expect
+                foreach(var line in lines)
+                    if (line.Contains("&&CVP")) ++numberOfCountries;
+
+                // Load until there are no more countries
+                while(numberOfCountries > 0)
+                {
+
+
+                    numberOfCountries--;
+                }
+            }
+
+
+            // Placeholder Code (!)
             cvpFile.CountryListRow row;
 
             for(int i = 0; i < 10; ++i)
             {
                 row = countryList.NewCountryListRow();
 
+                string x = "13";
                 row["CountryID"] = 1000 + i;
                 row["regionname"] = new string('A', i);
                 row["blocknum"] = (1000 + i) / 100; // ignore last 2 digits
@@ -211,6 +285,14 @@ namespace SRScenarioCreatorEnhanced
         }
     }
 }
+
+
+// Ideas for load to-components and from-components
+// Load-to : select row and go textRegionName.Text = r["regionname"] etc.
+// Load-from : create new row and go r["regionname"] = textRegionName.Text etc.
+// You can add those lines to the end of DB, because on the Editor list they can be sorted, and in the final file
+//  order doesn't matter
+
 /*cvpFile.CountryListRow row = countryList.NewCountryListRow();
 
 row["CountryID"]    = 1106;

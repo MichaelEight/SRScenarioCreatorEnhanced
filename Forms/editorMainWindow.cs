@@ -274,6 +274,7 @@ namespace SRScenarioCreatorEnhanced
             currentUCSettings.LoadSavedDataIntoComponents();
 
             Globals.activeScenarioName = currentScenario.scenarioName;
+            Globals.activeCVPFileName  = currentScenario.CVPName;
         }
 
         #endregion

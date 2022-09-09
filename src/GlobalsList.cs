@@ -15,6 +15,7 @@ public static class Globals
     public static bool isExportBtnActive = false;
 
     public static string activeScenarioName = "";
+    public static string activeCVPFileName = "";
 }
 
 public static class Configuration
