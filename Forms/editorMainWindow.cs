@@ -174,8 +174,7 @@ namespace SRScenarioCreatorEnhanced
                     }
                     catch(Exception e)
                     {
-                        Debug.WriteLine(e.Message);
-                        Info.errorMsg(5, $"Loading language {file}: missing lines");
+                        Info.errorMsg(5, $"Loading language {file}: missing lines. Err:{e.Message}");
                     }
                 }
             }
@@ -278,7 +277,12 @@ namespace SRScenarioCreatorEnhanced
             Globals.activeScenarioName = currentScenario.scenarioName;
             Globals.activeCVPFileName  = currentScenario.CVPName;
 
+            DateTime dt = DateTime.UtcNow;
             currentRegions.LoadDataFromFileToDataSet();
+            TimeSpan ts = DateTime.UtcNow - dt;
+
+            Debug.WriteLine($"Loading time: {ts.TotalMilliseconds}ms");
+
             currentUCRegions.RefreshDataGridView();
         }
 

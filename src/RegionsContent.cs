@@ -267,6 +267,9 @@ namespace SRScenarioCreatorEnhanced
     
         public void LoadDataFromFileToDataSet()
         {
+            // Clear DB on load
+            countryList.Clear();
+
             #region DetermineCVPPAth
 
             // Potential paths
@@ -348,33 +351,34 @@ namespace SRScenarioCreatorEnhanced
                 // For distinguishing &&CVP - is it start or the end
                 bool isCVPLabelStartOfCountry = true;
 
+                // Does loading go through a section e.g. RegionTechs?
+                // GROUPING, REGIONTECHS, REGIONUNITDESIGNS, REGIONPRODUCTS, REGIONSOCIALS, REGIONRELIGIONS
+                string activeSectionGroup = null;
+
                 // Get next line of country
                 foreach (string line in lines)
                 {
                     string tempLine = line; // Using temp, because 'line' is non-modifiable
                     string label = null;
-                    string value;
 
-                    // Special Cases
+                    #region SpecialCasesCVPandSections
+
                     // IF encountered next CVP or EOF, remove everything up to here and repeat
                     if (tempLine.Contains("&&CVP"))
                     {
+                        // Reset sections indicator
+                        activeSectionGroup = null;
+
+                        // Determine if it's starting or ending CVP
                         if (isCVPLabelStartOfCountry)
                         {
                             isCVPLabelStartOfCountry = false;
 
+                            // Remove useless chars
+                            tempLine = RemoveSpecifiedCharsFromLine(tempLine);
+
                             // Detect CountryID 
-
-                            #region RemoveSpecifiedChars
-
-                            // Remove spaces, tabs, multispaces
-                            tempLine = Regex.Replace(line.Replace("\t", ""), @"[ ]{2,}", "");
-                            tempLine.Replace(" ", "");
-
-                            // Removes label from line
                             tempLine = tempLine.Substring("&&CVP".Length);
-
-                            #endregion
 
                             // Assign number from line to id
                             row["CountryID"] = Int32.Parse(tempLine);
@@ -391,6 +395,41 @@ namespace SRScenarioCreatorEnhanced
                             break;
                         }
                     }
+
+                    // Check if line indicates start of some section
+                    string sectionDeterminer = null;
+                    switch (tempLine)
+                    {
+                        case string a when a.Contains("&&GROUPING"):            sectionDeterminer = "grouping"; break;
+                        case string a when a.Contains("&&REGIONTECHS"):         sectionDeterminer = "regiontechs"; break;
+                        case string a when a.Contains("&&REGIONUNITDESIGNS"):   sectionDeterminer = "regionunitdesigns"; break;
+                        case string a when a.Contains("&&REGIONPRODUCTS"):      sectionDeterminer = "regionproducts"; break;
+                        case string a when a.Contains("&&REGIONSOCIALS"):       sectionDeterminer = "regionsocials"; break;
+                        case string a when a.Contains("&&REGIONRELIGIONS"):     sectionDeterminer = "regionreligions"; break;
+
+                        default: sectionDeterminer = null; break;
+                    }
+
+                    // If it was null so far and now it got updated
+                    if(sectionDeterminer != null)
+                    {
+                        // Update column label to load into
+                        activeSectionGroup = sectionDeterminer;
+                        // Skip further analysis
+                        continue;
+                    }
+
+                    // Loop through active sections
+                    if (activeSectionGroup != null)
+                    {
+                        // Keep adding values to string row[activesectiongroup] += this
+                        row[activeSectionGroup] += tempLine;
+
+                        // Skip analysis
+                        continue;
+                    }
+
+                    #endregion
 
                     #region InterpretLabel
 
@@ -415,17 +454,15 @@ namespace SRScenarioCreatorEnhanced
 
                     #endregion
 
-                    #region RemoveSpecifiedChars
+                    #region RemoveSpecifiedCharsAndLabel
 
-                    // Remove spaces, tabs, multispaces
-                    tempLine = Regex.Replace(line.Replace("\t", ""), @"[ ]{2,}", "");
-                    tempLine.Replace(" ", "");
-
-                    // Removes label from line
-                    tempLine = tempLine.Substring(label.Length);
+                    tempLine = RemoveSpecifiedCharsFromLine(tempLine);
 
                     // Remove quotes
                     tempLine = tempLine.Replace("\"", "");
+
+                    // Remove command (label) from line
+                    tempLine = tempLine.Substring(label.Length);
 
                     #endregion
 
@@ -433,8 +470,7 @@ namespace SRScenarioCreatorEnhanced
                     //values = tempLine.Split(',');
                     // Loading might not include splittig data, because DB doesn't support it (single-var column)
 
-                    Debug.WriteLine($"[{row["CountryID"]}] label:({label})");
-
+                    // Try loading given label
                     try
                     {
                         // Value can't be null for conversion
@@ -444,55 +480,52 @@ namespace SRScenarioCreatorEnhanced
                             // Get type used by this column (label)
                             Type type = countryList.Columns[label].DataType;
 
-                            Debug.WriteLine($"Type:{type}, Value:{tempLine}");
-                            // Convert value to expected type
-                            var convertedValue = Convert.ChangeType(tempLine, type); // Credit for command: [1]
+                            Debug.WriteLine($"{row["CountryID"]}, expType:({type}), label:({label}), templine:({tempLine})");
 
+                            // Convert value to expected type
                             // Assign value to matching label in row
-                            row[label] = convertedValue;
-                            Debug.WriteLine("Value inserted to row");
+                            if(type == typeof(Boolean))
+                            {
+                                row[label] = tempLine == "1" ? true : false;
+                            }
+                            else if(type == typeof(Double))
+                            {
+                                Double.TryParse(tempLine, out double result);
+                                row[label] = result;
+                            }
+                            else
+                            {
+                                row[label] = Convert.ChangeType(tempLine, type); // Credit for command: [1]
+                            }
                         }
                         else
                         {
                             // If value is null, insert DBNull
                             row[label] = DBNull.Value;
-                            Debug.WriteLine("Inserted DBNull");
                         }
                     }
                     catch(Exception e)
                     {
                         Info.errorMsg(6, "Loading label from CVP, error:" + e.Message);
                     }
-                    
-
-                    // TODO
-                    // IF (maybe put that on top) line contains sets (GROUPING, REGIONTECHS etc.) 
-                    // THEN loop through it, save as... idk... maybe create new DB type to hold that?
                 }
 
                 // Add row to the DB
                 countryList.Rows.Add(row);
                 // Mark country as done
                 numberOfCountries--;
-
-                Debug.WriteLine("");
             }
 
             #endregion
+        }
 
-            // Placeholder Code (!)
-            /*cvpFile.CountryListRow row;
+        private string RemoveSpecifiedCharsFromLine(string line)
+        {
+            // Remove spaces, tabs, multispaces
+            line = Regex.Replace(line.Replace("\t", ""), @"[ ]{2,}", "");
+            line.Replace(" ", "");
 
-            for(int i = 0; i < 10; ++i)
-            {
-                row = countryList.NewCountryListRow();
-
-                row["CountryID"] = 1000 + i;
-                row["regionname"] = new string('A', i);
-                row["blocknum"] = (1000 + i) / 100; // ignore last 2 digits
-
-                countryList.Rows.Add(row);
-            }*/
+            return line;
         }
     }
 }
@@ -508,18 +541,3 @@ namespace SRScenarioCreatorEnhanced
 // Load-from : create new row and go r["regionname"] = textRegionName.Text etc.
 // You can add those lines to the end of DB, because on the Editor list they can be sorted, and in the final file
 //  order doesn't matter
-
-/*cvpFile.CountryListRow row = countryList.NewCountryListRow();
-
-row["CountryID"]    = 1106;
-row["regionname"]   = "Poland";
-row["blocknum"]     = 11;
-
-countryList.Rows.Add(row);
-
-foreach(DataRow r in countryList.Rows)
-{
-    Debug.WriteLine($"[{r["CountryID"]}] is named {r["regionname"]} " +
-        $"and it's blocknum is {r["blocknum"]}");
-}*/
-
