@@ -289,7 +289,8 @@ namespace SRScenarioCreatorEnhanced
                 foreach (string line in lines)
                 {
                     // Special Cases
-                    if(line.Contains("&&CVP"))
+                    // IF encountered next CVP or EOF, remove everything up to here and repeat
+                    if (line.Contains("&&CVP"))
                     {
                         if (isCVPLabelStartOfCountry)
                             isCVPLabelStartOfCountry = false;
@@ -330,6 +331,7 @@ namespace SRScenarioCreatorEnhanced
                         continue;
                     }
 
+
                     // Remove spaces, tabs, multispaces
                     tempLine = Regex.Replace(line.Replace("\t", ""), @"[ ]{2,}", "");
                     tempLine.Replace(" ", "");
@@ -339,6 +341,10 @@ namespace SRScenarioCreatorEnhanced
                     tempLine = tempLine.Substring(label.Length);
                     Debug.WriteLine($"Substring: {tempLine}");
 
+                    // Remove quotes
+                    tempLine = tempLine.Replace("\"", "");
+                    Debug.WriteLine($"Removed quotes: {tempLine}");
+                    
 
                     // Split values by ',' (most doesn't have it, so after split use index 0)
                     //values = tempLine.Split(',');
@@ -354,10 +360,9 @@ namespace SRScenarioCreatorEnhanced
 
                     // IF (maybe put that on top) line contains sets (GROUPING, REGIONTECHS etc.) 
                     // THEN loop through it, save as... idk... maybe create new DB type to hold that?
-                    // IF encountered next CVP or EOF, remove everything up to here and repeat
                 }
 
-                row["CountryID"] = numberOfCountries + 5; // DEBUG
+                row["CountryID"] = numberOfCountries + 1000; // DEBUG
                 countryList.Rows.Add(row);
                 numberOfCountries--;
 
