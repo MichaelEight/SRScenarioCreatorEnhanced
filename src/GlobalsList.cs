@@ -81,6 +81,8 @@ public static class Info
             default:break;
         }
 
+        // ID -1 means "No error id set yet"
+
         // Display error box
         MessageBox.Show(message, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error);
     }

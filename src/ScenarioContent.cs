@@ -1,6 +1,7 @@
 ﻿/// ScenarioContent.cs file released under GNU GPL v3 licence.
 /// Originally used in the SRScenarioCreatorEnhanced project: https://github.com/r20de20/SRScenarioCreatorEnhanced
 
+using SRScenarioCreatorEnhanced.DataSets;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -54,17 +55,11 @@ namespace SRScenarioCreatorEnhanced
         public bool OOBModifyCheck;
 
         // Reference to Other Tabs' Content
-        public SettingsContent settings;
+        internal SettingsContent settings;
+        internal RegionsContent  regions;
 
         // DEBUG
         public string lastLoadedScenarioName; // Used as anti-loop when trying to reload data in tab
-
-        #endregion
-
-        #region otherTabsContentObjects
-
-        // Create instances of classes holding data on other tabs
-        // SettingsContent currentSettings; // Do not load, if functionality not ready yet
 
         #endregion
 
@@ -72,6 +67,7 @@ namespace SRScenarioCreatorEnhanced
         public ScenarioContent()
         {
             settings = new SettingsContent();
+            regions = new RegionsContent();
             lastLoadedScenarioName = "-";
 
             scenarioName = "";
@@ -107,6 +103,10 @@ namespace SRScenarioCreatorEnhanced
 
         public void exportScenarioToFileAndFolder()
         {
+            // Refresh names to avoid overwriting files in other scenarios
+            Globals.activeScenarioName = scenarioName;
+            Globals.activeCVPFileName = CVPName;
+
             // Check if export directory exists
             if (!Directory.Exists(Configuration.baseExportDirectory))
                 Directory.CreateDirectory(Configuration.baseExportDirectory);
@@ -315,7 +315,7 @@ namespace SRScenarioCreatorEnhanced
         }
         private void exportRegionInclFile()
         {
-            throw new NotImplementedException();
+            //throw new NotImplementedException();
         }
 
         private void exportOOBFile()
@@ -330,7 +330,7 @@ namespace SRScenarioCreatorEnhanced
 
         private void exportCVPFile()
         {
-            throw new NotImplementedException();
+            regions.ExportFromDBtoFile();
         }
 
         #endregion
@@ -450,15 +450,6 @@ namespace SRScenarioCreatorEnhanced
                             string setting = tempArray[0];
                             // Split values by ','
                             string[] values = tempArray[1].Split(',');
-
-                            // --DEBUG--
-                            /*Debug.Print(setting + ":");
-                            for(int i = 0; i < values.Length; i++)
-                            {
-                                Debug.Print(values[i]);
-                            }
-                            Debug.Print("-\n");*/
-                            // --ENDDEBUG--
 
                             // Check if array is valid
                             if (values.Length >= 1 && values.Length <= 3)

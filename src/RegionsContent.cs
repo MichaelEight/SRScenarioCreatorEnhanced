@@ -20,6 +20,7 @@ namespace SRScenarioCreatorEnhanced
 
         int selectedCountryID; // ID of country selected to edit
         internal cvpFile.CountryListDataTable countryList;
+
         // Labels used in CVP file, used to determine command
         // Warning! Order matters! "regionname" will be detected in "altregionname" as substring
         // 2022/09/10 11:51 am -- sorted descending by length
@@ -383,7 +384,9 @@ namespace SRScenarioCreatorEnhanced
                             tempLine = tempLine.Substring("&&CVP".Length);
 
                             // Assign number from line to id
-                            row["CountryID"] = Int32.Parse(tempLine);
+                            Int32.TryParse(tempLine, out int result);
+                            row["CountryID"] = result;
+
                             continue; // Skip the rest 
                         }
                         else
@@ -555,95 +558,117 @@ namespace SRScenarioCreatorEnhanced
                 $"// Created using Enhanced Scenario Creator {Configuration.editorVersion}:{Configuration.assemblyVersion} - {DateTime.Now}\n",
                 $"&& THEATRES\n",
                 $"&& THEATRETRANSF",
-                $"&& END"
+                $"&& END\n"
             });
 
             // Insert country info, same template for each row (country)
-            foreach(var row in countryList.Rows)
+            foreach(DataRow row in countryList.Rows)
             {
                 File.AppendAllLines(exportPath, new string[]
                 {
-                    $"&&CVP",
-                    $"regionname",
-                    $"prefixname",
-                    $"altregionname",
-                    $"blocknum",
-                    $"altblocknum",
-                    $"continentnum",
-                    $"flagnum",
-                    $"musictrack",
-                    $"regioncolor",
-                    $"politic",
-                    $"govtype",
-                    $"refpopulation",
-                    $"poptotalarmy",
-                    $"popminreserve",
-                    $"treasury",
-                    $"nationaldebtgdp",
-                    $"techlevel",
-                    $"civapproval",
-                    $"milapproval",
-                    $"fanaticism",
-                    $"defcon",
-                    $"loyalty",
-                    $"playeragenda",
-                    $"playeraistance",
-                    $"worldavail",
-                    $"armsavail",
-                    $"worldintegrity",
-                    $"treatyintegrity",
-                    $"envrating",
-                    $"milsubsidyrating",
-                    $"domsubsidyrating",
-                    $"creditrating",
-                    $"tourismrating",
-                    $"literacy",
-                    $"lifeexp",
-                    $"avgchildren",
-                    $"crimerate",
-                    $"unemployment",
-                    $"gdpc",
-                    $"inflation",
-                    $"buyingpower",
-                    $"prodefficiency",
-                    $"alertlevel",
-                    $"bwmmember",
-                    $"religionstate",
-                    $"bconscript",
-                    $"forcesplan",
-                    $"milspendsalary",
-                    $"milspendmaint",
-                    $"milspendintel",
-                    $"milspendresearch",
-                    $"RacePrimary",
-                    $"RaceSecondary",
-                    $"capitalx",
-                    $"capitaly",
-                    $"masterdata",
-                    $"nonplayable",
-                    $"influence",
-                    $"influenceval",
-                    $"couppossibility",
-                    $"revoltpossibility",
-                    $"independencedesire",
-                    $"parentloyalty",
-                    $"independencetarget",
-                    $"sphere",
-                    $"civiliansphere",
-                    $"keepregion",
-                    $"parentregion",
-                    $"theatrehome",
-                    $"electiondate",
+                    $"&&CVP                         {row["CountryID"]}",
+
+                    $"regionname                    {row["regionname"]}",
+                    $"prefixname                    {row["prefixname"]}",
+                    $"altregionname                 {row["altregionname"]}",
+                    $"blocknum                      {row["blocknum"]}",
+                    $"altblocknum                   {row["altblocknum"]}",
+                    $"continentnum                  {row["continentnum"]}",
+                    $"flagnum                       {row["flagnum"]}",
+                    $"musictrack                    {row["musictrack"]}",
+                    $"regioncolor                   {row["regioncolor"]}",
+                    $"politic                       {row["politic"]}",
+                    $"govtype                       {row["govtype"]}",
+                    $"refpopulation                 {row["refpopulation"]}",
+                    $"poptotalarmy                  {row["poptotalarmy"]}",
+                    $"popminreserve                 {row["popminreserve"]}",
+                    $"treasury                      {row["treasury"]}",
+                    $"nationaldebtgdp               {row["nationaldebtgdp"]}",
+                    $"techlevel                     {row["techlevel"]}",
+                    $"civapproval                   {row["civapproval"]}",
+                    $"milapproval                   {row["milapproval"]}",
+                    $"fanaticism                    {row["fanaticism"]}",
+                    $"defcon                        {row["defcon"]}",
+                    $"loyalty                       {row["loyalty"]}",
+                    $"playeragenda                  {row["playeragenda"]}",
+                    $"playeraistance                {row["playeraistance"]}",
+                    $"worldavail                    {row["worldavail"]}",
+                    $"armsavail                     {row["armsavail"]}",
+                    $"worldintegrity                {row["worldintegrity"]}",
+                    $"treatyintegrity               {row["treatyintegrity"]}",
+                    $"envrating                     {row["envrating"]}",
+                    $"milsubsidyrating              {row["milsubsidyrating"]}",
+                    $"domsubsidyrating              {row["domsubsidyrating"]}",
+                    $"creditrating                  {row["creditrating"]}",
+                    $"tourismrating                 {row["tourismrating"]}",
+                    $"literacy                      {row["literacy"]}",
+                    $"lifeexp                       {row["lifeexp"]}",
+                    $"avgchildren                   {row["avgchildren"]}",
+                    $"crimerate                     {row["crimerate"]}",
+                    $"unemployment                  {row["unemployment"]}",
+                    $"gdpc                          {row["gdpc"]}",
+                    $"inflation                     {row["inflation"]}",
+                    $"buyingpower                   {row["buyingpower"]}",
+                    $"prodefficiency                {row["prodefficiency"]}",
+                    $"alertlevel                    {row["alertlevel"]}",
+                    $"bwmmember                     {(row["bwmmember"] == "True" ? 1 : 0)}",
+                    $"religionstate                 {row["religionstate"]}",
+                    $"bconscript                    {(row["bconscript"] == "True" ? 1 : 0)}",
+                    $"forcesplan                    {(row["forcesplan"] == "True" ? 1 : 0)}",
+                    $"milspendsalary                {row["milspendsalary"]}",
+                    $"milspendmaint                 {row["milspendmaint"]}",
+                    $"milspendintel                 {row["milspendintel"]}",
+                    $"milspendresearch              {row["milspendresearch"]}",
+                    $"RacePrimary                   {row["RacePrimary"]}",
+                    $"RaceSecondary                 {row["RaceSecondary"]}",
+                    $"capitalx                      {row["capitalx"]}",
+                    $"capitaly                      {row["capitaly"]}",
+                    $"masterdata                    {(row["masterdata"] == "True" ? 1 : 0)}",
+                    $"nonplayable                   {(row["nonplayable"] == "True" ? 1 : 0)}",
+                    $"influence                     {row["influence"]}",
+                    $"influenceval                  {row["influenceval"]}",
+                    $"couppossibility               {row["couppossibility"]}",
+                    $"revoltpossibility             {row["revoltpossibility"]}",
+                    $"independencedesire            {row["independencedesire"]}",
+                    $"parentloyalty                 {row["parentloyalty"]}",
+                    $"independencetarget            {row["independencetarget"]}",
+                    $"sphere                        {row["sphere"]}",
+                    $"civiliansphere                {row["civiliansphere"]}",
+                    $"keepregion                    {(row["keepregion"] == "True" ? 1 : 0)}",
+                    $"parentregion                  {row["parentregion"]}",
+                    $"theatrehome                   {row["theatrehome"]}",
+                    $"electiondate                  {row["electiondate"]}\n",
                 });
 
-                // Insert groups
-                    /*"&&GROUPING",
-                    "&&REGIONTECHS",
-                    "&&REGIONUNITDESIGNS",
-                    "&&REGIONPRODUCTS",
-                    "&&REGIONSOCIALS",
-                    "&&REGIONRELIGIONS"*/
+                try
+                {
+                    ExportSectionToFile(exportPath, "grouping", row);
+                    ExportSectionToFile(exportPath, "regiontechs", row);
+                    ExportSectionToFile(exportPath, "regionunitdesigns", row);
+                    ExportSectionToFile(exportPath, "regionproducts", row);
+                    ExportSectionToFile(exportPath, "regionsocials", row);
+                    ExportSectionToFile(exportPath, "regionreligions", row);
+                }catch(Exception e)
+                {
+                    Info.errorMsg(-1, $"Exporting to CVP fail, err:{e.Message}");
+                }
             }
+        }
+
+        private void ExportSectionToFile(string exportPath, string label, DataRow row)
+        {
+            // Split data by comma
+            string[] values = row[label].ToString().Split(',');
+
+            // Append label name and id e.g. &&GROUPING               1010\n
+            File.AppendAllText(exportPath, "&&" + label.ToUpper() + new String(' ', 15) + row["CountryID"] + "\n");
+
+            // Insert each value to the file, end line with a comma
+            foreach (string value in values)
+            {
+                File.AppendAllText(exportPath, value + ",\n");
+            }
+            File.AppendAllText(exportPath, "\n");
         }
 
         #endregion

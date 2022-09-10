@@ -91,6 +91,7 @@
               <xs:element name="regionunitdesigns" msprop:Generator_ColumnPropNameInTable="regionunitdesignsColumn" msprop:Generator_ColumnPropNameInRow="regionunitdesigns" msprop:Generator_UserColumnName="regionunitdesigns" msprop:Generator_ColumnVarNameInTable="columnregionunitdesigns" type="xs:string" minOccurs="0" />
               <xs:element name="regionsocials" msprop:Generator_ColumnPropNameInTable="regionsocialsColumn" msprop:Generator_ColumnPropNameInRow="regionsocials" msprop:Generator_UserColumnName="regionsocials" msprop:Generator_ColumnVarNameInTable="columnregionsocials" type="xs:string" minOccurs="0" />
               <xs:element name="regionreligions" msprop:Generator_ColumnPropNameInTable="regionreligionsColumn" msprop:Generator_ColumnPropNameInRow="regionreligions" msprop:Generator_UserColumnName="regionreligions" msprop:Generator_ColumnVarNameInTable="columnregionreligions" type="xs:string" minOccurs="0" />
+              <xs:element name="regionproducts" msprop:Generator_ColumnPropNameInRow="regionproducts" msprop:Generator_ColumnPropNameInTable="regionproductsColumn" msprop:Generator_ColumnVarNameInTable="columnregionproducts" msprop:Generator_UserColumnName="regionproducts" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>

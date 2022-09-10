@@ -531,6 +531,9 @@ namespace SRScenarioCreatorEnhanced
         {
             // Copy settings data to scenario, prepare for export
             currentScenario.settings = currentSettings;
+            
+            // Copy regions data to scenario, prepare for export
+            currentScenario.regions = currentRegions;
 
             currentScenario.exportScenarioToFileAndFolder();
             _ = MessageBox.Show("Scenario exported! (Well, editor tried, at least)", "Export Finished",

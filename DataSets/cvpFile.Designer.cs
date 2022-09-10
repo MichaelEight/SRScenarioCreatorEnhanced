@@ -431,6 +431,8 @@ namespace SRScenarioCreatorEnhanced.DataSets {
             
             private global::System.Data.DataColumn columnregionreligions;
             
+            private global::System.Data.DataColumn columnregionproducts;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public CountryListDataTable() {
@@ -1074,6 +1076,14 @@ namespace SRScenarioCreatorEnhanced.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public global::System.Data.DataColumn regionproductsColumn {
+                get {
+                    return this.columnregionproducts;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -1185,7 +1195,8 @@ namespace SRScenarioCreatorEnhanced.DataSets {
                         string regiontechs, 
                         string regionunitdesigns, 
                         string regionsocials, 
-                        string regionreligions) {
+                        string regionreligions, 
+                        string regionproducts) {
                 CountryListRow rowCountryListRow = ((CountryListRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         CountryID,
@@ -1263,7 +1274,8 @@ namespace SRScenarioCreatorEnhanced.DataSets {
                         regiontechs,
                         regionunitdesigns,
                         regionsocials,
-                        regionreligions};
+                        regionreligions,
+                        regionproducts};
                 rowCountryListRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowCountryListRow);
                 return rowCountryListRow;
@@ -1369,6 +1381,7 @@ namespace SRScenarioCreatorEnhanced.DataSets {
                 this.columnregionunitdesigns = base.Columns["regionunitdesigns"];
                 this.columnregionsocials = base.Columns["regionsocials"];
                 this.columnregionreligions = base.Columns["regionreligions"];
+                this.columnregionproducts = base.Columns["regionproducts"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1526,6 +1539,8 @@ namespace SRScenarioCreatorEnhanced.DataSets {
                 base.Columns.Add(this.columnregionsocials);
                 this.columnregionreligions = new global::System.Data.DataColumn("regionreligions", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnregionreligions);
+                this.columnregionproducts = new global::System.Data.DataColumn("regionproducts", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnregionproducts);
                 this.Constraints.Add(new global::System.Data.UniqueConstraint("Constraint1", new global::System.Data.DataColumn[] {
                                 this.columnCountryID}, true));
                 this.columnCountryID.AllowDBNull = false;
@@ -2883,6 +2898,22 @@ namespace SRScenarioCreatorEnhanced.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public string regionproducts {
+                get {
+                    try {
+                        return ((string)(this[this.tableCountryList.regionproductsColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'regionproducts\' in table \'CountryList\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableCountryList.regionproductsColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public bool IsregionnameNull() {
                 return this.IsNull(this.tableCountryList.regionnameColumn);
             }
@@ -3779,6 +3810,18 @@ namespace SRScenarioCreatorEnhanced.DataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
             public void SetregionreligionsNull() {
                 this[this.tableCountryList.regionreligionsColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public bool IsregionproductsNull() {
+                return this.IsNull(this.tableCountryList.regionproductsColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
+            public void SetregionproductsNull() {
+                this[this.tableCountryList.regionproductsColumn] = global::System.Convert.DBNull;
             }
         }
         
