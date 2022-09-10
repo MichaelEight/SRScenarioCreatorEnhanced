@@ -20,7 +20,7 @@ namespace SRScenarioCreatorEnhanced
 
         int countryID; // Also a Country Data, but used as general ID
         internal cvpFile.CountryListDataTable countryList;
-        string[] reservedLabels = { "regionname"};
+        string[] reservedLabels = { "altregionname", "regionname" };
 
         #endregion
 
@@ -255,7 +255,7 @@ namespace SRScenarioCreatorEnhanced
                 Debug.WriteLine($"start/end theatre indexes: {theatreIndex}/{endIndex}");
 
                 // Need to add 1 to index diff to remove the end line as well
-                lines.RemoveRange(theatreIndex, endIndex - theatreIndex + 1);
+                lines.RemoveRange(theatreIndex, endIndex - theatreIndex);
                 Debug.WriteLine($"Count after removing theatres: {lines.Count}");
             }
 
@@ -274,7 +274,7 @@ namespace SRScenarioCreatorEnhanced
             foreach(string line in lines)
                 if (line.Contains("&&CVP")) ++numberOfCountries;
 
-            Debug.WriteLine($"Number of countries: {numberOfCountries}");
+            Debug.WriteLine($"Number of countries: {numberOfCountries}\n");
 
             // Load until there are no more countries
             while (numberOfCountries > 0)
@@ -298,6 +298,7 @@ namespace SRScenarioCreatorEnhanced
                             // If that &&CVP marks the end,
                             // Get it's index
                             int endIndex = lines.IndexOf(line);
+                            Debug.WriteLine($"Deleting CVP, endindex:{endIndex}, line:{line}");
                             // And remove every line before it
                             lines.RemoveRange(0, endIndex);
                             // And restart the interpreter
@@ -316,6 +317,8 @@ namespace SRScenarioCreatorEnhanced
                         if (tempLine.Contains(rl))
                         {
                             label = rl;
+                            Debug.WriteLine($"Label: {rl}");
+
                             break;
                         }
                     }
@@ -327,17 +330,21 @@ namespace SRScenarioCreatorEnhanced
                         continue;
                     }
 
-                    // Removes label from line
-                    tempLine.Substring(label.Length - 1);
-
                     // Remove spaces, tabs, multispaces
                     tempLine = Regex.Replace(line.Replace("\t", ""), @"[ ]{2,}", "");
                     tempLine.Replace(" ", "");
+                    Debug.WriteLine($"Removed spaces: {tempLine}");
+
+                    // Removes label from line
+                    tempLine = tempLine.Substring(label.Length);
+                    Debug.WriteLine($"Substring: {tempLine}");
+
 
                     // Split values by ',' (most doesn't have it, so after split use index 0)
                     //values = tempLine.Split(',');
                     // Loading might not include splittig data, because DB doesn't support it (single-var column)
                     values = new string[] { tempLine };
+
 
                     // Convert values string >> target_type
                     // ...
@@ -350,9 +357,11 @@ namespace SRScenarioCreatorEnhanced
                     // IF encountered next CVP or EOF, remove everything up to here and repeat
                 }
 
-                row["CountryID"] = numberOfCountries; // DEBUG
+                row["CountryID"] = numberOfCountries + 5; // DEBUG
                 countryList.Rows.Add(row);
                 numberOfCountries--;
+
+                Debug.WriteLine("");
             }
 
             #endregion
