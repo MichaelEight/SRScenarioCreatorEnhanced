@@ -480,8 +480,6 @@ namespace SRScenarioCreatorEnhanced
                             // Get type used by this column (label)
                             Type type = countryList.Columns[label].DataType;
 
-                            Debug.WriteLine($"{row["CountryID"]}, expType:({type}), label:({label}), templine:({tempLine})");
-
                             // Convert value to expected type
                             // Assign value to matching label in row
                             if(type == typeof(Boolean))

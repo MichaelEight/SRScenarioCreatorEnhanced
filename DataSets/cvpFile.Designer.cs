@@ -1120,7 +1120,7 @@ namespace SRScenarioCreatorEnhanced.DataSets {
                         int flagnum, 
                         int musictrack, 
                         string regioncolor, 
-                        int politic, 
+                        double politic, 
                         int govtype, 
                         double refpopulation, 
                         int poptotalarmy, 
@@ -1394,7 +1394,7 @@ namespace SRScenarioCreatorEnhanced.DataSets {
                 base.Columns.Add(this.columnmusictrack);
                 this.columnregioncolor = new global::System.Data.DataColumn("regioncolor", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnregioncolor);
-                this.columnpolitic = new global::System.Data.DataColumn("politic", typeof(int), null, global::System.Data.MappingType.Element);
+                this.columnpolitic = new global::System.Data.DataColumn("politic", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnpolitic);
                 this.columngovtype = new global::System.Data.DataColumn("govtype", typeof(int), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columngovtype);
@@ -1827,10 +1827,10 @@ namespace SRScenarioCreatorEnhanced.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public int politic {
+            public double politic {
                 get {
                     try {
-                        return ((int)(this[this.tableCountryList.politicColumn]));
+                        return ((double)(this[this.tableCountryList.politicColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
                         throw new global::System.Data.StrongTypingException("The value for column \'politic\' in table \'CountryList\' is DBNull.", e);
