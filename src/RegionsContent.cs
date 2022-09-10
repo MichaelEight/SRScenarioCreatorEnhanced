@@ -264,8 +264,10 @@ namespace SRScenarioCreatorEnhanced
             regionsocials       = "";
             regionreligions     = "";
         }
-    
-        public void LoadDataFromFileToDataSet()
+
+        #region LoadingFromFile
+
+        internal void LoadDataFromFileToDataSet()
         {
             // Clear DB on load
             countryList.Clear();
@@ -525,6 +527,126 @@ namespace SRScenarioCreatorEnhanced
 
             return line;
         }
+
+        #endregion
+
+        #region ExportingToFile
+
+        internal void ExportFromDBtoFile()
+        {
+            string exportPath = Configuration.baseExportDirectory + @"\" + Globals.activeScenarioName
+                + @"\Maps\" + Globals.activeCVPFileName + @".CVP";
+
+            if(!File.Exists(exportPath))
+            {
+                File.Delete(exportPath);
+            }
+
+            // Clear content of file
+            File.WriteAllText(exportPath, "");
+
+            // Remember that Theatres data will also go to this file, at the very beginning (!)
+            // TODO
+
+            // Insert Theatres Info (EMPTY)
+            File.AppendAllLines(exportPath, new string[]
+            {
+                $"// SCENARIO REGIONS",
+                $"// Created using Enhanced Scenario Creator {Configuration.editorVersion}:{Configuration.assemblyVersion} - {DateTime.Now}\n",
+                $"&& THEATRES\n",
+                $"&& THEATRETRANSF",
+                $"&& END"
+            });
+
+            // Insert country info, same template for each row (country)
+            foreach(var row in countryList.Rows)
+            {
+                File.AppendAllLines(exportPath, new string[]
+                {
+                    $"&&CVP",
+                    $"regionname",
+                    $"prefixname",
+                    $"altregionname",
+                    $"blocknum",
+                    $"altblocknum",
+                    $"continentnum",
+                    $"flagnum",
+                    $"musictrack",
+                    $"regioncolor",
+                    $"politic",
+                    $"govtype",
+                    $"refpopulation",
+                    $"poptotalarmy",
+                    $"popminreserve",
+                    $"treasury",
+                    $"nationaldebtgdp",
+                    $"techlevel",
+                    $"civapproval",
+                    $"milapproval",
+                    $"fanaticism",
+                    $"defcon",
+                    $"loyalty",
+                    $"playeragenda",
+                    $"playeraistance",
+                    $"worldavail",
+                    $"armsavail",
+                    $"worldintegrity",
+                    $"treatyintegrity",
+                    $"envrating",
+                    $"milsubsidyrating",
+                    $"domsubsidyrating",
+                    $"creditrating",
+                    $"tourismrating",
+                    $"literacy",
+                    $"lifeexp",
+                    $"avgchildren",
+                    $"crimerate",
+                    $"unemployment",
+                    $"gdpc",
+                    $"inflation",
+                    $"buyingpower",
+                    $"prodefficiency",
+                    $"alertlevel",
+                    $"bwmmember",
+                    $"religionstate",
+                    $"bconscript",
+                    $"forcesplan",
+                    $"milspendsalary",
+                    $"milspendmaint",
+                    $"milspendintel",
+                    $"milspendresearch",
+                    $"RacePrimary",
+                    $"RaceSecondary",
+                    $"capitalx",
+                    $"capitaly",
+                    $"masterdata",
+                    $"nonplayable",
+                    $"influence",
+                    $"influenceval",
+                    $"couppossibility",
+                    $"revoltpossibility",
+                    $"independencedesire",
+                    $"parentloyalty",
+                    $"independencetarget",
+                    $"sphere",
+                    $"civiliansphere",
+                    $"keepregion",
+                    $"parentregion",
+                    $"theatrehome",
+                    $"electiondate",
+                });
+
+                // Insert groups
+                    /*"&&GROUPING",
+                    "&&REGIONTECHS",
+                    "&&REGIONUNITDESIGNS",
+                    "&&REGIONPRODUCTS",
+                    "&&REGIONSOCIALS",
+                    "&&REGIONRELIGIONS"*/
+            }
+        }
+
+        #endregion
     }
 }
 

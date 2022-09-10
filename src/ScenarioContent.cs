@@ -111,6 +111,9 @@ namespace SRScenarioCreatorEnhanced
             if (!Directory.Exists(Configuration.baseExportDirectory))
                 Directory.CreateDirectory(Configuration.baseExportDirectory);
 
+            // Make a backup of original files, if they exist
+            // TODO
+
             try
             {
                 // Save .scenario file
