@@ -20,7 +20,7 @@ namespace SRScenarioCreatorEnhanced
 
         int countryID; // Also a Country Data, but used as general ID
         internal cvpFile.CountryListDataTable countryList;
-        string[] reservedLabels = { "regionname", "blocknum", "continentnum" };
+        string[] reservedLabels = { "regionname"};
 
         #endregion
 
@@ -231,6 +231,7 @@ namespace SRScenarioCreatorEnhanced
             // Load lines
             //
             List<string> lines = new List<string>(File.ReadAllLines(cvpDir));
+            Debug.WriteLine($"Lines loaded, count: {lines.Count}");
 
             // Eliminate useless lines
             //
@@ -238,21 +239,24 @@ namespace SRScenarioCreatorEnhanced
             lines = lines.Select(p => (!string.IsNullOrEmpty(p) && p.Contains("//")) ? p.Substring(0, p.IndexOf("//")) : p).ToList(); 
             // Remove all spaces and blank lines
             lines.RemoveAll(string.IsNullOrWhiteSpace);
-            //Debug.WriteLine($": {}");
+            Debug.WriteLine($"Whitespaces removed, count: {lines.Count}");
 
             // Ignore theatres
             //
             if (lines.Contains("&&THEATRES") && lines.Contains("&&END"))
             {
+                Debug.WriteLine($"Theatres found");
                 // Start at the "&&THEATRES" keyword
                 // End at the "&&END" keyword
                 // Remove all the lines inbetween
 
                 int theatreIndex = lines.IndexOf("&&THEATRES");
-                int endIndex = lines.IndexOf("&&END");
+                int endIndex = lines.IndexOf("&&END") + 1; // +1 to include &&END
+                Debug.WriteLine($"start/end theatre indexes: {theatreIndex}/{endIndex}");
 
                 // Need to add 1 to index diff to remove the end line as well
                 lines.RemoveRange(theatreIndex, endIndex - theatreIndex + 1);
+                Debug.WriteLine($"Count after removing theatres: {lines.Count}");
             }
 
             #endregion
@@ -261,94 +265,94 @@ namespace SRScenarioCreatorEnhanced
 
             // Load each country
             //
-            // If the list even has any countries
-            if (lines.Contains("&&CVP")) {
+            // Row holding data on country
+            cvpFile.CountryListRow row;
 
-                // Row holding data on country
-                cvpFile.CountryListRow row;
+            int numberOfCountries = 0;
 
-                int numberOfCountries = 0;
+            // Count number of countries, so you know how many to expect
+            foreach(string line in lines)
+                if (line.Contains("&&CVP")) ++numberOfCountries;
 
-                // Count number of countries, so you know how many to expect
-                foreach(string line in lines)
-                    if (line.Contains("&&CVP")) ++numberOfCountries;
+            Debug.WriteLine($"Number of countries: {numberOfCountries}");
 
-                // Load until there are no more countries
-                while(numberOfCountries > 0)
+            // Load until there are no more countries
+            while (numberOfCountries > 0)
+            {
+                // Generate new, empty row
+                row = countryList.NewCountryListRow();
+
+                // For distinguishing &&CVP - is it start or the end
+                bool isCVPLabelStartOfCountry = true;
+
+                // Get next line of country
+                foreach (string line in lines)
                 {
-                    // Generate new, empty row
-                    row = countryList.NewCountryListRow();
-
-                    // For distinguishing &&CVP - is it start or the end
-                    bool isCVPLabelStartOfCountry = true;
-
-                    // Get next line of country
-                    foreach (string line in lines)
+                    // Special Cases
+                    if(line.Contains("&&CVP"))
                     {
-                        // Special Cases
-                        if(line.Contains("&&CVP"))
+                        if (isCVPLabelStartOfCountry)
+                            isCVPLabelStartOfCountry = false;
+                        else
                         {
-                            if (isCVPLabelStartOfCountry)
-                                isCVPLabelStartOfCountry = false;
-                            else
-                            {
-                                // If that &&CVP marks the end,
-                                // Get it's index
-                                int endIndex = lines.IndexOf(line);
-                                // And remove every line before it
-                                lines.RemoveRange(0, endIndex);
-                                // And restart the interpreter
-                                break;
-                            }
+                            // If that &&CVP marks the end,
+                            // Get it's index
+                            int endIndex = lines.IndexOf(line);
+                            // And remove every line before it
+                            lines.RemoveRange(0, endIndex);
+                            // And restart the interpreter
+                            break;
                         }
-
-                        string tempLine = line; // Using temp, because 'line' is non-modifiable
-                        string label = null;
-                        string[] values;
-
-                        // Interpret label -- identify which command is it
-                        // Compare label to the complete list of commands (reserved labels)
-                        foreach (string rl in reservedLabels)
-                        {
-                            if (tempLine.Contains(rl))
-                            {
-                                label = rl;
-                                break;
-                            }
-                        }
-
-                        // If label was not identified
-                        if (label == null)
-                        {
-                            // Skip this line
-                            continue;
-                        }
-
-                        // Removes label from line
-                        tempLine.Substring(label.Length - 1);
-
-                        // Remove spaces, tabs, multispaces
-                        tempLine = Regex.Replace(line.Replace("\t", ""), @"[ ]{2,}", "");
-                        tempLine.Replace(" ", "");
-
-                        // Split values by ',' (most doesn't have it, so after split use index 0)
-                        //values = tempLine.Split(',');
-                        // Loading might not include splittig data, because DB doesn't support it (single-var column)
-                        values = new string[] { tempLine };
-
-                        // Convert values string >> target_type
-                        // ...
-
-                        // Assign value to matching label in row
-                        row[label] = values[0]; // 0 for now, because it's single
-
-                        // IF (maybe put that on top) line contains sets (GROUPING, REGIONTECHS etc.) 
-                        // THEN loop through it, save as... idk... maybe create new DB type to hold that?
-                        // IF encountered next CVP or EOF, remove everything up to here and repeat
                     }
 
-                    numberOfCountries--;
+                    string tempLine = line; // Using temp, because 'line' is non-modifiable
+                    string label = null;
+                    string[] values;
+
+                    // Interpret label -- identify which command is it
+                    // Compare label to the complete list of commands (reserved labels)
+                    foreach (string rl in reservedLabels)
+                    {
+                        if (tempLine.Contains(rl))
+                        {
+                            label = rl;
+                            break;
+                        }
+                    }
+
+                    // If label was not identified
+                    if (label == null)
+                    {
+                        // Skip this line
+                        continue;
+                    }
+
+                    // Removes label from line
+                    tempLine.Substring(label.Length - 1);
+
+                    // Remove spaces, tabs, multispaces
+                    tempLine = Regex.Replace(line.Replace("\t", ""), @"[ ]{2,}", "");
+                    tempLine.Replace(" ", "");
+
+                    // Split values by ',' (most doesn't have it, so after split use index 0)
+                    //values = tempLine.Split(',');
+                    // Loading might not include splittig data, because DB doesn't support it (single-var column)
+                    values = new string[] { tempLine };
+
+                    // Convert values string >> target_type
+                    // ...
+
+                    // Assign value to matching label in row
+                    row[label] = values[0]; // 0 for now, because it's single
+
+                    // IF (maybe put that on top) line contains sets (GROUPING, REGIONTECHS etc.) 
+                    // THEN loop through it, save as... idk... maybe create new DB type to hold that?
+                    // IF encountered next CVP or EOF, remove everything up to here and repeat
                 }
+
+                row["CountryID"] = numberOfCountries; // DEBUG
+                countryList.Rows.Add(row);
+                numberOfCountries--;
             }
 
             #endregion

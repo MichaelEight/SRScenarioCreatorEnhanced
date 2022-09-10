@@ -24,6 +24,7 @@ namespace SRScenarioCreatorEnhanced.UserControls
 
         internal void RefreshDataGridView()
         {
+            countryListDataGridView.DataSource = mainForm.currentRegions.countryList;
             countryListDataGridView.Refresh();
         }
     }
