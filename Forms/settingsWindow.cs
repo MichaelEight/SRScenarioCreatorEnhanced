@@ -95,6 +95,7 @@ namespace SRScenarioCreatorEnhanced.Forms
                     Info.failedToRecogniseLabelFromfileError  = false;
                     Info.fileIsAlreadyInUseError              = false;
                     Info.failedToLoadLanguageFile             = false;
+                    Info.failedToLoadCVPLabel                 = false;
                     break;                                    
                                                               
                 case 1: // Only Necessary (DEFAULT)           
@@ -104,6 +105,7 @@ namespace SRScenarioCreatorEnhanced.Forms
                     Info.failedToRecogniseLabelFromfileError  = false;
                     Info.fileIsAlreadyInUseError              = true;
                     Info.failedToLoadLanguageFile             = true;
+                    Info.failedToLoadCVPLabel                 = false;
                     break;                                    
                                                               
                 case 2: // All                                
@@ -113,6 +115,7 @@ namespace SRScenarioCreatorEnhanced.Forms
                     Info.failedToRecogniseLabelFromfileError  = true;
                     Info.fileIsAlreadyInUseError              = true;
                     Info.failedToLoadLanguageFile             = true;
+                    Info.failedToLoadCVPLabel                 = true;
                     break;
 
                 default:break;

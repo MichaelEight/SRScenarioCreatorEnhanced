@@ -345,7 +345,7 @@ namespace SRScenarioCreatorEnhanced.DataSets {
             
             private global::System.Data.DataColumn columncreditrating;
             
-            private global::System.Data.DataColumn columntoursmrating;
+            private global::System.Data.DataColumn columntourismrating;
             
             private global::System.Data.DataColumn columnliteracy;
             
@@ -730,9 +730,9 @@ namespace SRScenarioCreatorEnhanced.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public global::System.Data.DataColumn toursmratingColumn {
+            public global::System.Data.DataColumn tourismratingColumn {
                 get {
-                    return this.columntoursmrating;
+                    return this.columntourismrating;
                 }
             }
             
@@ -1143,7 +1143,7 @@ namespace SRScenarioCreatorEnhanced.DataSets {
                         double milsubsidyrating, 
                         double domsubsidyrating, 
                         double creditrating, 
-                        double toursmrating, 
+                        double tourismrating, 
                         double literacy, 
                         double lifeexp, 
                         double avgchildren, 
@@ -1221,7 +1221,7 @@ namespace SRScenarioCreatorEnhanced.DataSets {
                         milsubsidyrating,
                         domsubsidyrating,
                         creditrating,
-                        toursmrating,
+                        tourismrating,
                         literacy,
                         lifeexp,
                         avgchildren,
@@ -1326,7 +1326,7 @@ namespace SRScenarioCreatorEnhanced.DataSets {
                 this.columnmilsubsidyrating = base.Columns["milsubsidyrating"];
                 this.columndomsubsidyrating = base.Columns["domsubsidyrating"];
                 this.columncreditrating = base.Columns["creditrating"];
-                this.columntoursmrating = base.Columns["toursmrating"];
+                this.columntourismrating = base.Columns["tourismrating"];
                 this.columnliteracy = base.Columns["literacy"];
                 this.columnlifeexp = base.Columns["lifeexp"];
                 this.columnavgchildren = base.Columns["avgchildren"];
@@ -1440,8 +1440,8 @@ namespace SRScenarioCreatorEnhanced.DataSets {
                 base.Columns.Add(this.columndomsubsidyrating);
                 this.columncreditrating = new global::System.Data.DataColumn("creditrating", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncreditrating);
-                this.columntoursmrating = new global::System.Data.DataColumn("toursmrating", typeof(double), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntoursmrating);
+                this.columntourismrating = new global::System.Data.DataColumn("tourismrating", typeof(double), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntourismrating);
                 this.columnliteracy = new global::System.Data.DataColumn("literacy", typeof(double), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnliteracy);
                 this.columnlifeexp = new global::System.Data.DataColumn("lifeexp", typeof(double), null, global::System.Data.MappingType.Element);
@@ -2195,17 +2195,17 @@ namespace SRScenarioCreatorEnhanced.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public double toursmrating {
+            public double tourismrating {
                 get {
                     try {
-                        return ((double)(this[this.tableCountryList.toursmratingColumn]));
+                        return ((double)(this[this.tableCountryList.tourismratingColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'toursmrating\' in table \'CountryList\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'tourismrating\' in table \'CountryList\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tableCountryList.toursmratingColumn] = value;
+                    this[this.tableCountryList.tourismratingColumn] = value;
                 }
             }
             
@@ -3267,14 +3267,14 @@ namespace SRScenarioCreatorEnhanced.DataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public bool IstoursmratingNull() {
-                return this.IsNull(this.tableCountryList.toursmratingColumn);
+            public bool IstourismratingNull() {
+                return this.IsNull(this.tableCountryList.tourismratingColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "17.0.0.0")]
-            public void SettoursmratingNull() {
-                this[this.tableCountryList.toursmratingColumn] = global::System.Convert.DBNull;
+            public void SettourismratingNull() {
+                this[this.tableCountryList.tourismratingColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]

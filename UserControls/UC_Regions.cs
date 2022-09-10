@@ -8,18 +8,11 @@ namespace SRScenarioCreatorEnhanced.UserControls
     public partial class UC_Regions : UserControl
     {
         private readonly editorMainWindow mainForm;
-        //RegionsContent rc;
 
         public UC_Regions(editorMainWindow mainForm)
         {
             InitializeComponent();
             this.mainForm = mainForm;
-
-            //rc = new RegionsContent();
-            //rc.LoadDataFromFileToDataSet();
-
-            //countryListDataGridView.DataSource = mainForm.currentRegions.countryList;
-            //RefreshDataGridView();
         }
 
         internal void RefreshDataGridView()

@@ -18,15 +18,88 @@ namespace SRScenarioCreatorEnhanced
 
         #region EditorVars
 
-        int countryID; // Also a Country Data, but used as general ID
+        int selectedCountryID; // ID of country selected to edit
         internal cvpFile.CountryListDataTable countryList;
-        string[] reservedLabels = { "altregionname", "regionname" };
+        // Labels used in CVP file, used to determine command
+        // Warning! Order matters! "regionname" will be detected in "altregionname" as substring
+        // 2022/09/10 11:51 am -- sorted descending by length
+        string[] reservedLabels = { "independencetarget",
+                                    "independencedesire",
+                                    "revoltpossibility",
+                                    "milsubsidyrating",
+                                    "milspendresearch",
+                                    "domsubsidyrating",
+                                    "treatyintegrity",
+                                    "nationaldebtgdp",
+                                    "couppossibility",
+                                    "prodefficiency",
+                                    "worldintegrity",
+                                    "playeraistance",
+                                    "milspendsalary",
+                                    "civiliansphere",
+                                    "tourismrating",
+                                    "religionstate",
+                                    "refpopulation",
+                                    "popminreserve",
+                                    "parentloyalty",
+                                    "milspendmaint",
+                                    "milspendintel",
+                                    "altregionname",
+                                    "RaceSecondary",
+                                    "unemployment",
+                                    "poptotalarmy",
+                                    "playeragenda",
+                                    "parentregion",
+                                    "influenceval",
+                                    "electiondate",
+                                    "creditrating",
+                                    "continentnum",
+                                    "theatrehome",
+                                    "regioncolor",
+                                    "nonplayable",
+                                    "milapproval",
+                                    "civapproval",
+                                    "buyingpower",
+                                    "avgchildren",
+                                    "altblocknum",
+                                    "RacePrimary",
+                                    "worldavail",
+                                    "regionname",
+                                    "prefixname",
+                                    "musictrack",
+                                    "masterdata",
+                                    "keepregion",
+                                    "forcesplan",
+                                    "fanaticism",
+                                    "bconscript",
+                                    "alertlevel",
+                                    "techlevel",
+                                    "influence",
+                                    "inflation",
+                                    "envrating",
+                                    "crimerate",
+                                    "bwmmember",
+                                    "armsavail",
+                                    "treasury",
+                                    "literacy",
+                                    "capitaly",
+                                    "capitalx",
+                                    "blocknum",
+                                    "politic",
+                                    "loyalty",
+                                    "lifeexp",
+                                    "govtype",
+                                    "flagnum",
+                                    "sphere",
+                                    "defcon",
+                                    "gdpc"
+        };
 
         #endregion
 
         #region CountryData
 
-        string regionname;
+        string   regionname;
         string   prefixname;
         string   altregionname;
         int?     blocknum;
@@ -111,7 +184,7 @@ namespace SRScenarioCreatorEnhanced
         // Set default values
         public RegionsContent()
         {
-            countryID = 0;
+            selectedCountryID = 0;
             countryList = new cvpFile.CountryListDataTable();
 
             regionname          = "";
@@ -207,20 +280,17 @@ namespace SRScenarioCreatorEnhanced
             if (File.Exists(fileInScenarioFolderDir))
             {
                 cvpDir = fileInScenarioFolderDir;
-                Debug.WriteLine($"Found in scenario: {cvpDir}");
             }
             // If the file doesn't exist in scenario folder, check for it in game folder with default files
             else if(File.Exists(fileInDefaultGameFolderDir))
             {
                 cvpDir=fileInDefaultGameFolderDir;
-                Debug.WriteLine($"Found in defaults: {cvpDir}");
             }
             // If the file doesn't exist in either of these places, it doesn't exist
             // TODO Alternative: Look for the file in the whole game folder
             else
             {
                 // Stop loading
-                Debug.WriteLine("Not found at all. Tried both\n{0}\nand\n{1} paths.", fileInScenarioFolderDir, fileInDefaultGameFolderDir);
                 return;
             }
 
@@ -231,7 +301,6 @@ namespace SRScenarioCreatorEnhanced
             // Load lines
             //
             List<string> lines = new List<string>(File.ReadAllLines(cvpDir));
-            Debug.WriteLine($"Lines loaded, count: {lines.Count}");
 
             // Eliminate useless lines
             //
@@ -239,24 +308,20 @@ namespace SRScenarioCreatorEnhanced
             lines = lines.Select(p => (!string.IsNullOrEmpty(p) && p.Contains("//")) ? p.Substring(0, p.IndexOf("//")) : p).ToList(); 
             // Remove all spaces and blank lines
             lines.RemoveAll(string.IsNullOrWhiteSpace);
-            Debug.WriteLine($"Whitespaces removed, count: {lines.Count}");
 
             // Ignore theatres
             //
             if (lines.Contains("&&THEATRES") && lines.Contains("&&END"))
             {
-                Debug.WriteLine($"Theatres found");
                 // Start at the "&&THEATRES" keyword
                 // End at the "&&END" keyword
                 // Remove all the lines inbetween
 
                 int theatreIndex = lines.IndexOf("&&THEATRES");
                 int endIndex = lines.IndexOf("&&END") + 1; // +1 to include &&END
-                Debug.WriteLine($"start/end theatre indexes: {theatreIndex}/{endIndex}");
 
                 // Need to add 1 to index diff to remove the end line as well
                 lines.RemoveRange(theatreIndex, endIndex - theatreIndex);
-                Debug.WriteLine($"Count after removing theatres: {lines.Count}");
             }
 
             #endregion
@@ -274,8 +339,6 @@ namespace SRScenarioCreatorEnhanced
             foreach(string line in lines)
                 if (line.Contains("&&CVP")) ++numberOfCountries;
 
-            Debug.WriteLine($"Number of countries: {numberOfCountries}\n");
-
             // Load until there are no more countries
             while (numberOfCountries > 0)
             {
@@ -288,18 +351,40 @@ namespace SRScenarioCreatorEnhanced
                 // Get next line of country
                 foreach (string line in lines)
                 {
+                    string tempLine = line; // Using temp, because 'line' is non-modifiable
+                    string label = null;
+                    string value;
+
                     // Special Cases
                     // IF encountered next CVP or EOF, remove everything up to here and repeat
-                    if (line.Contains("&&CVP"))
+                    if (tempLine.Contains("&&CVP"))
                     {
                         if (isCVPLabelStartOfCountry)
+                        {
                             isCVPLabelStartOfCountry = false;
+
+                            // Detect CountryID 
+
+                            #region RemoveSpecifiedChars
+
+                            // Remove spaces, tabs, multispaces
+                            tempLine = Regex.Replace(line.Replace("\t", ""), @"[ ]{2,}", "");
+                            tempLine.Replace(" ", "");
+
+                            // Removes label from line
+                            tempLine = tempLine.Substring("&&CVP".Length);
+
+                            #endregion
+
+                            // Assign number from line to id
+                            row["CountryID"] = Int32.Parse(tempLine);
+                            continue; // Skip the rest 
+                        }
                         else
                         {
                             // If that &&CVP marks the end,
                             // Get it's index
-                            int endIndex = lines.IndexOf(line);
-                            Debug.WriteLine($"Deleting CVP, endindex:{endIndex}, line:{line}");
+                            int endIndex = lines.IndexOf(tempLine);
                             // And remove every line before it
                             lines.RemoveRange(0, endIndex);
                             // And restart the interpreter
@@ -307,9 +392,7 @@ namespace SRScenarioCreatorEnhanced
                         }
                     }
 
-                    string tempLine = line; // Using temp, because 'line' is non-modifiable
-                    string label = null;
-                    string[] values;
+                    #region InterpretLabel
 
                     // Interpret label -- identify which command is it
                     // Compare label to the complete list of commands (reserved labels)
@@ -318,7 +401,6 @@ namespace SRScenarioCreatorEnhanced
                         if (tempLine.Contains(rl))
                         {
                             label = rl;
-                            Debug.WriteLine($"Label: {rl}");
 
                             break;
                         }
@@ -331,39 +413,66 @@ namespace SRScenarioCreatorEnhanced
                         continue;
                     }
 
+                    #endregion
+
+                    #region RemoveSpecifiedChars
 
                     // Remove spaces, tabs, multispaces
                     tempLine = Regex.Replace(line.Replace("\t", ""), @"[ ]{2,}", "");
                     tempLine.Replace(" ", "");
-                    Debug.WriteLine($"Removed spaces: {tempLine}");
 
                     // Removes label from line
                     tempLine = tempLine.Substring(label.Length);
-                    Debug.WriteLine($"Substring: {tempLine}");
 
                     // Remove quotes
                     tempLine = tempLine.Replace("\"", "");
-                    Debug.WriteLine($"Removed quotes: {tempLine}");
-                    
 
-                    // Split values by ',' (most doesn't have it, so after split use index 0)
+                    #endregion
+
+                    // (OBSOLETE) Split values by ',' (most doesn't have it, so after split use index 0)
                     //values = tempLine.Split(',');
                     // Loading might not include splittig data, because DB doesn't support it (single-var column)
-                    values = new string[] { tempLine };
 
+                    Debug.WriteLine($"[{row["CountryID"]}] label:({label})");
 
-                    // Convert values string >> target_type
-                    // ...
+                    try
+                    {
+                        // Value can't be null for conversion
+                        if (!string.IsNullOrEmpty(tempLine) && !string.IsNullOrWhiteSpace(tempLine))
+                        {
+                            // Convert value: string >> target_type
+                            // Get type used by this column (label)
+                            Type type = countryList.Columns[label].DataType;
 
-                    // Assign value to matching label in row
-                    row[label] = values[0]; // 0 for now, because it's single
+                            Debug.WriteLine($"Type:{type}, Value:{tempLine}");
+                            // Convert value to expected type
+                            var convertedValue = Convert.ChangeType(tempLine, type); // Credit for command: [1]
 
+                            // Assign value to matching label in row
+                            row[label] = convertedValue;
+                            Debug.WriteLine("Value inserted to row");
+                        }
+                        else
+                        {
+                            // If value is null, insert DBNull
+                            row[label] = DBNull.Value;
+                            Debug.WriteLine("Inserted DBNull");
+                        }
+                    }
+                    catch(Exception e)
+                    {
+                        Info.errorMsg(6, "Loading label from CVP, error:" + e.Message);
+                    }
+                    
+
+                    // TODO
                     // IF (maybe put that on top) line contains sets (GROUPING, REGIONTECHS etc.) 
                     // THEN loop through it, save as... idk... maybe create new DB type to hold that?
                 }
 
-                row["CountryID"] = numberOfCountries + 1000; // DEBUG
+                // Add row to the DB
                 countryList.Rows.Add(row);
+                // Mark country as done
                 numberOfCountries--;
 
                 Debug.WriteLine("");
@@ -388,6 +497,11 @@ namespace SRScenarioCreatorEnhanced
     }
 }
 
+/// [CREDITS]
+/// [1] https://stackoverflow.com/a/4010198/12934099
+///
+
+
 
 // Ideas for load to-components and from-components
 // Load-to : select row and go textRegionName.Text = r["regionname"] etc.
@@ -408,3 +522,4 @@ foreach(DataRow r in countryList.Rows)
     Debug.WriteLine($"[{r["CountryID"]}] is named {r["regionname"]} " +
         $"and it's blocknum is {r["blocknum"]}");
 }*/
+

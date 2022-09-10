@@ -22,7 +22,7 @@ public static class Configuration
 {
     // EDIT EVERY NEW RELEASE! Same with Properties >> Application >> Assembly Information 
     // Manual version of app
-    public const string editorVersion = "Alpha 4";
+    public const string editorVersion = "Alpha 5";
     // Auto version of assembly
     public static string assemblyVersion = Assembly.GetExecutingAssembly().GetName().Version.ToString();
 
@@ -56,6 +56,7 @@ public static class Info
     public static bool failedToRecogniseLabelFromfileError  = true; // By default, it should be off
     public static bool fileIsAlreadyInUseError              = true;
     public static bool failedToLoadLanguageFile             = true;
+    public static bool failedToLoadCVPLabel                 = true;
 
     /// <summary>
     /// Displays MessageBox with error description
@@ -75,6 +76,7 @@ public static class Info
             case 3: if (failedToRecogniseLabelFromfileError) return; break;
             case 4: if (fileIsAlreadyInUseError)             return; break;
             case 5: if (failedToLoadLanguageFile)            return; break;
+            case 6: if (failedToLoadCVPLabel)                return; break;
 
             default:break;
         }
