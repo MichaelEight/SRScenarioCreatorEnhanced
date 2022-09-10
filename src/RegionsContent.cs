@@ -8,6 +8,7 @@ using System.Data;
 using System.Diagnostics;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 namespace SRScenarioCreatorEnhanced
 {
@@ -19,6 +20,7 @@ namespace SRScenarioCreatorEnhanced
 
         int countryID; // Also a Country Data, but used as general ID
         internal cvpFile.CountryListDataTable countryList;
+        string[] reservedLabels = { "regionname", "blocknum", "continentnum" };
 
         #endregion
 
@@ -192,31 +194,39 @@ namespace SRScenarioCreatorEnhanced
     
         public void LoadDataFromFileToDataSet()
         {
+            #region DetermineCVPPAth
+
             // Potential paths
-            string fileInScenarioFolderDir = Configuration.baseExportDirectory + Globals.activeScenarioName
+            string fileInScenarioFolderDir = Configuration.baseExportDirectory + @"\" + Globals.activeScenarioName
                                             + @"\Maps\" + Globals.activeCVPFileName + @".CVP";
-            string fileInDefaultGameFolderDir = Configuration.baseGameDirectory + @"\Maps\" + Globals.activeCVPFileName + "@.CVP";
+            string fileInDefaultGameFolderDir = Configuration.baseGameDirectory + @"\Maps\" + Globals.activeCVPFileName + @".CVP";
             // Final path of the CVP file
             string cvpDir;
 
             // Open file (from scenario folder if it exists there, else refer to \Maps in gameDir)
             if (File.Exists(fileInScenarioFolderDir))
             {
-                cvpDir = fileInDefaultGameFolderDir;
+                cvpDir = fileInScenarioFolderDir;
+                Debug.WriteLine($"Found in scenario: {cvpDir}");
             }
             // If the file doesn't exist in scenario folder, check for it in game folder with default files
             else if(File.Exists(fileInDefaultGameFolderDir))
             {
                 cvpDir=fileInDefaultGameFolderDir;
+                Debug.WriteLine($"Found in defaults: {cvpDir}");
             }
             // If the file doesn't exist in either of these places, it doesn't exist
             // TODO Alternative: Look for the file in the whole game folder
             else
             {
                 // Stop loading
+                Debug.WriteLine("Not found at all. Tried both\n{0}\nand\n{1} paths.", fileInScenarioFolderDir, fileInDefaultGameFolderDir);
                 return;
             }
 
+            #endregion
+
+            #region HandleBasicConditionsOfLoad
 
             // Load lines
             //
@@ -227,11 +237,12 @@ namespace SRScenarioCreatorEnhanced
             // Remove all comments (everything after and including "//")
             lines = lines.Select(p => (!string.IsNullOrEmpty(p) && p.Contains("//")) ? p.Substring(0, p.IndexOf("//")) : p).ToList(); 
             // Remove all spaces and blank lines
-            lines.RemoveAll(string.IsNullOrWhiteSpace); 
+            lines.RemoveAll(string.IsNullOrWhiteSpace);
+            //Debug.WriteLine($": {}");
 
             // Ignore theatres
             //
-            if(lines.Contains("&&THEATRES") && lines.Contains("&&END"))
+            if (lines.Contains("&&THEATRES") && lines.Contains("&&END"))
             {
                 // Start at the "&&THEATRES" keyword
                 // End at the "&&END" keyword
@@ -244,44 +255,117 @@ namespace SRScenarioCreatorEnhanced
                 lines.RemoveRange(theatreIndex, endIndex - theatreIndex + 1);
             }
 
+            #endregion
+
+            #region LoadActualData
+
             // Load each country
             //
             // If the list even has any countries
             if (lines.Contains("&&CVP")) {
+
                 // Row holding data on country
-                cvpFile.CountryListRow countryRow;
+                cvpFile.CountryListRow row;
 
                 int numberOfCountries = 0;
 
                 // Count number of countries, so you know how many to expect
-                foreach(var line in lines)
+                foreach(string line in lines)
                     if (line.Contains("&&CVP")) ++numberOfCountries;
 
                 // Load until there are no more countries
                 while(numberOfCountries > 0)
                 {
+                    // Generate new, empty row
+                    row = countryList.NewCountryListRow();
 
+                    // For distinguishing &&CVP - is it start or the end
+                    bool isCVPLabelStartOfCountry = true;
+
+                    // Get next line of country
+                    foreach (string line in lines)
+                    {
+                        // Special Cases
+                        if(line.Contains("&&CVP"))
+                        {
+                            if (isCVPLabelStartOfCountry)
+                                isCVPLabelStartOfCountry = false;
+                            else
+                            {
+                                // If that &&CVP marks the end,
+                                // Get it's index
+                                int endIndex = lines.IndexOf(line);
+                                // And remove every line before it
+                                lines.RemoveRange(0, endIndex);
+                                // And restart the interpreter
+                                break;
+                            }
+                        }
+
+                        string tempLine = line; // Using temp, because 'line' is non-modifiable
+                        string label = null;
+                        string[] values;
+
+                        // Interpret label -- identify which command is it
+                        // Compare label to the complete list of commands (reserved labels)
+                        foreach (string rl in reservedLabels)
+                        {
+                            if (tempLine.Contains(rl))
+                            {
+                                label = rl;
+                                break;
+                            }
+                        }
+
+                        // If label was not identified
+                        if (label == null)
+                        {
+                            // Skip this line
+                            continue;
+                        }
+
+                        // Removes label from line
+                        tempLine.Substring(label.Length - 1);
+
+                        // Remove spaces, tabs, multispaces
+                        tempLine = Regex.Replace(line.Replace("\t", ""), @"[ ]{2,}", "");
+                        tempLine.Replace(" ", "");
+
+                        // Split values by ',' (most doesn't have it, so after split use index 0)
+                        //values = tempLine.Split(',');
+                        // Loading might not include splittig data, because DB doesn't support it (single-var column)
+                        values = new string[] { tempLine };
+
+                        // Convert values string >> target_type
+                        // ...
+
+                        // Assign value to matching label in row
+                        row[label] = values[0]; // 0 for now, because it's single
+
+                        // IF (maybe put that on top) line contains sets (GROUPING, REGIONTECHS etc.) 
+                        // THEN loop through it, save as... idk... maybe create new DB type to hold that?
+                        // IF encountered next CVP or EOF, remove everything up to here and repeat
+                    }
 
                     numberOfCountries--;
                 }
             }
 
+            #endregion
 
             // Placeholder Code (!)
-            cvpFile.CountryListRow row;
+            /*cvpFile.CountryListRow row;
 
             for(int i = 0; i < 10; ++i)
             {
                 row = countryList.NewCountryListRow();
 
-                string x = "13";
                 row["CountryID"] = 1000 + i;
                 row["regionname"] = new string('A', i);
                 row["blocknum"] = (1000 + i) / 100; // ignore last 2 digits
 
                 countryList.Rows.Add(row);
-            }
-
+            }*/
         }
     }
 }

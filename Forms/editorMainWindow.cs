@@ -41,6 +41,7 @@ namespace SRScenarioCreatorEnhanced
         // Data holders for UC Tabs
         internal ScenarioContent currentScenario;
         internal SettingsContent currentSettings;
+        internal RegionsContent  currentRegions;
         // ...
 
         // UC Tabs
@@ -73,15 +74,16 @@ namespace SRScenarioCreatorEnhanced
             // Create new instance of UC Data Holders
             currentScenario = new ScenarioContent();
             currentSettings = new SettingsContent();
+            currentRegions  = new RegionsContent();
 
             // Create new instances of UCs
-            currentUCScenario = new UC_Scenario(this);
-            currentUCSettings = new UC_Settings(this);
-            currentUCTheaters = new UC_Theaters(this);
-            currentUCRegions = new UC_Regions(this);
-            currentUCResources = new UC_Resources(this);
-            currentUCWM = new UC_WM(this);
-            currentUCOrbat = new UC_Orbat(this);
+            currentUCScenario   = new UC_Scenario(this);
+            currentUCSettings   = new UC_Settings(this);
+            currentUCTheaters   = new UC_Theaters(this);
+            currentUCRegions    = new UC_Regions(this);
+            currentUCResources  = new UC_Resources(this);
+            currentUCWM         = new UC_WM(this);
+            currentUCOrbat      = new UC_Orbat(this);
 
             // Load UCs to mainUCPanel
             mainUCPanel.Controls.Add(currentUCScenario);
@@ -275,6 +277,9 @@ namespace SRScenarioCreatorEnhanced
 
             Globals.activeScenarioName = currentScenario.scenarioName;
             Globals.activeCVPFileName  = currentScenario.CVPName;
+
+            currentRegions.LoadDataFromFileToDataSet();
+            currentUCRegions.RefreshDataGridView();
         }
 
         #endregion
