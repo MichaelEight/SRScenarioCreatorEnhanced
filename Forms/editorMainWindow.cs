@@ -281,7 +281,7 @@ namespace SRScenarioCreatorEnhanced
             currentRegions.LoadDataFromFileToDataSet();
             TimeSpan ts = DateTime.UtcNow - dt;
 
-            Debug.WriteLine($"Loading time: {ts.TotalMilliseconds}ms");
+            Debug.WriteLine($"CVP loading time: {ts.TotalMilliseconds}ms");
 
             currentUCRegions.RefreshDataGridView();
         }

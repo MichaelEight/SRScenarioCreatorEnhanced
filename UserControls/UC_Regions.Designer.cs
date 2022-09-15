@@ -78,7 +78,7 @@
             this.regionname});
             this.countryListDataGridView.DataSource = this.countryListBindingSource;
             this.countryListDataGridView.EnableHeadersVisualStyles = false;
-            this.countryListDataGridView.Location = new System.Drawing.Point(1423, 141);
+            this.countryListDataGridView.Location = new System.Drawing.Point(1385, 141);
             this.countryListDataGridView.Name = "countryListDataGridView";
             this.countryListDataGridView.ReadOnly = true;
             dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
@@ -94,15 +94,15 @@
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.countryListDataGridView.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.countryListDataGridView.RowTemplate.Height = 28;
-            this.countryListDataGridView.Size = new System.Drawing.Size(365, 624);
+            this.countryListDataGridView.Size = new System.Drawing.Size(403, 624);
             this.countryListDataGridView.TabIndex = 1;
             // 
             // dataGridViewTextBoxColumn1
             // 
-            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.DisplayedCellsExceptHeader;
+            this.dataGridViewTextBoxColumn1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
             this.dataGridViewTextBoxColumn1.DataPropertyName = "CountryID";
             this.dataGridViewTextBoxColumn1.HeaderText = "Country ID";
-            this.dataGridViewTextBoxColumn1.MinimumWidth = 8;
+            this.dataGridViewTextBoxColumn1.MinimumWidth = 10;
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
             this.dataGridViewTextBoxColumn1.Width = 27;

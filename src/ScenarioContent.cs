@@ -178,8 +178,12 @@ namespace SRScenarioCreatorEnhanced
             // Save .cvp file (if modified)
             if (CVPModifyCheck)
             {
+                DateTime dt = DateTime.Now;
                 exportCVPFile();
                 exportRegionInclFile();
+
+                TimeSpan ts = DateTime.Now - dt;
+                Debug.WriteLine("CVP Exported in " + ts.TotalMilliseconds + "ms");
             }
 
             // Save .wmdata file (if modified)
