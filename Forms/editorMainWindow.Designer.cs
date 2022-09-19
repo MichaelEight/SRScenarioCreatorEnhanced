@@ -49,6 +49,7 @@
             this.buttonHelp = new System.Windows.Forms.Button();
             this.btnOpenExportedScenarioFolder = new System.Windows.Forms.Button();
             this.exportScenarioButton = new System.Windows.Forms.Button();
+            this.progressBarExport = new System.Windows.Forms.ProgressBar();
             this.toolbarPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.logoApp)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.logoEight)).BeginInit();
@@ -316,6 +317,7 @@
             // panelBottom
             // 
             this.panelBottom.BackColor = System.Drawing.Color.Gray;
+            this.panelBottom.Controls.Add(this.progressBarExport);
             this.panelBottom.Controls.Add(this.buttonHelp);
             this.panelBottom.Controls.Add(this.btnOpenExportedScenarioFolder);
             this.panelBottom.Controls.Add(this.exportScenarioButton);
@@ -359,6 +361,13 @@
             this.exportScenarioButton.Text = "Export Scenario";
             this.exportScenarioButton.UseVisualStyleBackColor = true;
             this.exportScenarioButton.Click += new System.EventHandler(this.exportScenarioButton_Click);
+            // 
+            // progressBarExport
+            // 
+            this.progressBarExport.Location = new System.Drawing.Point(1328, 49);
+            this.progressBarExport.Name = "progressBarExport";
+            this.progressBarExport.Size = new System.Drawing.Size(342, 44);
+            this.progressBarExport.TabIndex = 62;
             // 
             // editorMainWindow
             // 
@@ -408,6 +417,7 @@
         private System.Windows.Forms.Button btnOpenExportedScenarioFolder;
         private System.Windows.Forms.Button exportScenarioButton;
         private System.Windows.Forms.Button buttonHelp;
+        private System.Windows.Forms.ProgressBar progressBarExport;
     }
 }
 

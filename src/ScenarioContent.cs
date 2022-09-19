@@ -119,10 +119,15 @@ namespace SRScenarioCreatorEnhanced
                 // Save .scenario file
                 exportScenarioFile();
             }
-            catch (Exception e)
+            catch(IOException e)
             {
                 Debug.WriteLine(e.Message);
                 Info.errorMsg(4, $"File already in use (bug). Retry! Exception:{e.Message}");
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+                Info.errorMsg(-1, $"Failed to export .scenario file! Retry! Exception:{e.Message}");
             }
 
             // Adjust export folder directory, connect it with scenario name

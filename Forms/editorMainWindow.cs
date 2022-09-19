@@ -115,6 +115,10 @@ namespace SRScenarioCreatorEnhanced
 
             currentUCScenario.ExportButtonEnabled += HandleExportButtonEnabled;
             currentUCScenario.ExportButtonDisabled += HandleExportButtonDisabled;
+
+            currentRegions.ProgressBarChanged += HandleProgressBarChanged;
+
+            progressBarExport.Value = 0;
         }
 
         #region Language
@@ -518,6 +522,20 @@ namespace SRScenarioCreatorEnhanced
         #endregion
 
         #region Exporting
+
+        private void HandleProgressBarChanged(object sender, EventArgs e)
+        {
+            // If value is in valid range <0;100)
+            if (progressBarExport.Value >= 0 && progressBarExport.Value < 100)
+                ++progressBarExport.Value; // Increase it by 1
+        }
+
+        internal void SetProgressBarValue(int value)
+        {
+            if(value >= 0 && value <= 100)
+                progressBarExport.Value = value;
+        }
+
         private void HandleExportButtonEnabled(object sender, EventArgs e)
         {
             exportScenarioButton.Enabled = true;
@@ -529,6 +547,8 @@ namespace SRScenarioCreatorEnhanced
 
         private void exportScenarioButton_Click(object sender, EventArgs e)
         {
+            SetProgressBarValue(0); // Force set 0%
+
             // Copy settings data to scenario, prepare for export
             currentScenario.settings = currentSettings;
             
@@ -536,6 +556,9 @@ namespace SRScenarioCreatorEnhanced
             currentScenario.regions = currentRegions;
 
             currentScenario.exportScenarioToFileAndFolder();
+
+            SetProgressBarValue(100); // Force set 100%
+
             _ = MessageBox.Show("Scenario exported! (Well, editor tried, at least)", "Export Finished",
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

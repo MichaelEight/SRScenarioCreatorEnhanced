@@ -122,7 +122,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.countryListDataGridView);
             this.Name = "UC_Regions";
-            this.Size = new System.Drawing.Size(1800, 1000);
+            this.Size = new System.Drawing.Size(1808, 1000);
             ((System.ComponentModel.ISupportInitialize)(this.cvpFile)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.cvpFileBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.countryListBindingSource)).EndInit();

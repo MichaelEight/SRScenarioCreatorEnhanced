@@ -96,6 +96,8 @@ namespace SRScenarioCreatorEnhanced
                                     "gdpc"
         };
 
+        internal event EventHandler ProgressBarChanged;
+
         #endregion
 
         #region CountryData
@@ -537,6 +539,9 @@ namespace SRScenarioCreatorEnhanced
 
         internal void ExportFromDBtoFile()
         {
+            float onePercent = countryList.Count / 100;
+            int percentCounter = 0;
+
             string exportPath = Configuration.baseExportDirectory + @"\" + Globals.activeScenarioName
                 + @"\Maps\" + Globals.activeCVPFileName + @".CVP";
 
@@ -651,6 +656,21 @@ namespace SRScenarioCreatorEnhanced
                 }catch(Exception e)
                 {
                     Info.errorMsg(-1, $"Exporting to CVP fail, err:{e.Message}");
+                }
+
+                // If content needed for 1% of bar reached
+                if(percentCounter >= onePercent)
+                {
+                    percentCounter = 0; // Reset counter
+                    // Send event
+                    if(ProgressBarChanged != null)
+                    {
+                        ProgressBarChanged(this, new EventArgs());
+                    }
+                }
+                else // If not yet reached
+                {
+                    ++percentCounter;
                 }
             }
         }
