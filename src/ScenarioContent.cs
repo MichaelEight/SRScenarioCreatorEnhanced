@@ -114,20 +114,46 @@ namespace SRScenarioCreatorEnhanced
             // Make a backup of original files, if they exist
             // TODO
 
-            try
+            bool scenarioExportWasSuccess;
+            int  scenarioExportTriesCounter = 0;
+
+            // Retry export of .scenario 5 times
+            do
             {
-                // Save .scenario file
-                exportScenarioFile();
-            }
-            catch(IOException e)
+                ++scenarioExportTriesCounter;
+                scenarioExportWasSuccess = true;
+
+                try
+                {
+                    // Save .scenario file
+                    exportScenarioFile();
+                    
+                }
+                // IO error
+                catch (IOException e)
+                {
+                    Debug.WriteLine(e.Message);
+                    if (scenarioExportTriesCounter <= 1)
+                        Info.errorMsg(4, $"File already in use (bug). Retrying 4 more times... Exception:{e.Message}");
+
+                    scenarioExportWasSuccess = false;
+                }
+                // General (other) error
+                catch (Exception e)
+                {
+                    Debug.WriteLine(e.Message);
+                    if(scenarioExportTriesCounter <= 1)
+                        Info.errorMsg(-1, $"Failed to export .scenario file! Retrying 4 more times... Exception:{e.Message}");
+                    scenarioExportWasSuccess = false;
+                }
+
+            } while (!scenarioExportWasSuccess && scenarioExportTriesCounter < 5);
+
+            if(scenarioExportTriesCounter >= 5)
             {
-                Debug.WriteLine(e.Message);
-                Info.errorMsg(4, $"File already in use (bug). Retry! Exception:{e.Message}");
-            }
-            catch (Exception e)
-            {
-                Debug.WriteLine(e.Message);
-                Info.errorMsg(-1, $"Failed to export .scenario file! Retry! Exception:{e.Message}");
+                Debug.WriteLine($"Export of .scenario failed after 5 tries!");
+                Info.errorMsg(4, $"Export of .scenario failed after 5 tries! (Known bug. Other files should be saved correctly. " +
+                    $"Reopen editor and try again!");
             }
 
             // Adjust export folder directory, connect it with scenario name
